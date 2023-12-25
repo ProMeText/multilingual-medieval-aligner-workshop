@@ -8,7 +8,7 @@ def split(string:str) -> list:
     print(string)
     # On va utiliser des subordonnant comme séparateurs pour aller au niveau du syntagme
     string = string.replace("\n", " ")
-    separator = r"([,;!?.:?¿¶·]| cum |donde| [Qq]ue | ut |[pP]or ?que)"
+    separator = r"([,;!?.:?¿¶·]| cum |donde| [Qq]ue | ut |[pP]or ?que| si | nisi )"
     separated = re.sub(separator, r"||\1", string)
     separated = re.sub(r"\s+", " ", separated)
     splits = re.split("\|\|", separated)
