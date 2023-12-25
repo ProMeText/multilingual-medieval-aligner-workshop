@@ -15,7 +15,7 @@ models = {0: "distiluse-base-multilingual-cased-v2", 1: "LaBSE"}
 as_list = ""
 for key, value in models.items():
     as_list += f"{int(key)}\n{value}\n"
-    
+print(as_list)
 nb = input(f'Choose a model: {key}')
 model = Encoder(models[nb])
 
