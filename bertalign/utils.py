@@ -29,7 +29,10 @@ def split_sents(text, lang):
         if lang == 'zh':
             sents = _split_zh(text)
         else:
-            splitter = SentenceSplitter(language=lang)
+	    try:
+                splitter = SentenceSplitter(language=lang)
+	    except sentence_splitter.SentenceSplitterException:
+	        splitter = SentenceSplitter(language='es')
             sents = splitter.split(text=text) 
             sents = [sent.strip() for sent in sents]
         return sents
