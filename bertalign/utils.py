@@ -28,24 +28,18 @@ def detect_lang(text):
 
 def split_sents(text, lang):
     # On utilise un tokéniseur de phrases maison.
-    if lang in LANG.SPLITTER:
-        if lang == 'zh':
-            sents = _split_zh(text)
-        else:
-            splits = sentences_tokenizer.split(text)
-            print(f"Sentences:\n{splits}")
-            return  splits
-            # try:
-            #     splitter = SentenceSplitter(language=lang)
-            # except sentence_splitter.SentenceSplitterException:
-            #     splitter = SentenceSplitter(language='es')
-            # sents = splitter.split(text=text) 
-            # print(f"Sentences:\n{sents}")
-            # sents = [sent.strip() for sent in sents]
-        return sents
-    else:
-        raise Exception('The language {} is not suppored yet.'.format(LANG.ISO[lang]))
-    
+    splits = sentences_tokenizer.split(text)
+    print(f"Sentences:\n{splits}")
+    return  splits
+    # try:
+    #     splitter = SentenceSplitter(language=lang)
+    # except sentence_splitter.SentenceSplitterException:
+    #     splitter = SentenceSplitter(language='es')
+    # sents = splitter.split(text=text) 
+    # print(f"Sentences:\n{sents}")
+    # sents = [sent.strip() for sent in sents]
+    return sents
+
 def _split_zh(text, limit=1000):
         sent_list = []
         text = re.sub('(?P<quotation_mark>([。？！](?![”’"\'）])))', r'\g<quotation_mark>\n', text)
