@@ -15,6 +15,6 @@ with open(spanish_2, "r") as spanish_file_2:
 with open(latin, "r") as latin_file:
     latin = latin_file.read()
 
-aligner = Bertalign(spanish_2, spanish)
+aligner = Bertalign(latin, spanish)
 aligner.align_sents()
 aligner.print_sents()
