@@ -5,7 +5,17 @@ def split(string:str) -> list:
     # On va utiliser des subordonnant comme séparateurs pour aller au niveau du syntagme
     separator = r"[,;!?.:?¿]|( cum |donde| [Qq]ue | ut )"
     splits = re.split(separator, string)
-    return [split for split in splits if split]
+    splits = [split for split in splits if split]
+    cleaned_list = []
+    for index, split in enumerate(splits):
+        if len(split.split()) == 1:
+            cleaned_list.append(f"{split} {splits[index + 1]}")
+        elif len(splits[index - 1].split()) == 1:
+            pass
+        else:
+            cleaned_list.append(split)
+    splits = cleaned_list
+    return splits
 
 
 if __name__ == '__main__':
