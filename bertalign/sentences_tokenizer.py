@@ -12,7 +12,10 @@ def split(string:str) -> list:
     cleaned_list = []
     for index, split in enumerate(splits):
         if len(split.split()) == 1:
-            cleaned_list.append(f"{split} {splits[index + 1]}")
+            try:
+                cleaned_list.append(f"{split} {splits[index + 1]}")
+            except IndexError:
+                cleaned_list.append(split)
         elif len(splits[index - 1].split()) == 1:
             pass
         else:
@@ -22,8 +25,8 @@ def split(string:str) -> list:
 
 
 if __name__ == '__main__':
-    spanish = "text+berg/test_lat-spo/sev_z.txt"
-    latin = "text+berg/test_lat-spo/rome_w.txt"
+    spanish = "text+berg/latin_castilian/Val_S_1_2_5.txt"
+    latin = "text+berg/latin_castilian/Rome_W_1_2_5.txt"
 
     with open(spanish, "r") as spanish_file:
         spanish = spanish_file.read()
