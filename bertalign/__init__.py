@@ -17,6 +17,6 @@ for key, value in models.items():
     as_list += f"{int(key)}\t{value}\n"
 print(as_list)
 nb = input(f'Choose a model:')
-model = Encoder(models[nb])
+model = Encoder(models[int(nb)])
 
 from bertalign.aligner import Bertalign
