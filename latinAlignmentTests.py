@@ -9,3 +9,4 @@ spanish = "El su deuoto fray Gil romano dela or dende sant Agustin: con muy humi
 
 aligner = Bertalign(latin, spanish)
 aligner.align_sents()
+aligner.print_sents()
