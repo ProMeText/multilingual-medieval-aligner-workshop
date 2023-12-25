@@ -2,6 +2,7 @@ import re
 from googletrans import Translator
 from sentence_splitter import SentenceSplitter
 import sentence_splitter
+import bertalign.tokenizer as tokenizer
 
 def clean_text(text):
     clean_text = []
@@ -30,6 +31,8 @@ def split_sents(text, lang):
         if lang == 'zh':
             sents = _split_zh(text)
         else:
+            splits = tokenizer.split()
+            return  splits
             try:
                 splitter = SentenceSplitter(language=lang)
             except sentence_splitter.SentenceSplitterException:
