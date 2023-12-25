@@ -31,7 +31,7 @@ def split_sents(text, lang):
         else:
             try:
                 splitter = SentenceSplitter(language=lang)
-            except sentence_splitter.SentenceSplitterException:
+            except SentenceSplitter.SentenceSplitterException:
                 splitter = SentenceSplitter(language='es')
             sents = splitter.split(text=text) 
             sents = [sent.strip() for sent in sents]
