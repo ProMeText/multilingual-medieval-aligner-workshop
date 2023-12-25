@@ -5,23 +5,14 @@ import re
 # que ce soit en latin ou en castillan.
 
 def split(string:str) -> list:
+    print(string)
     # On va utiliser des subordonnant comme séparateurs pour aller au niveau du syntagme
     string = string.replace("\n", " ")
-    separator = r"([,;!?.:?¿]| cum |donde| [Qq]ue | ut |·|¶| [A-Z])"
-    splits = re.split(separator, string)
-    splits = [split for split in splits if split]
-    cleaned_list = []
-    for index, split in enumerate(splits):
-        if len(split.split()) == 1:
-            try:
-                cleaned_list.append(f"{split} {splits[index + 1]}")
-            except IndexError:
-                cleaned_list.append(split)
-        elif len(splits[index - 1].split()) == 1:
-            pass
-        else:
-            cleaned_list.append(split)
-    splits = [split.replace("  ", " ") for split in cleaned_list]
+    separator = r"([,;!?.:?¿¶·]| cum |donde| [Qq]ue | ut )"
+    separated = re.sub(separator, r"||\1", string)
+    separated = re.sub(r"\s+", " ", separated)
+    splits = re.split("\|\|", separated)
+    splits = [split.replace("  ", " ") for split in splits]
     return splits
 
 
