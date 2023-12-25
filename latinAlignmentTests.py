@@ -6,10 +6,10 @@ spanish = "text+berg/test_lat-spo/sev_z.txt"
 latin =  "text+berg/test_lat-spo/rome_w.txt"
 
 with open(spanish, "r") as spanish_file:
-    spanish = spanish_file.readlines()
+    spanish = spanish_file.read()
     
 with open(latin, "r") as latin_file:
-    latin = latin_file.readlines()
+    latin = latin_file.read()
 
 aligner = Bertalign(latin, spanish)
 aligner.align_sents()
