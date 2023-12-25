@@ -2,8 +2,8 @@ from bertalign import Bertalign
 
 
 
-spanish = "text+berg/test_lat-spo/sev_z.txt"
-latin =  "text+berg/test_lat-spo/rome_w.txt"
+spanish = "text+berg/latin_castillan/Val_S_1_2_5.txt"
+latin =  "text+berg/latin_castillan/Rome_W_1_2_5.txt"
 
 with open(spanish, "r") as spanish_file:
     spanish = spanish_file.read()
