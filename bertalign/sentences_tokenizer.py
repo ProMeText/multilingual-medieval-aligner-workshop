@@ -4,11 +4,14 @@ import re
 # la fonction de tokénisation pour intégrer les subordonnants, etc ainsi que plus d'éléments de ponctuation, 
 # que ce soit en latin ou en castillan.
 
+# Le but est donc de trouver la façon la plus propre d'identifier formellement les propositions, on va donc cibler les
+# subordonnants, etc.
+
 def split(string:str) -> list:
     print(string)
     # On va utiliser des subordonnant comme séparateurs pour aller au niveau du syntagme
     string = string.replace("\n", " ")
-    separator = r"([,;!?.:?¿¶·]| cum |donde| [Qq]ue | ut |[pP]or ?que| si | nisi )"
+    separator = r"([\(\),;!?.:?¿¶·]| cum |donde| [Qq]ue | ut |[pP]or ?que| si | nisi )"
     separated = re.sub(separator, r"||\1", string)
     separated = re.sub(r"\s+", " ", separated)
     splits = re.split("\|\|", separated)
