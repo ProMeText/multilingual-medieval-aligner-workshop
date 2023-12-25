@@ -2,7 +2,7 @@ import re
 from googletrans import Translator
 from sentence_splitter import SentenceSplitter
 import sentence_splitter
-import bertalign.tokenizer as tokenizer
+import bertalign.sentences_tokenizer as sentences_tokenizer
 
 def clean_text(text):
     clean_text = []
@@ -27,20 +27,21 @@ def detect_lang(text):
     return lang
 
 def split_sents(text, lang):
+    # On utilise un tokéniseur de phrases maison.
     if lang in LANG.SPLITTER:
         if lang == 'zh':
             sents = _split_zh(text)
         else:
-            splits = tokenizer.split(text)
+            splits = sentences_tokenizer.split(text)
             print(f"Sentences:\n{splits}")
             return  splits
-            try:
-                splitter = SentenceSplitter(language=lang)
-            except sentence_splitter.SentenceSplitterException:
-                splitter = SentenceSplitter(language='es')
-            sents = splitter.split(text=text) 
-            print(f"Sentences:\n{sents}")
-            sents = [sent.strip() for sent in sents]
+            # try:
+            #     splitter = SentenceSplitter(language=lang)
+            # except sentence_splitter.SentenceSplitterException:
+            #     splitter = SentenceSplitter(language='es')
+            # sents = splitter.split(text=text) 
+            # print(f"Sentences:\n{sents}")
+            # sents = [sent.strip() for sent in sents]
         return sents
     else:
         raise Exception('The language {} is not suppored yet.'.format(LANG.ISO[lang]))
