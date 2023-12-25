@@ -6,6 +6,7 @@ import re
 
 def split(string:str) -> list:
     # On va utiliser des subordonnant comme séparateurs pour aller au niveau du syntagme
+    string = string.replace("\n", " ")
     separator = r"[,;!?.:?¿]|( cum |donde| [Qq]ue | ut |·|¶)"
     splits = re.split(separator, string)
     splits = [split for split in splits if split]
