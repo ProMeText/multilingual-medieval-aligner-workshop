@@ -31,7 +31,7 @@ def split_sents(text, lang):
         if lang == 'zh':
             sents = _split_zh(text)
         else:
-            splits = tokenizer.split()
+            splits = tokenizer.split(text)
             return  splits
             try:
                 splitter = SentenceSplitter(language=lang)
