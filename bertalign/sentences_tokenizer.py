@@ -1,6 +1,7 @@
 import re
 
-# On cherche un alignement au niveau du syntagme et non pas de la phrase. Il faut donc réécrire 
+# On cherche un alignement au niveau du syntagme et non pas de la phrase; l'identification des propositions est donc une bonne façon 
+# de procéder à une tokénisation de la phrase. Il faut donc réécrire 
 # la fonction de tokénisation pour intégrer les subordonnants, etc ainsi que plus d'éléments de ponctuation, 
 # que ce soit en latin ou en castillan.
 
