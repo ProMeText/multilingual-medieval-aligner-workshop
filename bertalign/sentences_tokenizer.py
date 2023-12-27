@@ -9,6 +9,12 @@ import re
 # Le but est donc de trouver la façon la plus propre d'identifier formellement les propositions, on va donc cibler les
 # subordonnants, etc.
 
+# Le présupposé est que les unités syntaxiques et sémantiques ne se chevauchent pas, c'est-à-dire que le découpage 
+# en unités syntaxiques (propositions) ne va pas entrer en contradiction avec la sémantique du texte, sur laquelle
+# se fonde l'aligneur. L'alignement sera donc plus précis et plus efficace si l'on identifie 
+# au préalable la structure syntaxique des documents (faire des tests là dessus, c'est probablement ce qu'on peut
+# apporter).
+
 class SubSentencesTokenizer():
     def __init__(self, input_text):
         self.punctation_delimiters = r""
@@ -48,17 +54,16 @@ if __name__ == '__main__':
     latin = "text+berg/latin_castilian/Rome_W_3_3_5.txt"
 
     with open(spanish, "r") as input_spanish:
-        spanish_file = input_spanish.read()
+        spanish_text = input_spanish.read()
         
     with open(latin, "r") as input_latin:
-        latin_file = input_latin.read()
+        latin_text = input_latin.read()
     
-    Tokenizer = SubSentencesTokenizer(input_spanish)
+    Tokenizer = SubSentencesTokenizer(spanish_text)
     splits = Tokenizer.tokenize()
     print(splits)
-    Tokenizer = SubSentencesTokenizer(input_latin)
+    Tokenizer = SubSentencesTokenizer(latin_text)
     splits = Tokenizer.tokenize()
     print(splits)
-    exit(0)
     
     

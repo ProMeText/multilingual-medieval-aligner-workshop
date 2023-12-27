@@ -1,8 +1,8 @@
 import numpy as np
 
 from bertalign import model
-from bertalign.corelib import *
-from bertalign.utils import *
+import bertalign.corelib as core
+import bertalign.utils as utils
 
 class Bertalign:
     def __init__(self,
@@ -24,17 +24,18 @@ class Bertalign:
         self.margin = margin
         self.len_penalty = len_penalty
         
-        src = clean_text(src)
-        tgt = clean_text(tgt)
-        src_lang = detect_lang(src)
-        tgt_lang = detect_lang(tgt)
+        
+        src = utils.clean_text(src)
+        tgt = utils.clean_text(tgt)
+        src_lang = utils.detect_lang(src)
+        tgt_lang = utils.detect_lang(tgt)
         
         if is_split:
             src_sents = src.splitlines()
             tgt_sents = tgt.splitlines()
         else:
-            src_sents = split_sents(src, src_lang)
-            tgt_sents = split_sents(tgt, tgt_lang)
+            src_sents = utils.split_sents(src, src_lang)
+            tgt_sents = utils.split_sents(tgt, tgt_lang)
  
         src_num = len(src_sents)
         tgt_num = len(tgt_sents)
@@ -62,23 +63,24 @@ class Bertalign:
         self.char_ratio = char_ratio
         self.src_vecs = src_vecs
         self.tgt_vecs = tgt_vecs
+    
         
     def align_sents(self):
 
         print("Performing first-step alignment ...")
-        D, I = find_top_k_sents(self.src_vecs[0,:], self.tgt_vecs[0,:], k=self.top_k)
-        first_alignment_types = get_alignment_types(2) # 0-1, 1-0, 1-1
-        first_w, first_path = find_first_search_path(self.src_num, self.tgt_num)
-        first_pointers = first_pass_align(self.src_num, self.tgt_num, first_w, first_path, first_alignment_types, D, I)
-        first_alignment = first_back_track(self.src_num, self.tgt_num, first_pointers, first_path, first_alignment_types)
+        D, I = core.find_top_k_sents(self.src_vecs[0,:], self.tgt_vecs[0,:], k=self.top_k)
+        first_alignment_types = core.get_alignment_types(2) # 0-1, 1-0, 1-1
+        first_w, first_path = core.find_first_search_path(self.src_num, self.tgt_num)
+        first_pointers = core.first_pass_align(self.src_num, self.tgt_num, first_w, first_path, first_alignment_types, D, I)
+        first_alignment = core.first_back_track(self.src_num, self.tgt_num, first_pointers, first_path, first_alignment_types)
         
         print("Performing second-step alignment ...")
-        second_alignment_types = get_alignment_types(self.max_align)
-        second_w, second_path = find_second_search_path(first_alignment, self.win, self.src_num, self.tgt_num)
-        second_pointers = second_pass_align(self.src_vecs, self.tgt_vecs, self.src_lens, self.tgt_lens,
+        second_alignment_types = core.get_alignment_types(self.max_align)
+        second_w, second_path = core.find_second_search_path(first_alignment, self.win, self.src_num, self.tgt_num)
+        second_pointers = core.second_pass_align(self.src_vecs, self.tgt_vecs, self.src_lens, self.tgt_lens,
                                             second_w, second_path, second_alignment_types,
                                             self.char_ratio, self.skip, margin=self.margin, len_penalty=self.len_penalty)
-        second_alignment = second_back_track(self.src_num, self.tgt_num, second_pointers, second_path, second_alignment_types)
+        second_alignment = core.second_back_track(self.src_num, self.tgt_num, second_pointers, second_path, second_alignment_types)
         
         print("Finished! Successfully aligning {} {} sentences to {} {} sentences\n".format(self.src_num, self.src_lang, self.tgt_num, self.tgt_lang))
         self.result = second_alignment
