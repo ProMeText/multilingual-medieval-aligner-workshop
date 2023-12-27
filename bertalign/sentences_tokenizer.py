@@ -13,8 +13,7 @@ class SubSentencesTokenizer():
     def __init__(self, input_text):
         self.punctation_delimiters = r""
         self.tokens_delimiters = r""
-        with open(input_text, "r") as input:
-            self.input_text = input.read()
+        self.input_text = input_text
         self.create_delimiters_regex()
         self.clean_input_text()
     
@@ -48,15 +47,18 @@ if __name__ == '__main__':
     spanish = "text+berg/latin_castilian/Val_S_3_3_5.txt"
     latin = "text+berg/latin_castilian/Rome_W_3_3_5.txt"
 
+    with open(spanish, "r") as input_spanish:
+        spanish_file = input_spanish.read()
+        
+    with open(latin, "r") as input_latin:
+        latin_file = input_latin.read()
     
-    Tokenizer = SubSentencesTokenizer(spanish)
+    Tokenizer = SubSentencesTokenizer(input_spanish)
     splits = Tokenizer.tokenize()
     print(splits)
-    Tokenizer = SubSentencesTokenizer(latin)
+    Tokenizer = SubSentencesTokenizer(input_latin)
     splits = Tokenizer.tokenize()
     print(splits)
     exit(0)
-    print(split(spanish))
-    print(split(latin))
     
     
