@@ -40,8 +40,8 @@ class Bertalign:
         src_num = len(src_sents)
         tgt_num = len(tgt_sents)
         
-        src_lang = LANG.ISO[src_lang]
-        tgt_lang = LANG.ISO[tgt_lang]
+        src_lang = utils.LANG.ISO[src_lang]
+        tgt_lang = utils.LANG.ISO[tgt_lang]
         
         print("Source language: {}, Number of sentences: {}".format(src_lang, src_num))
         print("Target language: {}, Number of sentences: {}".format(tgt_lang, tgt_num))
