@@ -12,11 +12,11 @@ from bertalign.encoder import Encoder
 
 
 models = {0: "distiluse-base-multilingual-cased-v2", 1: "LaBSE"}
-as_list = ""
-for key, value in models.items():
-    as_list += f"{int(key)}\t{value}\n"
-print(as_list)
-nb = input(f'Choose a model:')
-model = Encoder(models[int(nb)])
+# as_list = ""
+# for key, value in models.items():
+#     as_list += f"{int(key)}\t{value}\n"
+# print(as_list)
+# nb = input(f'Choose a model:')
+model = Encoder(models[int(1)])
 
 from bertalign.aligner import Bertalign
