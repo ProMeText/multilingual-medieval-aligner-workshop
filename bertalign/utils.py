@@ -28,7 +28,8 @@ def detect_lang(text):
 
 def split_sents(text, lang):
     # On utilise un tokéniseur de phrases maison.
-    splits = sentences_tokenizer.split(text)
+    Tokenizer = sentences_tokenizer.SubSentencesTokenizer(text)
+    splits = Tokenizer.tokenize()
     print(f"Sentences:\n{splits}")
     return  splits
     # try:
@@ -38,7 +39,6 @@ def split_sents(text, lang):
     # sents = splitter.split(text=text) 
     # print(f"Sentences:\n{sents}")
     # sents = [sent.strip() for sent in sents]
-    return sents
 
 def _split_zh(text, limit=1000):
         sent_list = []
