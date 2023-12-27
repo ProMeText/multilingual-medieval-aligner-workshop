@@ -12,4 +12,6 @@ with open(latin, "r") as latin_file:
 
 aligner = Bertalign(latin, spanish)
 aligner.align_sents()
+print(aligner.results)
+exit(0)
 aligner.print_sents()
