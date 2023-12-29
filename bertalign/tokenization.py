@@ -66,22 +66,25 @@ class Tokenizer:
             grouped_spans = []
             print(f"Punctuation indices: {punctuation_indices}")
             print(' '.join([token.text for token in tokens]))
-            grouped_spans.append((0, spans[0] - 1))
-            grouped_spans.extend([(position + 1, spans[index + 1]) if index != 0 else (position, spans[index + 1]) for index, position in enumerate(spans[:-1])])
-            if len(tokens) != spans[-1] + 1:
-                grouped_spans.append((spans[-1] + 1, len(tokens)))
-            print(grouped_spans)
+            try:
+                grouped_spans.append((0, spans[0] - 1))
+                grouped_spans.extend([(position + 1, spans[index + 1]) if index != 0 else (position, spans[index + 1]) for index, position in enumerate(spans[:-1])])
+                if len(tokens) != spans[-1] + 1:
+                    grouped_spans.append((spans[-1] + 1, len(tokens)))
+                print(grouped_spans)
+                
+                for word_group in grouped_spans:
+                    # On crée l'élément cl
+                    element_to_insert = etree.Element(self.tei + 'cl', nsmap=self.NSMAP0)
+                    following_word = tokens[word_group[0]]
+                    following_word.addprevious(element_to_insert)
+                    # Maintenant on va intégrer les tei:w dans cet élément cl.
+                    for tok in tokens[word_group[0]: word_group[1] + 1]:
+                        element_to_insert.append(tok)
+            except IndexError:
+                pass
             
-            for word_group in grouped_spans:
-                # On crée l'élément cl
-                element_to_insert = etree.Element(self.tei + 'cl', nsmap=self.NSMAP0)
-                following_word = tokens[word_group[0]]
-                following_word.addprevious(element_to_insert)
-                # Maintenant on va intégrer les tei:w dans cet élément cl.
-                for tok in tokens[word_group[0]: word_group[1] + 1]:
-                    element_to_insert.append(tok)
-            
-            if grouped_spans == [(0, -1)]:
+            if grouped_spans == [(0, -1)] or grouped_spans == []:
                 element_to_insert = etree.Element(self.tei + 's', nsmap=self.NSMAP0)
                 following_word = tokens[0]
                 following_word.addprevious(element_to_insert)
