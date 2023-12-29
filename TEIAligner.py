@@ -39,10 +39,10 @@ class TEIAligner():
         source_tokens, target_tokens = list(), list()
         for text in self.files:
             for phrase in text.xpath("descendant::tei:phr", namespaces=self.tei_ns):
-                target_tokens.append([token.text for token in phrase.xpath("descendant::node()[self::tei:pc or self::tei:w]", namespaces=self.tei_ns)])
+                target_tokens.append(' '.join([token.text for token in phrase.xpath("descendant::node()[self::tei:pc or self::tei:w]", namespaces=self.tei_ns)]))
 
             for phrase in self.main_file.xpath("descendant::tei:phr", namespaces=self.tei_ns):
-                source_tokens.append([token.text for token in phrase.xpath("descendant::node()[self::tei:pc or self::tei:w]", namespaces=self.tei_ns)])
+                source_tokens.append(' '.join([token.text for token in phrase.xpath("descendant::node()[self::tei:pc or self::tei:w]", namespaces=self.tei_ns)]))
             aligner = Bertalign(source_tokens, target_tokens)
             aligner.align_sents()
             aligner.print_sents()
