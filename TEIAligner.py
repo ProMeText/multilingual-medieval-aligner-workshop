@@ -66,6 +66,7 @@ class TEIAligner():
     
 if __name__ == '__main__':
     # TODO: intégrer les noeuds non w|pc pour ne pas perdre cette information.
+    # TODO: transformer en dictionnaire en indiquant clairement qui est le témoin-source
     file_list = ["/projects/users/mgillele/alignment/bertalign/text+berg/local_data/Rome_W.xml",
                  "/projects/users/mgillele/alignment/bertalign/text+berg/local_data/Val_S.citable.xml"]
     Aligner = TEIAligner(file_list, tokenize=True)
