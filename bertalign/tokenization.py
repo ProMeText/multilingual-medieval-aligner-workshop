@@ -47,8 +47,6 @@ class Tokenizer:
             sortie_xml.write(str(tree_as_string))
     
     def punctuation_tokenisation(self, tree):
-        with open("/home/mgl/Téléchargements/xml_test_debug.xml", "w") as output_file:
-            output_file.write(etree.tostring(tree, pretty_print=True).decode())
         for division in tree.xpath("descendant::node()[self::tei:head or self::tei:p]", namespaces=self.tei_ns):
             tokens = division.xpath("descendant::node()[self::tei:pc or self::tei:w]", namespaces=self.tei_ns)
             punctuation_indices = [index for index, token in enumerate(tokens) if etree.QName(token).localname == 'pc']
