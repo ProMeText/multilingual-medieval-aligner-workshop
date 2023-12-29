@@ -71,6 +71,15 @@ class TEIAligner():
                 transformed_target = [target_dict[index] for index in target]
                 tsource.append((transformed_source,transformed_target))
             print(tsource)
+            
+            all_phrases = tree.xpath("descendant::tei:phr", namespaces=self.tei_ns)
+            all_ids = tree.xpath("descendant::tei:phr/@xml:id", namespaces=self.tei_ns)
+            phrases_and_ids = {index:id for index, id in enumerate(all_ids)}
+            
+            for index, phrase in enumerate(all_phrases):
+                corresp = ' #'.join(tsource[index][1])
+                phrase.set('corresp', corresp)
+            
             with open(path.replace(".xml", ".final.xml"), "w") as output_target_file:
                 output_target_file.write(etree.tostring(tree, pretty_print=True).decode())
 
