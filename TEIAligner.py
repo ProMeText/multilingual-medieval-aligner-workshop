@@ -93,7 +93,7 @@ class TEIAligner():
         all_phrases = main_file_tree.xpath("descendant::tei:phr", namespaces=self.tei_ns)
         all_ids = tree.xpath("descendant::tei:phr/@xml:id", namespaces=self.tei_ns)
         ids_and_phrases = list(zip(all_ids, all_phrases))
-
+        print(source_target_dict)
         for index, (identifier, phrase) in enumerate(ids_and_phrases):
             try:
                 match = [id for id in source_target_dict if identifier in id][0]
