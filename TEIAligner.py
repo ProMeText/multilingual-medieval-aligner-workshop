@@ -20,7 +20,7 @@ class TEIAligner():
         multiple_tokens_punct = "|".join(multiple_tokens_punctuation)
         punctuation_subregex = f"({multiple_tokens_punct}|[{single_token_punct}])"
         tokens_subregex = "(" + " | ".join(dictionary['word_delimiters']) + ")"
-        self.target_parsed_files = []
+        self.target_parsed_files = {}
         self.main_parsed_file = None
         files = files_path['target_files']
         main_file = files_path['main_file']
@@ -35,7 +35,7 @@ class TEIAligner():
                 regularized_file = file.replace('.xml','.regularized.xml')
                 utils.pretty_print_xml_tree(regularized_file)
                 tokenizer.subsentences_tokenisation(path=regularized_file, delimiters=tokens_subregex)
-                self.target_parsed_files.append(tokenizer.tokenized_tree)
+                self.target_parsed_files[file] = tokenizer.tokenized_tree
         else:
             self.target_parsed_files = {file: etree.parse(file) for file in files}
             self.main_file = (main_file, etree.parse(main_file))
