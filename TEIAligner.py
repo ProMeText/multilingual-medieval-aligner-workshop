@@ -1,6 +1,6 @@
 from bertalign import Bertalign
 import lxml.etree as etree
-import bertaling.tokenization as tokenization
+import bertalign.tokenization as tokenization
 import bertalign.utils as utils
 import json
 
