@@ -48,7 +48,7 @@ class TEIAligner():
 
             for index, phrase in enumerate(self.main_file.xpath("descendant::tei:phr", namespaces=self.tei_ns)):
                 ident = utils.generateur_id(6)
-                phrase.set('xml:id', ident)
+                phrase.set('{http://www.w3.org/XML/1998/namespace}id', ident)
                 source_dict[index] = ident
                 source_tokens.append(' '.join([token.text for token in phrase.xpath("descendant::node()[self::tei:pc or self::tei:w]", namespaces=self.tei_ns)]))
             aligner = Bertalign(source_tokens, target_tokens)
