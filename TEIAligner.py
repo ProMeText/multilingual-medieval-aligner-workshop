@@ -60,7 +60,7 @@ class TEIAligner():
                 source, target = tuple
                 transformed_source = [source_dict[index] for index in source]
                 transformed_target = [target_dict[index] for index in target]
-                tsource.append(transformed_source,transformed_target)
+                tsource.append((transformed_source,transformed_target))
             print(tsource)
             
             
