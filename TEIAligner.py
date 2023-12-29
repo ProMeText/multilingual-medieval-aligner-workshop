@@ -67,8 +67,8 @@ class TEIAligner():
             tsource = []
             for tuple in alignment_result:
                 source, target = tuple
-                transformed_source = ' #'.join([source_dict[index] for index in source])
-                transformed_target = ' #'.join([target_dict[index] for index in target])
+                transformed_source = '#' + '#'.join([source_dict[index] for index in source])
+                transformed_target = '#' +' #'.join([target_dict[index] for index in target])
                 tsource.append((transformed_source,transformed_target))
             print(tsource)
             source_target_dict = {source:target for source, target in tsource}
@@ -79,8 +79,12 @@ class TEIAligner():
             ids_and_phrases = list(zip(all_ids, all_phrases))
             
             for index, (identifier, phrase) in enumerate(ids_and_phrases):
-                match = [id for id in source_target_dict if identifier in id][0]
-                identifier.set('corresp', source_target_dict[match])
+                try:
+                    match = [id for id in source_target_dict if identifier in id][0]
+                    phrase.set('corresp', source_target_dict[match])
+                except IndexError:
+                    phrase.set('corresp', 'None')
+                    
                 
             
             with open(path.replace(".xml", ".final.xml"), "w") as output_target_file:
@@ -91,9 +95,11 @@ class TEIAligner():
         ids_and_phrases = list(zip(all_ids, all_phrases))
 
         for index, (identifier, phrase) in enumerate(all_phrases):
-            identifier = phrase.xpath("@xml:id")
-            match = [id for id in target_source_dict if identifier in id][0]
-            identifier.set('corresp', target_source_dict[match])
+            try:
+                match = [id for id in target_source_dict if identifier in id][0]
+                phrase.set('corresp', target_source_dict[match])
+            except IndexError:
+                phrase.set('corresp', 'None')
             
             
         with open(main_file_path.replace(".xml", ".final.xml"), "w") as output_main_file:
