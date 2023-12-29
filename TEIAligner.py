@@ -66,7 +66,7 @@ class TEIAligner():
     
 if __name__ == '__main__':
     # TODO: intégrer les noeuds non w|pc pour ne pas perdre cette information.
-    file_list = ["/projects/users/mgillele/alignment/bertalign/text+berg/local_data/Val_S.citable.xml",
-                 "/projects/users/mgillele/alignment/bertalign/text+berg/local_data/Rome_W.xml"]
+    file_list = ["/projects/users/mgillele/alignment/bertalign/text+berg/local_data/Rome_W.xml",
+                 "/projects/users/mgillele/alignment/bertalign/text+berg/local_data/Val_S.citable.xml"]
     Aligner = TEIAligner(file_list, tokenize=True)
     Aligner.alignementMultilingue()
