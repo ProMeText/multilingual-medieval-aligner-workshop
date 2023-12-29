@@ -1,4 +1,4 @@
-from bertalign.bertalign import Bertalign
+from bertalign import Bertalign
 import sys
 import lxml.etree as etree
 from bertalign import sentences_tokenizer
