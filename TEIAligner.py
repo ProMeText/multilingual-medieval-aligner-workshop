@@ -90,7 +90,7 @@ class TEIAligner():
             with open(path.replace(".xml", ".final.xml"), "w") as output_target_file:
                 output_target_file.write(etree.tostring(tree, pretty_print=True).decode())
 
-        all_phrases = self.main_file_tree.xpath("descendant::tei:phr", namespaces=self.tei_ns)
+        all_phrases = main_file_tree.xpath("descendant::tei:phr", namespaces=self.tei_ns)
         all_ids = tree.xpath("descendant::tei:phr/@xml:id", namespaces=self.tei_ns)
         ids_and_phrases = list(zip(all_ids, all_phrases))
 
