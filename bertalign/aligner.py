@@ -25,8 +25,8 @@ class Bertalign:
         self.len_penalty = len_penalty
         
         
-        src_lang = utils.detect_lang(src)
-        tgt_lang = utils.detect_lang(tgt)
+        src_lang = 'en'
+        tgt_lang = 'en'
         
         if is_split:
             src_sents = src.splitlines()
