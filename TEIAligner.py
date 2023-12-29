@@ -42,7 +42,7 @@ class TEIAligner():
             source_dict = {}
             for index, phrase in enumerate(text.xpath("descendant::tei:phr", namespaces=self.tei_ns)):
                 ident = utils.generateur_id(6)
-                phrase.set('xml:id', ident)
+                phrase.set('{http://www.w3.org/XML/1998/namespace}id', ident)
                 target_dict[index] = ident
                 target_tokens.append(' '.join([token.text for token in phrase.xpath("descendant::node()[self::tei:pc or self::tei:w]", namespaces=self.tei_ns)]))
 
