@@ -1,4 +1,4 @@
-from bertalign.bertalign import Bertalign
+from bertalign import Bertalign
 import lxml.etree as etree
 import tokenization
 import utils
