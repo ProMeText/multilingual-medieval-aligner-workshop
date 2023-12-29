@@ -67,8 +67,8 @@ class TEIAligner():
             tsource = []
             for tuple in alignment_result:
                 source, target = tuple
-                transformed_source = '#' + '#'.join([source_dict[index] for index in source])
-                transformed_target = '#' +' #'.join([target_dict[index] for index in target])
+                transformed_source = '#' + ' #'.join([source_dict[index] for index in source])
+                transformed_target = '#' + ' #'.join([target_dict[index] for index in target])
                 tsource.append((transformed_source,transformed_target))
             print(tsource)
             source_target_dict = {source:target for source, target in tsource}
