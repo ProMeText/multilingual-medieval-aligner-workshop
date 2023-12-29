@@ -29,7 +29,7 @@ class TEIAligner():
             regularized_file = main_file.replace('.xml', '.regularized.xml')
             utils.pretty_print_xml_tree(regularized_file)
             tokenizer.subsentences_tokenisation(path=regularized_file, delimiters=tokens_subregex)
-            self.main_parsed_file = tokenizer.tokenized_tree
+            self.main_file = (main_file, tokenizer.tokenized_tree)
             for file in files:
                 tokenizer.tokenisation(path=file, punctuation_regex=punctuation_subregex)
                 regularized_file = file.replace('.xml','.regularized.xml')
