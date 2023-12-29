@@ -1,8 +1,18 @@
 import re
-from googletrans import Translator
-from sentence_splitter import SentenceSplitter
-import sentence_splitter
-import bertalign.sentences_tokenizer as sentences_tokenizer
+import string
+import subprocess
+import random
+#from googletrans import Translator
+#from sentence_splitter import SentenceSplitter
+#import sentence_splitter
+#import bertalign.sentences_tokenizer as sentences_tokenizer
+import lxml.etree as etree
+
+
+def pretty_print_xml_tree(file):
+    parsed = etree.parse(file)
+    with open(file, "w") as output_file:
+        output_file.write(etree.tostring(parsed, pretty_print=True).decode())
 
 def clean_text(text):
     clean_text = []
@@ -62,6 +72,19 @@ def _preprocess_line(line):
         line = 'BLANK_LINE'
     return line
     
+
+def generateur_lettre_initiale(chars=string.ascii_lowercase):
+    # Génère une lettre aléatoire
+    return random.choice(chars)[0]
+
+
+def generateur_id(size=6, chars=string.ascii_uppercase + string.ascii_lowercase + string.digits) -> str:
+    random_letter = generateur_lettre_initiale()
+    random_string = ''.join(random.choice(chars) for _ in range(size))
+    return random_letter + random_string
+
+
+
 class LANG:
     SPLITTER = {
         'ca': 'Catalan',

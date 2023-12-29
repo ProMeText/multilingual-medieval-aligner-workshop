@@ -27,16 +27,16 @@ class SubSentencesTokenizer():
     def create_delimiters_regex(self):
         with open("bertalign/delimiters.json", "r") as input_json:
             dictionary = json.load(input_json)
-            single_tokens_punctuation = [punct for punct in dictionary['punctuation'] if len(punct) == 1]
-            multiple_tokens_punctuation = [punct for punct in dictionary['punctuation'] if len(punct) != 1]
-            single_token_punct = "".join(single_tokens_punctuation)
-            multiple_tokens_punct = "|".join(multiple_tokens_punctuation)
-            punctuation_subregex = f"{multiple_tokens_punct}|[{single_token_punct}]"
-            tokens_subregex = " | ".join(dictionary['word_delimiters'])
-            self.punctation_delimiters = rf"({punctuation_subregex})"
-            self.tokens_delimiters = rf"({tokens_subregex})"
-            print(self.punctation_delimiters)
-            print(self.tokens_delimiters)
+        single_tokens_punctuation = [punct for punct in dictionary['punctuation'] if len(punct) == 1]
+        multiple_tokens_punctuation = [punct for punct in dictionary['punctuation'] if len(punct) != 1]
+        single_token_punct = "".join(single_tokens_punctuation)
+        multiple_tokens_punct = "|".join(multiple_tokens_punctuation)
+        punctuation_subregex = f"{multiple_tokens_punct}|[{single_token_punct}]"
+        tokens_subregex = " | ".join(dictionary['word_delimiters'])
+        self.punctation_delimiters = rf"({punctuation_subregex})"
+        self.tokens_delimiters = rf"({tokens_subregex})"
+        print(self.punctation_delimiters)
+        print(self.tokens_delimiters)
 
     def tokenize(self):
         tokens_separation = re.sub(self.tokens_delimiters, r"||\1", self.input_text)
