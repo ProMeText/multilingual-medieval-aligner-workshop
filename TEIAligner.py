@@ -56,14 +56,12 @@ class TEIAligner():
             aligner.print_sents()
             alignment_result = aligner.result
             tsource = []
-            ttarget = []
             for tuple in alignment_result:
                 source, target = tuple
                 transformed_source = [source_dict[index] for index in source]
                 transformed_target = [target_dict[index] for index in target]
-                tsource.append(transformed_source)
-                ttarget.append(transformed_target)
-            print(ttarget, tsource)
+                tsource.append(transformed_source,transformed_target)
+            print(tsource)
             
             
             
