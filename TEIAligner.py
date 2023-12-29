@@ -1,10 +1,7 @@
-from bertalign import Bertalign
-import sys
+from bertalign.bertalign import Bertalign
 import lxml.etree as etree
-from bertalign import sentences_tokenizer
 import tokenization
 import utils
-import sentences_tokenizer
 import json
 
 
