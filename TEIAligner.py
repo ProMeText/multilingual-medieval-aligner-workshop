@@ -80,8 +80,8 @@ class TEIAligner():
             
             for index, (identifier, phrase) in enumerate(ids_and_phrases):
                 try:
-                    match = [id for id in source_target_dict if identifier in id][0]
-                    phrase.set('corresp', source_target_dict[match])
+                    match = [id for id in target_source_dict if identifier in id][0]
+                    phrase.set('corresp', target_source_dict[match])
                 except IndexError:
                     phrase.set('corresp', 'None')
                     
@@ -96,8 +96,8 @@ class TEIAligner():
 
         for index, (identifier, phrase) in enumerate(ids_and_phrases):
             try:
-                match = [id for id in target_source_dict if identifier in id][0]
-                phrase.set('corresp', target_source_dict[match])
+                match = [id for id in source_target_dict if identifier in id][0]
+                phrase.set('corresp', source_target_dict[match])
             except IndexError:
                 phrase.set('corresp', 'None')
             
