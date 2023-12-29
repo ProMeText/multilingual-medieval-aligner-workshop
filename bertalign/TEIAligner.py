@@ -1,4 +1,4 @@
-from bertalign import Bertalign
+from bertalign.bertalign import Bertalign
 import sys
 import lxml.etree as etree
 from bertalign import sentences_tokenizer
@@ -7,7 +7,6 @@ import utils
 import sentences_tokenizer
 import json
 
-from bertalign.bertalign.aligner import Bertalign
 
 
 class TEIAligner():
