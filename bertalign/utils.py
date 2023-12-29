@@ -2,10 +2,6 @@ import re
 import string
 import subprocess
 import random
-#from googletrans import Translator
-#from sentence_splitter import SentenceSplitter
-#import sentence_splitter
-#import bertalign.sentences_tokenizer as sentences_tokenizer
 import lxml.etree as etree
 
 
@@ -24,18 +20,7 @@ def clean_text(text):
             line = re.sub('\s+', ' ', line)
             clean_text.append(line)
     return "\n".join(clean_text)
-    
-def detect_lang(text):
-    translator = Translator(service_urls=[
-      'translate.google.com.hk',
-    ])
-    max_len = 200
-    chunk = text[0 : min(max_len, len(text))]
-    lang = translator.detect(chunk).lang
-    if lang.startswith('zh'):
-        lang = 'zh'
-    return lang
-
+  
 def split_sents(text, lang):
     # On utilise un tokéniseur de phrases maison.
     Tokenizer = sentences_tokenizer.SubSentencesTokenizer(text)
