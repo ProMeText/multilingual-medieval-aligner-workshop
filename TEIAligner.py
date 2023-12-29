@@ -38,14 +38,24 @@ class TEIAligner():
     def alignementMultilingue(self):
         source_tokens, target_tokens = list(), list()
         for text in self.files:
-            for phrase in text.xpath("descendant::tei:phr", namespaces=self.tei_ns):
+            target_dict = {}
+            source_dict = {}
+            for index, phrase in enumerate(text.xpath("descendant::tei:phr", namespaces=self.tei_ns)):
+                ident = utils.generateur_id(6)
+                phrase.set('xml:id', ident)
+                target_dict[index] = ident
                 target_tokens.append(' '.join([token.text for token in phrase.xpath("descendant::node()[self::tei:pc or self::tei:w]", namespaces=self.tei_ns)]))
 
-            for phrase in self.main_file.xpath("descendant::tei:phr", namespaces=self.tei_ns):
+            for index, phrase in enumerate(self.main_file.xpath("descendant::tei:phr", namespaces=self.tei_ns)):
+                ident = utils.generateur_id(6)
+                phrase.set('xml:id', ident)
+                source_dict[index] = ident
                 source_tokens.append(' '.join([token.text for token in phrase.xpath("descendant::node()[self::tei:pc or self::tei:w]", namespaces=self.tei_ns)]))
             aligner = Bertalign(source_tokens, target_tokens)
             aligner.align_sents()
-            print(aligner.result)
+            alignment_result = aligner.result
+            for tuple in alignment_result:
+                print(tuple)
             
             
             
