@@ -10,7 +10,7 @@ class TEIAligner():
     """
     L'aligneur, qui prend des fichiers TEI en entrée (tokénisés?)
     """
-    def __init__(self, files:list, tokenize=False):
+    def __init__(self, files_path:dict, tokenize=False):
         self.tei_ns = {'tei': 'http://www.tei-c.org/ns/1.0'}
         with open("bertalign/delimiters.json", "r") as input_json:
             dictionary = json.load(input_json)
@@ -20,37 +20,46 @@ class TEIAligner():
         multiple_tokens_punct = "|".join(multiple_tokens_punctuation)
         punctuation_subregex = f"({multiple_tokens_punct}|[{single_token_punct}])"
         tokens_subregex = "(" + " | ".join(dictionary['word_delimiters']) + ")"
-        self.parsed_files = []
+        self.target_parsed_files = []
+        self.main_parsed_file = None
+        files = files_path['target_files']
+        main_file = files_path['main_file']
         if tokenize:
             tokenizer = tokenization.Tokenizer(regularisation=True)
+            regularized_file = main_file.replace('.xml', '.regularized.xml')
+            utils.pretty_print_xml_tree(regularized_file)
+            tokenizer.subsentences_tokenisation(path=regularized_file, delimiters=tokens_subregex)
+            self.main_parsed_file = tokenizer.tokenized_tree
             for file in files:
                 tokenizer.tokenisation(path=file, punctuation_regex=punctuation_subregex)
                 regularized_file = file.replace('.xml','.regularized.xml')
                 utils.pretty_print_xml_tree(regularized_file)
                 tokenizer.subsentences_tokenisation(path=regularized_file, delimiters=tokens_subregex)
-                self.parsed_files.append(tokenizer.tokenized_tree)
+                self.target_parsed_files.append(tokenizer.tokenized_tree)
         else:
-            self.parsed_files = [etree.parse(file) for file in files]
-        self.main_file = self.parsed_files[0]
-        self.files = self.parsed_files[1:]
+            self.target_parsed_files = {file: etree.parse(file) for file in files}
+            self.main_file = (main_file, etree.parse(main_file))
     
     
     def alignementMultilingue(self):
         source_tokens, target_tokens = list(), list()
-        for text in self.files:
+        main_file_tree = self.main_file[1]
+        main_file_path = self.main_file[0]
+        for path, tree in self.target_parsed_files.items():
             target_dict = {}
             source_dict = {}
-            for index, phrase in enumerate(text.xpath("descendant::tei:phr", namespaces=self.tei_ns)):
+            for index, phrase in enumerate(tree.xpath("descendant::tei:phr", namespaces=self.tei_ns)):
                 ident = utils.generateur_id(6)
                 phrase.set('{http://www.w3.org/XML/1998/namespace}id', ident)
                 target_dict[index] = ident
                 target_tokens.append(' '.join([token.text for token in phrase.xpath("descendant::node()[self::tei:pc or self::tei:w]", namespaces=self.tei_ns)]))
 
-            for index, phrase in enumerate(self.main_file.xpath("descendant::tei:phr", namespaces=self.tei_ns)):
+            for index, phrase in enumerate(main_file_tree.xpath("descendant::tei:phr", namespaces=self.tei_ns)):
                 ident = utils.generateur_id(6)
                 phrase.set('{http://www.w3.org/XML/1998/namespace}id', ident)
                 source_dict[index] = ident
                 source_tokens.append(' '.join([token.text for token in phrase.xpath("descendant::node()[self::tei:pc or self::tei:w]", namespaces=self.tei_ns)]))
+            
             aligner = Bertalign(source_tokens, target_tokens)
             aligner.align_sents()
             aligner.print_sents()
@@ -62,9 +71,12 @@ class TEIAligner():
                 transformed_target = [target_dict[index] for index in target]
                 tsource.append((transformed_source,transformed_target))
             print(tsource)
-            
-            
-            
+            with open(path.replace(".xml", ".final.xml"), "w") as output_target_file:
+                output_target_file.write(etree.tostring(tree, pretty_print=True).decode())
+
+        with open(main_file_path.replace(".xml", ".final.xml"), "w") as output_main_file:
+            output_main_file.write(etree.tostring(main_file_tree, pretty_print=True).decode())
+
     def inject_sents(self, results, source_zip, target_zip):
         """
         Avec cette fonction on récupère l'alignement sur le texte et on le réinjecte dans le fichier TEI
@@ -84,7 +96,9 @@ class TEIAligner():
 if __name__ == '__main__':
     # TODO: intégrer les noeuds non w|pc pour ne pas perdre cette information.
     # TODO: transformer en dictionnaire en indiquant clairement qui est le témoin-source
-    file_list = ["/projects/users/mgillele/alignment/bertalign/text+berg/local_data/Rome_W.xml",
-                 "/projects/users/mgillele/alignment/bertalign/text+berg/local_data/Val_S.citable.xml"]
-    Aligner = TEIAligner(file_list, tokenize=True)
+    files = {"main_file": "/projects/users/mgillele/alignment/bertalign/text+berg/local_data/Rome_W.xml", 
+             "target_files": ["/projects/users/mgillele/alignment/bertalign/text+berg/local_data/Val_S.citable.xml"]
+             }
+                 
+    Aligner = TEIAligner(files, tokenize=True)
     Aligner.alignementMultilingue()
