@@ -65,6 +65,7 @@ class Tokenizer:
             print(len(tokens))
             grouped_spans = []
             print(f"Punctuation indices: {punctuation_indices}")
+            print(' '.join([token.text for token in tokens]))
             grouped_spans.append((0, spans[0] - 1))
             grouped_spans.extend([(position + 1, spans[index + 1]) if index != 0 else (position, spans[index + 1]) for index, position in enumerate(spans[:-1])])
             if len(tokens) != spans[-1] + 1:
