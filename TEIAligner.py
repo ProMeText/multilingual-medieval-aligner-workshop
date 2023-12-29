@@ -53,9 +53,17 @@ class TEIAligner():
                 source_tokens.append(' '.join([token.text for token in phrase.xpath("descendant::node()[self::tei:pc or self::tei:w]", namespaces=self.tei_ns)]))
             aligner = Bertalign(source_tokens, target_tokens)
             aligner.align_sents()
+            aligner.print_sents()
             alignment_result = aligner.result
+            tsource = []
+            ttarget = []
             for tuple in alignment_result:
-                print(tuple)
+                source, target = tuple
+                transformed_source = [source_dict[index] for index in source]
+                transformed_target = [target_dict[index] for index in target]
+                tsource.append(transformed_source)
+                ttarget.append(transformed_target)
+            print(ttarget, tsource)
             
             
             
