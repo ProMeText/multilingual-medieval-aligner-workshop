@@ -267,7 +267,7 @@
         
         <xsl:message select="$punctuation_regex"></xsl:message>
             <xsl:result-document href="{$output_path}">
-                <xsl:apply-templates select="$ResultatTroisiemePasse/descendant::tei:div[@type='chapitre'][40]" mode="quatriemePasse"
+                <xsl:apply-templates select="$ResultatTroisiemePasse/descendant::tei:div[@type='chapitre'][50]" mode="quatriemePasse"
                     xpath-default-namespace="tei"/>
             </xsl:result-document>
     </xsl:template>
