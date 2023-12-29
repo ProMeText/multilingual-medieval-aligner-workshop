@@ -21,20 +21,6 @@ def clean_text(text):
             clean_text.append(line)
     return "\n".join(clean_text)
   
-def split_sents(text, lang):
-    # On utilise un tokéniseur de phrases maison.
-    Tokenizer = sentences_tokenizer.SubSentencesTokenizer(text)
-    splits = Tokenizer.tokenize()
-    print(f"Sentences:\n{splits}")
-    return  splits
-    # try:
-    #     splitter = SentenceSplitter(language=lang)
-    # except sentence_splitter.SentenceSplitterException:
-    #     splitter = SentenceSplitter(language='es')
-    # sents = splitter.split(text=text) 
-    # print(f"Sentences:\n{sents}")
-    # sents = [sent.strip() for sent in sents]
-       
 def yield_overlaps(lines, num_overlaps):
     lines = [_preprocess_line(line) for line in lines]
     for overlap in range(1, num_overlaps + 1):
