@@ -1,14 +1,8 @@
-import collections
-import glob
-import random
-import string
-from halo import Halo
-import os
 import subprocess
 from lxml import etree
 import re
 import sys
-import utils as utils
+import bertalign.utils as utils
 from itertools import groupby
 from operator import itemgetter
 
