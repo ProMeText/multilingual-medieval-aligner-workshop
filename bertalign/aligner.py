@@ -25,8 +25,6 @@ class Bertalign:
         self.len_penalty = len_penalty
         
         
-        src = utils.clean_text(src)
-        tgt = utils.clean_text(tgt)
         src_lang = utils.detect_lang(src)
         tgt_lang = utils.detect_lang(tgt)
         
