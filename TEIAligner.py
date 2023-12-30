@@ -142,8 +142,11 @@ class TEIAligner():
 if __name__ == '__main__':
     # TODO: intégrer les noeuds non w|pc pour ne pas perdre cette information.
     # TODO: transformer en dictionnaire en indiquant clairement qui est le témoin-source
-    files = {"main_file": "/projects/users/mgillele/alignment/bertalign/text+berg/local_data/Rome_W.xml", 
-             "target_files": ["/projects/users/mgillele/alignment/bertalign/text+berg/local_data/Val_S.citable.xml"]
+    files = {"main_file": "/projects/users/mgillele/alignment/bertalign/text+berg/local_data/xml/Rome_W.xml", 
+             "target_files": ["/projects/users/mgillele/alignment/bertalign/text+berg/local_data/xml/Val_S.citable.xml"]
+             }
+    files = {"main_file": "text+berg/xml/Rome_W.regularized.phrased.xml", 
+             "target_files": ["text+berg/xml/Val_S.citable.regularized.phrased.xml"]
              }
     arguments = argparse.ArgumentParser()
     arguments.add_argument("-t", "--tokenize", help="Tokenize?", default=True)
