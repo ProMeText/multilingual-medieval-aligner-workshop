@@ -25,20 +25,26 @@ class TEIAligner():
         files = files_path['target_files']
         main_file = files_path['main_file']
         if tokenize:
+            print("Tokenizing")
             tokenizer = tokenization.Tokenizer(regularisation=True)
+            tokenizer.tokenisation(path=main_file, punctuation_regex=punctuation_subregex)
             regularized_file = main_file.replace('.xml', '.regularized.xml')
             utils.pretty_print_xml_tree(regularized_file)
+            print("Word tokenization done.")
             tokenizer.subsentences_tokenisation(path=regularized_file, delimiters=tokens_subregex)
             self.main_file = (main_file, tokenizer.tokenized_tree)
             for file in files:
                 tokenizer.tokenisation(path=file, punctuation_regex=punctuation_subregex)
+                print("Word tokenization done.")
                 regularized_file = file.replace('.xml','.regularized.xml')
                 utils.pretty_print_xml_tree(regularized_file)
                 tokenizer.subsentences_tokenisation(path=regularized_file, delimiters=tokens_subregex)
                 self.target_parsed_files[file] = tokenizer.tokenized_tree
+            print("Done")
         else:
             self.target_parsed_files = {file: etree.parse(file) for file in files}
             self.main_file = (main_file, etree.parse(main_file))
+            
     
     
     def alignementMultilingue(self):
@@ -126,6 +132,9 @@ if __name__ == '__main__':
     # TODO: transformer en dictionnaire en indiquant clairement qui est le témoin-source
     files = {"main_file": "/projects/users/mgillele/alignment/bertalign/text+berg/local_data/Rome_W.xml", 
              "target_files": ["/projects/users/mgillele/alignment/bertalign/text+berg/local_data/Val_S.citable.xml"]
+             }
+    files = {"main_file": "text+berg/xml/Rome_W.xml", 
+             "target_files": ["text+berg/xml/Val_S.citable.xml"]
              }
                  
     Aligner = TEIAligner(files, tokenize=True)

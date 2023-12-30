@@ -6,7 +6,11 @@ import lxml.etree as etree
 
 
 def pretty_print_xml_tree(file):
-    parsed = etree.parse(file)
+    try:
+        parsed = etree.parse(file)
+    except OSError:
+        print(f"File {file} not found, exiting")
+        exit(0)
     with open(file, "w") as output_file:
         output_file.write(etree.tostring(parsed, pretty_print=True).decode())
 

@@ -33,7 +33,7 @@ class Bertalign:
  
         src_num = len(src_sents)
         tgt_num = len(tgt_sents)
-        
+        assert len(src_sents) != 0, "Problemo"
 
         print("Embedding source and target text using {} ...".format(model.model_name))
         src_vecs, src_lens = model.transform(src_sents, max_align - 1)

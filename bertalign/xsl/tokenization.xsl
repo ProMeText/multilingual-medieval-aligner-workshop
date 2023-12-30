@@ -264,10 +264,8 @@
 
 
     <xsl:template match="/">
-        
-        <xsl:message select="$punctuation_regex"></xsl:message>
             <xsl:result-document href="{$output_path}">
-                <xsl:apply-templates select="$ResultatTroisiemePasse/descendant::tei:div[@type='livre'][@n='1']/descendant::tei:div[@type='chapitre'][@n='5'][1]" mode="quatriemePasse"
+                <xsl:apply-templates select="$ResultatTroisiemePasse/descendant::tei:div[@type='livre'][@n='3']/descendant::tei:div[@type='partie'][@n='1']/descendant::tei:div[@type='chapitre'][@n='5']" mode="quatriemePasse"
                     xpath-default-namespace="tei"/>
             </xsl:result-document>
     </xsl:template>

@@ -86,7 +86,13 @@ class Tokenizer:
             
             if grouped_spans == [(0, -1)] or grouped_spans == []:
                 element_to_insert = etree.Element(self.tei + 's', nsmap=self.NSMAP0)
-                following_word = tokens[0]
+                try:
+                    following_word = tokens[0]
+                except:
+                    print("Error. Division:")
+                    print(' '.join([token.text for token in tokens]))
+                    print(division.xpath("ancestor::tei:div/@n", namespaces=self.tei_ns))
+                    exit(0)
                 following_word.addprevious(element_to_insert)
                 for tok in tokens:
                     element_to_insert.append(tok)
@@ -134,11 +140,12 @@ class Tokenizer:
                     phrases[index].extend(xml_tokens[min_pos:max_pos + 1])
             else:
                 # Dans le cas où on ne trouve pas de délimiteur
-                element_to_insert = etree.Element(self.tei + 'phr', nsmap=self.NSMAP0)
-                following_word = xml_tokens[0]
-                following_word.addprevious(element_to_insert)
-                for token in xml_tokens:
-                    element_to_insert.append(token)
+                if len(clause) != 0:
+                    element_to_insert = etree.Element(self.tei + 'phr', nsmap=self.NSMAP0)
+                    following_word = xml_tokens[0]
+                    following_word.addprevious(element_to_insert)
+                    for token in xml_tokens:
+                        element_to_insert.append(token)
             
     
         self.tokenized_tree = tree
@@ -157,12 +164,16 @@ class Tokenizer:
         :correction_mode: le mode correction
         :regularisation: produire un fichier régularisé ? Défaut: oui
         """
+        print("Tokenizing")
         tokenized_file = path.replace('.xml', '.tokenized.xml')
         regularized_file = path.replace('.xml', '.regularized.xml')
         print(path)
         subprocess.run(["java", "-jar", self.saxon, "-xi:on", path,
                         "bertalign/xsl/tokenization.xsl", f"output_path={tokenized_file}", f"punctuation_regex={punctuation_regex}"])
-        self.ajout_xml_id(f"{tokenized_file}")
+        try:
+            self.ajout_xml_id(f"{tokenized_file}")
+        except etree.XMLSyntaxError:
+            print(f"Error: please check {tokenized_file}")
         if self.regularisation:
             output_path = f"output_path={regularized_file}"
             subprocess.run(["java", "-jar", self.saxon, "-xi:on", tokenized_file,
