@@ -145,9 +145,9 @@ if __name__ == '__main__':
     files = {"main_file": "/projects/users/mgillele/alignment/bertalign/text+berg/local_data/xml/Rome_W.xml", 
              "target_files": ["/projects/users/mgillele/alignment/bertalign/text+berg/local_data/xml/Val_S.citable.xml"]
              }
-    files = {"main_file": "text+berg/xml/Rome_W.regularized.phrased.xml", 
-             "target_files": ["text+berg/xml/Val_S.citable.regularized.phrased.xml"]
-             }
+    # files = {"main_file": "text+berg/xml/Rome_W.regularized.phrased.xml", 
+    #          "target_files": ["text+berg/xml/Val_S.citable.regularized.phrased.xml"]
+    #          }
     arguments = argparse.ArgumentParser()
     arguments.add_argument("-t", "--tokenize", help="Tokenize?", default=True)
     arguments = arguments.parse_args()
