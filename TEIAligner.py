@@ -101,8 +101,6 @@ class TEIAligner():
                         
                     
                 
-                with open(path.replace(".xml", ".final.xml"), "w") as output_target_file:
-                    output_target_file.write(etree.tostring(tree, pretty_print=True).decode())
     
                 all_phrases = main_file_tree.xpath(f"descendant::tei:div[@type='livre'][@n='{book_n}']/"
                                              f"descendant::tei:div[@type='partie'][@n='{part_n}']/"
@@ -113,7 +111,6 @@ class TEIAligner():
                                              f"descendant::tei:div[@type='chapitre'][@n='{chapter_n}']/"
                                              f"descendant::tei:phr/@xml:id", namespaces=self.tei_ns)
                 ids_and_phrases = list(zip(all_ids, all_phrases))
-                print(source_target_dict)
                 for index, (identifier, phrase) in enumerate(ids_and_phrases):
                     try:
                         match = [id for id in source_target_dict if identifier in id][0]
@@ -121,9 +118,8 @@ class TEIAligner():
                     except IndexError:
                         phrase.set('corresp', 'None')
             
-            
-                with open(main_file_path.replace(".xml", ".final.xml"), "w") as output_main_file:
-                    output_main_file.write(etree.tostring(main_file_tree, pretty_print=True).decode())
+                utils.save_tree_to_file(tree, path.replace(".xml", ".final.xml"))
+                utils.save_tree_to_file(main_file_tree, main_file_path.replace(".xml", ".final.xml"))
 
     def inject_sents(self, results, source_zip, target_zip):
         """

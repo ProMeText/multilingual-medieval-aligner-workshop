@@ -14,6 +14,11 @@ def pretty_print_xml_tree(file):
     with open(file, "w") as output_file:
         output_file.write(etree.tostring(parsed, pretty_print=True).decode())
 
+def save_tree_to_file(tree, filepath):
+    print(f"Saving tree to {filepath}.")
+    with open(filepath, "w") as out_file:
+        out_file.write(etree.tostring(tree, pretty_print=True).decode())
+
 def clean_text(text):
     clean_text = []
     text = text.strip()
