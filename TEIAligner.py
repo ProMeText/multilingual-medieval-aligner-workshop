@@ -3,12 +3,12 @@ import lxml.etree as etree
 import bertalign.tokenization as tokenization
 import bertalign.utils as utils
 import json
-
+import traceback
 
 
 class TEIAligner():
     """
-    L'aligneur, qui prend des fichiers TEI en entrée (tokénisés?)
+    L'aligneur, qui prend des fichiers TEI en entrée et les tokénise
     """
     def __init__(self, files_path:dict, tokenize=False):
         self.tei_ns = {'tei': 'http://www.tei-c.org/ns/1.0'}
@@ -24,6 +24,7 @@ class TEIAligner():
         self.main_parsed_file = None
         files = files_path['target_files']
         main_file = files_path['main_file']
+        # Faut-il tokéniser le document (mots, syntagmes) ?
         if tokenize:
             print("Tokenizing")
             tokenizer = tokenization.Tokenizer(regularisation=True)
@@ -48,68 +49,81 @@ class TEIAligner():
     
     
     def alignementMultilingue(self):
-        source_tokens, target_tokens = list(), list()
-        main_file_tree = self.main_file[1]
-        main_file_path = self.main_file[0]
+        main_file_path, main_file_tree = self.main_file
         for path, tree in self.target_parsed_files.items():
-            target_dict = {}
-            source_dict = {}
-            for index, phrase in enumerate(tree.xpath("descendant::tei:phr", namespaces=self.tei_ns)):
-                ident = utils.generateur_id(6)
-                phrase.set('{http://www.w3.org/XML/1998/namespace}id', ident)
-                target_dict[index] = ident
-                target_tokens.append(' '.join([token.text for token in phrase.xpath("descendant::node()[self::tei:pc or self::tei:w]", namespaces=self.tei_ns)]))
+            for chapter in tree.xpath("descendant::tei:div[@type='chapitre']", namespaces=self.tei_ns):
+                source_tokens, target_tokens = list(), list()
+                target_dict = {}
+                source_dict = {}
+                chapter_n = chapter.xpath("@n")[0]
+                part_n = chapter.xpath("ancestor::tei:div[@type='partie']/@n", namespaces=self.tei_ns)[0]
+                book_n = chapter.xpath("ancestor::tei:div[@type='livre']/@n", namespaces=self.tei_ns)[0]
+                print(f"Treating {book_n}-{part_n}-{chapter_n}")
+                for index, phrase in enumerate(chapter.xpath("descendant::tei:phr", namespaces=self.tei_ns)):
+                    ident = utils.generateur_id(6)
+                    phrase.set('{http://www.w3.org/XML/1998/namespace}id', ident)
+                    target_dict[index] = ident
+                    target_tokens.append(' '.join([token.text for token in phrase.xpath("descendant::node()[self::tei:pc or self::tei:w]", namespaces=self.tei_ns)]))
 
-            for index, phrase in enumerate(main_file_tree.xpath("descendant::tei:phr", namespaces=self.tei_ns)):
-                ident = utils.generateur_id(6)
-                phrase.set('{http://www.w3.org/XML/1998/namespace}id', ident)
-                source_dict[index] = ident
-                source_tokens.append(' '.join([token.text for token in phrase.xpath("descendant::node()[self::tei:pc or self::tei:w]", namespaces=self.tei_ns)]))
-            
-            aligner = Bertalign(source_tokens, target_tokens)
-            aligner.align_sents()
-            aligner.print_sents()
-            alignment_result = aligner.result
-            tsource = []
-            for tuple in alignment_result:
-                source, target = tuple
-                transformed_source = '#' + ' #'.join([source_dict[index] for index in source])
-                transformed_target = '#' + ' #'.join([target_dict[index] for index in target])
-                tsource.append((transformed_source,transformed_target))
-            print(tsource)
-            source_target_dict = {source:target for source, target in tsource}
-            target_source_dict = {target:source for source, target in tsource}
-            
-            all_phrases = tree.xpath("descendant::tei:phr", namespaces=self.tei_ns)
-            all_ids = tree.xpath("descendant::tei:phr/@xml:id", namespaces=self.tei_ns)
-            ids_and_phrases = list(zip(all_ids, all_phrases))
-            
-            for index, (identifier, phrase) in enumerate(ids_and_phrases):
-                try:
-                    match = [id for id in target_source_dict if identifier in id][0]
-                    phrase.set('corresp', target_source_dict[match])
-                except IndexError:
-                    phrase.set('corresp', 'None')
+                for index, phrase in enumerate(
+                        main_file_tree.xpath(f"descendant::tei:div[@type='livre'][@n='{book_n}']/"
+                                             f"descendant::tei:div[@type='partie'][@n='{part_n}']/"
+                                             f"descendant::tei:div[@type='chapitre'][@n='{chapter_n}']/"
+                                             f"descendant::tei:phr", namespaces=self.tei_ns)):
+                    ident = utils.generateur_id(6)
+                    phrase.set('{http://www.w3.org/XML/1998/namespace}id', ident)
+                    source_dict[index] = ident
+                    source_tokens.append(' '.join([token.text for token in phrase.xpath("descendant::node()[self::tei:pc or self::tei:w]", namespaces=self.tei_ns)]))
+                assert len(source_dict) == len(source_tokens), f'Error {len(source_dict)} {len(source_tokens)}'
+                assert len(target_dict) == len(target_tokens), 'Error'
+                aligner = Bertalign(source_tokens, target_tokens)
+                aligner.align_sents()
+                aligner.print_sents() 
+                tsource = []
+                for tuple in aligner.result:
+                    source, target = tuple
+                    transformed_source = '#' + ' #'.join([source_dict[index] for index in source])
+                    transformed_target = '#' + ' #'.join([target_dict[index] for index in target])
+                    tsource.append((transformed_source,transformed_target))
+                source_target_dict = {source:target for source, target in tsource}
+                target_source_dict = {target:source for source, target in tsource}
+                
+                all_phrases = tree.xpath("descendant::tei:phr", namespaces=self.tei_ns)
+                all_ids = tree.xpath("descendant::tei:phr/@xml:id", namespaces=self.tei_ns)
+                ids_and_phrases = list(zip(all_ids, all_phrases))
+                
+                for index, (identifier, phrase) in enumerate(ids_and_phrases):
+                    try:
+                        match = [id for id in target_source_dict if identifier in id][0]
+                        phrase.set('corresp', target_source_dict[match])
+                    except IndexError:
+                        phrase.set('corresp', 'None')
+                        
                     
                 
+                with open(path.replace(".xml", ".final.xml"), "w") as output_target_file:
+                    output_target_file.write(etree.tostring(tree, pretty_print=True).decode())
+    
+                all_phrases = main_file_tree.xpath(f"descendant::tei:div[@type='livre'][@n='{book_n}']/"
+                                             f"descendant::tei:div[@type='partie'][@n='{part_n}']/"
+                                             f"descendant::tei:div[@type='chapitre'][@n='{chapter_n}']/"
+                                             f"descendant::tei:phr", namespaces=self.tei_ns)
+                all_ids = main_file_tree.xpath(f"descendant::tei:div[@type='livre'][@n='{book_n}']/"
+                                             f"descendant::tei:div[@type='partie'][@n='{part_n}']/"
+                                             f"descendant::tei:div[@type='chapitre'][@n='{chapter_n}']/"
+                                             f"descendant::tei:phr/@xml:id", namespaces=self.tei_ns)
+                ids_and_phrases = list(zip(all_ids, all_phrases))
+                print(source_target_dict)
+                for index, (identifier, phrase) in enumerate(ids_and_phrases):
+                    try:
+                        match = [id for id in source_target_dict if identifier in id][0]
+                        phrase.set('corresp', source_target_dict[match])
+                    except IndexError:
+                        phrase.set('corresp', 'None')
             
-            with open(path.replace(".xml", ".final.xml"), "w") as output_target_file:
-                output_target_file.write(etree.tostring(tree, pretty_print=True).decode())
-
-        all_phrases = main_file_tree.xpath("descendant::tei:phr", namespaces=self.tei_ns)
-        all_ids = main_file_tree.xpath("descendant::tei:phr/@xml:id", namespaces=self.tei_ns)
-        ids_and_phrases = list(zip(all_ids, all_phrases))
-        print(source_target_dict)
-        for index, (identifier, phrase) in enumerate(ids_and_phrases):
-            try:
-                match = [id for id in source_target_dict if identifier in id][0]
-                phrase.set('corresp', source_target_dict[match])
-            except IndexError:
-                phrase.set('corresp', 'None')
             
-            
-        with open(main_file_path.replace(".xml", ".final.xml"), "w") as output_main_file:
-            output_main_file.write(etree.tostring(main_file_tree, pretty_print=True).decode())
+                with open(main_file_path.replace(".xml", ".final.xml"), "w") as output_main_file:
+                    output_main_file.write(etree.tostring(main_file_tree, pretty_print=True).decode())
 
     def inject_sents(self, results, source_zip, target_zip):
         """
@@ -133,9 +147,9 @@ if __name__ == '__main__':
     files = {"main_file": "/projects/users/mgillele/alignment/bertalign/text+berg/local_data/Rome_W.xml", 
              "target_files": ["/projects/users/mgillele/alignment/bertalign/text+berg/local_data/Val_S.citable.xml"]
              }
-    files = {"main_file": "text+berg/xml/Rome_W.xml", 
-             "target_files": ["text+berg/xml/Val_S.citable.xml"]
+    files = {"main_file": "text+berg/xml/Rome_W.regularized.phrased.xml", 
+             "target_files": ["text+berg/xml/Val_S.citable.regularized.phrased.xml"]
              }
                  
-    Aligner = TEIAligner(files, tokenize=True)
+    Aligner = TEIAligner(files, tokenize=False)
     Aligner.alignementMultilingue()

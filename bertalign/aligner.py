@@ -75,6 +75,7 @@ class Bertalign:
         for bead in (self.result):
             src_line = self._get_line(bead[0], self.src_sents)
             tgt_line = self._get_line(bead[1], self.tgt_sents)
+            print(bead)
             print(src_line + "\n" + tgt_line + "\n")
 
     @staticmethod

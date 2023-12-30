@@ -265,7 +265,7 @@
 
     <xsl:template match="/">
             <xsl:result-document href="{$output_path}">
-                <xsl:apply-templates select="$ResultatTroisiemePasse/descendant::tei:div[@type='livre'][@n='3']/descendant::tei:div[@type='partie'][@n='1']/descendant::tei:div[@type='chapitre'][@n='5']" mode="quatriemePasse"
+                <xsl:apply-templates select="$ResultatTroisiemePasse/tei:TEI" mode="quatriemePasse"
                     xpath-default-namespace="tei"/>
             </xsl:result-document>
     </xsl:template>
