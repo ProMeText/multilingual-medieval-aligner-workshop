@@ -1,3 +1,5 @@
+import argparse
+
 from bertalign import Bertalign
 import lxml.etree as etree
 import bertalign.tokenization as tokenization
@@ -10,7 +12,7 @@ class TEIAligner():
     """
     L'aligneur, qui prend des fichiers TEI en entrée et les tokénise
     """
-    def __init__(self, files_path:dict, tokenize=False):
+    def __init__(self, files_path:dict, tokenize):
         self.tei_ns = {'tei': 'http://www.tei-c.org/ns/1.0'}
         with open("bertalign/delimiters.json", "r") as input_json:
             dictionary = json.load(input_json)
@@ -143,9 +145,9 @@ if __name__ == '__main__':
     files = {"main_file": "/projects/users/mgillele/alignment/bertalign/text+berg/local_data/Rome_W.xml", 
              "target_files": ["/projects/users/mgillele/alignment/bertalign/text+berg/local_data/Val_S.citable.xml"]
              }
-    files = {"main_file": "text+berg/xml/Rome_W.regularized.phrased.xml", 
-             "target_files": ["text+berg/xml/Val_S.citable.regularized.phrased.xml"]
-             }
-                 
-    Aligner = TEIAligner(files, tokenize=False)
+    arguments = argparse.ArgumentParser()
+    arguments.add_argument("-t", "--tokenize", help="Tokenize?", default=True)
+    arguments = arguments.parse_args()
+    tokenize = arguments.tokenize
+    Aligner = TEIAligner(files, tokenize=tokenize)
     Aligner.alignementMultilingue()
