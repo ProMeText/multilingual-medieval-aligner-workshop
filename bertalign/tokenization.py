@@ -24,8 +24,6 @@ class Tokenizer:
         """Ajout de xml:id à chaque token."""
         f = etree.parse(temoin)
         root = f.getroot()
-        # on va marquer les balises autofermantes pour être sûr de les injecter correctement après. On ignore les
-        # éléments qui ont déjà un identifiant.
         liste_elements_vides = root.xpath("//tei:*[not(child::node())][not(@xml:id)]", namespaces=self.tei_ns)
         for element in liste_elements_vides:
             element.set("{http://www.w3.org/XML/1998/namespace}id", utils.generateur_id())
@@ -35,11 +33,6 @@ class Tokenizer:
         for token in token_list:
             token.set("{http://www.w3.org/XML/1998/namespace}id", utils.generateur_id())
 
-        # On va ajouter des xml:id aux éléments à réinjecter s'ils n'en n'ont pas:
-        for node_to_reinject in self.nodes_to_reinject.keys():
-            for node in root.xpath(f"descendant::{node_to_reinject}", namespaces=self.tei_ns):
-                if not node.xpath("boolean(@xml:id)"):
-                    node.set("{http://www.w3.org/XML/1998/namespace}id", utils.generateur_id())
 
         with open(temoin, "w+") as sortie_xml:
             tree_as_string = etree.tostring(root, pretty_print=True, encoding='utf-8', xml_declaration=True).decode(
