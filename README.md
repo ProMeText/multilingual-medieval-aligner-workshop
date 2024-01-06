@@ -1,6 +1,7 @@
-# Bertalign
+# Old spanish and latin Bertalign
 
-This is a fork of alignment algorithm and scripts Bertalign. 
+
+This is a fork of the automatic mulitlingual sentence aligner Bertalign.
 
 The scripts ha been designed to automatically align tei XML sources, in this case in medieval Latin and Castilian. It relies on a prior phase of text segmentation at syntagm level using regular expressions to produce a more precise alignment.
 
