@@ -19,6 +19,8 @@ def save_tree_to_file(tree, filepath):
     with open(filepath, "w") as out_file:
         out_file.write(etree.tostring(tree, pretty_print=True).decode())
 
+
+
 def clean_text(text):
     clean_text = []
     text = text.strip()

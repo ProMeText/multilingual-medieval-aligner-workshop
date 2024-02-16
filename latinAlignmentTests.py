@@ -304,6 +304,9 @@ if __name__ == '__main__':
     # Ce qui a été fait: le problème de l'alignement trivial (1 pour 1 dans tous les témoins) est réglé.
     # Des tests sont menés sur 1 pour plusieurs. 
     # Un test de graphe est mené pour voir si ça peut pas permettre de fusionner les lieux variants
+    # Ça a l'air de marcher
+    # TODO: augmenter la sensibilité à la différence sémantique pour apporter plus d'omissions dans le texte. La fin
+    # Est beaucoup trop mal alignée, alors que ça irait bien avec + d'absence. 
     res_1, res_2, (textes) = parallel_align(first_alignment=False)
     nodes_as_dict = graph_test.main(result_a=res_1, result_b=res_2)
     first_t, second_t, third_t = textes

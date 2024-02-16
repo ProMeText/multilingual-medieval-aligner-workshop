@@ -172,6 +172,7 @@ class Tokenizer:
             subprocess.run(["java", "-jar", self.saxon, "-xi:on", tokenized_file,
                             "bertalign/xsl/regularisation.xsl", output_path])
         print("Tokénisation et régularisation du corpus pour alignement ✓")
+        
 
 
 if __name__ == '__main__':

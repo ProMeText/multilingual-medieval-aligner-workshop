@@ -52,7 +52,7 @@ class Bertalign:
         self.tgt_vecs = tgt_vecs
     
         
-    def align_sents(self):
+    def align_sents(self, first_alignment_only=False):
 
         print("Performing first-step alignment ...")
         D, I = core.find_top_k_sents(self.src_vecs[0,:], self.tgt_vecs[0,:], k=self.top_k)
@@ -69,7 +69,10 @@ class Bertalign:
                                             self.char_ratio, self.skip, margin=self.margin, len_penalty=self.len_penalty)
         second_alignment = core.second_back_track(self.src_num, self.tgt_num, second_pointers, second_path, second_alignment_types)
         
-        self.result = second_alignment
+        if first_alignment_only:
+            self.result = first_alignment
+        else:
+            self.result = second_alignment
     
     def print_sents(self):
         for bead in (self.result):

@@ -1,9 +1,17 @@
 import networkx as networkx
-import matplotlib.pyplot as plt
-import numpy as np
-import random
 
 def desambiguise(object, labels):
+    """
+    On ajoute à chaque noeud le document d'origine:
+    ((0, 0), 
+    (1, 1), 
+    (2, 2), 
+    (3, 3), etc] 
+    -> 
+    [(('0_a',), ('0_b',)), 
+    (('1_a',), ('1_b',)),
+    etc]
+    """
     as_unique_nodes = []
     for alignment_unit in object:
         A, B = alignment_unit
@@ -19,35 +27,51 @@ def desambiguise(object, labels):
     return as_unique_nodes
 
 def deconnect(object):
+    """
+    On passe de groupes à des paires de positions
+    [(('5_a', '6_a', '7_a'), ('5_b', '6_b'))]
+    -> [ ('5_a', '5_b'), ('5_a', '6_b'), ('6_a', '5_b'), ('6_a', '6_b'), ('7_a', '5_b'), ('7_a', '6_b')]
+    """
+    
     final_list = []
     for alignment_unit in object:
         A, B = alignment_unit
-        out_list = []
         for item_A in A:
             for item_B in B:
                 final_list.append((item_A, item_B))
     return tuple(final_list)
 
-def main(result_a, result_b):
+def merge_alignment_table(result_a, result_b):
+    """
+    Cette fonction va permettre de fusionner les items d'alignement à l'aide d'un passage par le graphe.
+    Il en ressort une liste de dictionnaires, chaque item consistant en une unité d'alignement.
+    """    
     # On désambiguise les noeuds
-
     G = networkx.petersen_graph()
     # On modifie la structure pour avoir des noeuds connectés 2 à 2 et des tuples
     structured_a = deconnect(desambiguise(result_a, ("a", "b")))
     structured_b = deconnect(desambiguise(result_b, ("a", "c")))
+    # Résultat de la forme: (('0_a', '0_b'), ('1_a', '1_b'), ('2_a', '2_b'), ('3_a', '3_b'), etc.)
     G.add_edges_from(structured_a)
     G.add_edges_from(structured_b)
-    # networkx.draw(G, with_labels=True, font_weight='bold')
-    # networkx.draw_kamada_kawai(G, with_labels=True, font_weight='bold')
     connected_nodes = []
+    
+    
+    # On prend chaque noeud et on en ressort les noeuds connectés
     for node in G:
         # https://stackoverflow.com/a/33089602
         connected_components = list(networkx.node_connected_component(G, node))
         connected_components.sort()
         connected_nodes.append(tuple(connected_components))
 
+    # On supprime les noeuds redondants
     connected_nodes = list(set(connected_nodes))
+    # Liste de la forme: [('27_a', '27_c', '28_a', '28_c', '29_c', '30_c', '33_b', '34_b'), ('19_c', '20_a', '20_c', '22_b'), etc.]
+    
+    # Ici c'est un bug: il y a des noeuds qui sont des entiers, je ne sais pas pourquoi. On les supprime.
     connected_nodes = [group for group in connected_nodes if not isinstance(group[0], int)]
+    
+    # On trie les noeuds par position
     connected_nodes.sort(key=lambda x: int(x[0].split('_')[0]))
     nodes_as_dict = []
     for connection in connected_nodes:
@@ -77,5 +101,6 @@ if __name__ == '__main__':
                 ((25), (28, 29, 30)), ((26), (31, 32)), ((27, 28), (33, 34)), ((29), (35)),
                 ((30, 31), (36, 37)), ((32), (38)), ((33), (39)), ((34), ()), ((35), ()),
                 ((36), ()), ((37), ()), ((38), ()), ((39), ()))
-    main(result_a, result_b)
+    result = merge_alignment_table(result_a, result_b)
+    print(result)
     

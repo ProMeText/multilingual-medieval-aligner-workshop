@@ -6,7 +6,7 @@ import bertalign.tokenization as tokenization
 import bertalign.utils as utils
 import json
 import traceback
-
+import tabulate
 
 class TEIAligner():
     """
@@ -47,8 +47,49 @@ class TEIAligner():
         else:
             self.target_parsed_files = {file: etree.parse(file) for file in files}
             self.main_file = (main_file, etree.parse(main_file))
-            
-    
+
+    def create_alignment_table(self, file_a, file_b):
+        tree_a = etree.parse(file_a)
+        tree_b = etree.parse(file_b)
+        table = []
+        for book in tree_a.xpath("descendant::tei:div[@type='livre']", namespaces=self.tei_ns):
+            book_n = book.xpath("@n")[0]
+            print(book_n)
+            phrases_tree_b = tree_b.xpath("descendant::tei:phr", namespaces=self.tei_ns)
+            id_phrases_tree_b = tree_b.xpath("descendant::tei:phr/@xml:id", namespaces=self.tei_ns)
+            ids_and_phrases_b = {id:phrase for id, phrase in list(zip(id_phrases_tree_b, phrases_tree_b))}
+            for part in book.xpath("descendant::tei:div[@type='partie']", namespaces=self.tei_ns):
+                part_n = part.xpath("@n")[0]
+                print(part_n)
+                for chapter in part.xpath("descendant::tei:div[@type='chapitre']", namespaces=self.tei_ns):
+                    chapter_n = chapter.xpath("@n")[0]
+                    print(chapter_n)
+                    previous_phrase = ""
+                    for index, phrase in enumerate(chapter.xpath("descendant::tei:phr", namespaces=self.tei_ns)):
+                        corresponding_ids = phrase.xpath('@corresp')[0]
+                        intermed_list = [book_n, part_n, chapter_n]
+                        phrase_as_string = ' '.join([token.text for token in phrase.xpath("descendant::node()[self::tei:pc or self::tei:w]", namespaces=self.tei_ns)])
+                        intermed_list.append(phrase_as_string)
+                        individual_idents = [ident.replace('#', '') for ident in corresponding_ids.split()]
+                        phrase_text_b = ""
+                        for ident in individual_idents:
+                            try:
+                                corresponding_phrase = ids_and_phrases_b[ident.replace('#', '')]
+                                corresponding_phrase_as_string = ' '.join([token.text for token in corresponding_phrase.xpath("descendant::node()[self::tei:pc or self::tei:w]", namespaces=self.tei_ns)])
+                            except KeyError:
+                                print(f"Issue with |{ident}|")
+                                corresponding_phrase_as_string = ""
+                            phrase_text_b += f" {corresponding_phrase_as_string}"
+                        if previous_phrase == phrase_text_b:
+                            intermed_list.append("")
+                        else:
+                            intermed_list.append(phrase_text_b)
+                        previous_phrase = phrase_text_b
+                        table.append(intermed_list)
+        mytable = tabulate.tabulate(table, headers=('Livre', 'Partie', 'Chapitre', 'Latin', 'Castillan'), tablefmt='html')
+        as_tree = etree.fromstring(mytable)
+        as_tree.set("rules", "all")
+        utils.save_tree_to_file(as_tree, "/home/mgl/Téléchargements/table.html")
     
     def alignementMultilingue(self):
         main_file_path, main_file_tree = self.main_file
@@ -142,15 +183,22 @@ class TEIAligner():
 if __name__ == '__main__':
     # TODO: intégrer les noeuds non w|pc pour ne pas perdre cette information.
     # TODO: transformer en dictionnaire en indiquant clairement qui est le témoin-source
-    files = {"main_file": "/projects/users/mgillele/alignment/bertalign/text+berg/local_data/xml/Rome_W.xml", 
-             "target_files": ["/projects/users/mgillele/alignment/bertalign/text+berg/local_data/xml/Val_S.citable.xml"]
-             }
-    # files = {"main_file": "text+berg/xml/Rome_W.regularized.phrased.xml", 
-    #          "target_files": ["text+berg/xml/Val_S.citable.regularized.phrased.xml"]
+    # files = {"main_file": "/projects/users/mgillele/alignment/bertalign/text+berg/local_data/xml/Rome_W.xml", 
+    #          "target_files": ["/projects/users/mgillele/alignment/bertalign/text+berg/local_data/xml/Val_S.citable.xml"]
     #          }
+    files = {"main_file": "text+berg/xml/Rome_W.regularized.phrased.xml", 
+              "target_files": ["text+berg/xml/Val_S.citable.regularized.phrased.xml"]
+              }
+    
     arguments = argparse.ArgumentParser()
     arguments.add_argument("-t", "--tokenize", help="Tokenize?", default=True)
     arguments = arguments.parse_args()
     tokenize = arguments.tokenize
+    if tokenize == "True":
+        tokenize = True
+    else:
+        tokenize = False
     Aligner = TEIAligner(files, tokenize=tokenize)
+    Aligner.create_alignment_table('text+berg/xml/Rome_W.final.xml', 'text+berg/xml/Val_S.citable.final.xml')
+    exit(0)
     Aligner.alignementMultilingue()
