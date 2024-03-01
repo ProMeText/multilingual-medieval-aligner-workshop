@@ -1,3 +1,4 @@
 xml/
+result_dir/
 __pycache__/
 .idea/
