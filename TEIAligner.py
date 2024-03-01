@@ -121,7 +121,7 @@ class TEIAligner():
                 assert len(target_dict) == len(target_tokens), 'Error'
                 aligner = Bertalign(source_tokens, target_tokens)
                 aligner.align_sents()
-                aligner.print_sents() 
+                # aligner.print_sents() 
                 tsource = []
                 for tuple in aligner.result:
                     source, target = tuple

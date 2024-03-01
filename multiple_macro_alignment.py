@@ -3,7 +3,7 @@ from numpyencoder import NumpyEncoder
 import sys
 import numpy as np
 # import collatex
-import graph_test
+import graph_merge
 
 def write_json(path, object):
     with open(path, "w") as output_file:
@@ -31,28 +31,6 @@ result_b = [([0], [0]), ([1, 2, 3], [1, 2]), ([4, 5], [3]), ([6, 7], [4]), ([8],
             ([30, 31, 32], [32]), ([33], [33]), ([34, 35], [34]), ([36, 37], [35]),
             ([38], [36]), ([39], [37, 38, 39])]
 
-def merge_results():
-
-    
-    
-    # On a un problème de chevauchement dès la position 2
-    GT = [[[0], [0], [0]], [[1, 2, 3], [1, 2], [1, 2, 3]], [[4, 5], [3], ]]
-    merged_list = []
-    for alignment_unit_a in result_a:
-        interm_list = []
-        pivot_a, source_a = alignment_unit_a
-        interm_list.extend([pivot_a, source_a])
-        for index, alignment_unit_b in enumerate(result_b):
-            pivot_b, source_b = alignment_unit_b
-            # On cherche l'unité d'alignement correspondante dans la liste B
-            if any(pos in pivot_a for pos in pivot_b):
-                print(alignment_unit_b)
-                if len(pivot_a) == 1:
-                    interm_list.append(source_b)
-        print(interm_list)
-    
-    # Essayer de travailler avec des graphes
-    exit(0)
 
 def parallel_align(first_alignment):
     from bertalign import Bertalign
@@ -60,19 +38,27 @@ def parallel_align(first_alignment):
     first_text = syntactic_tokenization.syntactic_tokenization(sys.argv[1])
     second_text = syntactic_tokenization.syntactic_tokenization(sys.argv[2])
     troisieme_texte = syntactic_tokenization.syntactic_tokenization(sys.argv[3])
-    min_length = min([len(first_text), len(second_text), len(troisieme_texte)]) - 1
-    print(min_length)
+    
+    with open("/home/mgl/Documents/test/text_1.json", "w") as output_json:
+        json.dump(first_text, output_json)
+    
+    with open("/home/mgl/Documents/test/text_2.json", "w") as output_json:
+        json.dump(second_text, output_json)
+    
+    with open("/home/mgl/Documents/test/text_3.json", "w") as output_json:
+        json.dump(troisieme_texte, output_json)
+        
+        
     # On va tâcher de fusionner les résultats de la première phase d'alignement de Bertalign
-    aligner_1 = Bertalign(first_text[:min_length], second_text[:min_length])
+    aligner_1 = Bertalign(first_text, second_text)
     aligner_1.align_sents(first_alignment_only=first_alignment)
-    aligner_2 = Bertalign(first_text[:min_length], troisieme_texte[:min_length])
+    aligner_2 = Bertalign(first_text, troisieme_texte)
     aligner_2.align_sents(first_alignment_only=first_alignment)
     write_json(f"/home/mgl/Documents/test/alignment_1_{str(first_alignment)}.json", aligner_1.result)
     write_json(f"/home/mgl/Documents/test/alignment_2.{str(first_alignment)}json", aligner_2.result)
     
     print(aligner_1.result)
     print(aligner_2.result)
-    full_alignment = []
     
     
     
@@ -129,13 +115,11 @@ def merge_align():
     first_text = syntactic_tokenization.syntactic_tokenization(sys.argv[1])
     second_text = syntactic_tokenization.syntactic_tokenization(sys.argv[2])
     troisieme_texte = syntactic_tokenization.syntactic_tokenization(sys.argv[3])
-    min_length = min([len(first_text), len(second_text), len(troisieme_texte)])
-    print(min_length)
-    aligner_1 = Bertalign(first_text[:min_length], second_text[:min_length])
+    aligner_1 = Bertalign(first_text, second_text)
     
     # On va tâcher de fusionner les résultats de la première phase d'alignement de Bertalign
     aligner_1.align_sents(first_alignment_only=True)
-    aligner_2 = Bertalign(first_text[:min_length], troisieme_texte[:min_length])
+    aligner_2 = Bertalign(first_text, troisieme_texte)
     aligner_2.align_sents(first_alignment_only=True)
     print(aligner_1.result)
     print(aligner_2.result)
@@ -146,7 +130,6 @@ def merge_align():
         json.dump(merged, output_file, cls=NumpyEncoder)
     # aligner.print_sents()
     write_json("/home/mgl/Documents/test/texts.json", (first_text, second_text, troisieme_texte))
-    return min_length
 
 def blue_print(string):
     OKBLUE = '\033[94m'
@@ -308,9 +291,9 @@ if __name__ == '__main__':
     # TODO: augmenter la sensibilité à la différence sémantique pour apporter plus d'omissions dans le texte. La fin
     # Est beaucoup trop mal alignée, alors que ça irait bien avec + d'absence. 
     res_1, res_2, (textes) = parallel_align(first_alignment=False)
-    nodes_as_dict = graph_test.main(result_a=res_1, result_b=res_2)
+    nodes_as_dict = graph_merge.merge_alignment_table(result_a=res_1, result_b=res_2)
     first_t, second_t, third_t = textes
-    with open("/home/mgl/Documents/test/camarche.tsv", "w") as output_text:
+    with open("/home/mgl/Documents/test/final_result.tsv", "w") as output_text:
         output_text.write("A\tB\tC\n")
         for item in nodes_as_dict:
             output_text.write("|".join(first_t[int(it)] for it in item["a"]))
@@ -318,6 +301,16 @@ if __name__ == '__main__':
             output_text.write("|".join(second_t[int(it)] for it in item["b"]))
             output_text.write("\t")
             output_text.write("|".join(third_t[int(it)] for it in item["c"]))
+            output_text.write("\n")
+
+    with open("/home/mgl/Documents/test/as_index.tsv", "w") as output_text:
+        output_text.write("A\tB\tC\n")
+        for item in nodes_as_dict:
+            output_text.write("|".join(it for it in item["a"]))
+            output_text.write("\t")
+            output_text.write("|".join(it for it in item["b"]))
+            output_text.write("\t")
+            output_text.write("|".join(it for it in item["c"]))
             output_text.write("\n")
             
         
