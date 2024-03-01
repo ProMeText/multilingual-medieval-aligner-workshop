@@ -1,4 +1,5 @@
 import copy
+import os
 import random
 import re
 import json
@@ -36,8 +37,12 @@ def syntactic_tokenization(path):
     #         print(search)
     #     else:
     #         print("NO")
-
-    with open("/home/mgl/Documents/test/split.txt", "w") as output_file:
+    
+    try:
+        os.mkdir("result_dir")
+    except FileExistsError:
+        pass
+    with open("result_dir/split.txt", "w") as output_file:
         output_file.write("\n".join(tokenized_text))
     return tokenized_text
     
