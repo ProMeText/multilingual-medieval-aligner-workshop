@@ -19,7 +19,7 @@ def syntactic_tokenization(path):
     single_token_punct = "".join(single_tokens_punctuation)
     multiple_tokens_punct = "|".join(multiple_tokens_punctuation)
     punctuation_subregex = f"{multiple_tokens_punct}|[{single_token_punct}]"
-    tokens_subregex = "(" + " | ".join(dictionary[codelang]['word_delimiters'] + dictionary[codelang]['punctuation']) + "|" + punctuation_subregex + ")"
+    tokens_subregex = "(" + " | ".join(dictionary[codelang]['word_delimiters']) + "|" + punctuation_subregex + ")"
     delimiter = re.compile(tokens_subregex)
     search = re.search(delimiter, text)
     tokenized_text = []

@@ -28,8 +28,8 @@ class Bertalign:
         
         src_sents = src
         tgt_sents = tgt
-        print(src_sents)
-        print(tgt_sents)
+        # print(src_sents)
+        # print(tgt_sents)
  
         src_num = len(src_sents)
         tgt_num = len(tgt_sents)
