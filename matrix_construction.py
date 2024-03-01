@@ -24,7 +24,7 @@ def construct_pairs(my_list):
 
 
 def save_alignment_results(results, first_text: list, second_text: list, name):
-    with open(f"/home/mgl/Documents/test/alignment_{name}.csv", "w") as output_alignment:
+    with open(f"result_dir/alignment_{name}.csv", "w") as output_alignment:
         for alignment_unit in results:
             first_alignment_id = "|".join([str(alignment) for alignment in alignment_unit[0]])
             first_span = "|".join([str(first_text[id]) for id in alignment_unit[0]])
