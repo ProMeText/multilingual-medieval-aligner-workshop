@@ -139,7 +139,6 @@ class Tokenizer:
                     following_word.addprevious(element_to_insert)
                     for token in xml_tokens:
                         element_to_insert.append(token)
-            
     
         self.tokenized_tree = tree
     

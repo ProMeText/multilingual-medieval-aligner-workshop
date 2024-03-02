@@ -4,6 +4,9 @@ import sys
 import numpy as np
 # import collatex
 import graph_merge
+import bertalign.utils as utils
+import bertalign.syntactic_tokenization as syntactic_tokenization
+from bertalign import Bertalign
 
 def write_json(path, object):
     with open(path, "w") as output_file:
@@ -31,86 +34,30 @@ result_b = [([0], [0]), ([1, 2, 3], [1, 2]), ([4, 5], [3]), ([6, 7], [4]), ([8],
             ([30, 31, 32], [32]), ([33], [33]), ([34, 35], [34]), ([36, 37], [35]),
             ([38], [36]), ([39], [37, 38, 39])]
 
+def create_pairs(full_list:list, main_wit_index:int):
+    pairs = []
+    main_wit = full_list.pop(int(main_wit_index))
+    for wit in full_list:
+        pairs.append((main_wit, wit))
+    print(pairs)
+    return pairs
 
 def parallel_align(first_alignment):
-    from bertalign import Bertalign
-    import bertalign.syntactic_tokenization as syntactic_tokenization
-    first_text = syntactic_tokenization.syntactic_tokenization(sys.argv[1])
-    second_text = syntactic_tokenization.syntactic_tokenization(sys.argv[2])
-    troisieme_texte = syntactic_tokenization.syntactic_tokenization(sys.argv[3])
-    
-    with open("/home/mgl/Documents/test/text_1.json", "w") as output_json:
-        json.dump(first_text, output_json)
-    
-    with open("/home/mgl/Documents/test/text_2.json", "w") as output_json:
-        json.dump(second_text, output_json)
-    
-    with open("/home/mgl/Documents/test/text_3.json", "w") as output_json:
-        json.dump(troisieme_texte, output_json)
+    pairs = create_pairs(sys.argv[:1], 0)
+    alignment_dict = dict()
+    for index, (main_wit, wit_to_compare) in enumerate(pairs):
+        first_tokenized_text = syntactic_tokenization.syntactic_tokenization(main_wit)
+        second_tokenized_text = syntactic_tokenization.syntactic_tokenization(wit_to_compare)
+        aligner = Bertalign(first_tokenized_text, second_tokenized_text)
+        aligner.align_sents(first_alignment_only=first_alignment)
+        alignment_dict[index] = aligner.result
+        write_json(f"result_dir/alignment_1_{str(index)}.json", aligner.result)
         
-        
-    # On va tâcher de fusionner les résultats de la première phase d'alignement de Bertalign
-    aligner_1 = Bertalign(first_text, second_text)
-    aligner_1.align_sents(first_alignment_only=first_alignment)
-    aligner_2 = Bertalign(first_text, troisieme_texte)
-    aligner_2.align_sents(first_alignment_only=first_alignment)
-    write_json(f"/home/mgl/Documents/test/alignment_1_{str(first_alignment)}.json", aligner_1.result)
-    write_json(f"/home/mgl/Documents/test/alignment_2.{str(first_alignment)}json", aligner_2.result)
+    utils.save_alignment_results(aligner.result, first_tokenized_text, second_tokenized_text, f"{main_wit}_{wit_to_compare}")
     
-    print(aligner_1.result)
-    print(aligner_2.result)
-    
-    
-    
-    with open(f"/home/mgl/Documents/test/alignment_1_{str(first_alignment)}.csv", "w") as output_alignment:
-        for alignment_unit in aligner_1.result:
-            if first_alignment:
-                first_alignment_id = alignment_unit[0]
-                first_span = first_text[alignment_unit[0]]
-                second_alignment_id = alignment_unit[1]
-                second_span = second_text[alignment_unit[1]]
-            else:
-                first_alignment_id = "|".join([str(alignment) for alignment in alignment_unit[0]])
-                first_span = "|".join([str(first_text[id]) for id in alignment_unit[0]])
-                second_alignment_id = "|".join([str(alignment) for alignment in alignment_unit[1]])
-                second_span = "|".join([str(second_text[id]) for id in alignment_unit[1]])  
-            output_alignment.write(str(first_alignment_id))
-            output_alignment.write("\t")
-            output_alignment.write(first_span)
-            output_alignment.write("\t")
-            output_alignment.write(second_span)
-            output_alignment.write("\t")
-            output_alignment.write(str(second_alignment_id))
-            output_alignment.write("\n")
-            
-    
-    with open(f"/home/mgl/Documents/test/alignment_2_{str(first_alignment)}.csv", "w") as output_alignment:
-        for alignment_unit in aligner_2.result:
-            if first_alignment:
-                first_alignment_id = alignment_unit[0]
-                first_span = first_text[alignment_unit[0]]
-                second_alignment_id = alignment_unit[1]
-                second_span = troisieme_texte[alignment_unit[1]]
-            else:
-                first_alignment_id = "|".join([str(alignment) for alignment in alignment_unit[0]])
-                first_span = "|".join([str(first_text[id]) for id in alignment_unit[0]])
-                second_alignment_id = "|".join([str(alignment) for alignment in alignment_unit[1]])
-                second_span = "|".join([str(troisieme_texte[id]) for id in alignment_unit[1]])  
-            output_alignment.write(str(first_alignment_id))
-            output_alignment.write("\t")
-            output_alignment.write(first_span)
-            output_alignment.write("\t")
-            output_alignment.write(second_span)
-            output_alignment.write("\t")
-            output_alignment.write(str(second_alignment_id))
-            output_alignment.write("\n")
-            
-            
-    return aligner_1.result, aligner_2.result, (first_text, second_text, troisieme_texte)
 
 
 def merge_align():
-    from bertalign import Bertalign
     import bertalign.syntactic_tokenization as syntactic_tokenization
     first_text = syntactic_tokenization.syntactic_tokenization(sys.argv[1])
     second_text = syntactic_tokenization.syntactic_tokenization(sys.argv[2])
@@ -282,6 +229,33 @@ def merge(alignment_a, alignment_b):
         else:
             follow_out = False
         print(end_list)
+        
+
+class Aligner:
+    def __init__(self, corpus_size:None):
+        self.alignment_dict = dict()
+        self.text_dict = dict()
+        self.files_path = sys.argv[1:-1]
+        self.main_file_index = sys.argv[-1]
+        self.corpus_size = corpus_size
+
+    def parallel_align(self):
+        pairs = create_pairs(self.files_path, self.main_file_index)
+        for index, (main_wit, wit_to_compare) in enumerate(pairs):
+            main_wit_name = main_wit.split("/")[-1].split(".")[0]
+            wit_to_compare_name = main_wit.split("/")[-1].split(".")[0]
+            print(f"Aligning {main_wit} with {wit_to_compare}")
+            first_tokenized_text = syntactic_tokenization.syntactic_tokenization(main_wit, corpus_limit=self.corpus_size)
+            second_tokenized_text = syntactic_tokenization.syntactic_tokenization(wit_to_compare, corpus_limit=self.corpus_size)
+            self.text_dict[0] = first_tokenized_text
+            self.text_dict[index + 1] = second_tokenized_text
+            aligner = Bertalign(first_tokenized_text, second_tokenized_text)
+            aligner.align_sents()
+            self.alignment_dict[index] = aligner.result
+            write_json(f"result_dir/alignment_1_{str(index)}.json", aligner.result)
+            utils.save_alignment_results(aligner.result, first_tokenized_text, second_tokenized_text,
+                                         f"{main_wit_name}_{wit_to_compare_name}")
+
 
 if __name__ == '__main__':
     # Ce qui a été fait: le problème de l'alignement trivial (1 pour 1 dans tous les témoins) est réglé.
@@ -290,28 +264,25 @@ if __name__ == '__main__':
     # Ça a l'air de marcher
     # TODO: augmenter la sensibilité à la différence sémantique pour apporter plus d'omissions dans le texte. La fin
     # Est beaucoup trop mal alignée, alors que ça irait bien avec + d'absence. 
-    res_1, res_2, (textes) = parallel_align(first_alignment=False)
-    nodes_as_dict = graph_merge.merge_alignment_table(result_a=res_1, result_b=res_2)
-    first_t, second_t, third_t = textes
-    with open("/home/mgl/Documents/test/final_result.tsv", "w") as output_text:
-        output_text.write("A\tB\tC\n")
-        for item in nodes_as_dict:
-            output_text.write("|".join(first_t[int(it)] for it in item["a"]))
-            output_text.write("\t")
-            output_text.write("|".join(second_t[int(it)] for it in item["b"]))
-            output_text.write("\t")
-            output_text.write("|".join(third_t[int(it)] for it in item["c"]))
+    MyAligner = Aligner(corpus_size=None)
+    MyAligner.parallel_align()
+    nodes_as_dict = graph_merge.merge_alignment_table(MyAligner.alignment_dict)
+    print(nodes_as_dict)
+    
+    
+    
+    
+    
+    with open("result_dir/final_result.tsv", "w") as output_text:
+        output_text.write("\t".join(letter for letter in nodes_as_dict[0]) + "\n")
+        translation_table = {"a": 0, "b": 1, "c": 2, "d": 3, "e": 4, "f": 5, "g": 6, "h": 7, "i": 8}
+        for alignment_unit in nodes_as_dict:
+            for index, witness in enumerate(nodes_as_dict[0]):
+                output_text.write("|".join(MyAligner.text_dict[translation_table[witness]][int(value)] for value in alignment_unit[witness]))
+                if index + 1 != len(nodes_as_dict[0]):
+                    output_text.write("\t")
             output_text.write("\n")
 
-    with open("/home/mgl/Documents/test/as_index.tsv", "w") as output_text:
-        output_text.write("A\tB\tC\n")
-        for item in nodes_as_dict:
-            output_text.write("|".join(it for it in item["a"]))
-            output_text.write("\t")
-            output_text.write("|".join(it for it in item["b"]))
-            output_text.write("\t")
-            output_text.write("|".join(it for it in item["c"]))
-            output_text.write("\n")
             
         
     

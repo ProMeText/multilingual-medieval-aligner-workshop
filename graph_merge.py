@@ -41,7 +41,7 @@ def deconnect(object):
                 final_list.append((item_A, item_B))
     return tuple(final_list)
 
-def merge_alignment_table(result_a, result_b):
+def merge_alignment_table(alignment_dict:dict) -> list:
     """
     Cette fonction va permettre de fusionner les items d'alignement à l'aide d'un passage par le graphe.
     Il en ressort une liste de dictionnaires, chaque item consistant en une unité d'alignement.
@@ -49,14 +49,13 @@ def merge_alignment_table(result_a, result_b):
     # On désambiguise les noeuds
     G = networkx.petersen_graph()
     # On modifie la structure pour avoir des noeuds connectés 2 à 2 et des tuples
-    structured_a = deconnect(desambiguise(result_a, ("a", "b")))
-    structured_b = deconnect(desambiguise(result_b, ("a", "c")))
-    # Résultat de la forme: (('0_a', '0_b'), ('1_a', '1_b'), ('2_a', '2_b'), ('3_a', '3_b'), etc.)
-    G.add_edges_from(structured_a)
-    G.add_edges_from(structured_b)
+    string = "abcdefghijk"
+    for index, value in alignment_dict.items():
+        structured_a = deconnect(desambiguise(value, (string[0], string[index + 1])))
+        print(structured_a)
+        # Résultat de la forme: (('0_a', '0_b'), ('1_a', '1_b'), ('2_a', '2_b'), ('3_a', '3_b'), etc.)
+        G.add_edges_from(structured_a)
     connected_nodes = []
-    
-    
     # On prend chaque noeud et on en ressort les noeuds connectés
     for node in G:
         # https://stackoverflow.com/a/33089602
@@ -76,7 +75,7 @@ def merge_alignment_table(result_a, result_b):
     nodes_as_dict = []
     for connection in connected_nodes:
         wit_dictionnary = {}
-        for document in "abc":
+        for document in string[:len(alignment_dict) + 1]:
             wit_dictionnary[document] = [node.replace(f'_{document}', '') for node in connection if document in node]
         nodes_as_dict.append(wit_dictionnary)
     return nodes_as_dict
