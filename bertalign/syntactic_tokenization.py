@@ -42,13 +42,6 @@ def syntactic_tokenization(path, corpus_limit=None):
     #     else:
     #         print("NO")
     
-    try:
-        os.mkdir("result_dir")
-    except FileExistsError:
-        pass
-    with open(f"result_dir/split_{name}.txt", "w") as output_file:
-        output_file.write("\n".join(tokenized_text))
-    utils.write_json(f"result_dir/split_{name}.json", tokenized_text)
     return tokenized_text
     
             

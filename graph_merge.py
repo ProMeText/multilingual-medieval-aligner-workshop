@@ -50,13 +50,14 @@ def merge_alignment_table(alignment_dict:dict) -> list:
     G = networkx.petersen_graph()
     # On modifie la structure pour avoir des noeuds connectés 2 à 2 et des tuples
     string = "abcdefghijk"
+    # TODO: gérer les omissions dans le témoin de base.
     for index, value in alignment_dict.items():
-        structured_a = deconnect(desambiguise(value, (string[0], string[index + 1])))
-        print(structured_a)
+        structured_a = deconnect(desambiguise(value, (string[0], string[int(index) + 1])))
         # Résultat de la forme: (('0_a', '0_b'), ('1_a', '1_b'), ('2_a', '2_b'), ('3_a', '3_b'), etc.)
         G.add_edges_from(structured_a)
     connected_nodes = []
     # On prend chaque noeud et on en ressort les noeuds connectés
+    print(alignment_dict)
     for node in G:
         # https://stackoverflow.com/a/33089602
         connected_components = list(networkx.node_connected_component(G, node))
@@ -76,8 +77,46 @@ def merge_alignment_table(alignment_dict:dict) -> list:
     for connection in connected_nodes:
         wit_dictionnary = {}
         for document in string[:len(alignment_dict) + 1]:
-            wit_dictionnary[document] = [node.replace(f'_{document}', '') for node in connection if document in node]
+            pos_list = [node.replace(f'_{document}', '') for node in connection if document in node]
+            pos_list.sort(key=lambda x:int(x))
+            wit_dictionnary[document] = pos_list
         nodes_as_dict.append(wit_dictionnary)
+    nodes_as_dict.sort(key=lambda x: int(x['a'][0]))
+    
+    # Now we have to manage the omissions in the main document.
+    omitted_pos = dict()
+    for wit in 'abcde':
+        # We get the last position, could do it with length of input lists.
+        all_positions = [align_dict[wit] for align_dict in nodes_as_dict if align_dict[wit] != []]
+        last_position = int(all_positions[-1][-1])
+        not_present_positions = list(set(range(last_position + 1)) - set([int(position) for dictionnary in nodes_as_dict for position in dictionnary[wit]]))
+        not_present_positions.sort()
+        omitted_pos[wit] = not_present_positions
+    
+    print(omitted_pos)
+    print(nodes_as_dict)
+    for wit in 'bcde':
+        print(f"\n{wit}")
+        for omitted in omitted_pos[wit]:
+            print(omitted)
+            corresponding_alignment_unit = [(index, node) for index, node in enumerate(nodes_as_dict) if str(omitted-1) in node[wit]][0]
+            print(corresponding_alignment_unit)
+            # On a plusieurs cas de figure
+            # Le premier: un fusion avec un "trou": (39, {'a': ['59', '60'], 'b': ['65', '67'], 'c': ['62', '63'], 'd': ['82'], 'e': ['58']})
+            if str(omitted + 1) in corresponding_alignment_unit[1][wit]:
+                print("A")
+                # Deux pssibilités: soit on scinde (mais comment faire?), soit on ajoute l'élément
+                copied_node = corresponding_alignment_unit[1]
+                list_to_amend = copied_node[wit]
+                list_to_amend.append(str(omitted))
+                list_to_amend.sort()
+                copied_node[wit] = list_to_amend
+                nodes_as_dict[corresponding_alignment_unit[0]] = copied_node
+            else:
+                print("B")
+                new_node = {wit:[] for wit in 'abcde'}
+                new_node[wit] = [str(omitted)]
+                nodes_as_dict.insert(corresponding_alignment_unit[0] + 1, new_node)
     return nodes_as_dict
 
 

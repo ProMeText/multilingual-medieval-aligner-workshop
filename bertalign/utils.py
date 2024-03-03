@@ -42,8 +42,8 @@ def normalize_text(text):
 
 def clean_tokenized_content(tokenized_doc: list):
     digit_pattern = re.compile(r"\d+")
-    pattern_full = re.compile(r"[;,:.]\s?|!»|»")
-    pattern_start = re.compile(r"^[-;,:.\!\?]\s+[-;,:.\!\?]\s+(.*)")
+    pattern_full = re.compile(r"[—;,:.]\s+[«»]?|![«»]|»")
+    pattern_start = re.compile(r"^[-;,:.\!\?]\s+[-;,:.\!\?]?\s+(.*)")
     alt_pattern_start = re.compile(r"»\s+\d+")
     cleaned_doc = []
     for line in tokenized_doc:
@@ -51,9 +51,14 @@ def clean_tokenized_content(tokenized_doc: list):
         cleaned = re.sub(pattern_full, "", cleaned)
         cleaned = re.sub(pattern_start, "\1", cleaned)
         cleaned = re.sub(alt_pattern_start, "\1", cleaned)
+        cleaned = cleaned.replace(".", "")
+        cleaned = cleaned.replace(",", "")
+        cleaned = cleaned.replace("/", "")
+        cleaned = cleaned.replace("-", "")
+        cleaned = cleaned.strip()
         if cleaned != "":
             cleaned_doc.append(cleaned)
-    print(cleaned_doc)
+
     return cleaned_doc
 
 def pretty_print_xml_tree(file):
@@ -131,6 +136,28 @@ def generateur_id(size=6, chars=string.ascii_uppercase + string.ascii_lowercase 
     return random_letter + random_string
 
 
+
+def test_tables_consistency(align_dict, witnesses):
+    """
+    Cette fonction teste si tous les témoins contiennent bien l'intégralité du texte dans le bon ordre à la fin du processus
+    """
+    for witness in witnesses:
+        print(witness)
+        wit_table = []
+        for alignment_unit in align_dict:
+            wit_table.extend(int(item) for item in alignment_unit[witness])
+        last_pos = wit_table[-1]
+        ranges = list(range(last_pos + 1))
+        is_equal = wit_table == ranges
+        if is_equal is False:
+            print("Not right")
+            print(list(zip(ranges, wit_table)))
+            print(type(ranges), type(wit_table))
+            print([(a, b) for a, b in list(zip(ranges, wit_table)) if a!=b])
+            print(align_dict)
+        else:
+            print("OK")
+    return 
 
 class LANG:
     SPLITTER = {

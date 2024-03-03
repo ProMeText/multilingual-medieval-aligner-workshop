@@ -1,4 +1,6 @@
 import json
+import os
+
 from numpyencoder import NumpyEncoder
 import sys
 import numpy as np
@@ -8,15 +10,6 @@ import bertalign.utils as utils
 import bertalign.syntactic_tokenization as syntactic_tokenization
 from bertalign import Bertalign
 
-def write_json(path, object):
-    with open(path, "w") as output_file:
-        json.dump(object, output_file, cls=NumpyEncoder)
-
-
-def read_json(path):
-    with open(path, "r") as output_file:
-        liste = json.load(output_file)
-    return liste
 
 result_a = [([0], [0]), ([1], [1]), ([2], [2]), ([3], [3]), ([4], [4]), ([5, 6, 7], [5, 6]), 
             ([8], [7, 8, 9, 10]), ([9], [11, 12]), ([10, 11], [13]), ([12], []), ([13], [14]), 
@@ -232,29 +225,51 @@ def merge(alignment_a, alignment_b):
         
 
 class Aligner:
-    def __init__(self, corpus_size:None):
+    def __init__(self, corpus_size:None, max_align=3):
         self.alignment_dict = dict()
         self.text_dict = dict()
         self.files_path = sys.argv[1:-1]
         self.main_file_index = sys.argv[-1]
         self.corpus_size = corpus_size
+        self.max_align = max_align
 
     def parallel_align(self):
         pairs = create_pairs(self.files_path, self.main_file_index)
         for index, (main_wit, wit_to_compare) in enumerate(pairs):
             main_wit_name = main_wit.split("/")[-1].split(".")[0]
-            wit_to_compare_name = main_wit.split("/")[-1].split(".")[0]
+            wit_to_compare_name = wit_to_compare.split("/")[-1].split(".")[0]
             print(f"Aligning {main_wit} with {wit_to_compare}")
-            first_tokenized_text = syntactic_tokenization.syntactic_tokenization(main_wit, corpus_limit=self.corpus_size)
-            second_tokenized_text = syntactic_tokenization.syntactic_tokenization(wit_to_compare, corpus_limit=self.corpus_size)
+            first_tokenized_text = utils.clean_tokenized_content(syntactic_tokenization.syntactic_tokenization(main_wit, corpus_limit=self.corpus_size))
+            print(len(first_tokenized_text))
+            second_tokenized_text = utils.clean_tokenized_content(syntactic_tokenization.syntactic_tokenization(wit_to_compare, corpus_limit=self.corpus_size))
+            try:
+                os.mkdir("result_dir")
+            except FileExistsError:
+                pass
+            utils.write_json(f"result_dir/split_{wit_to_compare_name}.json", second_tokenized_text)
             self.text_dict[0] = first_tokenized_text
             self.text_dict[index + 1] = second_tokenized_text
-            aligner = Bertalign(first_tokenized_text, second_tokenized_text)
+            aligner = Bertalign(first_tokenized_text, second_tokenized_text, max_align= self.max_align)
             aligner.align_sents()
             self.alignment_dict[index] = aligner.result
-            write_json(f"result_dir/alignment_1_{str(index)}.json", aligner.result)
+            utils.write_json(f"result_dir/alignment_{str(index)}.json", aligner.result)
             utils.save_alignment_results(aligner.result, first_tokenized_text, second_tokenized_text,
                                          f"{main_wit_name}_{wit_to_compare_name}")
+        utils.write_json(f"result_dir/alignment_dict.json", self.alignment_dict)
+
+def save_final_result(list_of_merged_alignments, MyAligner):
+    with open("result_dir/final_result.tsv", "w") as output_text:
+        output_text.write("\t".join(letter for letter in list_of_merged_alignments[0]) + "\n")
+        # TODO: remplacer ça, c'est pas propre et ça sert à rien
+        translation_table = {"a": 0, "b": 1, "c": 2, "d": 3, "e": 4, "f": 5, "g": 6, "h": 7, "i": 8}
+        for alignment_unit in list_of_merged_alignments:
+            output_text.write("|".join(value for value in alignment_unit['a']) + "\t")
+            for index, witness in enumerate(list_of_merged_alignments[0]):
+                output_text.write("|".join(MyAligner.text_dict[translation_table[witness]][int(value)] for value in
+                                           alignment_unit[witness]))
+                if index + 1 != len(list_of_merged_alignments[0]):
+                    output_text.write("\t")
+            output_text.write("\n")
 
 
 if __name__ == '__main__':
@@ -264,25 +279,16 @@ if __name__ == '__main__':
     # Ça a l'air de marcher
     # TODO: augmenter la sensibilité à la différence sémantique pour apporter plus d'omissions dans le texte. La fin
     # Est beaucoup trop mal alignée, alors que ça irait bien avec + d'absence. 
-    MyAligner = Aligner(corpus_size=None)
+    MyAligner = Aligner(corpus_size=None, max_align=3)
     MyAligner.parallel_align()
-    nodes_as_dict = graph_merge.merge_alignment_table(MyAligner.alignment_dict)
-    print(nodes_as_dict)
+    utils.write_json("result_dir/alignment_dict.json", MyAligner.alignment_dict)
+    align_dict = utils.read_json("result_dir/alignment_dict.json")
+    list_of_merged_alignments = graph_merge.merge_alignment_table(align_dict)
+    # On teste si on ne perd pas de noeuds textuels
+    utils.test_tables_consistency(list_of_merged_alignments, 'abcde')
+    save_final_result(list_of_merged_alignments, MyAligner)
     
     
-    
-    
-    
-    with open("result_dir/final_result.tsv", "w") as output_text:
-        output_text.write("\t".join(letter for letter in nodes_as_dict[0]) + "\n")
-        translation_table = {"a": 0, "b": 1, "c": 2, "d": 3, "e": 4, "f": 5, "g": 6, "h": 7, "i": 8}
-        for alignment_unit in nodes_as_dict:
-            for index, witness in enumerate(nodes_as_dict[0]):
-                output_text.write("|".join(MyAligner.text_dict[translation_table[witness]][int(value)] for value in alignment_unit[witness]))
-                if index + 1 != len(nodes_as_dict[0]):
-                    output_text.write("\t")
-            output_text.write("\n")
-
+                
             
-        
     

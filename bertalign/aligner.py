@@ -8,7 +8,7 @@ class Bertalign:
     def __init__(self,
                  src,
                  tgt,
-                 max_align=5,
+                 max_align=3,
                  top_k=3,
                  win=5,
                  skip=-0.1,

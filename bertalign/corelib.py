@@ -17,7 +17,6 @@ def second_back_track(i, j, pointers, search_path, a_types):
 
         i = i-s
         j = j-t
-    
         if i == 0 and j == 0:
             return alignment[::-1]
 
@@ -226,6 +225,7 @@ def find_second_search_path(align, w, src_len, tgt_len):
     prev_src, prev_tgt = 0, 0
     path = []
     max_w = -np.inf
+    max_w = -3
     for src, tgt in align:
         # Limit the search path in a rectangle with the width
         # along the Y axis being (upper_bound - lower_bound).
