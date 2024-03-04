@@ -2,6 +2,7 @@ import re
 import sys
 import pandas
 import bertalign.utils as utils
+import numpy as np
 
 
 
@@ -56,6 +57,8 @@ def presence_absence_to_matrix(absence_results: dict):
     sort_idx = df.sort_index(axis=0)
     sort_idx = sort_idx.sort_index(axis=1)
     print(sort_idx)
+    with open("result_dir/absence_matrix.csv", "w") as matrix:
+        matrix.write(sort_idx.to_csv())
 
 
 def blue_print(string):

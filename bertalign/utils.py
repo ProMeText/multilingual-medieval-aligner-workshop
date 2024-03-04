@@ -42,19 +42,21 @@ def normalize_text(text):
 
 def clean_tokenized_content(tokenized_doc: list):
     digit_pattern = re.compile(r"\d+")
-    pattern_full = re.compile(r"[—;,:.]\s+[«»]?|![«»]|»")
+    pattern_full = re.compile(r"[—;,:.]\s+[«»]|![«»]|»")
     pattern_start = re.compile(r"^[-;,:.\!\?]\s+[-;,:.\!\?]?\s+(.*)")
     alt_pattern_start = re.compile(r"»\s+\d+")
+    spaces_pattern = re.compile("\s+")
     cleaned_doc = []
     for line in tokenized_doc:
         cleaned = re.sub(digit_pattern, "", line)
         cleaned = re.sub(pattern_full, "", cleaned)
         cleaned = re.sub(pattern_start, "\1", cleaned)
         cleaned = re.sub(alt_pattern_start, "\1", cleaned)
-        cleaned = cleaned.replace(".", "")
-        cleaned = cleaned.replace(",", "")
-        cleaned = cleaned.replace("/", "")
-        cleaned = cleaned.replace("-", "")
+        cleaned = cleaned.replace(".", " ")
+        cleaned = cleaned.replace(",", " ")
+        cleaned = cleaned.replace("/", " ")
+        cleaned = cleaned.replace("-", " ")
+        cleaned = re.sub(spaces_pattern, " ", cleaned)
         cleaned = cleaned.strip()
         if cleaned != "":
             cleaned_doc.append(cleaned)
