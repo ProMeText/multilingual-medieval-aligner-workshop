@@ -56,6 +56,7 @@ def clean_tokenized_content(tokenized_doc: list):
         cleaned = cleaned.replace(",", " ")
         cleaned = cleaned.replace("/", " ")
         cleaned = cleaned.replace("-", " ")
+        cleaned = cleaned.replace("\u0001", " ")
         cleaned = re.sub(spaces_pattern, " ", cleaned)
         cleaned = cleaned.strip()
         if cleaned != "":

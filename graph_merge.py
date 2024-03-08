@@ -50,7 +50,6 @@ def merge_alignment_table(alignment_dict:dict) -> list:
     G = networkx.petersen_graph()
     # On modifie la structure pour avoir des noeuds connectés 2 à 2 et des tuples
     string = "abcdefghijk"
-    # TODO: gérer les omissions dans le témoin de base.
     for index, value in alignment_dict.items():
         structured_a = deconnect(desambiguise(value, (string[0], string[int(index) + 1])))
         # Résultat de la forme: (('0_a', '0_b'), ('1_a', '1_b'), ('2_a', '2_b'), ('3_a', '3_b'), etc.)
@@ -85,40 +84,41 @@ def merge_alignment_table(alignment_dict:dict) -> list:
     
     # Now we have to manage the omissions in the main document.
     omitted_pos = dict()
-    for wit in 'abcde':
+    for wit in 'abcdefg':
         all_positions = [align_dict[wit] for align_dict in nodes_as_dict if align_dict[wit] != []]
         last_position = int(all_positions[-1][-1])
         not_present_positions = list(set(range(last_position + 1)) - set([int(position) for dictionnary in nodes_as_dict for position in dictionnary[wit]]))
         not_present_positions.sort()
         omitted_pos[wit] = not_present_positions
     
-    print(omitted_pos)
-    print(nodes_as_dict)
-    for wit in 'bcde':
+    for wit in 'bcdefg':
         print(f"\n{wit}")
         for omitted in omitted_pos[wit]:
             print(omitted)
             if omitted != 0:
-                corresponding_alignment_unit = [(index, node) for index, node in enumerate(nodes_as_dict) if str(omitted-1) in node[wit]][0]
+                corresponding_alignment_unit = [(index, node) for index, node in enumerate(nodes_as_dict) if str(omitted - 1) in node[wit]][0]
             else:
                 corresponding_alignment_unit = (0, nodes_as_dict[0])
             print(corresponding_alignment_unit)
             # On a plusieurs cas de figure
             # Le premier: un fusion avec un "trou": (39, {'a': ['59', '60'], 'b': ['65', '67'], 'c': ['62', '63'], 'd': ['82'], 'e': ['58']})
-            if str(omitted + 1) in corresponding_alignment_unit[1][wit]:
+            # if str(omitted + 1) in corresponding_alignment_unit[1][wit]:
+            if any(int(item) > omitted for item in corresponding_alignment_unit[1][wit]):
                 print("A")
-                # Deux pssibilités: soit on scinde (mais comment faire?), soit on ajoute l'élément
                 copied_node = corresponding_alignment_unit[1]
                 list_to_amend = copied_node[wit]
                 list_to_amend.append(str(omitted))
-                list_to_amend.sort()
+                list_to_amend.sort(key=lambda x:int(x))
                 copied_node[wit] = list_to_amend
+                assert all([list_to_amend[index] - list_to_amend[index - 1] == 1 for index in range(1, len(list_to_amend))])
                 nodes_as_dict[corresponding_alignment_unit[0]] = copied_node
             else:
                 print("B")
-                new_node = {wit:[] for wit in 'abcde'}
+                new_node = {wit:[] for wit in 'abcdefg'}
                 new_node[wit] = [str(omitted)]
                 nodes_as_dict.insert(corresponding_alignment_unit[0] + 1, new_node)
+                print(new_node)
+            print("\n")
     return nodes_as_dict
 
 

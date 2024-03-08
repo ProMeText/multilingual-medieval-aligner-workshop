@@ -96,17 +96,29 @@ class Aligner:
         """
         Saves result to tsv file
         """
-        with open(f"result_dir/{self.out_dir}/final_result.tsv", "w") as output_text:
-            output_text.write("\t".join(letter for letter in list_of_merged_alignments[0]) + "\n")
+        with open(f"result_dir/{self.out_dir}/final_result.csv", "w") as output_text:
+            output_text.write(",".join(letter for letter in list_of_merged_alignments[0]) + "\n")
             # TODO: remplacer ça, c'est pas propre et ça sert à rien
             translation_table = {"a": 0, "b": 1, "c": 2, "d": 3, "e": 4, "f": 5, "g": 6, "h": 7, "i": 8}
             for alignment_unit in list_of_merged_alignments:
-                output_text.write("|".join(value for value in alignment_unit['a']) + "\t")
+                output_text.write("|".join(value for value in alignment_unit['a']) + ",")
                 for index, witness in enumerate(list_of_merged_alignments[0]):
                     output_text.write("|".join(MyAligner.text_dict[translation_table[witness]][int(value)] for value in
                                                alignment_unit[witness]))
                     if index + 1 != len(list_of_merged_alignments[0]):
-                        output_text.write("\t")
+                        output_text.write(",")
+                output_text.write("\n")
+        
+        with open(f"result_dir/{self.out_dir}/final_result_as_index.csv", "w") as output_text:
+            output_text.write(",".join(letter for letter in list_of_merged_alignments[0]) + "\n")
+            # TODO: remplacer ça, c'est pas propre et ça sert à rien
+            translation_table = {"a": 0, "b": 1, "c": 2, "d": 3, "e": 4, "f": 5, "g": 6, "h": 7, "i": 8}
+            for alignment_unit in list_of_merged_alignments:
+                for index, witness in enumerate(list_of_merged_alignments[0]):
+                    output_text.write("|".join(value for value in
+                                               alignment_unit[witness]))
+                    if index + 1 != len(list_of_merged_alignments[0]):
+                        output_text.write(",")
                 output_text.write("\n")
 
 
@@ -118,13 +130,13 @@ if __name__ == '__main__':
     # TODO: augmenter la sensibilité à la différence sémantique pour apporter plus d'omissions dans le texte. La fin
     # Est beaucoup trop mal alignée, alors que ça irait bien avec + d'absence. 
     out_dir = sys.argv[-1]
-    MyAligner = Aligner(corpus_size=300, max_align=3, out_dir=out_dir)
+    MyAligner = Aligner(corpus_size=None, max_align=3, out_dir=out_dir)
     MyAligner.parallel_align()
     utils.write_json(f"result_dir/{out_dir}/alignment_dict.json", MyAligner.alignment_dict)
     align_dict = utils.read_json(f"result_dir/{out_dir}/alignment_dict.json")
     list_of_merged_alignments = graph_merge.merge_alignment_table(align_dict)
     # On teste si on ne perd pas de noeuds textuels
-    utils.test_tables_consistency(list_of_merged_alignments, 'abcde')
+    utils.test_tables_consistency(list_of_merged_alignments, 'abcdefg')
     MyAligner.save_final_result(list_of_merged_alignments, MyAligner)
     
     
