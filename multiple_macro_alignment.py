@@ -112,7 +112,7 @@ class Aligner:
             self.alignment_dict[index] = aligner.result
             utils.write_json(f"result_dir/{self.out_dir}/alignment_{str(index)}.json", aligner.result)
             utils.save_alignment_results(aligner.result, first_tokenized_text, second_tokenized_text,
-                                         f"{main_wit_name}_{wit_to_compare_name}", out_dir)
+                                         f"{main_wit_name}_{wit_to_compare_name}", self.out_dir)
         utils.write_json(f"result_dir/{self.out_dir}/alignment_dict.json", self.alignment_dict)
 
     def save_final_result(self, merged_alignments:list, file_titles:list):
