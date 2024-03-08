@@ -9,6 +9,7 @@ import graph_merge
 import bertalign.utils as utils
 import bertalign.syntactic_tokenization as syntactic_tokenization
 from bertalign import Bertalign
+import tests
 
 
 result_a = [([0], [0]), ([1], [1]), ([2], [2]), ([3], [3]), ([4], [4]), ([5, 6, 7], [5, 6]), 
@@ -27,7 +28,10 @@ result_b = [([0], [0]), ([1, 2, 3], [1, 2]), ([4, 5], [3]), ([6, 7], [4]), ([8],
             ([30, 31, 32], [32]), ([33], [33]), ([34, 35], [34]), ([36, 37], [35]),
             ([38], [36]), ([39], [37, 38, 39])]
 
-def create_pairs(full_list:list, main_wit_index:int):
+def create_pairs(full_list:list, main_wit_index:int) -> list:
+    """
+    From a list of witnesses and the main witness index, create all possible pairs with this witness.
+    """
     pairs = []
     main_wit = full_list.pop(int(main_wit_index))
     for wit in full_list:
@@ -58,12 +62,11 @@ class Aligner:
         self.corpus_size = corpus_size
         self.max_align = max_align
         self.out_dir = out_dir
-        try:
-            os.mkdir(out_dir)
-        except FileExistsError:
-            pass
 
     def parallel_align(self):
+        """
+        This function procedes to the alignments two by two and then merges the alingments into one
+        """
         pairs = create_pairs(self.files_path, self.main_file_index)
         for index, (main_wit, wit_to_compare) in enumerate(pairs):
             main_wit_name = main_wit.split("/")[-1].split(".")[0]
@@ -73,10 +76,12 @@ class Aligner:
             print(len(first_tokenized_text))
             second_tokenized_text = utils.clean_tokenized_content(syntactic_tokenization.syntactic_tokenization(wit_to_compare, corpus_limit=self.corpus_size))
             try:
-                os.mkdir(f"{self.out_dir}/result_dir")
+                os.mkdir(f"result_dir/{self.out_dir}/")
             except FileExistsError:
                 pass
-            utils.write_json(f"result_dir/{self.out_dir}/split_{wit_to_compare_name}.json", second_tokenized_text)
+            utils.write_json(f"result_dir/{self.out_dir}/tokenized_{wit_to_compare_name}.json", first_tokenized_text)
+            utils.write_json(f"result_dir/{self.out_dir}/tokenized_{wit_to_compare_name}.json", second_tokenized_text)
+            utils.write_tokenized_text(f"result_dir/{self.out_dir}/tokenized_{wit_to_compare_name}.txt", second_tokenized_text)
             self.text_dict[0] = first_tokenized_text
             self.text_dict[index + 1] = second_tokenized_text
             aligner = Bertalign(first_tokenized_text, second_tokenized_text, max_align= self.max_align)
@@ -84,10 +89,13 @@ class Aligner:
             self.alignment_dict[index] = aligner.result
             utils.write_json(f"result_dir/{self.out_dir}/alignment_{str(index)}.json", aligner.result)
             utils.save_alignment_results(aligner.result, first_tokenized_text, second_tokenized_text,
-                                         f"{main_wit_name}_{wit_to_compare_name}")
+                                         f"{main_wit_name}_{wit_to_compare_name}", out_dir)
         utils.write_json(f"result_dir/{self.out_dir}/alignment_dict.json", self.alignment_dict)
 
     def save_final_result(self, list_of_merged_alignments, MyAligner):
+        """
+        Saves result to tsv file
+        """
         with open(f"result_dir/{self.out_dir}/final_result.tsv", "w") as output_text:
             output_text.write("\t".join(letter for letter in list_of_merged_alignments[0]) + "\n")
             # TODO: remplacer ça, c'est pas propre et ça sert à rien
@@ -110,7 +118,7 @@ if __name__ == '__main__':
     # TODO: augmenter la sensibilité à la différence sémantique pour apporter plus d'omissions dans le texte. La fin
     # Est beaucoup trop mal alignée, alors que ça irait bien avec + d'absence. 
     out_dir = sys.argv[-1]
-    MyAligner = Aligner(corpus_size=None, max_align=3, out_dir=out_dir)
+    MyAligner = Aligner(corpus_size=300, max_align=3, out_dir=out_dir)
     MyAligner.parallel_align()
     utils.write_json(f"result_dir/{out_dir}/alignment_dict.json", MyAligner.alignment_dict)
     align_dict = utils.read_json(f"result_dir/{out_dir}/alignment_dict.json")

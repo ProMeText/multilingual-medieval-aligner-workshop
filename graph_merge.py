@@ -86,7 +86,6 @@ def merge_alignment_table(alignment_dict:dict) -> list:
     # Now we have to manage the omissions in the main document.
     omitted_pos = dict()
     for wit in 'abcde':
-        # We get the last position, could do it with length of input lists.
         all_positions = [align_dict[wit] for align_dict in nodes_as_dict if align_dict[wit] != []]
         last_position = int(all_positions[-1][-1])
         not_present_positions = list(set(range(last_position + 1)) - set([int(position) for dictionnary in nodes_as_dict for position in dictionnary[wit]]))
@@ -99,7 +98,10 @@ def merge_alignment_table(alignment_dict:dict) -> list:
         print(f"\n{wit}")
         for omitted in omitted_pos[wit]:
             print(omitted)
-            corresponding_alignment_unit = [(index, node) for index, node in enumerate(nodes_as_dict) if str(omitted-1) in node[wit]][0]
+            if omitted != 0:
+                corresponding_alignment_unit = [(index, node) for index, node in enumerate(nodes_as_dict) if str(omitted-1) in node[wit]][0]
+            else:
+                corresponding_alignment_unit = (0, nodes_as_dict[0])
             print(corresponding_alignment_unit)
             # On a plusieurs cas de figure
             # Le premier: un fusion avec un "trou": (39, {'a': ['59', '60'], 'b': ['65', '67'], 'c': ['62', '63'], 'd': ['82'], 'e': ['58']})

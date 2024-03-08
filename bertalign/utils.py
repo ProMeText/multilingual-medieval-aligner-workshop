@@ -8,8 +8,8 @@ import itertools
 from numpyencoder import NumpyEncoder
 
 
-def save_alignment_results(results, first_text: list, second_text: list, name:str) -> None:
-    with open(f"result_dir/alignment_{name}.csv", "w") as output_alignment:
+def save_alignment_results(results, first_text: list, second_text: list, name:str, out_dir) -> None:
+    with open(f"result_dir/{out_dir}/alignment_{name}.csv", "w") as output_alignment:
         for alignment_unit in results:
             first_alignment_id = "|".join([str(alignment) for alignment in alignment_unit[0]])
             first_span = "|".join([str(first_text[id]) for id in alignment_unit[0]])
@@ -24,7 +24,7 @@ def save_alignment_results(results, first_text: list, second_text: list, name:st
             output_alignment.write(str(second_alignment_id))
             output_alignment.write("\n")
 
-    with open(f"result_dir/{name}_as_index.tsv", "w") as output_text:
+    with open(f"result_dir/{out_dir}/{name}_as_index.tsv", "w") as output_text:
         output_text.write("A\tB\n")
         for alignment_unit in results:
             output_text.write("|".join([str(id) for id in alignment_unit[0]]))
@@ -42,8 +42,8 @@ def normalize_text(text):
 
 def clean_tokenized_content(tokenized_doc: list):
     digit_pattern = re.compile(r"\d+")
-    pattern_full = re.compile(r"[—;,:.]\s+[«»]|![«»]|»")
-    pattern_start = re.compile(r"^[-;,:.\!\?]\s+[-;,:.\!\?]?\s+(.*)")
+    pattern_full = re.compile(r"[—;,:\.]\s+[«»]|![«»]|»")
+    pattern_start = re.compile(r"^[-;,:\.\!\?]\s+[-;,:\.\!\?]?\s+(.*)")
     alt_pattern_start = re.compile(r"»\s+\d+")
     spaces_pattern = re.compile("\s+")
     cleaned_doc = []
@@ -77,9 +77,15 @@ def save_tree_to_file(tree, filepath):
     with open(filepath, "w") as out_file:
         out_file.write(etree.tostring(tree, pretty_print=True).decode())
         
-def write_json(path, object):
+def write_json(path, object:json):
     with open(path, "w") as output_file:
         json.dump(object, output_file, cls=NumpyEncoder)
+
+
+
+def write_tokenized_text(path, tokenized_text:list):
+    with open(path, "w") as output_file:
+        output_file.write("\n".join(tokenized_text))
 
 
 def read_json(path):
