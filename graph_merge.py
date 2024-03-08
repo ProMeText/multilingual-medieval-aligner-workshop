@@ -1,9 +1,9 @@
 import networkx as networkx
 import string
 
-def desambiguise(object, labels):
+def desambiguise(object:list, labels:list) -> list:
     """
-    On ajoute à chaque noeud le document d'origine:
+    On ajoute à chaque noeud le document d'origine, pour pouvoir transformer dans un graphe global ensuite:
     ((0, 0), 
     (1, 1), 
     (2, 2), 
@@ -27,7 +27,7 @@ def desambiguise(object, labels):
         as_unique_nodes.append((tuple(ranges_A), tuple(ranges_B)))
     return as_unique_nodes
 
-def deconnect(object):
+def deconnect(object:list) -> tuple:
     """
     On passe de groupes à des paires de positions
     [(('5_a', '6_a', '7_a'), ('5_b', '6_b'))]
