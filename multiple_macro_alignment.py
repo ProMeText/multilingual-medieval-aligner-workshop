@@ -1,6 +1,7 @@
 import json
 import os
 
+import string
 from numpyencoder import NumpyEncoder
 import sys
 import numpy as np
@@ -92,25 +93,26 @@ class Aligner:
                                          f"{main_wit_name}_{wit_to_compare_name}", out_dir)
         utils.write_json(f"result_dir/{self.out_dir}/alignment_dict.json", self.alignment_dict)
 
-    def save_final_result(self, list_of_merged_alignments, MyAligner):
+    def save_final_result(self, list_of_merged_alignments:list, file_titles:list):
         """
         Saves result to tsv file
         """
+        filenames = [path.split("/")[-1] for path in file_titles]
         with open(f"result_dir/{self.out_dir}/final_result.csv", "w") as output_text:
-            output_text.write(",".join(letter for letter in list_of_merged_alignments[0]) + "\n")
+            output_text.write("," + ",".join(filenames) + "\n")
             # TODO: remplacer ça, c'est pas propre et ça sert à rien
-            translation_table = {"a": 0, "b": 1, "c": 2, "d": 3, "e": 4, "f": 5, "g": 6, "h": 7, "i": 8}
+            translation_table = {letter:index for index, letter in enumerate(string.ascii_lowercase)}
             for alignment_unit in list_of_merged_alignments:
                 output_text.write("|".join(value for value in alignment_unit['a']) + ",")
                 for index, witness in enumerate(list_of_merged_alignments[0]):
-                    output_text.write("|".join(MyAligner.text_dict[translation_table[witness]][int(value)] for value in
+                    output_text.write("|".join(self.text_dict[translation_table[witness]][int(value)] for value in
                                                alignment_unit[witness]))
                     if index + 1 != len(list_of_merged_alignments[0]):
                         output_text.write(",")
                 output_text.write("\n")
         
         with open(f"result_dir/{self.out_dir}/final_result_as_index.csv", "w") as output_text:
-            output_text.write(",".join(letter for letter in list_of_merged_alignments[0]) + "\n")
+            output_text.write("," + ",".join(filenames) + "\n")
             # TODO: remplacer ça, c'est pas propre et ça sert à rien
             translation_table = {"a": 0, "b": 1, "c": 2, "d": 3, "e": 4, "f": 5, "g": 6, "h": 7, "i": 8}
             for alignment_unit in list_of_merged_alignments:
@@ -136,8 +138,9 @@ if __name__ == '__main__':
     align_dict = utils.read_json(f"result_dir/{out_dir}/alignment_dict.json")
     list_of_merged_alignments = graph_merge.merge_alignment_table(align_dict)
     # On teste si on ne perd pas de noeuds textuels
-    utils.test_tables_consistency(list_of_merged_alignments, 'abcdefg')
-    MyAligner.save_final_result(list_of_merged_alignments, MyAligner)
+    possible_witnesses = string.ascii_lowercase[:len(align_dict) + 1]
+    utils.test_tables_consistency(list_of_merged_alignments, possible_witnesses)
+    MyAligner.save_final_result(list_of_merged_alignments=list_of_merged_alignments, file_titles=sys.argv[1:-2])
     
     
                 

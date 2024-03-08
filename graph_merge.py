@@ -1,4 +1,5 @@
 import networkx as networkx
+import string
 
 def desambiguise(object, labels):
     """
@@ -49,9 +50,10 @@ def merge_alignment_table(alignment_dict:dict) -> list:
     # On désambiguise les noeuds
     G = networkx.petersen_graph()
     # On modifie la structure pour avoir des noeuds connectés 2 à 2 et des tuples
-    string = "abcdefghijk"
+    # string = "abcdefghijk"
+    possible_witnesses = string.ascii_lowercase[:len(alignment_dict) + 1]
     for index, value in alignment_dict.items():
-        structured_a = deconnect(desambiguise(value, (string[0], string[int(index) + 1])))
+        structured_a = deconnect(desambiguise(value, (possible_witnesses[0], possible_witnesses[int(index) + 1])))
         # Résultat de la forme: (('0_a', '0_b'), ('1_a', '1_b'), ('2_a', '2_b'), ('3_a', '3_b'), etc.)
         G.add_edges_from(structured_a)
     connected_nodes = []
@@ -75,7 +77,7 @@ def merge_alignment_table(alignment_dict:dict) -> list:
     nodes_as_dict = []
     for connection in connected_nodes:
         wit_dictionnary = {}
-        for document in string[:len(alignment_dict) + 1]:
+        for document in possible_witnesses[:len(alignment_dict) + 1]:
             pos_list = [node.replace(f'_{document}', '') for node in connection if document in node]
             pos_list.sort(key=lambda x:int(x))
             wit_dictionnary[document] = pos_list
@@ -84,17 +86,18 @@ def merge_alignment_table(alignment_dict:dict) -> list:
     
     # Now we have to manage the omissions in the main document.
     omitted_pos = dict()
-    for wit in 'abcdefg':
+    for wit in possible_witnesses:
         all_positions = [align_dict[wit] for align_dict in nodes_as_dict if align_dict[wit] != []]
         last_position = int(all_positions[-1][-1])
         not_present_positions = list(set(range(last_position + 1)) - set([int(position) for dictionnary in nodes_as_dict for position in dictionnary[wit]]))
         not_present_positions.sort()
         omitted_pos[wit] = not_present_positions
+    print(omitted_pos)
     
-    for wit in 'bcdefg':
+    for wit in possible_witnesses:
         print(f"\n{wit}")
         for omitted in omitted_pos[wit]:
-            print(omitted)
+            print(f"Omitted position {omitted} for wit {wit}")
             if omitted != 0:
                 corresponding_alignment_unit = [(index, node) for index, node in enumerate(nodes_as_dict) if str(omitted - 1) in node[wit]][0]
             else:
@@ -108,13 +111,13 @@ def merge_alignment_table(alignment_dict:dict) -> list:
                 copied_node = corresponding_alignment_unit[1]
                 list_to_amend = copied_node[wit]
                 list_to_amend.append(str(omitted))
+                print(f"Appending {omitted}")
                 list_to_amend.sort(key=lambda x:int(x))
                 copied_node[wit] = list_to_amend
-                assert all([list_to_amend[index] - list_to_amend[index - 1] == 1 for index in range(1, len(list_to_amend))])
                 nodes_as_dict[corresponding_alignment_unit[0]] = copied_node
             else:
                 print("B")
-                new_node = {wit:[] for wit in 'abcdefg'}
+                new_node = {wit:[] for wit in possible_witnesses}
                 new_node[wit] = [str(omitted)]
                 nodes_as_dict.insert(corresponding_alignment_unit[0] + 1, new_node)
                 print(new_node)
