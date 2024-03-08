@@ -115,7 +115,7 @@ class Aligner:
                                          f"{main_wit_name}_{wit_to_compare_name}", out_dir)
         utils.write_json(f"result_dir/{self.out_dir}/alignment_dict.json", self.alignment_dict)
 
-    def save_final_result(self, list_of_merged_alignments:list, file_titles:list):
+    def save_final_result(self, merged_alignments:list, file_titles:list):
         """
         Saves result to csv file
         """
@@ -124,22 +124,22 @@ class Aligner:
             output_text.write("," + ",".join(filenames) + "\n")
             # TODO: remplacer ça, c'est pas propre et ça sert à rien
             translation_table = {letter:index for index, letter in enumerate(string.ascii_lowercase)}
-            for alignment_unit in list_of_merged_alignments:
+            for alignment_unit in merged_alignments:
                 output_text.write("|".join(value for value in alignment_unit['a']) + ",")
-                for index, witness in enumerate(list_of_merged_alignments[0]):
+                for index, witness in enumerate(merged_alignments[0]):
                     output_text.write("|".join(self.text_dict[translation_table[witness]][int(value)] for value in
                                                alignment_unit[witness]))
-                    if index + 1 != len(list_of_merged_alignments[0]):
+                    if index + 1 != len(merged_alignments[0]):
                         output_text.write(",")
                 output_text.write("\n")
         
         with open(f"result_dir/{self.out_dir}/final_result_as_index.csv", "w") as output_text:
             output_text.write("," + ",".join(filenames) + "\n")
-            for alignment_unit in list_of_merged_alignments:
-                for index, witness in enumerate(list_of_merged_alignments[0]):
+            for alignment_unit in merged_alignments:
+                for index, witness in enumerate(merged_alignments[0]):
                     output_text.write("|".join(value for value in
                                                alignment_unit[witness]))
-                    if index + 1 != len(list_of_merged_alignments[0]):
+                    if index + 1 != len(merged_alignments[0]):
                         output_text.write(",")
                 output_text.write("\n")
 
@@ -159,11 +159,10 @@ def run_alignments():
     # TODO: re-run the alignment on the units that are absent in the base wit.  
 
     # On teste si on ne perd pas de noeuds textuels
-    possible_witnesses = string.ascii_lowercase[:len(align_dict) + 1]
-
     print("Testing results consistency")
+    possible_witnesses = string.ascii_lowercase[:len(align_dict) + 1]
     utils.test_tables_consistency(list_of_merged_alignments, possible_witnesses)
-    MyAligner.save_final_result(list_of_merged_alignments=list_of_merged_alignments, file_titles=sys.argv[1:-2])
+    MyAligner.save_final_result(merged_alignments=list_of_merged_alignments, file_titles=sys.argv[1:-2])
 
 
 if __name__ == '__main__':
