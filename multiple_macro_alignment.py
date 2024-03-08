@@ -63,6 +63,12 @@ class Aligner:
         self.corpus_size = corpus_size
         self.max_align = max_align
         self.out_dir = out_dir
+        
+        # Let's check the paths are correct
+        for file in self.files_path:
+            assert os.path.isfile(file), f"Vérifier le chemin: {file}"
+            
+        assert self.main_file_index.isdigit(), "L'avant-dernier paramètre doit être un nombre"
 
     def parallel_align(self):
         """
@@ -130,7 +136,7 @@ if __name__ == '__main__':
     # Un test de graphe est mené pour voir si ça peut pas permettre de fusionner les lieux variants
     # Ça a l'air de marcher
     # TODO: augmenter la sensibilité à la différence sémantique pour apporter plus d'omissions dans le texte. La fin
-    # Est beaucoup trop mal alignée, alors que ça irait bien avec + d'absence. 
+    # Est beaucoup trop mal alignée, alors que ça irait bien avec + d'absence. Ça doit être possible vu que des omissions sont créés.
     out_dir = sys.argv[-1]
     MyAligner = Aligner(corpus_size=None, max_align=3, out_dir=out_dir)
     MyAligner.parallel_align()
@@ -139,6 +145,8 @@ if __name__ == '__main__':
     list_of_merged_alignments = graph_merge.merge_alignment_table(align_dict)
     # On teste si on ne perd pas de noeuds textuels
     possible_witnesses = string.ascii_lowercase[:len(align_dict) + 1]
+    
+    print("Testing results consistency")
     utils.test_tables_consistency(list_of_merged_alignments, possible_witnesses)
     MyAligner.save_final_result(list_of_merged_alignments=list_of_merged_alignments, file_titles=sys.argv[1:-2])
     
