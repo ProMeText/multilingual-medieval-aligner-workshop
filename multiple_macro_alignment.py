@@ -55,6 +55,9 @@ def red_print(string):
 
 
 class Aligner:
+    """
+    La classe Aligner initialise le moteur d'alignement, fondé sur Bertalign
+    """
     def __init__(self, corpus_size:None, max_align=3, out_dir="default"):
         self.alignment_dict = dict()
         self.text_dict = dict()
@@ -63,6 +66,10 @@ class Aligner:
         self.corpus_size = corpus_size
         self.max_align = max_align
         self.out_dir = out_dir
+        try:
+            os.mkdir(f"result_dir/{self.out_dir}/")
+        except FileExistsError:
+            pass
         
         # Let's check the paths are correct
         for file in self.files_path:
@@ -72,27 +79,36 @@ class Aligner:
 
     def parallel_align(self):
         """
-        This function procedes to the alignments two by two and then merges the alingments into one
+        This function procedes to the alignments two by two and then merges the alignments into a single alignement
         """
         pairs = create_pairs(self.files_path, self.main_file_index)
+        first_tokenized_text = utils.clean_tokenized_content(syntactic_tokenization.syntactic_tokenization(pairs[0][0], corpus_limit=self.corpus_size))
+        assert first_tokenized_text != [], "Erreur avec le texte tokénisé du témoin base"
+        
+        main_wit_name = pairs[0][0].split("/")[-1].split(".")[0]
+        utils.write_json(f"result_dir/{self.out_dir}/tokenized_{main_wit_name}.json", first_tokenized_text)
+        utils.write_tokenized_text(f"result_dir/{self.out_dir}/tokenized_{main_wit_name}.txt", first_tokenized_text)
+        
+        # Let's loop and align each pair
         for index, (main_wit, wit_to_compare) in enumerate(pairs):
             main_wit_name = main_wit.split("/")[-1].split(".")[0]
             wit_to_compare_name = wit_to_compare.split("/")[-1].split(".")[0]
             print(f"Aligning {main_wit} with {wit_to_compare}")
-            first_tokenized_text = utils.clean_tokenized_content(syntactic_tokenization.syntactic_tokenization(main_wit, corpus_limit=self.corpus_size))
             print(len(first_tokenized_text))
             second_tokenized_text = utils.clean_tokenized_content(syntactic_tokenization.syntactic_tokenization(wit_to_compare, corpus_limit=self.corpus_size))
-            try:
-                os.mkdir(f"result_dir/{self.out_dir}/")
-            except FileExistsError:
-                pass
-            utils.write_json(f"result_dir/{self.out_dir}/tokenized_{wit_to_compare_name}.json", first_tokenized_text)
+            assert second_tokenized_text != [], f"Erreur avec le texte tokénisé du témoin comparé {wit_to_compare_name}"
             utils.write_json(f"result_dir/{self.out_dir}/tokenized_{wit_to_compare_name}.json", second_tokenized_text)
             utils.write_tokenized_text(f"result_dir/{self.out_dir}/tokenized_{wit_to_compare_name}.txt", second_tokenized_text)
+            
+            # This dict will be used to create the alignment table in csv format
             self.text_dict[0] = first_tokenized_text
             self.text_dict[index + 1] = second_tokenized_text
+            
+            # Let's align the texts
             aligner = Bertalign(first_tokenized_text, second_tokenized_text, max_align= self.max_align)
             aligner.align_sents()
+            
+            # We append the result to the alignment dictionnary
             self.alignment_dict[index] = aligner.result
             utils.write_json(f"result_dir/{self.out_dir}/alignment_{str(index)}.json", aligner.result)
             utils.save_alignment_results(aligner.result, first_tokenized_text, second_tokenized_text,
@@ -101,7 +117,7 @@ class Aligner:
 
     def save_final_result(self, list_of_merged_alignments:list, file_titles:list):
         """
-        Saves result to tsv file
+        Saves result to csv file
         """
         filenames = [path.split("/")[-1] for path in file_titles]
         with open(f"result_dir/{self.out_dir}/final_result.csv", "w") as output_text:
@@ -119,8 +135,6 @@ class Aligner:
         
         with open(f"result_dir/{self.out_dir}/final_result_as_index.csv", "w") as output_text:
             output_text.write("," + ",".join(filenames) + "\n")
-            # TODO: remplacer ça, c'est pas propre et ça sert à rien
-            translation_table = {"a": 0, "b": 1, "c": 2, "d": 3, "e": 4, "f": 5, "g": 6, "h": 7, "i": 8}
             for alignment_unit in list_of_merged_alignments:
                 for index, witness in enumerate(list_of_merged_alignments[0]):
                     output_text.write("|".join(value for value in
@@ -130,27 +144,30 @@ class Aligner:
                 output_text.write("\n")
 
 
-if __name__ == '__main__':
-    # Ce qui a été fait: le problème de l'alignement trivial (1 pour 1 dans tous les témoins) est réglé.
-    # Des tests sont menés sur 1 pour plusieurs. 
-    # Un test de graphe est mené pour voir si ça peut pas permettre de fusionner les lieux variants
-    # Ça a l'air de marcher
+def run_alignments():
     # TODO: augmenter la sensibilité à la différence sémantique pour apporter plus d'omissions dans le texte. La fin
     # Est beaucoup trop mal alignée, alors que ça irait bien avec + d'absence. Ça doit être possible vu que des omissions sont créés.
     out_dir = sys.argv[-1]
-    MyAligner = Aligner(corpus_size=None, max_align=3, out_dir=out_dir)
+    MyAligner = Aligner(corpus_size=300, max_align=3, out_dir=out_dir)
     MyAligner.parallel_align()
     utils.write_json(f"result_dir/{out_dir}/alignment_dict.json", MyAligner.alignment_dict)
     align_dict = utils.read_json(f"result_dir/{out_dir}/alignment_dict.json")
+
+    # Let's merge each alignment table into one and inject the omissions
     list_of_merged_alignments = graph_merge.merge_alignment_table(align_dict)
+
+    # TODO: re-run the alignment on the units that are absent in the base wit.  
+
     # On teste si on ne perd pas de noeuds textuels
     possible_witnesses = string.ascii_lowercase[:len(align_dict) + 1]
-    
+
     print("Testing results consistency")
     utils.test_tables_consistency(list_of_merged_alignments, possible_witnesses)
     MyAligner.save_final_result(list_of_merged_alignments=list_of_merged_alignments, file_titles=sys.argv[1:-2])
-    
-    
+
+
+if __name__ == '__main__':
+    run_alignments()
                 
             
     
