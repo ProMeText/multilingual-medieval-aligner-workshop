@@ -3,6 +3,8 @@ import numpy as np
 from bertalign import model
 import bertalign.corelib as core
 import bertalign.utils as utils
+import torch.nn as nn
+import torch
 
 class Bertalign:
     def __init__(self,
@@ -38,6 +40,9 @@ class Bertalign:
         print("Embedding source and target text using {} ...".format(model.model_name))
         src_vecs, src_lens = model.transform(src_sents, max_align - 1)
         tgt_vecs, tgt_lens = model.transform(tgt_sents, max_align - 1)
+        
+        self.search_simple_vecs = model.simple_vectorization(src_sents)
+        self.tgt_simple_vecs = model.simple_vectorization(tgt_sents)
 
         char_ratio = np.sum(src_lens[0,]) / np.sum(tgt_lens[0,])
 
@@ -51,6 +56,11 @@ class Bertalign:
         self.src_vecs = src_vecs
         self.tgt_vecs = tgt_vecs
     
+    def compute_distance(self):
+        if torch.cuda.is_available():  # GPU version
+            cos = nn.CosineSimilarity(dim=1, eps=1e-6)
+            output = cos(torch.from_numpy(self.search_simple_vecs), torch.from_numpy(self.tgt_simple_vecs))
+        return output
         
     def align_sents(self, first_alignment_only=False):
 

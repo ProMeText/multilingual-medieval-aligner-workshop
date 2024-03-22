@@ -83,16 +83,16 @@ def write_json(path, object:json):
         json.dump(object, output_file, cls=NumpyEncoder)
 
 
+def read_json(path):
+    with open(path, "r") as output_file:
+        liste = json.load(output_file)
+    return liste
 
 def write_tokenized_text(path, tokenized_text:list):
     with open(path, "w") as output_file:
         output_file.write("\n".join(tokenized_text))
 
 
-def read_json(path):
-    with open(path, "r") as output_file:
-        liste = json.load(output_file)
-    return liste
 
 
 def construct_pairs(my_list):

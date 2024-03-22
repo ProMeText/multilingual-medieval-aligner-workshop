@@ -8,6 +8,15 @@ class Encoder:
         device = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.model = SentenceTransformer(model_name_or_path=model_name, device=device)
         self.model_name = model_name
+        
+    
+    def simple_vectorization(self, sents):
+        """
+        This function produces a simple vectorisation of a sentence, without
+        taking into account its lenght as transform does
+        """
+        sent_vecs = self.model.encode(sents)
+        return sent_vecs
 
     def transform(self, sents, num_overlaps):
         overlaps = []
