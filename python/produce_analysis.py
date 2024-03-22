@@ -1,7 +1,7 @@
 import tqdm
 import itertools
 import bertalign.utils as utils
-from bertalign import Bertalign
+from bertalign.Bertalign import Bertalign
 
 def create_list(path_to_csv):
     """

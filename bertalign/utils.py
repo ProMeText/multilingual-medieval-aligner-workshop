@@ -1,12 +1,10 @@
 import re
 import string
-import subprocess
 import random
 import lxml.etree as etree
 import json
 import itertools
 from numpyencoder import NumpyEncoder
-
 
 def save_alignment_results(results, first_text: list, second_text: list, name:str, out_dir) -> None:
     with open(f"result_dir/{out_dir}/alignment_{name}.csv", "w") as output_alignment:
@@ -82,8 +80,8 @@ def write_json(path, object:json):
     with open(path, "w") as output_file:
         json.dump(object, output_file, cls=NumpyEncoder)
 
-
 def read_json(path):
+    print("Chargement 3")
     with open(path, "r") as output_file:
         liste = json.load(output_file)
     return liste

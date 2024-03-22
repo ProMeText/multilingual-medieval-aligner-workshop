@@ -9,8 +9,7 @@ import numpy as np
 import graph_merge
 import bertalign.utils as utils
 import bertalign.syntactic_tokenization as syntactic_tokenization
-from bertalign import Bertalign
-import tests
+from bertalign.Bertalign import Bertalign
 
 
 result_a = [([0], [0]), ([1], [1]), ([2], [2]), ([3], [3]), ([4], [4]), ([5, 6, 7], [5, 6]), 

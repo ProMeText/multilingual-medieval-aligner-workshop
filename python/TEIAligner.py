@@ -1,6 +1,6 @@
 import argparse
 
-from bertalign import Bertalign
+from bertalign.bertalign import Bertalign
 import lxml.etree as etree
 import bertalign.tokenization as tokenization
 import bertalign.utils as utils

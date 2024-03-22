@@ -2,3 +2,4 @@ xml/
 *env/
 __pycache__/
 .idea/
+specs.txt

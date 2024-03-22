@@ -1,6 +1,6 @@
 import numpy as np
 
-from bertalign import model
+from bertalign.Bertalign import model
 import bertalign.corelib as core
 import bertalign.utils as utils
 import torch.nn as nn
