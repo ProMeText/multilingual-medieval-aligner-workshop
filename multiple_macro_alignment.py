@@ -148,7 +148,7 @@ def run_alignments():
     # TODO: augmenter la sensibilité à la différence sémantique pour apporter plus d'omissions dans le texte. La fin
     # Est beaucoup trop mal alignée, alors que ça irait bien avec + d'absence. Ça doit être possible vu que des omissions sont créés.
     out_dir = sys.argv[-1]
-    MyAligner = Aligner(corpus_size=300, max_align=3, out_dir=out_dir)
+    MyAligner = Aligner(corpus_size=None, max_align=3, out_dir=out_dir)
     MyAligner.parallel_align()
     utils.write_json(f"result_dir/{out_dir}/alignment_dict.json", MyAligner.alignment_dict)
     align_dict = utils.read_json(f"result_dir/{out_dir}/alignment_dict.json")
@@ -157,13 +157,18 @@ def run_alignments():
     list_of_merged_alignments = graph_merge.merge_alignment_table(align_dict)
 
     # TODO: re-run the alignment on the units that are absent in the base wit.  
+    
 
     # On teste si on ne perd pas de noeuds textuels
     print("Testing results consistency")
     possible_witnesses = string.ascii_lowercase[:len(align_dict) + 1]
     utils.test_tables_consistency(list_of_merged_alignments, possible_witnesses)
+    # TODO: une phase de test pour voir si l'alignement final est cohérent avec les alignements deux à deux
+    
+    
+    # Let's save the final tables (indices and texts)
     MyAligner.save_final_result(merged_alignments=list_of_merged_alignments, file_titles=sys.argv[1:-2])
-
+    
 
 if __name__ == '__main__':
     run_alignments()
