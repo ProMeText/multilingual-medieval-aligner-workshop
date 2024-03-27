@@ -92,42 +92,42 @@ def merge_alignment_table(alignment_dict:dict) -> list:
         not_present_positions = list(set(range(last_position + 1)) - set([int(position) for dictionnary in nodes_as_dict for position in dictionnary[wit]]))
         not_present_positions.sort()
         omitted_pos[wit] = not_present_positions
-    print(omitted_pos)
+    # print(omitted_pos)
     
     
     
     for wit in possible_witnesses:
         print(f"\n{wit}")
         for omitted in omitted_pos[wit]:
-            print(f"Omitted position {omitted} for wit {wit}")
+            # print(f"Omitted position {omitted} for wit {wit}")
             # Let's retrieve the corresponding alignment unit, we keep the index to allow the injection in case B (see below)
             if omitted != 0:
                 corresponding_alignment_unit = [(index, node) for index, node in enumerate(nodes_as_dict) if str(omitted - 1) in node[wit]][0]
             else:
                 corresponding_alignment_unit = (0, nodes_as_dict[0])
-            print(corresponding_alignment_unit)
+            # print(corresponding_alignment_unit)
             # On a plusieurs cas de figure
             # Le premier: un fusion avec un "trou": (39, {'a': ['59', '60'], 'b': ['65', '67'], 'c': ['62', '63'], 'd': ['82'], 'e': ['58']})
             
             # Premier cas: il faut insérer l'omission dans un noeud déjà formé: 66, ['65', '67']
             if any(int(item) > omitted for item in corresponding_alignment_unit[1][wit]):
-                print("Case A")
+                # print("Case A")
                 copied_node = corresponding_alignment_unit[1]
                 list_to_amend = copied_node[wit]
                 list_to_amend.append(str(omitted))
-                print(f"Appending {omitted}")
+                # print(f"Appending {omitted}")
                 list_to_amend.sort(key=lambda x:int(x))
                 copied_node[wit] = list_to_amend
                 nodes_as_dict[corresponding_alignment_unit[0]] = copied_node
                 
             # Deuxième cas, il faut créer une nouvelle unité d'alignement: 2005, ['2003', '2004']
             else:
-                print("Case B")
+                # print("Case B")
                 new_node = {wit:[] for wit in possible_witnesses}
                 new_node[wit] = [str(omitted)]
                 nodes_as_dict.insert(corresponding_alignment_unit[0] + 1, new_node)
-                print(new_node)
-            print("\n")
+                # print(new_node)
+            # print("\n")
     return nodes_as_dict
 
 

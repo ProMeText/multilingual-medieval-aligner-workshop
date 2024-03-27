@@ -93,7 +93,7 @@ class Tokenizer:
         return tree
         
     
-    def syntactic_tokenization(self, tree, delimiters):
+    def syntactic_tokenization(self, tree, delimiters, use_punctuation):
         print(delimiters)
         for clause in tree.xpath("//tei:cl", namespaces = self.tei_ns):
             xml_tokens = clause.xpath("descendant::node()[self::tei:pc or self::tei:w]", namespaces=self.tei_ns)

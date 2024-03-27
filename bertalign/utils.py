@@ -39,16 +39,18 @@ def normalize_text(text):
     return text
 
 def clean_tokenized_content(tokenized_doc: list):
+    print(len(tokenized_doc))
     digit_pattern = re.compile(r"\d+")
     pattern_full = re.compile(r"[—;,:\.]\s+[«»]|![«»]|»")
-    pattern_start = re.compile(r"^[-;,:\.\!\?]\s+[-;,:\.\!\?]?\s+(.*)")
+    pattern_start = re.compile(r"^[-;,:\.\!\?]\s*[-;,:\.\!\?]?\s*")
     alt_pattern_start = re.compile(r"»\s+\d+")
+    punct_pattern = re.compile("^[\.,;!:?·]$")
     spaces_pattern = re.compile("\s+")
     cleaned_doc = []
     for line in tokenized_doc:
         cleaned = re.sub(digit_pattern, "", line)
         cleaned = re.sub(pattern_full, "", cleaned)
-        cleaned = re.sub(pattern_start, "\1", cleaned)
+        cleaned = re.sub(pattern_start, "", cleaned)
         cleaned = re.sub(alt_pattern_start, "\1", cleaned)
         cleaned = cleaned.replace(".", " ")
         cleaned = cleaned.replace(",", " ")
@@ -57,9 +59,13 @@ def clean_tokenized_content(tokenized_doc: list):
         cleaned = cleaned.replace("\u0001", " ")
         cleaned = re.sub(spaces_pattern, " ", cleaned)
         cleaned = cleaned.strip()
+        if re.match(punct_pattern, cleaned):
+            print(f"Removing: {cleaned}")
+            cleaned = re.sub(punct_pattern, "", cleaned)
         if cleaned != "":
             cleaned_doc.append(cleaned)
-
+    print(cleaned_doc)
+    print(len(cleaned_doc))
     return cleaned_doc
 
 def pretty_print_xml_tree(file):

@@ -7,7 +7,7 @@ import sys
 import langdetect 
 import bertalign.utils as utils
 
-def syntactic_tokenization(path, corpus_limit=None):
+def syntactic_tokenization(path, corpus_limit=None, use_punctuation=True):
     name = path.split("/")[-1].split(".")[0]
     with open(path, "r") as input_text:
         text = input_text.read().replace("\n", " ")
@@ -22,7 +22,11 @@ def syntactic_tokenization(path, corpus_limit=None):
     single_token_punct = "".join(single_tokens_punctuation)
     multiple_tokens_punct = "|".join(multiple_tokens_punctuation)
     punctuation_subregex = f"{multiple_tokens_punct}|[{single_token_punct}]"
-    tokens_subregex = "(" + " | ".join(dictionary[codelang]['word_delimiters']) + " |" + punctuation_subregex + ")"
+    if use_punctuation:
+        tokens_subregex = "(" + " | ".join(dictionary[codelang]['word_delimiters']) + " |" + punctuation_subregex + ")"
+    else:
+        tokens_subregex = "(" + " | ".join(dictionary[codelang]['word_delimiters']) + ")"
+    print(tokens_subregex)
     delimiter = re.compile(tokens_subregex)
     search = re.search(delimiter, text)
     tokenized_text = []

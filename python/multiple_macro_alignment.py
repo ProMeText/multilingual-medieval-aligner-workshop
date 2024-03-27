@@ -57,14 +57,15 @@ class Aligner:
     """
     La classe Aligner initialise le moteur d'alignement, fondé sur Bertalign
     """
-    def __init__(self, corpus_size:None, max_align=3, out_dir="default"):
+    def __init__(self, corpus_size:None, max_align=3, out_dir="default",use_punctuation=True):
         self.alignment_dict = dict()
         self.text_dict = dict()
-        self.files_path = sys.argv[1:-2]
-        self.main_file_index = sys.argv[-2]
+        self.files_path = sys.argv[1:-3]
+        self.main_file_index = sys.argv[-3]
         self.corpus_size = corpus_size
         self.max_align = max_align
         self.out_dir = out_dir
+        self.use_punctiation = use_punctuation
         try:
             os.mkdir(f"result_dir/{self.out_dir}/")
         except FileExistsError:
@@ -81,7 +82,7 @@ class Aligner:
         This function procedes to the alignments two by two and then merges the alignments into a single alignement
         """
         pairs = create_pairs(self.files_path, self.main_file_index)
-        first_tokenized_text = utils.clean_tokenized_content(syntactic_tokenization.syntactic_tokenization(pairs[0][0], corpus_limit=self.corpus_size))
+        first_tokenized_text = utils.clean_tokenized_content(syntactic_tokenization.syntactic_tokenization(pairs[0][0], corpus_limit=self.corpus_size, use_punctuation=True))
         assert first_tokenized_text != [], "Erreur avec le texte tokénisé du témoin base"
         
         main_wit_name = pairs[0][0].split("/")[-1].split(".")[0]
@@ -94,7 +95,7 @@ class Aligner:
             wit_to_compare_name = wit_to_compare.split("/")[-1].split(".")[0]
             print(f"Aligning {main_wit} with {wit_to_compare}")
             print(len(first_tokenized_text))
-            second_tokenized_text = utils.clean_tokenized_content(syntactic_tokenization.syntactic_tokenization(wit_to_compare, corpus_limit=self.corpus_size))
+            second_tokenized_text = utils.clean_tokenized_content(syntactic_tokenization.syntactic_tokenization(wit_to_compare, corpus_limit=self.corpus_size, use_punctuation=True))
             assert second_tokenized_text != [], f"Erreur avec le texte tokénisé du témoin comparé {wit_to_compare_name}"
             utils.write_json(f"result_dir/{self.out_dir}/tokenized_{wit_to_compare_name}.json", second_tokenized_text)
             utils.write_tokenized_text(f"result_dir/{self.out_dir}/tokenized_{wit_to_compare_name}.txt", second_tokenized_text)
@@ -146,8 +147,10 @@ class Aligner:
 def run_alignments():
     # TODO: augmenter la sensibilité à la différence sémantique pour apporter plus d'omissions dans le texte. La fin
     # Est beaucoup trop mal alignée, alors que ça irait bien avec + d'absence. Ça doit être possible vu que des omissions sont créés.
-    out_dir = sys.argv[-1]
-    MyAligner = Aligner(corpus_size=None, max_align=3, out_dir=out_dir)
+    out_dir = sys.argv[-2]
+    use_punctuation = bool(sys.argv[-1])
+    print(f"Punctuation for tokenization: {use_punctuation}")
+    MyAligner = Aligner(corpus_size=None, max_align=3, out_dir=out_dir, use_punctuation=use_punctuation)
     MyAligner.parallel_align()
     utils.write_json(f"result_dir/{out_dir}/alignment_dict.json", MyAligner.alignment_dict)
     align_dict = utils.read_json(f"result_dir/{out_dir}/alignment_dict.json")
@@ -166,7 +169,7 @@ def run_alignments():
     
     
     # Let's save the final tables (indices and texts)
-    MyAligner.save_final_result(merged_alignments=list_of_merged_alignments, file_titles=sys.argv[1:-2])
+    MyAligner.save_final_result(merged_alignments=list_of_merged_alignments, file_titles=sys.argv[1:-3])
     
 
 if __name__ == '__main__':
