@@ -1,9 +1,11 @@
-# Old spanish and latin Bertalign
+# Mutilingual collator
 
 
-This is a fork of the automatic mulitlingual sentence aligner Bertalign.
+This repo contains a set of scripts to align and collate a multilingual medieval corpus. Its designers are Matthias Gille Levenson, Lucence Ing and Jean-Baptiste Camps.  
 
-The scripts ha been designed to automatically align tei XML sources, in this case in medieval Latin and Castilian. It relies on a prior phase of text segmentation at syntagm level using regular expressions to produce a more precise alignment.
+It is based on a fork of the automatic multilingual sentence aligner Bertalign.
+
+The scripts relies for now on a prior phase of text segmentation at syntagm level using regular expressions to match grammatical syntagms and produce a more precise alignment.
 
 ## Citation
 
