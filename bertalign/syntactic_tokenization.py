@@ -4,7 +4,7 @@ import random
 import re
 import json
 import sys
-import langdetect 
+import langid 
 import bertalign.utils as utils
 
 def syntactic_tokenization(path, corpus_limit=None, use_punctuation=True):
@@ -13,9 +13,14 @@ def syntactic_tokenization(path, corpus_limit=None, use_punctuation=True):
         text = input_text.read().replace("\n", " ")
 
     text = utils.normalize_text(text)
-    codelang = langdetect.detect(text[:300])
+    codelang, _ = langid.classify(text[:300])
+    print(text)
+    print(codelang)
     with open("bertalign/delimiters.json", "r") as input_json:
         dictionary = json.load(input_json)
+    # Il ne reconnaît pas toujours le castillan
+    if codelang == "an":
+        codelang = "es"
     
     single_tokens_punctuation = [punct for punct in dictionary[codelang]['punctuation'] if len(punct) == 1]
     multiple_tokens_punctuation = [punct for punct in dictionary[codelang]['punctuation'] if len(punct) != 1]
