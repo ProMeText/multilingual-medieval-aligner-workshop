@@ -2,12 +2,18 @@ import bertalign.utils as utils
 from sklearn import preprocessing
 import numpy as np
 from sklearn.cluster import AgglomerativeClustering, DBSCAN
+import sys
 
-
-def main():
+def create_clusters(path):
+    """
+    This function converts the distance matrix into a cluster matrix, using multiple methods.
+    It take a json file containing all the distance pairs, turns it into a matrix, and then performs the
+    clusterisation
+    """
+    print(path)
     np.set_printoptions(threshold=np.inf, suppress=True, linewidth=np.inf)
-    
-    alignements = utils.read_json("result_dir/lancelot_1/similarities_as_list.json")
+    alignements = utils.read_json(path)
+    print(len(alignements))
     for index, alignement in enumerate(alignements):
         print(f"Unit {index}")
         if alignement == []:
@@ -31,15 +37,10 @@ def main():
                     interm_list.append([elem[1] for elem in similarities if elem[0] == f"{i}-{j}" or elem[0] == f"{j}-{i}"][0])
             out_list.append(interm_list)
         similarities_as_array = np.asarray(out_list)
-        # print(similarities_as_array.shape)
-        #print(similarities_as_array)
-        #normalized_arr = preprocessing.normalize(similarities_as_array, axis=0)
-        #print(normalized_arr)
-        # print(normalized_arr)
-        model = AgglomerativeClustering(n_clusters=None, distance_threshold=0.65, linkage='complete').fit(similarities_as_array)
+        model = AgglomerativeClustering(n_clusters=None, distance_threshold=0.45, linkage='complete').fit(similarities_as_array)
         model_2 = DBSCAN(min_samples=2).fit(similarities_as_array)
         print(model.labels_)
         print(model_2.labels_)
 
 if __name__ == '__main__':
-    main()
+    create_clusters(sys.argv[1])

@@ -2,6 +2,8 @@ import tqdm
 import itertools
 import bertalign.utils as utils
 from bertalign.Bertalign import Bertalign
+import sys 
+
 
 def create_list(path_to_csv):
     """
@@ -48,11 +50,13 @@ def main(path):
         else:
             alignments_as_similarities.append([])
     print(alignments_as_similarities)
-    utils.write_json("result_dir/lancelot_1/similarities_as_list.json", alignments_as_similarities)
+    result_dir = '/'.join(path.split("/")[:-1])
+    utils.write_json(f"{result_dir}/similarities_as_list.json", alignments_as_similarities)
         
         
     
     
     
 if __name__ == '__main__':
-    main("result_dir/lancelot_1/final_result.csv")
+    input_file = sys.argv[1]
+    main(input_file)
