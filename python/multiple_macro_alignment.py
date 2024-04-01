@@ -10,7 +10,7 @@ import graph_merge
 import bertalign.utils as utils
 import bertalign.syntactic_tokenization as syntactic_tokenization
 from bertalign.Bertalign import Bertalign
-
+import pandas as pd
 
 result_a = [([0], [0]), ([1], [1]), ([2], [2]), ([3], [3]), ([4], [4]), ([5, 6, 7], [5, 6]), 
             ([8], [7, 8, 9, 10]), ([9], [11, 12]), ([10, 11], [13]), ([12], []), ([13], [14]), 
@@ -133,6 +133,19 @@ class Aligner:
                         output_text.write(",")
                 output_text.write("\n")
         
+        
+        with open(f"result_dir/{self.out_dir}/readable.csv", "w") as output_text:
+            output_text.write(",".join(filenames) + "\n")
+            # TODO: remplacer ça, c'est pas propre et ça sert à rien
+            translation_table = {letter:index for index, letter in enumerate(string.ascii_lowercase)}
+            for alignment_unit in merged_alignments:
+                for index, witness in enumerate(merged_alignments[0]):
+                    output_text.write(" ".join(self.text_dict[translation_table[witness]][int(value)] for value in
+                                               alignment_unit[witness]))
+                    if index + 1 != len(merged_alignments[0]):
+                        output_text.write(",")
+                output_text.write("\n")
+        
         with open(f"result_dir/{self.out_dir}/final_result_as_index.csv", "w") as output_text:
             output_text.write("," + ",".join(filenames) + "\n")
             for alignment_unit in merged_alignments:
@@ -143,6 +156,12 @@ class Aligner:
                         output_text.write(",")
                 output_text.write("\n")
 
+        data = pd.read_csv(f"result_dir/{self.out_dir}/final_result.csv")
+        # Convert the DataFrame to an HTML table
+        html_table = data.to_html()
+        with open(f"result_dir/{self.out_dir}/final_result.html", "w") as output_html:
+            output_html.write(html_table)
+
 
 def run_alignments():
     # TODO: augmenter la sensibilité à la différence sémantique pour apporter plus d'omissions dans le texte. La fin
@@ -150,7 +169,7 @@ def run_alignments():
     out_dir = sys.argv[-2]
     use_punctuation = bool(sys.argv[-1])
     print(f"Punctuation for tokenization: {use_punctuation}")
-    MyAligner = Aligner(corpus_size=None, max_align=3, out_dir=out_dir, use_punctuation=use_punctuation)
+    MyAligner = Aligner(corpus_size=None, max_align=4, out_dir=out_dir, use_punctuation=use_punctuation)
     MyAligner.parallel_align()
     utils.write_json(f"result_dir/{out_dir}/alignment_dict.json", MyAligner.alignment_dict)
     align_dict = utils.read_json(f"result_dir/{out_dir}/alignment_dict.json")
