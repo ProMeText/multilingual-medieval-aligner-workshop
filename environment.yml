@@ -2,6 +2,7 @@ name: aquilign
 channels:
   - defaults
   - conda-forge
+  - pytorch
 dependencies:
   - python>=3.9
   - certifi>=2024.2.2
