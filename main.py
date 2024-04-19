@@ -11,6 +11,8 @@ import bertalign.utils as utils
 import bertalign.syntactic_tokenization as syntactic_tokenization
 from bertalign.Bertalign import Bertalign
 import pandas as pd
+import argparse
+import glob
 
 result_a = [([0], [0]), ([1], [1]), ([2], [2]), ([3], [3]), ([4], [4]), ([5, 6, 7], [5, 6]), 
             ([8], [7, 8, 9, 10]), ([9], [11, 12]), ([10, 11], [13]), ([12], []), ([13], [14]), 
@@ -57,15 +59,26 @@ class Aligner:
     """
     La classe Aligner initialise le moteur d'alignement, fondé sur Bertalign
     """
-    def __init__(self, corpus_size:None, max_align=3, out_dir="default",use_punctuation=True):
+    def __init__(self, corpus_size:None, 
+                 max_align=3, 
+                 out_dir="out", 
+                 use_punctuation=True, 
+                 input_dir="in", 
+                 main_wit=None, 
+                 prefix=None):
         self.alignment_dict = dict()
         self.text_dict = dict()
-        self.files_path = sys.argv[1:-3]
-        self.main_file_index = sys.argv[-3]
+        self.files_path = glob.glob(f"{input_dir}/*.txt")
+        print(input_dir)
+        if main_wit is not None:
+            self.main_file_index = [index for index, path in enumerate(self.files_path) if main_wit in path][0]
+        else: 
+            self.main_file_index = 0
         self.corpus_size = corpus_size
         self.max_align = max_align
         self.out_dir = out_dir
         self.use_punctiation = use_punctuation
+        self.prefix = prefix
         try:
             os.mkdir(f"result_dir/{self.out_dir}/")
         except FileExistsError:
@@ -75,7 +88,6 @@ class Aligner:
         for file in self.files_path:
             assert os.path.isfile(file), f"Vérifier le chemin: {file}"
             
-        assert self.main_file_index.isdigit(), "L'avant-dernier paramètre doit être un nombre"
 
     def parallel_align(self):
         """
@@ -185,13 +197,30 @@ class Aligner:
 def run_alignments():
     # TODO: augmenter la sensibilité à la différence sémantique pour apporter plus d'omissions dans le texte. La fin
     # Est beaucoup trop mal alignée, alors que ça irait bien avec + d'absence. Ça doit être possible vu que des omissions sont créés.
-    out_dir = sys.argv[-2]
-    use_punctuation = bool(sys.argv[-1])
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-o", "--out_dir", default="out",
+                        help="Path to output dir.")
+    parser.add_argument("-i", "--input_dir", default="out",
+                        help="Input directory where the .txt files are stored.")
+    parser.add_argument("-punct", "--use_punctuation", default=True,
+                        help="Use punctuation to tokenize texts.")
+    parser.add_argument("-mw", "--main_wit", default=None,
+                        help="Pivot witness.")
+    parser.add_argument("-p", "--prefix", default=None,
+                        help="Prefix for produced files.")
+    
+    args = parser.parse_args()
+    out_dir = args.out_dir
+    input_dir = args.input_dir
+    main_wit = args.main_wit
+    prefix = args.prefix
+    use_punctuation = args.use_punctuation
     print(f"Punctuation for tokenization: {use_punctuation}")
-    MyAligner = Aligner(corpus_size=None, max_align=3, out_dir=out_dir, use_punctuation=use_punctuation)
+    MyAligner = Aligner(corpus_size=None, max_align=3, out_dir=out_dir, use_punctuation=use_punctuation, input_dir=input_dir, main_wit=main_wit, prefix=prefix)
     MyAligner.parallel_align()
     utils.write_json(f"result_dir/{out_dir}/alignment_dict.json", MyAligner.alignment_dict)
     align_dict = utils.read_json(f"result_dir/{out_dir}/alignment_dict.json")
+    
 
     # Let's merge each alignment table into one and inject the omissions
     list_of_merged_alignments = graph_merge.merge_alignment_table(align_dict)
