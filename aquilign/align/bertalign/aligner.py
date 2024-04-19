@@ -1,6 +1,5 @@
 import numpy as np
 
-from aquilign.align.bertalign.Bertalign import model
 import aquilign.align.bertalign.corelib as core
 import aquilign.align.bertalign.utils as utils
 import torch.nn as nn
@@ -8,6 +7,7 @@ import torch
 
 class Bertalign:
     def __init__(self,
+                 model,
                  src,
                  tgt,
                  max_align=3,
@@ -17,7 +17,7 @@ class Bertalign:
                  margin=True,
                  len_penalty=True,
                  is_split=False,
-               ):
+                 device="cpu"):
         
         self.max_align = max_align
         self.top_k = top_k
@@ -25,6 +25,9 @@ class Bertalign:
         self.skip = skip
         self.margin = margin
         self.len_penalty = len_penalty
+        self.device = device
+        self.model = model
+        
         
     
         
@@ -38,11 +41,11 @@ class Bertalign:
         assert len(src_sents) != 0, "Problemo"
 
         print("Embedding source and target text using {} ...".format(model.model_name))
-        src_vecs, src_lens = model.transform(src_sents, max_align - 1)
-        tgt_vecs, tgt_lens = model.transform(tgt_sents, max_align - 1)
+        src_vecs, src_lens = self.model.transform(src_sents, max_align - 1)
+        tgt_vecs, tgt_lens = self.model.transform(tgt_sents, max_align - 1)
         
-        self.search_simple_vecs = model.simple_vectorization(src_sents)
-        self.tgt_simple_vecs = model.simple_vectorization(tgt_sents)
+        self.search_simple_vecs = self.model.simple_vectorization(src_sents)
+        self.tgt_simple_vecs = self.model.simple_vectorization(tgt_sents)
 
         char_ratio = np.sum(src_lens[0,]) / np.sum(tgt_lens[0,])
 
@@ -57,7 +60,7 @@ class Bertalign:
         self.tgt_vecs = tgt_vecs
     
     def compute_distance(self):
-        if torch.cuda.is_available():  # GPU version
+        if torch.cuda.is_available() and self.device == 'cuda:0':  # GPU version
             cos = nn.CosineSimilarity(dim=1, eps=1e-6)
             output = cos(torch.from_numpy(self.search_simple_vecs), torch.from_numpy(self.tgt_simple_vecs))
         return output
@@ -65,7 +68,7 @@ class Bertalign:
     def align_sents(self, first_alignment_only=False):
 
         print("Performing first-step alignment ...")
-        D, I = core.find_top_k_sents(self.src_vecs[0,:], self.tgt_vecs[0,:], k=self.top_k)
+        D, I = core.find_top_k_sents(self.src_vecs[0,:], self.tgt_vecs[0,:], k=self.top_k, device=self.device)
         first_alignment_types = core.get_alignment_types(2) # 0-1, 1-0, 1-1
         first_w, first_path = core.find_first_search_path(self.src_num, self.tgt_num)
         first_pointers = core.first_pass_align(self.src_num, self.tgt_num, first_w, first_path, first_alignment_types, D, I)

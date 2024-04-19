@@ -6,8 +6,8 @@ from aquilign.align.bertalign.utils import yield_overlaps
 
 
 class Encoder:
-    def __init__(self, model_name):
-        device = "cuda:0" if torch.cuda.is_available() else "cpu"
+    def __init__(self, model_name, device):
+        self.device = "cuda:0" if torch.cuda.is_available() and device != "cpu" else "cpu"
         if model_name == "LaBSE":
             self.model = SentenceTransformer(model_name_or_path=model_name, device=device)
             self.model_name = model_name
@@ -21,7 +21,7 @@ class Encoder:
         This function produces a simple vectorisation of a sentence, without
         taking into account its lenght as transform does
         """
-        sent_vecs = self.model.encode(sents)
+        sent_vecs = self.model.encode(sents, device=self.device)
         return sent_vecs
 
     def transform(self, sents, num_overlaps):
@@ -30,7 +30,7 @@ class Encoder:
             overlaps.append(line)
         
         if self.model_name == "LaBSE":
-            sent_vecs = self.model.encode(overlaps)
+            sent_vecs = self.model.encode(overlaps, device=self.device)
         else:
             sents_vecs = self.t2vec_model.predict()
         embedding_dim = sent_vecs.size // (len(sents) * num_overlaps)

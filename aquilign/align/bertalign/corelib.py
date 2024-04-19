@@ -377,7 +377,7 @@ def get_alignment_types(max_alignment_size):
                 alignment_types.append([x, y])    
     return np.array(alignment_types)
 
-def find_top_k_sents(src_vecs, tgt_vecs, k=3):
+def find_top_k_sents(src_vecs, tgt_vecs, k=3, device='cpu'):
     """
     Find the top_k similar vecs in tgt_vecs for each vec in src_vecs.
     Args:
@@ -389,13 +389,17 @@ def find_top_k_sents(src_vecs, tgt_vecs, k=3):
         I: numpy array. Target index matrix of shape (num_src_sents, k).
     """
     embedding_size = src_vecs.shape[1]
-    if torch.cuda.is_available() and platform == 'linux': # GPU version
+    if torch.cuda.is_available() and platform == 'linux' and device != "cpu": # GPU version
+        print("OK")
+        exit(0)
         res = faiss.StandardGpuResources() 
         index = faiss.IndexFlatIP(embedding_size)
         gpu_index = faiss.index_cpu_to_gpu(res, 0, index)
         gpu_index.add(tgt_vecs) 
         D, I = gpu_index.search(src_vecs, k)
     else: # CPU version
+        print("Not OK")
+        exit(0)
         index = faiss.IndexFlatIP(embedding_size)
         index.add(tgt_vecs)
         D, I = index.search(src_vecs, k)
