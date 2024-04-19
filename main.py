@@ -59,6 +59,7 @@ class Aligner:
     """
     La classe Aligner initialise le moteur d'alignement, fondé sur Bertalign
     """
+
     def __init__(self, corpus_size:None, 
                  max_align=3, 
                  out_dir="out", 
@@ -79,6 +80,7 @@ class Aligner:
         self.out_dir = out_dir
         self.use_punctiation = use_punctuation
         self.prefix = prefix
+
         try:
             os.mkdir(f"result_dir/{self.out_dir}/")
         except FileExistsError:
@@ -197,6 +199,7 @@ class Aligner:
 def run_alignments():
     # TODO: augmenter la sensibilité à la différence sémantique pour apporter plus d'omissions dans le texte. La fin
     # Est beaucoup trop mal alignée, alors que ça irait bien avec + d'absence. Ça doit être possible vu que des omissions sont créés.
+
     parser = argparse.ArgumentParser()
     parser.add_argument("-o", "--out_dir", default="out",
                         help="Path to output dir.")
@@ -220,7 +223,6 @@ def run_alignments():
     MyAligner.parallel_align()
     utils.write_json(f"result_dir/{out_dir}/alignment_dict.json", MyAligner.alignment_dict)
     align_dict = utils.read_json(f"result_dir/{out_dir}/alignment_dict.json")
-    
 
     # Let's merge each alignment table into one and inject the omissions
     list_of_merged_alignments = graph_merge.merge_alignment_table(align_dict)
