@@ -1,0 +1,7 @@
+LICENCE
+README.md
+setup.py
+Bertalign.egg-info/PKG-INFO
+Bertalign.egg-info/SOURCES.txt
+Bertalign.egg-info/dependency_links.txt
+Bertalign.egg-info/top_level.txt

@@ -6,10 +6,12 @@ from numpyencoder import NumpyEncoder
 import sys
 import numpy as np
 # import collatex
-import graph_merge
-import bertalign.utils as utils
-import bertalign.syntactic_tokenization as syntactic_tokenization
-from bertalign.Bertalign import Bertalign
+import aquilign.align.graph_merge as graph_merge
+import aquilign.align.bertalign.utils as utils
+import aquilign.align.bertalign.syntactic_tokenization as syntactic_tokenization
+#from aquilign.align.bertalign.Bertalign import Bertalign
+from aquilign.align.bertalign.encoder import Encoder
+from aquilign.align.bertalign.aligner import Bertalign
 import pandas as pd
 import argparse
 import glob
@@ -60,16 +62,21 @@ class Aligner:
     La classe Aligner initialise le moteur d'alignement, fondé sur Bertalign
     """
 
-    def __init__(self, corpus_size:None, 
+    def __init__(self,
+                 model,
+                 corpus_size:None, 
                  max_align=3, 
                  out_dir="out", 
                  use_punctuation=True, 
                  input_dir="in", 
                  main_wit=None, 
-                 prefix=None):
+                 prefix=None,
+                 device="cpu"):
+        self.model = model
         self.alignment_dict = dict()
         self.text_dict = dict()
         self.files_path = glob.glob(f"{input_dir}/*.txt")
+        self.device = device
         print(input_dir)
         if main_wit is not None:
             self.main_file_index = [index for index, path in enumerate(self.files_path) if main_wit in path][0]
@@ -81,6 +88,10 @@ class Aligner:
         self.use_punctiation = use_punctuation
         self.prefix = prefix
 
+        try:
+            os.mkdir(f"result_dir")
+        except FileExistsError:
+            pass
         try:
             os.mkdir(f"result_dir/{self.out_dir}/")
         except FileExistsError:
@@ -129,7 +140,14 @@ class Aligner:
             else:
                 margin = False
                 len_penality = True
-            aligner = Bertalign(first_tokenized_text, second_tokenized_text, max_align= self.max_align, win=5, skip=-.2, margin=margin, len_penalty=len_penality)
+            aligner = Bertalign(self.model,
+                                first_tokenized_text, 
+                                second_tokenized_text, 
+                                max_align= self.max_align, 
+                                win=5, skip=-.2, 
+                                margin=margin, 
+                                len_penalty=len_penality, 
+                                device=self.device)
             aligner.align_sents()
             
             # We append the result to the alignment dictionnary
@@ -211,15 +229,25 @@ def run_alignments():
                         help="Pivot witness.")
     parser.add_argument("-p", "--prefix", default=None,
                         help="Prefix for produced files.")
+    parser.add_argument("-d", "--device", default='cpu',
+                        help="Device to be used.")
     
     args = parser.parse_args()
     out_dir = args.out_dir
     input_dir = args.input_dir
     main_wit = args.main_wit
     prefix = args.prefix
+    device = args.device
     use_punctuation = args.use_punctuation
+    
+    # Initialize model 
+    models = {0: "distiluse-base-multilingual-cased-v2", 1: "LaBSE", 2: "Sonar"}
+    model = Encoder(models[int(1)], device=device)
+    
+    
+    
     print(f"Punctuation for tokenization: {use_punctuation}")
-    MyAligner = Aligner(corpus_size=None, max_align=3, out_dir=out_dir, use_punctuation=use_punctuation, input_dir=input_dir, main_wit=main_wit, prefix=prefix)
+    MyAligner = Aligner(model, corpus_size=None, max_align=3, out_dir=out_dir, use_punctuation=use_punctuation, input_dir=input_dir, main_wit=main_wit, prefix=prefix, device=device)
     MyAligner.parallel_align()
     utils.write_json(f"result_dir/{out_dir}/alignment_dict.json", MyAligner.alignment_dict)
     align_dict = utils.read_json(f"result_dir/{out_dir}/alignment_dict.json")

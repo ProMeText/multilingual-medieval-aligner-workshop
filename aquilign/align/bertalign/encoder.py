@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 from sentence_transformers import SentenceTransformer
-from bertalign.utils import yield_overlaps
+from aquilign.align.bertalign.utils import yield_overlaps
 # from sonar.inference_pipelines.text import TextToEmbeddingModelPipeline
 
 
@@ -12,14 +12,14 @@ class Encoder:
         self.model = SentenceTransformer(model_name_or_path=model_name, device=device)
         self.model_name = model_name
         # else:
-            # self.t2vec_model = TextToEmbeddingModelPipeline(encoder="text_sonar_basic_encoder", tokenizer="text_sonar_basic_encoder")        
+            # self.t2vec_model = TextToEmbeddingModelPipeline(encoder="text_sonar_basic_encoder", tokenizer="text_sonar_basic_encoder")   
     
     def simple_vectorization(self, sents):
         """
         This function produces a simple vectorisation of a sentence, without
         taking into account its lenght as transform does
         """
-        sent_vecs = self.model.encode(sents)
+        sent_vecs = self.model.encode(sents, device=self.device)
         return sent_vecs
 
     def transform(self, sents, num_overlaps):
@@ -28,7 +28,7 @@ class Encoder:
             overlaps.append(line)
         
         if self.model_name == "LaBSE":
-            sent_vecs = self.model.encode(overlaps)
+            sent_vecs = self.model.encode(overlaps, device=self.device)
         else:
             sents_vecs = self.t2vec_model.predict()
         embedding_dim = sent_vecs.size // (len(sents) * num_overlaps)
