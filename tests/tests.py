@@ -47,16 +47,16 @@ import unittest
 #         return
 
 
-class TokenizationTests(unittest.TestCase):
-    def __init__(self, tokenized_witnesses: list):
-        self.tokenized_witnesses = tokenized_witnesses
-
-    def test_tokenization(self):
-        """
-        On teste si la tokénisation a fonctionné et si une expression régulière ne fait pas tout capoter
-        """
-        self.assertEqual(True, False)
-
-
-if __name__ == '__main__':
-    unittest.main()
+# class TokenizationTests(unittest.TestCase):
+#     def __init__(self, tokenized_witnesses: list):
+#         self.tokenized_witnesses = tokenized_witnesses
+# 
+#     def test_tokenization(self):
+#         """
+#         On teste si la tokénisation a fonctionné et si une expression régulière ne fait pas tout capoter
+#         """
+#         self.assertEqual(True, False)
+# 
+# 
+# if __name__ == '__main__':
+#     unittest.main()
