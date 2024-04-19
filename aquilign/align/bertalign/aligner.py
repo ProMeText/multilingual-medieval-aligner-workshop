@@ -1,8 +1,8 @@
 import numpy as np
 
-from bertalign.Bertalign import model
-import bertalign.corelib as core
-import bertalign.utils as utils
+from aquilign.align.bertalign.Bertalign import model
+import aquilign.align.bertalign.corelib as core
+import aquilign.align.bertalign.utils as utils
 import torch.nn as nn
 import torch
 

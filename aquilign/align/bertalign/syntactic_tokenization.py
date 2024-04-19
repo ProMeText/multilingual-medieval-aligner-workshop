@@ -5,7 +5,7 @@ import re
 import json
 import sys
 import langid 
-import bertalign.utils as utils
+import aquilign.align.bertalign.utils as utils
 
 def syntactic_tokenization(path, corpus_limit=None, use_punctuation=True):
     name = path.split("/")[-1].split(".")[0]
@@ -16,7 +16,7 @@ def syntactic_tokenization(path, corpus_limit=None, use_punctuation=True):
     codelang, _ = langid.classify(text[:300])
     print(text)
     print(codelang)
-    with open("bertalign/delimiters.json", "r") as input_json:
+    with open("aquilign/align/bertalign/delimiters.json", "r") as input_json:
         dictionary = json.load(input_json)
     # Il ne reconnaît pas toujours le castillan
     if codelang == "an":

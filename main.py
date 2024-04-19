@@ -6,10 +6,10 @@ from numpyencoder import NumpyEncoder
 import sys
 import numpy as np
 # import collatex
-import graph_merge
-import bertalign.utils as utils
-import bertalign.syntactic_tokenization as syntactic_tokenization
-from bertalign.Bertalign import Bertalign
+import aquilign.align.graph_merge as graph_merge
+import aquilign.align.bertalign.utils as utils
+import aquilign.align.bertalign.syntactic_tokenization as syntactic_tokenization
+from aquilign.align.bertalign.Bertalign import Bertalign
 import pandas as pd
 import argparse
 import glob
@@ -81,6 +81,10 @@ class Aligner:
         self.use_punctiation = use_punctuation
         self.prefix = prefix
 
+        try:
+            os.mkdir(f"result_dir")
+        except FileExistsError:
+            pass
         try:
             os.mkdir(f"result_dir/{self.out_dir}/")
         except FileExistsError:
@@ -219,7 +223,7 @@ def run_alignments():
     prefix = args.prefix
     use_punctuation = args.use_punctuation
     print(f"Punctuation for tokenization: {use_punctuation}")
-    MyAligner = Aligner(corpus_size=None, max_align=3, out_dir=out_dir, use_punctuation=use_punctuation, input_dir=input_dir, main_wit=main_wit, prefix=prefix)
+    MyAligner = Aligner(corpus_size=100, max_align=3, out_dir=out_dir, use_punctuation=use_punctuation, input_dir=input_dir, main_wit=main_wit, prefix=prefix)
     MyAligner.parallel_align()
     utils.write_json(f"result_dir/{out_dir}/alignment_dict.json", MyAligner.alignment_dict)
     align_dict = utils.read_json(f"result_dir/{out_dir}/alignment_dict.json")
