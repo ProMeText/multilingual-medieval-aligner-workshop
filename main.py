@@ -6,10 +6,10 @@ from numpyencoder import NumpyEncoder
 import sys
 import numpy as np
 # import collatex
-import graph_merge
-import bertalign.utils as utils
-import bertalign.syntactic_tokenization as syntactic_tokenization
-from bertalign.Bertalign import Bertalign
+import aquilign.align.graph_merge as graph_merge
+import aquilign.align.bertalign.utils as utils
+import aquilign.align.bertalign.syntactic_tokenization as syntactic_tokenization
+from aquilign.align.bertalign.Bertalign import Bertalign
 import pandas as pd
 import argparse
 import glob
@@ -81,6 +81,10 @@ class Aligner:
         self.use_punctiation = use_punctuation
         self.prefix = prefix
 
+        try:
+            os.mkdir(f"result_dir")
+        except FileExistsError:
+            pass
         try:
             os.mkdir(f"result_dir/{self.out_dir}/")
         except FileExistsError:
