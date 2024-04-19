@@ -105,7 +105,17 @@ class Aligner:
             self.text_dict[index + 1] = second_tokenized_text
             
             # Let's align the texts
-            aligner = Bertalign(first_tokenized_text, second_tokenized_text, max_align= self.max_align)
+            
+            
+            # Tests de profil et de paramètres
+            profile = 0
+            if profile == 0:
+                margin = True
+                len_penality = True
+            else:
+                margin = False
+                len_penality = True
+            aligner = Bertalign(first_tokenized_text, second_tokenized_text, max_align= self.max_align, win=5, skip=-.2, margin=margin, len_penalty=len_penality)
             aligner.align_sents()
             
             # We append the result to the alignment dictionnary
@@ -159,8 +169,17 @@ class Aligner:
         data = pd.read_csv(f"result_dir/{self.out_dir}/final_result.csv")
         # Convert the DataFrame to an HTML table
         html_table = data.to_html()
+        full_html_file = f"""<html>
+                          <head>
+                          <title>Alignement final</title>
+                            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+                            </head>
+                          <body>
+                          {html_table}
+                          </body>
+                    </html>"""
         with open(f"result_dir/{self.out_dir}/final_result.html", "w") as output_html:
-            output_html.write(html_table)
+            output_html.write(full_html_file)
 
 
 def run_alignments():
@@ -169,7 +188,7 @@ def run_alignments():
     out_dir = sys.argv[-2]
     use_punctuation = bool(sys.argv[-1])
     print(f"Punctuation for tokenization: {use_punctuation}")
-    MyAligner = Aligner(corpus_size=None, max_align=4, out_dir=out_dir, use_punctuation=use_punctuation)
+    MyAligner = Aligner(corpus_size=None, max_align=3, out_dir=out_dir, use_punctuation=use_punctuation)
     MyAligner.parallel_align()
     utils.write_json(f"result_dir/{out_dir}/alignment_dict.json", MyAligner.alignment_dict)
     align_dict = utils.read_json(f"result_dir/{out_dir}/alignment_dict.json")
