@@ -181,8 +181,14 @@ def compute_metrics(eval_pred):
 	print(labels)
 
 	acc = metric1.compute(predictions=predictions, references=labels)
-	recall = metric2.compute(predictions=predictions, references=labels, average='weighted')
-	precision = metric3.compute(predictions=predictions, references=labels, average='weighted')
-	f1 = metric4.compute(predictions=predictions, references=labels, average='weighted')
+	recall = metric2.compute(predictions=predictions, references=labels, average=None)
+	recall_l = []
+	[recall_l.extend(v) for k, v in recall.items()]
+	precision = metric3.compute(predictions=predictions, references=labels, average=None)
+	precision_l = []
+	[precision_l.extend(v) for k, v in precision.items()]
+	f1 = metric4.compute(predictions=predictions, references=labels, average=None)
+	f1_l = []
+	[f1_l.extend(v) for k, v in f1.items()]
 
-	return {"accurracy": acc, "recall": recall, "precision": precision, "f1": f1}
+	return {"accurracy": acc, "recall": recall_l, "precision": precision_l, "f1": f1_l}
