@@ -55,7 +55,8 @@ if __name__ == '__main__':
 	output_train_file = sys.argv[3]
 	num_sentences = int(sys.argv[4])
 	random.seed(234)
-	choice  = random.choices(text_as_list, k=num_sentences)
+	#modif : sample et pas choice
+	choice  = random.sample(text_as_list, k=num_sentences)
 	docChoice = '\n'.join(choice)
 	with open(output_train_file, 'w') as f:
 		f.write(docChoice)
@@ -64,7 +65,8 @@ if __name__ == '__main__':
 	output_eval_file = sys.argv[5]
 	num_sentences_eval = int(sys.argv[6])
 	random.seed(324)
-	choiceEval  = random.choices(text_as_list, k=num_sentences_eval)
+	# modif : idem
+	choiceEval  = random.sample(text_as_list, k=num_sentences_eval)
 	docChoiceEval = '\n'.join(choiceEval)
 	with open(output_eval_file, 'w') as f:
 		f.write(docChoiceEval)
