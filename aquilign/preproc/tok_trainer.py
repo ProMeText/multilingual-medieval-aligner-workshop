@@ -12,7 +12,7 @@ from tok_trainer_functions import *
 # model_name is the full name of the model (same name for model and tokenizer)
 # train_file.txt is the file with the sentences and words of interest are identified  (words are identified with $ after the line)
 # which will be used for training
-## ex. : uoulentiers mais il nen est pas encor temps. Certes fait elle si$mais,Certes
+## ex. : uoulentiers mais il nen est pas encor temps. Certes fait elle si$mais£Certes
 # eval_file.txt is the file with the sentences and words of interest which will be used for eval
 # num_train_epochs : the number of epochs we want to train (ex : 10)
 # batch_size : the batch size (ex : 8)

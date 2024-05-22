@@ -17,7 +17,7 @@ def convertToSentencesAndLabels(text):
         i = re.split('\n', l)[0]
         j = re.split('\$', i)
 
-        sentenceAsList = re.split("[\s , ; - — : ? ! \. ’ ' « » “ /]", j[0])
+        sentenceAsList = re.findall(r"[\.,;—:?!’'«»“/-]|\w+", j[0])
         split= j[1]
 
         if '£' in split:
@@ -107,6 +107,7 @@ def get_index_correspondence(sent, tokenizer):
     for word in sent:
         (raw_end, expand_end) = correspondence[-1]
         tokenized_word = tokenizer.tokenize(word)
+        print(tokenized_word)
         correspondence.append((raw_end+1, expand_end+len(tokenized_word)))
     return correspondence
 
@@ -118,10 +119,10 @@ def align_labels(corresp, orig_labels):
         # label which is interesting : 1
         if label == 1:
             ### verbose ?
-            #print(f"index is {index}")
-            #print(f"label is {label}")
-            #print(f"Corresp first subword is {corresp[index][1] + 1}")
-            #print(f"Corresp first subword actual index is {corresp[index][1]}")
+            print(f"index is {index}")
+            print(f"label is {label}")
+            print(f"Corresp first subword is {corresp[index][1] + 1}")
+            print(f"Corresp first subword actual index is {corresp[index][1]}")
             ###
             ### if the length of the new list = the current index
             if len(new_labels) == corresp[index][1]:
@@ -176,8 +177,7 @@ class SentenceBoundaryDataset(torch.utils.data.Dataset):
         # get the text
         #tokens = text.split()
         # get the text with the similar splits as for the creation of the data
-        tokens = re.split("[\s , ; - — : ? ! \. ’ ' « » “ /]", text)
-        #
+        tokens = re.findall(r"[\.,;—:?!’'«»“/-]|\w+", text)
         # get the index correspondences between text and tok text
         corresp = get_index_correspondence(tokens, self.tokenizer)
         # aligning the label
