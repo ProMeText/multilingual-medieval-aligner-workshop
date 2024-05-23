@@ -3,10 +3,10 @@ import main
 
 class Main(unittest.TestCase):
     def test_full_workflow(self):
-        virtualArgs = {'input_dir': 'test_data/', 
+        virtualArgs = {'input_dir': 'tests/test_data/', 
                        'out_dir': 'result_dir/', 
                        'use_punctuation': True, 
-                       'main_wit': 'test_data/castillan/lanzarote-ii-48.txt', 
+                       'main_wit': 'tests/test_data/castillan/lanzarote-ii-48.txt', 
                        'prefix': None, 
                        'device': 'cuda:0'}
         input_dir = virtualArgs['input_dir']
