@@ -75,7 +75,7 @@ class Aligner:
         self.model = model
         self.alignment_dict = dict()
         self.text_dict = dict()
-        self.files_path = glob.glob(f"{input_dir}/*.txt")
+        self.files_path = glob.glob(f"{input_dir}/*/*.txt")
         self.device = device
         print(input_dir)
         if main_wit is not None:
@@ -214,32 +214,10 @@ class Aligner:
             output_html.write(full_html_file)
 
 
-def run_alignments():
+def run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation):
     # TODO: augmenter la sensibilité à la différence sémantique pour apporter plus d'omissions dans le texte. La fin
     # Est beaucoup trop mal alignée, alors que ça irait bien avec + d'absence. Ça doit être possible vu que des omissions sont créés.
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-o", "--out_dir", default="out",
-                        help="Path to output dir.")
-    parser.add_argument("-i", "--input_dir", default="out",
-                        help="Input directory where the .txt files are stored.")
-    parser.add_argument("-punct", "--use_punctuation", default=True,
-                        help="Use punctuation to tokenize texts.")
-    parser.add_argument("-mw", "--main_wit", default=None,
-                        help="Pivot witness.")
-    parser.add_argument("-p", "--prefix", default=None,
-                        help="Prefix for produced files.")
-    parser.add_argument("-d", "--device", default='cpu',
-                        help="Device to be used.")
-    
-    args = parser.parse_args()
-    out_dir = args.out_dir
-    input_dir = args.input_dir
-    main_wit = args.main_wit
-    prefix = args.prefix
-    device = args.device
-    use_punctuation = args.use_punctuation
-    
     # Initialize model 
     models = {0: "distiluse-base-multilingual-cased-v2", 1: "LaBSE", 2: "Sonar"}
     model = Encoder(models[int(1)], device=device)
@@ -270,7 +248,32 @@ def run_alignments():
     
 
 if __name__ == '__main__':
-    run_alignments()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-i", "--input_dir", default=None,
+                        help="Input directory where the .txt files are stored. Each linguistic version should be stored "
+                             "in txt format in a single directory so that the file matches the expression `{input_dir}/*/*.txt`")
+    parser.add_argument("-o", "--out_dir", default="out",
+                        help="Path to output dir.")
+    parser.add_argument("-punct", "--use_punctuation", default=True,
+                        help="Use punctuation to tokenize texts (default: True).")
+    parser.add_argument("-mw", "--main_wit",
+                        help="Path to pivot witness.")
+    parser.add_argument("-p", "--prefix", default=None,
+                        help="Prefix for produced files (to be implemented).")
+    parser.add_argument("-d", "--device", default='cpu',
+                        help="Device to be used (default: cpu).")
+
+    
+    args = parser.parse_args()
+    out_dir = args.out_dir
+    input_dir = args.input_dir
+    main_wit = args.main_wit
+    assert input_dir != None,  "Input dir is mandatory"
+    assert main_wit != None,  "Main wit path is mandatory"
+    prefix = args.prefix
+    device = args.device
+    use_punctuation = args.use_punctuation
+    run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation)
                 
             
     
