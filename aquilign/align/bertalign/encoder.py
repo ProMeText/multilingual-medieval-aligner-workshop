@@ -6,9 +6,11 @@ from aquilign.align.bertalign.utils import yield_overlaps
 
 
 class Encoder:
-    def __init__(self, model_name):
-        device = "cuda:0" if torch.cuda.is_available() else "cpu"
+    def __init__(self, model_name, device):
+        if device != "cpu":
+            device = "cuda:0" if torch.cuda.is_available() else "cpu"
         # if model_name == "LaBSE":
+        self.device = device
         self.model = SentenceTransformer(model_name_or_path=model_name, device=device)
         self.model_name = model_name
         # else:
