@@ -14,8 +14,6 @@ def syntactic_tokenization(path, corpus_limit=None, use_punctuation=True):
 
     text = utils.normalize_text(text)
     codelang, _ = langid.classify(text[:300])
-    print(text)
-    print(codelang)
     with open("aquilign/align/bertalign/delimiters.json", "r") as input_json:
         dictionary = json.load(input_json)
     # Il ne reconnaît pas toujours le castillan
@@ -31,7 +29,6 @@ def syntactic_tokenization(path, corpus_limit=None, use_punctuation=True):
         tokens_subregex = "(" + " | ".join(dictionary[codelang]['word_delimiters']) + " |" + punctuation_subregex + ")"
     else:
         tokens_subregex = "(" + " | ".join(dictionary[codelang]['word_delimiters']) + ")"
-    print(tokens_subregex)
     delimiter = re.compile(tokens_subregex)
     search = re.search(delimiter, text)
     tokenized_text = []

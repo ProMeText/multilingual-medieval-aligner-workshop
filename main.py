@@ -77,9 +77,10 @@ class Aligner:
         self.text_dict = dict()
         self.files_path = glob.glob(f"{input_dir}/*/*.txt")
         self.device = device
-        print(input_dir)
+        print(self.files_path)
         if main_wit is not None:
-            self.main_file_index = [index for index, path in enumerate(self.files_path) if main_wit in path][0]
+            self.main_file_index = next(index for index, path in enumerate(self.files_path) if main_wit in path)
+            print(self.main_file_index)
         else: 
             self.main_file_index = 0
         self.corpus_size = corpus_size

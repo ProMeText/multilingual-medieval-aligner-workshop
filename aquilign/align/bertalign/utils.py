@@ -60,12 +60,9 @@ def clean_tokenized_content(tokenized_doc: list):
         cleaned = re.sub(spaces_pattern, " ", cleaned)
         cleaned = cleaned.strip()
         if re.match(punct_pattern, cleaned):
-            print(f"Removing: {cleaned}")
             cleaned = re.sub(punct_pattern, "", cleaned)
         if cleaned != "":
             cleaned_doc.append(cleaned)
-    print(cleaned_doc)
-    print(len(cleaned_doc))
     return cleaned_doc
 
 def pretty_print_xml_tree(file):
