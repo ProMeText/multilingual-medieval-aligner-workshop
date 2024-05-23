@@ -77,9 +77,10 @@ class Aligner:
         self.text_dict = dict()
         self.files_path = glob.glob(f"{input_dir}/*/*.txt")
         self.device = device
-        print(input_dir)
+        print(self.files_path)
         if main_wit is not None:
-            self.main_file_index = [index for index, path in enumerate(self.files_path) if main_wit in path][0]
+            self.main_file_index = next(index for index, path in enumerate(self.files_path) if main_wit in path)
+            print(self.main_file_index)
         else: 
             self.main_file_index = 0
         self.corpus_size = corpus_size
@@ -214,7 +215,7 @@ class Aligner:
             output_html.write(full_html_file)
 
 
-def run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation):
+def run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation, corpus_size=None):
     # TODO: augmenter la sensibilité à la différence sémantique pour apporter plus d'omissions dans le texte. La fin
     # Est beaucoup trop mal alignée, alors que ça irait bien avec + d'absence. Ça doit être possible vu que des omissions sont créés.
 
@@ -225,7 +226,7 @@ def run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation
     
     
     print(f"Punctuation for tokenization: {use_punctuation}")
-    MyAligner = Aligner(model, corpus_size=None, max_align=3, out_dir=out_dir, use_punctuation=use_punctuation, input_dir=input_dir, main_wit=main_wit, prefix=prefix, device=device)
+    MyAligner = Aligner(model, corpus_size=corpus_size, max_align=3, out_dir=out_dir, use_punctuation=use_punctuation, input_dir=input_dir, main_wit=main_wit, prefix=prefix, device=device)
     MyAligner.parallel_align()
     utils.write_json(f"result_dir/{out_dir}/alignment_dict.json", MyAligner.alignment_dict)
     align_dict = utils.read_json(f"result_dir/{out_dir}/alignment_dict.json")
@@ -239,12 +240,14 @@ def run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation
     # On teste si on ne perd pas de noeuds textuels
     print("Testing results consistency")
     possible_witnesses = string.ascii_lowercase[:len(align_dict) + 1]
-    utils.test_tables_consistency(list_of_merged_alignments, possible_witnesses)
+    test_table = utils.test_tables_consistency(list_of_merged_alignments, possible_witnesses)
     # TODO: une phase de test pour voir si l'alignement final est cohérent avec les alignements deux à deux
     
     
     # Let's save the final tables (indices and texts)
     MyAligner.save_final_result(merged_alignments=list_of_merged_alignments, file_titles=sys.argv[1:-3])
+    
+    return test_table
     
 
 if __name__ == '__main__':

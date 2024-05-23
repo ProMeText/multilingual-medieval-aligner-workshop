@@ -60,12 +60,9 @@ def clean_tokenized_content(tokenized_doc: list):
         cleaned = re.sub(spaces_pattern, " ", cleaned)
         cleaned = cleaned.strip()
         if re.match(punct_pattern, cleaned):
-            print(f"Removing: {cleaned}")
             cleaned = re.sub(punct_pattern, "", cleaned)
         if cleaned != "":
             cleaned_doc.append(cleaned)
-    print(cleaned_doc)
-    print(len(cleaned_doc))
     return cleaned_doc
 
 def pretty_print_xml_tree(file):
@@ -154,6 +151,7 @@ def test_tables_consistency(align_dict, witnesses):
     """
     Cette fonction teste si tous les témoins contiennent bien l'intégralité du texte dans le bon ordre à la fin du processus
     """
+    test_table = {}
     for witness in witnesses:
         print(witness)
         wit_table = []
@@ -168,9 +166,11 @@ def test_tables_consistency(align_dict, witnesses):
             print(type(ranges), type(wit_table))
             print([(a, b) for a, b in list(zip(ranges, wit_table)) if a!=b])
             print(align_dict)
+            test_table[witness] = False
         else:
             print("OK")
-    return 
+            test_table[witness] = True
+    return test_table
 
 class LANG:
     SPLITTER = {
