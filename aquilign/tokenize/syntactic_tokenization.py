@@ -47,7 +47,7 @@ def syntactic_tokenization(path, corpus_limit=None, use_punctuation=True):
     #         print(search)
     #     else:
     #         print("NO")
-    
+    print(tokenized_text)
     return tokenized_text
     
             

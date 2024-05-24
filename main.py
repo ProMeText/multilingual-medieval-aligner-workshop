@@ -8,7 +8,7 @@ import numpy as np
 # import collatex
 import aquilign.align.graph_merge as graph_merge
 import aquilign.align.bertalign.utils as utils
-import aquilign.align.bertalign.syntactic_tokenization as syntactic_tokenization
+import aquilign.tokenize.syntactic_tokenization as syntactic_tokenization
 #from aquilign.align.bertalign.Bertalign import Bertalign
 from aquilign.align.bertalign.encoder import Encoder
 from aquilign.align.bertalign.aligner import Bertalign
@@ -63,11 +63,7 @@ class Aligner:
         self.files_path = glob.glob(f"{input_dir}/*/*.txt")
         self.device = device
         print(self.files_path)
-        if main_wit is not None:
-            self.main_file_index = next(index for index, path in enumerate(self.files_path) if main_wit in path)
-            print(self.main_file_index)
-        else: 
-            self.main_file_index = 0
+        self.main_file_index = next(index for index, path in enumerate(self.files_path) if main_wit in path)
         self.corpus_size = corpus_size
         self.max_align = max_align
         self.out_dir = out_dir
