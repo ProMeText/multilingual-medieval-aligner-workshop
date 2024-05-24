@@ -40,22 +40,7 @@ def create_pairs(full_list:list, main_wit_index:int) -> list:
     main_wit = full_list.pop(int(main_wit_index))
     for wit in full_list:
         pairs.append((main_wit, wit))
-    print(pairs)
     return pairs
-
-
-def blue_print(string):
-    OKBLUE = '\033[94m'
-    ENDC = '\033[0m'
-    print(f"{OKBLUE}{string}{ENDC}")
-
-
-
-def red_print(string):
-    RED = '\033[31m'
-    ENDC = '\033[0m'
-    print(f"{RED}{string}{ENDC}")
-
 
 class Aligner:
     """
@@ -240,14 +225,14 @@ def run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation
     # On teste si on ne perd pas de noeuds textuels
     print("Testing results consistency")
     possible_witnesses = string.ascii_lowercase[:len(align_dict) + 1]
-    test_table = utils.test_tables_consistency(list_of_merged_alignments, possible_witnesses)
+    tested_table = utils.test_tables_consistency(list_of_merged_alignments, possible_witnesses)
     # TODO: une phase de test pour voir si l'alignement final est cohérent avec les alignements deux à deux
     
     
     # Let's save the final tables (indices and texts)
     MyAligner.save_final_result(merged_alignments=list_of_merged_alignments, file_titles=sys.argv[1:-3])
     
-    return test_table
+    return tested_table
     
 
 if __name__ == '__main__':
