@@ -1,7 +1,7 @@
 import numpy as np
 
-import aquilign.align.bertalign.corelib as core
-import aquilign.align.bertalign.utils as utils
+import aquilign.align.corelib as core
+import aquilign.align.utils as utils
 import torch.nn as nn
 import torch
 

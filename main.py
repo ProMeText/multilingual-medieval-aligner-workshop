@@ -7,11 +7,10 @@ import sys
 import numpy as np
 # import collatex
 import aquilign.align.graph_merge as graph_merge
-import aquilign.align.bertalign.utils as utils
+import aquilign.align.utils as utils
 import aquilign.tokenize.syntactic_tokenization as syntactic_tokenization
-#from aquilign.align.bertalign.Bertalign import Bertalign
-from aquilign.align.bertalign.encoder import Encoder
-from aquilign.align.bertalign.aligner import Bertalign
+from aquilign.align.encoder import Encoder
+from aquilign.align.aligner import Bertalign
 import pandas as pd
 import argparse
 import glob
@@ -207,7 +206,7 @@ def run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation
     
     
     print(f"Punctuation for tokenization: {use_punctuation}")
-    MyAligner = Aligner(model, corpus_size=corpus_size, max_align=3, out_dir=out_dir, use_punctuation=use_punctuation, input_dir=input_dir, main_wit=main_wit, prefix=prefix, device=device)
+    MyAligner = Aligner(model, corpus_size=None, max_align=3, out_dir=out_dir, use_punctuation=use_punctuation, input_dir=input_dir, main_wit=main_wit, prefix=prefix, device=device)
     MyAligner.parallel_align()
     utils.write_json(f"result_dir/{out_dir}/alignment_dict.json", MyAligner.alignment_dict)
     align_dict = utils.read_json(f"result_dir/{out_dir}/alignment_dict.json")

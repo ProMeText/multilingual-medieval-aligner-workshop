@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 from sentence_transformers import SentenceTransformer
-from aquilign.align.bertalign.utils import yield_overlaps
+from aquilign.align.utils import yield_overlaps
 # from sonar.inference_pipelines.text import TextToEmbeddingModelPipeline
 
 
