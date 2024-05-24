@@ -7,11 +7,10 @@ import sys
 import numpy as np
 # import collatex
 import aquilign.align.graph_merge as graph_merge
-import aquilign.align.bertalign.utils as utils
-import aquilign.align.bertalign.syntactic_tokenization as syntactic_tokenization
-#from aquilign.align.bertalign.Bertalign import Bertalign
-from aquilign.align.bertalign.encoder import Encoder
-from aquilign.align.bertalign.aligner import Bertalign
+import aquilign.align.utils as utils
+import aquilign.tokenize.syntactic_tokenization as syntactic_tokenization
+from aquilign.align.encoder import Encoder
+from aquilign.align.aligner import Bertalign
 import pandas as pd
 import argparse
 import glob
@@ -40,22 +39,7 @@ def create_pairs(full_list:list, main_wit_index:int) -> list:
     main_wit = full_list.pop(int(main_wit_index))
     for wit in full_list:
         pairs.append((main_wit, wit))
-    print(pairs)
     return pairs
-
-
-def blue_print(string):
-    OKBLUE = '\033[94m'
-    ENDC = '\033[0m'
-    print(f"{OKBLUE}{string}{ENDC}")
-
-
-
-def red_print(string):
-    RED = '\033[31m'
-    ENDC = '\033[0m'
-    print(f"{RED}{string}{ENDC}")
-
 
 class Aligner:
     """
@@ -78,11 +62,7 @@ class Aligner:
         self.files_path = glob.glob(f"{input_dir}/*/*.txt")
         self.device = device
         print(self.files_path)
-        if main_wit is not None:
-            self.main_file_index = next(index for index, path in enumerate(self.files_path) if main_wit in path)
-            print(self.main_file_index)
-        else: 
-            self.main_file_index = 0
+        self.main_file_index = next(index for index, path in enumerate(self.files_path) if main_wit in path)
         self.corpus_size = corpus_size
         self.max_align = max_align
         self.out_dir = out_dir
@@ -240,14 +220,14 @@ def run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation
     # On teste si on ne perd pas de noeuds textuels
     print("Testing results consistency")
     possible_witnesses = string.ascii_lowercase[:len(align_dict) + 1]
-    test_table = utils.test_tables_consistency(list_of_merged_alignments, possible_witnesses)
+    tested_table = utils.test_tables_consistency(list_of_merged_alignments, possible_witnesses)
     # TODO: une phase de test pour voir si l'alignement final est cohérent avec les alignements deux à deux
     
     
     # Let's save the final tables (indices and texts)
     MyAligner.save_final_result(merged_alignments=list_of_merged_alignments, file_titles=sys.argv[1:-3])
     
-    return test_table
+    return tested_table
     
 
 if __name__ == '__main__':
