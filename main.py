@@ -206,7 +206,7 @@ def run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation
     
     
     print(f"Punctuation for tokenization: {use_punctuation}")
-    MyAligner = Aligner(model, corpus_size=None, max_align=3, out_dir=out_dir, use_punctuation=use_punctuation, input_dir=input_dir, main_wit=main_wit, prefix=prefix, device=device)
+    MyAligner = Aligner(model, corpus_size=corpus_size, max_align=3, out_dir=out_dir, use_punctuation=use_punctuation, input_dir=input_dir, main_wit=main_wit, prefix=prefix, device=device)
     MyAligner.parallel_align()
     utils.write_json(f"result_dir/{out_dir}/alignment_dict.json", MyAligner.alignment_dict)
     align_dict = utils.read_json(f"result_dir/{out_dir}/alignment_dict.json")
