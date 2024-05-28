@@ -27,10 +27,8 @@ def training_trainer(modelName, train_dataset, eval_dataset, num_train_epochs, b
     train_lines = train_file.readlines()
     eval_file = open(eval_dataset, "r")
     eval_lines = eval_file.readlines()
-    train_texts = trainer_functions.convertToSentencesAndLabels(train_lines, tokenizer)[0]
-    train_labels = trainer_functions.convertToSentencesAndLabels(train_lines, tokenizer)[1]
-    eval_texts = trainer_functions.convertToSentencesAndLabels(eval_lines, tokenizer)[0]
-    eval_labels = trainer_functions.convertToSentencesAndLabels(eval_lines, tokenizer)[1]
+    train_texts, train_labels = trainer_functions.convertToSentencesAndLabels(train_lines, tokenizer)
+    eval_texts, eval_labels = trainer_functions.convertToSentencesAndLabels(eval_lines, tokenizer)
     train_dataset = trainer_functions.SentenceBoundaryDataset(train_texts, train_labels, tokenizer)
     eval_dataset = trainer_functions.SentenceBoundaryDataset(eval_texts, eval_labels, tokenizer)
 
@@ -50,8 +48,9 @@ def training_trainer(modelName, train_dataset, eval_dataset, num_train_epochs, b
         per_device_eval_batch_size=batch_size,
         evaluation_strategy="epoch",
         logging_strategy="epoch",
-        dataloader_num_workers=4,
+        dataloader_num_workers=8,
         dataloader_prefetch_factor=4,
+        bf16=True,
         use_cpu=False,
         save_strategy="epoch",
         load_best_model_at_end=True

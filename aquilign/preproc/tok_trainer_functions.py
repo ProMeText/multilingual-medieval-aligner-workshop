@@ -188,7 +188,6 @@ class SentenceBoundaryDataset(torch.utils.data.Dataset):
 
     def __getitem__(self, idx):
         # get the max length of the training set in order to have the good feature to put in tokenizer
-        # print("Getting new item")
         # current text (one line, ie 12 tokens [before automatic BERT tokenization])
         toks = self.texts[idx]
         # current labels for the line
