@@ -27,10 +27,10 @@ def training_trainer(modelName, train_dataset, eval_dataset, num_train_epochs, b
     train_lines = train_file.readlines()
     eval_file = open(eval_dataset, "r")
     eval_lines = eval_file.readlines()
-    train_texts, train_labels = trainer_functions.convertToSentencesAndLabels(train_lines, tokenizer)
-    eval_texts, eval_labels = trainer_functions.convertToSentencesAndLabels(eval_lines, tokenizer)
-    train_dataset = trainer_functions.SentenceBoundaryDataset(train_texts, train_labels, tokenizer)
-    eval_dataset = trainer_functions.SentenceBoundaryDataset(eval_texts, eval_labels, tokenizer)
+    train_texts_and_labels = trainer_functions.convertToSentencesAndLabels(train_lines, tokenizer)
+    eval_texts_and_labels = trainer_functions.convertToSentencesAndLabels(eval_lines, tokenizer)
+    train_dataset = trainer_functions.SentenceBoundaryDataset(train_texts_and_labels, tokenizer)
+    eval_dataset = trainer_functions.SentenceBoundaryDataset(eval_texts_and_labels, tokenizer)
 
     if '/' in modelName:
         name_of_model = re.split('/', modelName)[1]

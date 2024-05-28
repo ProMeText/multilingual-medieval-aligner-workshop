@@ -97,7 +97,7 @@ def convertToSentencesAndLabels(text, tokenizer):
         splitList.append(localList)
 
     num_max_length = get_token_max_length(sentencesList, tokenizer)
-    out_toks, out_labels = [], []
+    out_toks_and_labels = []
     for text, labels in tqdm.tqdm(zip(sentencesList, splitList)):
         toks = tokenizer(text, padding="max_length", max_length=num_max_length, truncation=True,
                               return_tensors="pt")
@@ -120,9 +120,10 @@ def convertToSentencesAndLabels(text, tokenizer):
         assert len(sq) == len(new_labels), "Mismatch"
         # tensorize the new labels
         label = torch.tensor(new_labels)
-        out_toks.append(toks)
-        out_labels.append(label)
-    return out_toks, out_labels
+        out_toks_and_labels.append({'input_ids': toks['input_ids'].squeeze(), 
+                         'attention_mask': toks['attention_mask'].squeeze(),
+                         'labels': label})
+    return out_toks_and_labels
 
 
 
@@ -179,24 +180,16 @@ def get_token_max_length(train_texts, tokenizer):
 
 # dataset class which fits the requirements
 class SentenceBoundaryDataset(torch.utils.data.Dataset):
-    def __init__(self, texts, labels, tokenizer):
-        self.texts = texts
-        self.labels = labels
+    def __init__(self, texts_and_labels, tokenizer):
+        self.texts_and_labels = texts_and_labels
 
     def __len__(self):
-        return len(self.texts)
+        return len(self.texts_and_labels)
 
     def __getitem__(self, idx):
         # get the max length of the training set in order to have the good feature to put in tokenizer
         # current text (one line, ie 12 tokens [before automatic BERT tokenization])
-        toks = self.texts[idx]
-        # current labels for the line
-        labels = self.labels[idx]
-        return {
-            'input_ids': toks['input_ids'].squeeze(),
-            'attention_mask': toks['attention_mask'].squeeze(),
-            'labels': labels
-        }
+        return self.texts_and_labels[idx]
 
 
 def compute_metrics(eval_pred):
