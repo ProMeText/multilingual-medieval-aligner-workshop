@@ -107,7 +107,7 @@ def get_index_correspondence(sent, tokenizer):
     for word in sent:
         (raw_end, expand_end) = correspondence[-1]
         tokenized_word = tokenizer.tokenize(word)
-        print(tokenized_word)
+        # print(tokenized_word)
         correspondence.append((raw_end+1, expand_end+len(tokenized_word)))
     return correspondence
 
@@ -119,10 +119,10 @@ def align_labels(corresp, orig_labels):
         # label which is interesting : 1
         if label == 1:
             ### verbose ?
-            print(f"index is {index}")
-            print(f"label is {label}")
-            print(f"Corresp first subword is {corresp[index][1] + 1}")
-            print(f"Corresp first subword actual index is {corresp[index][1]}")
+            # print(f"index is {index}")
+            # print(f"label is {label}")
+            # print(f"Corresp first subword is {corresp[index][1] + 1}")
+            # print(f"Corresp first subword actual index is {corresp[index][1]}")
             ###
             ### if the length of the new list = the current index
             if len(new_labels) == corresp[index][1]:
@@ -157,23 +157,23 @@ class SentenceBoundaryDataset(torch.utils.data.Dataset):
         self.texts = texts
         self.labels = labels
         self.tokenizer = tokenizer
+        self.num_max_length = get_token_max_length(self.texts, self.tokenizer)
 
     def __len__(self):
         return len(self.texts)
 
     def __getitem__(self, idx):
         # get the max length of the training set in order to have the good feature to put in tokenizer
-        num_max_length = get_token_max_length(self.texts, self.tokenizer)
-        print("Getting new item")
+        # print("Getting new item")
         # current text (one line, ie 12 tokens [before automatic BERT tokenization])
         text = self.texts[idx]
         # current labels for the line
         labels = self.labels[idx]
-        print(text)
-        print(labels)
+        # print(text)
+        # print(labels)
         # tokenize the text with padding to get tensors with equal size (inserts 2, as for special tokens)
         # num_max_length is got supra
-        toks = self.tokenizer(text, padding="max_length", max_length=num_max_length, truncation=True, return_tensors="pt")
+        toks = self.tokenizer(text, padding="max_length", max_length=self.num_max_length, truncation=True, return_tensors="pt")
         # get the text
         #tokens = text.split()
         # get the text with the similar splits as for the creation of the data
@@ -194,7 +194,7 @@ class SentenceBoundaryDataset(torch.utils.data.Dataset):
         assert len(sq) == len(new_labels), "Mismatch"
         # tensorize the new labels
         label = torch.tensor(new_labels)
-        print(f"New label {new_labels}")
+        # print(f"New label {new_labels}")
         # return the results
         return {
             'input_ids': toks['input_ids'].squeeze(),
@@ -222,8 +222,8 @@ def compute_metrics(eval_pred):
     ###
     labels = [0 if x == -100 else x for x in labels]
     ###
-    print(predictions)
-    print(labels)
+    # print(predictions)
+    # print(labels)
 
     acc = metric1.compute(predictions=predictions, references=labels)
     recall = metric2.compute(predictions=predictions, references=labels, average=None)
