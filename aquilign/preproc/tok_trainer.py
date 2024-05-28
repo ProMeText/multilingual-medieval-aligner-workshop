@@ -67,7 +67,9 @@ def training_trainer(modelName, train_dataset, eval_dataset, num_train_epochs, b
     )
 
     # fine-tune the model
+    print("Starting training")
     trainer.train()
+    print("End of training")
 
     # get the best model path
     best_model_path = trainer.state.best_model_checkpoint
