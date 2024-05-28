@@ -200,6 +200,7 @@ class SentenceBoundaryDataset(torch.utils.data.Dataset):
 
 
 def compute_metrics(eval_pred):
+    print("Starting eval")
     # load the metrics we want to evaluate
     metric1 = evaluate.load("accuracy")
     metric2 = evaluate.load("recall")
@@ -232,4 +233,5 @@ def compute_metrics(eval_pred):
     f1_l = []
     [f1_l.extend(v) for k, v in f1.items()]
 
+    print("Eval finished")
     return {"accurracy": acc, "recall": recall_l, "precision": precision_l, "f1": f1_l}
