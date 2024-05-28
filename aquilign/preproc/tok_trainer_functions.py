@@ -3,9 +3,9 @@ import re
 import torch
 import evaluate
 import numpy as np
-
+import tqdm 
 # function to convert text in input as tokens and labels (if label is identified in the file, gives 1, in other cases, 0)
-def convertToSentencesAndLabels(text):
+def convertToSentencesAndLabels(text, tokenizer):
 
     print("Converting to sentences and labels")
 
@@ -96,7 +96,33 @@ def convertToSentencesAndLabels(text):
         sentencesList.append(sentence)
         splitList.append(localList)
 
-    return sentencesList, splitList
+    num_max_length = get_token_max_length(sentencesList, tokenizer)
+    out_toks, out_labels = [], []
+    for text, labels in tqdm.tqdm(zip(sentencesList, splitList)):
+        toks = tokenizer(text, padding="max_length", max_length=num_max_length, truncation=True,
+                              return_tensors="pt")
+        
+        # get the text with the similar splits as for the creation of the data
+        tokens = re.findall(r"[\.,;—:?!’'«»“/-]|\w+", text)
+        # get the index correspondences between text and tok text
+        corresp = get_index_correspondence(tokens, tokenizer)
+        # aligning the label
+        new_labels = align_labels(corresp, labels)
+        # get the length of the tensor
+        sq = (toks['input_ids'].squeeze())
+        ### insert 2 for in the new_labels in order to get tensors with the same size !
+        if len(sq) == len(new_labels):
+            pass
+        else:
+            diff = len(sq) - len(new_labels)
+            for elem in range(diff):
+                new_labels.append(2)
+        assert len(sq) == len(new_labels), "Mismatch"
+        # tensorize the new labels
+        label = torch.tensor(new_labels)
+        out_toks.append(toks)
+        out_labels.append(label)
+    return out_toks, out_labels
 
 
 
@@ -156,8 +182,6 @@ class SentenceBoundaryDataset(torch.utils.data.Dataset):
     def __init__(self, texts, labels, tokenizer):
         self.texts = texts
         self.labels = labels
-        self.tokenizer = tokenizer
-        self.num_max_length = get_token_max_length(self.texts, self.tokenizer)
 
     def __len__(self):
         return len(self.texts)
@@ -166,40 +190,13 @@ class SentenceBoundaryDataset(torch.utils.data.Dataset):
         # get the max length of the training set in order to have the good feature to put in tokenizer
         # print("Getting new item")
         # current text (one line, ie 12 tokens [before automatic BERT tokenization])
-        text = self.texts[idx]
+        toks = self.texts[idx]
         # current labels for the line
         labels = self.labels[idx]
-        # print(text)
-        # print(labels)
-        # tokenize the text with padding to get tensors with equal size (inserts 2, as for special tokens)
-        # num_max_length is got supra
-        toks = self.tokenizer(text, padding="max_length", max_length=self.num_max_length, truncation=True, return_tensors="pt")
-        # get the text
-        #tokens = text.split()
-        # get the text with the similar splits as for the creation of the data
-        tokens = re.findall(r"[\.,;—:?!’'«»“/-]|\w+", text)
-        # get the index correspondences between text and tok text
-        corresp = get_index_correspondence(tokens, self.tokenizer)
-        # aligning the label
-        new_labels = align_labels(corresp, labels)
-        # get the length of the tensor
-        sq = (toks['input_ids'].squeeze())
-        ### insert 2 for in the new_labels in order to get tensors with the same size !
-        if len(sq) == len(new_labels):
-            pass
-        else:
-            diff = len(sq) - len(new_labels)
-            for elem in range(diff):
-                new_labels.append(2)
-        assert len(sq) == len(new_labels), "Mismatch"
-        # tensorize the new labels
-        label = torch.tensor(new_labels)
-        # print(f"New label {new_labels}")
-        # return the results
         return {
             'input_ids': toks['input_ids'].squeeze(),
             'attention_mask': toks['attention_mask'].squeeze(),
-            'labels': label
+            'labels': labels
         }
 
 
