@@ -1,7 +1,7 @@
 import tok_trainer_functions as functions
 import sys
 from transformers import BertTokenizer, AutoModelForTokenClassification
-
+import re
 
 def tokenize(text,num):
     words = text.split(" ")
@@ -38,6 +38,9 @@ def test(file, model_path, tokenizer_name, num):
     # get the path of the default tokenizer
     tokenizer = BertTokenizer.from_pretrained(tokenizer_name, max_length=10)
     for example in as_list:
+        print(example)
+        toks_and_labels = functions.convertToSentencesAndLabels(example, tokenizer)
+        print(toks_and_labels)
         # BERT-tok
         enco_nt_tok = tokenizer.encode(example, truncation=True, padding=True, return_tensors="pt")
         # get the predictions from the model
