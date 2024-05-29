@@ -35,7 +35,7 @@ Dada en Villa Onnes çinco dias de septiembre era de mille et tresientos e sesen
 Yo Johan Ximenes la escrivi por mandado de Don Johan.$por-1
 Sennor yo don Johan fijo del infante don Manuel adelantado mayor de la frontera e del regno de Murcia por mio sennor el Rey don Alfonso beso vuestras manos e me acomiendo en la vuestra gracia como a padre e a sennor para que cobdiçio mucha vida e mucha salud$e-1£por-1£e-2£como-1£para-1
 e a qui he muy grand voluntad de servir en todas las cosas que mandasedes e por bien touiesedes.$e-1£que-1
-E nos el sobredicho rey don Ferrando regnante en uno con la reina doña Costança mi muger en Castilla en Toledo en Leon en Gallizia en Sevilla en Cordova en Murcia en Jaen en Baeça en Badajoz en el Algarbe e en Molina otorgamos este previllejo e confirmamoslo.$E-1£regnante-1£mi-1£en-2£en-3£en-4£en-5£en-6£en-7£en-8£en-9£en-10£en-11£en-12£e-1£otorgamos-1
+E nos el sobredicho rey don Ferrando regnante en uno con la reina doña Costança mi muger en Castilla en Toledo en Leon en Gallizia en Sevilla en Cordova en Murcia en Jaen en Baeça en Badajoz en el Algarbe e en Molina otorgamos este previllejo e confirmamoslo.$regnante-1£mi-1£en-2£en-3£en-4£en-5£en-6£en-7£en-8£en-9£en-10£en-11£en-12£e-1£otorgamos-1
 Yo Gonçalo Martinez lo escrivi por mandado del rey en el año dezeno qu'el rey sobredicho regno.$por-1£qu'el-1
 Et agora blasmades a mi que si huuies conoscido la inconueniençia la auria magnifestada a la congreguaçion como aquel que amo el bien de mi tierra et no me corrumpo por moneda porque qui sabe et siente el prouecho et no lo dize a sus çiudadanos tanto uale como si$Et-1£que-1£la-2£como-1£et-1£porque-1£et-3£tanto-1
 no se auisas ni lo sopies et qui lo siente et lo dize si no ama de buen coraçon su tierra bien lo dira mas no como se deue dir et si por uentura lo dira como se deue si es cobdicioso de moneda sus uirtudes no ualen ren las$et-1£si-1£bien-1£mas-1£et-3£como-2£si-3£sus-1£las-1
@@ -593,5 +593,202 @@ iornadas et tanto como dura aquella prouincia ay por todo tan grant scuredat que
 Et los habitadores de aquella tierra cuentan que ellos hoyen bozes de hombres canto de gallo et de relinchamiento de cauallos et por vn rio que yxe de aquel lugar vienen en senyales que pareçe que gentes hi habiten verdaderament.$que-1£canto-1£et-1£et-2£que-2£que-3
 Quando los tartres deuen passar por encontrada do no cuydan trobar habundançia de vitualia ellos fazen leuar grant multitud de bestias con ellos de vacas et de yeguas et biuen de la leche et maian la carne de los cauallos et la tienen por buena carne.$por-1£do-1£ellos-1£de-3£et-2£et-3£et-4
 Los tartres son muy auisados en fechos de armas a cauallo mas a piet ualen poco por que non saben yr a piet.$mas-1£por-1
-Quando los tartres son ordenados pora combatir ellos entienden tantost la voluntat del lur capitan et fazen lo que han a fazer por la qual cosa los capitanes guuiernan liugerament su gent et con poco treballo.$ellos-1£et-1£lo-1£por-1£et-2
+Quando los tartres son ordenados pora combatir ellos entienden tantost la voluntat del lur capitan et fazen lo que han a fazer por la qual cosa los capitanes guuiernan liugerament su gent et con poco treballo.$ellos-1£et-1£por-1£et-2
 Los tartres cercan todo tiempo auantaia contra sus enemigos en batalla et no an verguenya de partir se ni de fazer otra cosa a su prouecho.$contra-1£et-1£ni-1
+La apostema fria enestos lugares sobre dichos mas tarde terminara por fluxo dela sangre & avn mas tarde por fluxo de venino.$mas-1£por-1£&-1£por-2
+Porque quarenta dias nos conuiene de esperar en todas apostemas frias quanto mas deciende ayusso tanto menos venino se engendra enellas mas enlas apostemas de suso mas se engendra de venino por el calor & por fortaleza dela virtud el venino laudable se conosce porque es blanco ygual todo &$quanto-1£tanto-1£mas-2£mas-3£por-1£el-2£porque-1£&-2
+non es de mala olor & malo se conosce por el contrario desto.$&-1£por-1
+Despues de saber es que las apostemas delos spirituales en dos maneras se terminan o se faze el terminamiento por venino o se faze por otra apostema sy se fiziere por venino o se engendrara antes del dia seteno o despues sy antes del dia seteno sin dubda significa muerte$es-1£o-1£por-1£por-2£o-3£sy-2
+porque el venino & la podridura es colerica & porque en tan poco tiempo la natura no deue engendrar venino acabado porque no falla carrera como & por esto morra mas enel catorzeno dia tantas buenas señales se pueden demostrar que tardara la muerte mas ala postre non puede escapar$porque-1£&-2£porque-3£&-3£mas-1£que-1£mas-2
+que non muera por esto.$que-1
+E sy el terminamiento dela apostema se faze por otra apostema estonces o es enlas partes de suso o enlas partes de ayusso sy enlas partes desuso esto se conocera por mengua del resollo & porque los ypocundrios non son dolorosos nin estirados.$por-1£estonces-1£sy-2£esto-1£por-2£&-1£nin-1
+E sy el dolor fuere enlos ypocundrios significa que la materia se enbia alas partes deyusso.$que-1
+Agora este enbiamiento o es despues dela digestion dela materia o es antes.$o-1
+E si fuere antes dela digestion dela materia peligro es del miembro maguera que algunas vezes se salue.$peligro-1£maguera-1
+E sepas que si esta materia fuere enbiada alas estremidades antes que sea digerida & despues otra vez retornara ala minera significa muerte.$antes-1£&-1£significa-1
+La gran dignidad del nombre romano y del imperio nacio de la fuente de piedad por ley vedando que si alguno infante matasse de capital y cruda sentencia fuesse punido.$y-1£por-1£que-1£de-3
+pues ya seria gran crueldad y sin justicia que nos cometamos en los propios fijos lo que defendemos en los ajenos que aprouecha ganar victorias de las estranjeras crueles naciones si la crueldad es vencedora de nosotros mismos.$que-1£lo-1£que-3£si-1
+vencer aquellas es fuerça de manos que hazen los pueblos enlas batallas.$que-1
+vencer los vicios es conla virtud de buenos costumbres enlas otras guerras andamos mas fuertes que los enemigos.$enlas-1£que-1
+en estas mas fuertes que nosotros mismos.$que-1
+qui'en fuere sobrado en tal contienda cierto es que gana el vencimiento.$cierto-1
+Despues del triunfo queda vencido qua'lquier vencedor si la piedad fuere sobrada por su contrario pues gane victoria en esta batalla la parte mejor que bien nos podremos dezir vencedores del aduersario si de piedad vencer nos dexamos qui'en se haze sieruo dela piedad señor es de todos.$si-1£por-1£pues-1£que-1£si-2£qui'en-1£señor-1
+porende a mi es morir mejor saluando las vidas delos jnnocentes que por su muerte qui'era cobrar la vida cruel.$saluando-1£que-1
+& no sin duda ay poca diferencia & discertancia entre todos los dotores medicos mas ante es mucha & pocos se hallan vniformes porque los mas discuerdan en partes y algunos en todo.$&-1£&-2£mas-1£&-3£porque-1£y-1
+y por que mas abierta y especificadamente se vea la verdad desto he querido ponerlo en capitulos de la forma que se siguiran.$he-1£que-2
+de la esperma o simiente de que el cuerpo humano es formado.$de-2
+es de saber que la simiente de que se haze la criatura viene virtualiter o de la virtud de todo el cuerpo y de los miembros mas principales mediate que por curso de tiempo.$de-2£o-1£y-1£que-3
+y de los otros menos principales por resudacion mas inmediate que es de presente.$por-1£mas-1£que-1
+desciende de los vasos espermaticos que son minero donde la simiente esta depositada fasta ques necessaria a la espulsion.$que-1£fasta-1
+Es mas de saber que quando desciende de los miembros o de la virtud de todo el cuerpo es de color de sangre.$que-1£o-1£es-1
+E despues que llega a los vasos espermaticos & a los compañones se enblanquece por razon que ellos son blancos.$&-1£por-1
+conuiene dezir como destos tres principales miembros nacen otros tres substentamientos necesarios a todo el cuerpo humano.$como-1£nacen-1
+asi como del celebro los neruios que son catorze tambien la nucla que es el meollo que va por dentro los espondiles o huesos del cerro.$que-1£tambien-1£que-2£por-1£o-1
+y del coraçon las arterias o venas arteriales para traer por todo el cuerpo el sangre arterial ques vn sangre muy subtil substancioso y tambien el spiritu vital y para fazer el pulso mediante el mouimiento del coraçon.$para-1£ques-1£y-2£y-3
+del figado salen las venas para traer por todo el cuerpo el sangre que en ellas se faze de donde el cuerpo se sustenta.$para-1£el-2£de-1
+viendo la naturaleza que en estos tres miembros principales estaua todo el ser del cuerpo humano ordeno o formo tres huesos para guarda & amparo dellos ordeno el cranco o calauero para guarda & defensa del celebro.$que-1£para-1£para-2
+y el clibano o cuenco del pecho para guarda y tutamen del coraçon.$para-1
+y las costillas de los lados para guarda del figado.$para-1
+y acabada la formacion de todo esto se engendran todos los otros miembros posteriores o extremos.$se-1£o-1
+asi como las manos pies y semejantes y aquestos miembros caborales no se engendran de inprouiso mas ante con discurso de tiempo ques poco a poco.$y-2£no-1£mas-1£ques-1
+Dize el costantino en el °iij° panthenni en el capitulo °iij° ante del fin que se llama de la simiente o esperma que °iiij° nombres tiene la criatura ante que salga de tiniebra a luz segun quatro disposiciones diuersas que en el vientre de su madre tiene.$en-2£que-1£que-2£ante-2£segun-1£que-4
+La primera es quando es cercana al principio ques en los seys o siete dias Noueno.$quando-1£ques-1£o-1
+Mas non le fizo nengun tuerto que Dios la saco a puerto.$que-1
+Cuando Maria fue arribada dolienta fue e deserrada.$dolienta-1
+Lorando seye en la marina non sabe ques faga la mesquina.$non-1
+Non connoscie homne nin fembra aquella tierra nada nol sembla.$aquella-1
+A la postremeria dixo "Yo hire a Iherusalem la çibdat.$"Yo-1
+A mi mester me tornare que yo bien me gobernare."$que-1
+E llorosa e desconsejada en Jherusalem es entrada.$en-1
+Mas non dexo hi de pecar ante començo de peorar.$ante-1
+Los jovens homnes de la çibdat tanto son pressos de su beltat que todos fazien con ella su voluntat.$tanto-1£que-1
+El dia vino de la Ascension alli fue grant proçession de los pelegrinos de ultramar que van al templo a Dios rogar.$alli-1£que-1
+Los buenos omnes e los romeros al templo van a rogar a Deus.$al-1
+Non se perçibio Maria metiosse entr'ellos en companyia Metiosse entr'ellos en proçession mas non por buena entençion.$metiosse-1£Metiosse-1£mas-1
+Los pelegrinos cuando la veyen su coraçon non gelo sabien.$cuando-1£su-1
+Que si ellos sopiessen qui es Maria no aurien con ella fecho companyia.$qui-1
+A las puertas vinien a los grados e al templo son entrados.$e-1
+Dentro entro la companyia mas non y entro Maria.$mas-1
+En la grant priesa dentro se metie mas nulla re no le valie.$mas-1
+Que assi le era assemejant que veye huna gente muy grant en semejança de caualleros mas semejabanle muy fieros.$que-1£mas-1
+Cada uno tenie la su espada menazabanla a la entrada.$menazabanla-1
+Cuando querie adentro entrar ariedro la fazien tornar.$ariedro-1
+Cuando vio que non podie aber la entrada atras faze la su tornada.$atras-1
+Mas de una cosa es mucho airado porque su nombre no le ha demandado.$porque-1
+A Gozimas mucho l' pesaba por la cuaresma que tant' tardaba.$por-1£que-1
+Mas cuando vino esa sazon el abat les dio su bendicion.$el-1
+Cuando Gozimas fue partido al flun Jordan aina vino alliend' passo a la ribera para Maria prende carrera.$al-1£alliend'-1£para-1
+"Dios dixo muestrame aquell cuerpo por çierto cuido que es muerto".$por-1£que-1
+Bien quiso Dios a Gozimas non quiso que mas penas.$non-1
+Torno los ojos a diestra parte hobo a ojo una claridat a aquella lumbre se allego vio el cuerpo mucho se pago que yazie contra oriente sus ojos floxos fermosamientre tenie sus crines por lençuelo a Gozimas prisso grant duelo.$hobo-1£a-3£vio-1£que-1£sus-1£tenie-1£a-4
+Uno de sus pannyos se desnudo llegos' al cuerpo con el lo cubrio.$llegos'-1
+Cato ayuso contra la tiesta vio unas letras escritas en tierra mucho eran claras e bien tajadas que en çielo fueron formadas.$vio-1£mucho-1£que-1
+Don Gozimas las leyo festino como si fuessen en pargamino "Prent Gozimas el cuerpo de Maria sotierral hoy en este dia cuando lo habras soterrado ruega por ell que asi te es acomendado".$como-1£"Prent-1£sotierral-1£cuando-1£ruega-1£que-1
+Cuand' Gozimas el nom' fallo a Dios mucho lo agradesçio despues le fizo el ministerio e dixo los salmos del salterio.$a-1£despues-1£e-1
+Mas de una cosa es muy marrido que non aduxo nada consigo con que pudiesse la tierra obrir para el cuerpo sobollir mas por amor d'esta Maria grant ayuda Dios le envia sallo un leyon d'esa montanya a Gozimas faze companya maguer que era bestia fiera manso va do el$que-1£que-2£para-1£mas-1£grant-1£sallo-1£a-1£maguer-1£manso-1
+cuerpo era semblant fizo del cuerpo servir que l' quiere ayudar a sobollir.$semblant-1£que-1
+Cuand' esto vio el buen varon mucho l' plaze de corazon.$mucho-1
+Entiendem' duenya esto que yo te fablo que me parto del diablo e de sus companyias que no lo sierva en los mios dias En tu fijo metre mi creyença tornar me quiero a penitençia tornar me quiero al mio senyor a tu metre por fiador.$esto-1£que-2£e-1£que-3£En-1£tornar-1£tornar-2£a-2
+Toda mi vida lo servire jamas d'El nom' partire.$jamas-1
+E dexare aquesta vida que mucho la e mantenida e siempre aure repintençia mas fare grave penitencia.$que-1£e-2£mas-1
+Virgo reina creyo por ti que si al tu Fijo ruegas por mi si tu pides aqueste don bien se que habre perdon.$creyo-1£que-1£si-2£bien-1
+Virgo por qui tantas maravillas son acabame este perdon.$acabame-1
+Virgo en post partum virgo acabame amor del tu Fijo.$acabame-1
+Creyo bien en mi creyençia que Dios fue en tu nascençia en ti priso humanidat tu non perdiste virginidat.$que-1£en-3£tu-2
+Grant maravilla fue del padre que de su fija fizo su madre.$que-1
+E fue maravillosa cosa que de la espina sallio la rosa et de la rosa fruto sallio por que todo el mundo salvo.$que-1£et-1£por-1
+Un nombre abemos yo e ti mas mucho eres tu luenye de mi tu Maria e yo Maria mas non tenemos amas huna via.$mas-1£tu-2£mas-2
+Tu ameste siempre castidat e yo luxuria e malveztad.$e-1
+El diablo fue tu enemigo el fue mi senyor e amigo.$el-1
+Tu eres duenya mucho omildosa e yo so pobre e ergullosa e de mi cuerpo luxuriosa.$e-1£e-3
+Nuestro Senyor amo a ti e pues Él amo a ti duenya abe merce de mi.$e-1£abe-1
+Duenya tu tienes un tal tresoro mas preçiado es que plata e oro.$que-1
+En ti preso carn' el Rey del çielo que sant Johan mostro con su dediello.$que-1
+Cuand' el dixo a ell "Angel de Dios que salvara a todos nos".$"Angel-1
+Vio que Santi Spiritus gelo mostro aquel lo que ella fablo.$lo-1
+El santo omne bien se asenyo huno de sus panyos despues le dio.$huno-1
+A la otra parte se torno fasta que la duenya fue vestida.$fasta-1
+E luego que ella fue vestida contra ell omne santo fizo venida.$que-1£contra-1
+"Senyor dixo ella amigo de Dios de cual parte venides vos Por Dios vos ruego que me digades de cual parte venides o que buscades Que fe aqui huna doliosa que por ell yermo va rencurosa por los pecados que fizo grandes que son tan suzios e tan pesantes de$de-2£Por-1£de-3£o-1£Que-1£que-3£por-2£que-5£de-4
+que he yo gran repitençia e so aqui en penitencia.$e-1
+" Cuand' el sant' omne la oyo fablar de piedat prisos' a llorar A los piedes de la duenya se echo su bendicion le demando.$de-1£A-1£su-1
+La duenya cortes fo a los piedes del santo omne se echo tan fuerte comienca de llorar e tan apriessa de fablar.$a-1£tan-1£e-1
+Et ell otro tal a aqui veriedes grant llorar.$a-1
+Don Gozimas en tierra yaz las lagrimas corren por la su faz con grant angostura todo trasuda por su barba que es canuda.$las-1£por-1£con-1£por-2
+Que por el pueblo faga oraçion e despues le de su bendicion.$e-1
+Maria un poco los ojos alço al santo omne alli fablo "Amigo senyor e conpannyero yo la debia aber primero tu me pides bendiçion mas cuido que no es razon.$al-1£"Amigo-1£yo-1£tu-1£que-1
+Tu eres clerigo misacantano e en l'altar pones tus manos e por el tu santiguar grandes miraglos faz' Dios mostrar.$e-1£e-2£faz'-1
+El pan devienes la su carne el vino torna en la su sangre bien conyosçe Dios tu sacrifiçio toda tu vida ya la a apriso Non es en tu nunqua luxuria nin cobdiçia nin pecunia.$el-1£bien-1£toda-1£Non-1£nin-1
+Bien sera cosa segurada que de tu mano sere santiguada.$que-1
+E lo que te oyo nombrar e los tus ojos te veo alçar nunqua yo tu par vi por Dios consejame aqui.$e-1£nunqua-1£por-1
+Duenya consejo te pido si yo podria fincar contigo".$si-1
+"Non mi senyor don Gozimas la duenya dixo antes te iras e mas aqui non tornaras.$la-1£e-1
+Mas non te cal contar mi vida fasta que yo sia transida.$fasta-1
+Cuand' Dios a ti me a mostrada por ti quiero ser aconsejada.$por-1
+Pora el abat don Iohan te hiras este mandado le levaras de sus ovejas aya cura que tal y a que mucho se segura prenda consejo de las curiar que mucho a que emendar.$este-1£de-1£que-1£prenda-1£que-3
+Mas cuand' verna aquell tiempo enfermo seras tenlo por çierto.$enfermo-1
+Todos tus companyones todos iran de sus mesones Tus companyones todos saldran e a la montanya s'en iran tu non podras con ellos hir que hi auras a romanir.$todos-1£Tus-1£e-1£tu-1£que-1
+A sus tiempos tornaran como costumbre lo an.$como-1
+Cuand' pasara la cuarentena e verna el dia de la çena tu seras sano como yo cuido mas huna cosa te ruego mucho en vaso que seya limpio mete del cuerpo de Ihesuchristo e de la sangre en otro vaso que seya bien alimpiado.$e-1£tu-1£como-1£mas-1£en-1£mete-1£e-2£que-2
+E contigo lo trayeras e mas acerqua ti m' fallaras que por ello ire cuitosa e cuando l' viere sere gozosa.$e-1£que-1£e-2
+A flun Jordan a la ribera hi m' fallaras ho y me espera.$hi-1
+Quiero seer comulgada sere por ello apropincuada desque pase el flun Jordan so la yglesia de sant Johan non reçebi yo el cuerpo de mi Senyor de que he yo gran dolor.$sere-1£desque-1£so-1£non-1£de-3
+Esto diziendo d'el se partio por la montanya se metio.$por-1
+Cuand' el santo omne la vio andar sabet que non pudo estar que por yermo que por senderos aina torno a sus companyeros.$sabet-1£que-2£que-3£aina-1
+Aquil' començo a contar non le quiso nada çelar.$non-1
+Toda su vida le a contada desde el dia que fue nada.$que-1
+Mas cuando gelo conto sabet que gran vergüença tomo.$sabet-1
+Todo alli gelo dize cayole a los pies mercet le pide cuando hobo dicho cuanto fiziera cayole a los pies en tierra.$cayole-1£mercet-1£cuando-1£cayole-2
+Cuando el santo omne la vio contral Criador mucho rogo.$contral-1
+Graçias aya al Criador a la duenya ruega con grant amor "Duenya por que cayes a mis piedes por Dios te ruego que te lieves ca non so de tal denitat nin so de tal actoritat.$a-1£"Duenya-1£por-2£ca-1£nin-1
+Cuando querie adentro entrar ariedro la fazien tornar.$ariedro-1
+Alli esta muy desmayada a un requexo es assentada aqui comiença a pensar e de coraçon a llorar.$a-1£aqui-1£e-1
+D'amas manos tira a sus cabellos grandes feridas dio a sus pechos.$grandes-1
+Vio como Dios le era sanyudo nol oso pedir consejo ninguno.$nol-1
+Ella asaz diziendo "En mal hora fui tan pecadora tan mal consejo hobe prendudo cuand' Dios me es assi sanyudo.$"En-1£tan-2£cuand'-1
+Tan so plena de malveztat de luxuria e de maldat que non puedo al templo entrar ni oso a Dios me reclamar.$que-1£ni-1
+Que fare agora cativa Tanto me pesa porque so biva "Del cuerpo le sallio un sospiro tan fuerte dixo "Dios dame la muerte".$Tanto-1£porque-1£"Del-1£dixo-1
+Torno la cara on sedia vio huna imagen de santa Maria.$vio-1
+La imagen era bien figurada en la mesura era tajada.$en-1
+Del infierno quebranto las çerraduras e rompio todas las enclavaduras pues saco a los que bien querie que el diablo dentro tenie.$e-1£pues-1£a-1£que-2
+Fuera saco los sus amigos que el diablo dentro tenie cativos.$que-1
+Sacolos dende por grant oso levolos al çielo con grant poso.$por-1£levolos-1
+En el sepulcro metio el su cuerpo ressuçito a grant esfuerço.$ressuçito-1
+A los varones aparecio con ellos cuarenta dias moro la nueva ley les amostro en la boca los beso.$la-1
+Condonolos su dulçe madre subiosse al çielo por' al su Padre.$subiosse-1
+Del çiello les enbio conuerte pues non obieron pavor de muerte Santi Spiritus les enbio que todas las lenguas les mostro.$pues-1£Santi-1£que-1
+En el çiello seye a la diestra de su Padre tu eres con El su dulçe madre.$tu-1
+Cuando verna el jutgamiento que jutgara toda este sieglo tu seras mucho honrrada como duenya tan preçiada.$que-1£tu-1£como-1
+Virgo reina coronada que del tu Fijo fuste prenyada mas eres bienaventurada que duenya que fuesse nada cuando Aquell quiso de ti nasçer quel mundo ha de defender.$que-1£mas-1£que-2£cuando-1£quel-1
+Assi como es verdat assi me faz hoy caridat".$assi-1
+Cuand' hobo fecho su oraçion de Dios hobo perdon.$de-1
+A Dios del çielo fizo oraçion que le guardasse de tentaçion.$que-1
+Entonçe alço sus manos amas e ayunto amas sus palmas.$e-1
+Con la su diestra se santigo su oracion quando acabo.$su-2
+D'alli se llevo Maria en su senyor novell se fia.$en-1
+Torno al templo sines dubdança non vio ninguna enparança.$non-1
+Oyo las oras a grant sabor oro la cruz de su senyor.$oro-1
+Cuando la hobo adorada luego de Dios fue aspirada e conosçio el su mester de Dios e todo su afer.$luego-1£e-1£e-2
+Tu nos tuelle d'estas penas metenos en çielo on tu regnas".$metenos-1
+Maria dixo amen Pues le demanda segunt su sen.$Pues-1
+De muchas cosas le demando e el santo omne gelas ensenyo.$e-1
+Demandole de los reyes si mantenien bien sus leyes e commo mantenien las tierras ho en pazes ho en guerras los pastores que la ley tenien como estan ho com' la mantenien.$si-1£e-1£ho-1£los-2£como-1
+Aqui respuso don Gozimas "Por toda la tierra ha grant paz non ha y omne en nuestra tierra que osasse començar guerra.$"Por-1£non-1£que-1
+Mas santa Eglesia es bien con razon que tu la metas en oraçion".$que-1
+"Que Dios le de virtud e le mantenga paz e salut".$e-1
+Torno sus ojos a oriente alço sus manos al çielo las tiende los lambros de la boca movie mas nulla boz non le sallie.$alço-1£al-1£los-1£mas-1
+De tierra fue alli alçada que bien hobo una pasada asi que entre ella e la tierra dos pies e medio eran.$que-1£asi-1£e-1
+Don Gozimas cuando la vio fizosse a çaga con grant pavor e fizo a Dios su oracion que la reçibio bien de coraçon.$fizosse-1£e-1£que-1
+Mas Gozimas hobo grant pavor e reclamos al Criador.$e-1
+Cuidos que la fantasma fuese moviose un poco por que se fuese.$moviose-1£por-1
+Cuando ella lo vio asi andar luego comiença de llamar "Don Gozimas por que t' mudeste amigo di por que dubdeste Non dubdes d'esto que Dios faz christiana so si a Él plaz.$luego-1£"Don-1£amigo-1£Non-1£que-3£christiana-1£si-1
+Fui bautizada en mançebia bien creyo en Dios e santa Maria en Dios he mi creyença que aqui esto en penitençia.$bien-1£en-3£que-1
+Yo non me quiero d'aqui partir fasta la ora del mi morir".$fasta-1
+Esto diziendo su mano alço tan gentamientre se santiguo.$su-1£tan-1
+Cuando se aperçibio Maria non pudo estar que non se hi ria.$non-1£que-1
+Cerqua si vio un omne estar començol a demandar "Por Dios me digas tu sennyor si de Dios ayas amor aquellos que sallen del drumon a cual part ban ho que omnes son Si me podria con ellos hir gran talante e d'aqui sallir hir me querria d'aquest' logar non$començol-1£"Por-1£sennyor-1£aquellos-1£a-2£ho-1£Si-1£gran-1£hir-2£non-1
+Alli respuso aquell varon de lo que demanda dixol razon "Esto se yo bien de plan que aquellos a Iherusalem van.$de-1£dixol-1£que-2
+Si tu obiesses que les dar ellos te podrian levar".$ellos-1
+Alli respuso essa "Yo dieze he buen cuerpo est' le dare a gran baldon que non les dare otro don.$"Yo-1£est'-1£que-1
+Non les dare otro loguero que yo non tengo mas d'un dinero".$que-1
+Oyo el varon esta follia non pudo estar que non se hi ria cuando la oyo dezir aquell jovent dexola estar partiosse den.$non-1£cuando-1£aquell-1£partiosse-1
+Maria subio suso en el non le ha qui dar conseio ninguno.$en-1
+Vistie un panyo d'Alexandria tenie en mano huna calandria en esta tierra l' dizen triguera non hi a ave tan cantadera e prisola en el su punyo.$tenie-1£non-1£e-1
+Apriessa decende del muro e a tanto se cuyto que a la posada non torno metiosse a grant andadura como la lieva la su ventura.$e-1£que-1£metiosse-1£como-1
+Corriendo va por la carrera aina vino a la ribera.$aina-1
+A los mançebos saluo su coraçon les mostro "Dios vos salve jovenes semejadesme buenos omnes.$su-1£"Dios-1£semejadesme-1
+Yo so de muy luenye nada e so fembra deserrada.$e-1
+En tierras de Egipto fui nada e aqui fui muy desaconsejada.$e-1
+Cuando alliende fue passada en grant desierto fue entrada.$en-1
+Maria de andar non fina mas non olvida a la reïna la que metiera por fiador ante la imagen de su senyor.$mas-1£la-2£por-1
+que por su merce non la dexasse e del diablo la anparasse.$e-1
+En ella mete la su creyença agora comiença su penitençia.$agora-1
+E porque sepa de fambre morir non se quiere repentir.$non-1
+Dos panes e medio ha en todo su poder agora sepa Dios que va fer qua d'estos poco sera mantenida si Dios ayuda non le enbia.$agora-1£qua-1£si-1
+En tanta como el dia duro ella nunqua se poso.$ella-1
+Cuando hobo fecho la su jornada so un arbol fue albergada.$so-1
+Un poco come de su pan despues se duerme fasta la man.$despues-1
+Nol semeja d'aquell logar pora adelante se quiere mudar.$pora-1
+Manyana se levo Maria contra oriente prende la via.$contra-1
+Tanto anda noches e dias e tanto fallo asperas vias.$e-2
+Atanto entro en la montanya montesa s' fizo e muy estranya mas no olvido noche e dia de rogar a santa Maria.$montesa-1£mas-1£e-2
