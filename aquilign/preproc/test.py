@@ -1,5 +1,6 @@
 import tok_trainer_functions as functions
 import sys
+from transformers import BertTokenizer, AutoModelForTokenClassification
 
 
 def tokenize(text,num):
