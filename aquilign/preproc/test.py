@@ -149,17 +149,16 @@ def get_correspondence(sent, tokenizer):
 
 def test(file, model_path, tokenizer_name, num):
     with open(file, "r") as input_file:
-        # as_list = [item.replace("\n", "") for item in input_file.readlines()]
-        as_string = input_file.read()
+        as_list = [item.replace("\n", "") for item in input_file.readlines()]
     
     all_examples, all_labels = [], []
-    
+    print(as_list)
+    tokenizer = BertTokenizer.from_pretrained(tokenizer_name, max_length=10)
+    toks_and_labels = functions.convertToSentencesAndLabels(as_list, tokenizer)
     new_model = AutoModelForTokenClassification.from_pretrained(model_path, num_labels=3)
     # get the path of the default tokenizer
-    tokenizer = BertTokenizer.from_pretrained(tokenizer_name, max_length=10)
     
     
-    toks_and_labels = functions.convertToSentencesAndLabels(as_string, tokenizer)
     print(toks_and_labels)
     for example in toks_and_labels:
         # BERT-tok
