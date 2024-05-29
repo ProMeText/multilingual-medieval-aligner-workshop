@@ -154,13 +154,12 @@ def test(file, model_path, tokenizer_name, num):
     all_examples, all_labels = [], []
     print(as_list)
     tokenizer = BertTokenizer.from_pretrained(tokenizer_name, max_length=10)
-    toks_and_labels = functions.convertToSentencesAndLabels(as_list, tokenizer)
     new_model = AutoModelForTokenClassification.from_pretrained(model_path, num_labels=3)
     # get the path of the default tokenizer
     
-    
-    print(toks_and_labels)
-    for example in toks_and_labels:
+
+    toks_and_labels = functions.convertToSentencesAndLabels(as_list, tokenizer)
+    for txt_example, gt in zip(as_list, toks_and_labels):
         # BERT-tok
         enco_nt_tok = tokenizer.encode(example, truncation=True, padding=True, return_tensors="pt")
         # get the predictions from the model
@@ -168,7 +167,10 @@ def test(file, model_path, tokenizer_name, num):
         preds = predictions[0]
         # apply the functions
         bert_labels = get_labels_from_preds(preds)
-        print(bert_labels)
+        print(f"Text: {txt_example}")
+        print(f"Predicted: {bert_labels}")
+        print(f"Ground Truth: {gt['labels']}")
+        print("---")
         
 
 
