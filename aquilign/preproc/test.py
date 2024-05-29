@@ -53,4 +53,4 @@ if __name__ == '__main__':
     model_path = sys.argv[2]
     tokenizer_name = sys.argv[3]
     num = int(sys.argv[4])
-    test(file_to_test, file_to_test, model_path, num)
+    test(file_to_test, model_path, tokenizer_name, num)
