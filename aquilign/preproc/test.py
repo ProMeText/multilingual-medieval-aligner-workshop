@@ -2,6 +2,7 @@ import tok_trainer_functions as functions
 import sys
 from transformers import BertTokenizer, AutoModelForTokenClassification
 import re
+import torch
 
 
 def convertToSentencesAndLabels(text, tokenizer):
@@ -167,10 +168,13 @@ def test(file, model_path, tokenizer_name, num):
         preds = predictions[0]
         # apply the functions
         bert_labels = get_labels_from_preds(preds)
+        gt_label_as_list = gt['label'].tolist()
         print(f"Text: {txt_example}")
         print(f"Predicted: {bert_labels}")
-        print(f"Ground Truth: {gt['labels']}")
+        print(f"Ground Truth: {gt_label_as_list}")
         print("---")
+       
+        
         
 
 
