@@ -45,6 +45,7 @@ def test(file, model_path, tokenizer_name, num):
         preds = predictions[0]
         # apply the functions
         bert_labels = get_labels_from_preds(preds)
+        print(bert_labels)
         
 
 
