@@ -1,913 +1,597 @@
-Madre Tu fust' la verga el tu fijo la flor que resucita$el-1£que-1
-muertos con su suave odor saludable por vista vidable por savor pleno$saludable-1£pleno-1
-de los siet' dones solo d'ellos dador.$solo-1
-Tu fust' la cambariella que dize el psalmista end' salio el esposo$que-1£end'-1
-con la fermosa vista gigant' de grandes nuevas que fizo grant conquista$gigant'-1£que-1
-rëy fue e obispo e sabidor legista.$rëy-1
-La tu figura Madre traie el vellocino en qui nuevo miraglo por$traie-1£por-1
-Gedeon avino en essi vino pluvia en ti el rey divino por$en-1£en-2£por-1
-vencer la batalla Tu abrist el camino.$Tu-1
-La puerta bien cerrada que dice Ecechiel a ti significava que siempre$que-1£a-1£que-2
-fuisti fiel por ti passo señero el Señor d'Israel e d'esto es$por-1£e-1
-Éstos fueron e otros Madre tus mensageros muchos ovieron estos de tales$Madre-1£muchos-1
-compañeros de todas gentes fueron ca non unos señeros todos en tu$de-1£ca-1£todos-1
-El tiempo del tu fijo todos lo esperavan porque tardi venie mucho$porque-1£mucho-1
-se aquexavan mas maguer serie tardi que verrie non dubdavan avien grant$mas-1£que-1£avien-1
-alegria maguera que laçravan.$maguera-1
-Jacob e Danïel y pusieron mojon que perdrien los judios ceptro e$que-1
-Pues que ansi es contra aquella finchazon aquellos medicos espirituales a los$contra-1£a-1
-miembros del cuerpo de Jesucristo de la Iglesia e muy mayormente a$de-2
-los enfermos o agraviados por aquella finchazon han de dar melecina espiritual$por-1£han-1
-de la pena eclesiastica conviene a saber la sentencia de excomunion suspension$de-1£conviene-1£la-2£suspension-1
-Et de aquesta excomunion que es melecinal e non mortal en tanto$que-1£en-1
-que aquel en el cual fuere denunciada tal sentencia non la menosprecia$en-1£non-1
-que aquel es descomulgado segund el Apostol para que sea salvo ca$que-1£segund-1£para-1£ca-1
-el alma del descomulgado en peligro seria por la finchazon de su$por-1
-soberbia sinon fuese descomulgado et sin dubda esto se face por grand$sinon-1£et-1£por-1
-consolacion ca los hommes enfermos suelen haber consolacion con las melecinas muy$ca-1
-amargas por la esperanza de la corporal salvacion.$por-1
-pronunciada justamente non la menosprecies mas sey muy consolado della ansi commo$non-1£mas-1£ansi-1
-de melecina muy saludable ca tanto es de mayor salud cuanto es$ca-1
-dada de mayor buticario en el corazon del cual buticario son non$en-1£son-1
-solamente las virtudes de las yerbas mas todos los olores de las$mas-1
-virtudes e ansi commo dicen los derechos e todos los Santos Padres$e-1£e-2
-la excomunion non procede solamente del homme mas de Dios es conocida$la-1£mas-1
-Et quando esto hoye Vermudo con todas sus gentes a el sallio$con-1
-y en las tiendas de Almanzor muytos de los moros mato.$y-1
-Et como era Almanzor hombre de muyt grant corazon con cofia de$con-1
-oro en la caveza en lugar de corona pussosse en tierra a$pussosse-1
-manera de los principes suyos reforzo e cobro sus gentes en la$reforzo-1
-batalla e los cavalleros de Vermudo encalzaron entro Leon.$e-1
-Mas por las grandes pluvias que alli facian segunt yes tierra de$que-1£segunt-1
-aguas muytas Almanzor fuese pora su tierra.$Almanzor-1
-Los ciudadanos de Leon e de Astorga dubdando tanto poder de los$dubdando-1
-moros que al aynno vinient verrian sobre ellos los cuerpos de los$que-1£los-1
-reyes muertos y el cuerpo de Sant Pelayo ad Asturias los trasladaron$y-1
-y en Oviedo en la yglesia de Santa Maria los metieron que$y-1£que-1
-non fuessen de los enemigos desonrrados e sobre l' altar de Sant$e-1
-Otros de los ciudadanos de Leon el cuerpo de sant Froyllan obispo$el-1
-passados los puertos Pireneos en la val que yes clamada de Cesar$passados-1£en-1£que-1
-en la yglesia de sant Johan lo pusieron.$en-1
-Al siguient aynno al principio del verano Almanzor plego todo su poder$al-1£Almanzor-1
-e vino sobre Leon.$e-1
+Madre Tu fust' la verga el tu fijo la flor que resucita muertos con su suave odor saludable por vista vidable por savor pleno de los siet' dones solo d'ellos dador.$el-1£que-1£saludable-1£pleno-1£solo-1
+Tu fust' la cambariella que dize el psalmista end' salio el esposo con la fermosa vista gigant' de grandes nuevas que fizo grant conquista rëy fue e obispo e sabidor legista.$que-1£end'-1£gigant'-1£que-2£rëy-1
+La tu figura Madre traie el vellocino en qui nuevo miraglo por Gedeon avino en essi vino pluvia en ti el rey divino por vencer la batalla Tu abrist el camino.$traie-1£por-1£en-2£en-3£por-2£Tu-1
+La puerta bien cerrada que dice Ecechiel a ti significava que siempre fuisti fiel por ti passo señero el Señor d'Israel e d'esto es testigo el angel Gabrïel.$que-1£a-1£que-2£por-1£e-1
+Éstos fueron e otros Madre tus mensageros muchos ovieron estos de tales compañeros de todas gentes fueron ca non unos señeros todos en tu materia salieron verdaderos.$Madre-1£muchos-1£de-2£ca-1£todos-1
+El tiempo del tu fijo todos lo esperavan porque tardi venie mucho se aquexavan mas maguer serie tardi que verrie non dubdavan avien grant alegria maguera que laçravan.$porque-1£mucho-1£mas-1£que-1£avien-1£maguera-1
+Jacob e Danïel y pusieron mojon que perdrien los judios ceptro e uncïon.$que-1
+Pues que ansi es contra aquella finchazon aquellos medicos espirituales a los miembros del cuerpo de Jesucristo de la Iglesia e muy mayormente a los enfermos o agraviados por aquella finchazon han de dar melecina espiritual de la pena eclesiastica conviene a saber la sentencia de excomunion suspension e entredicho.$contra-1£a-1£de-2£por-1£han-1£de-4£conviene-1£la-3£suspension-1
+Et de aquesta excomunion que es melecinal e non mortal en tanto que aquel en el cual fuere denunciada tal sentencia non la menosprecia que aquel es descomulgado segund el Apostol para que sea salvo ca el alma del descomulgado en peligro seria por la finchazon de su soberbia sinon$que-1£en-1£en-2£non-2£que-3£segund-1£para-1£ca-1£por-1£sinon-1
+fuese descomulgado et sin dubda esto se face por grand consolacion ca los hommes enfermos suelen haber consolacion con las melecinas muy amargas por la esperanza de la corporal salvacion.$et-1£por-1£ca-1£por-2
+Et si por ventura la sentencia de la descomunion es en ti pronunciada justamente non la menosprecies mas sey muy consolado della ansi commo de melecina muy saludable ca tanto es de mayor salud cuanto es dada de mayor buticario en el corazon del cual buticario son non solamente las$non-1£mas-1£ansi-1£ca-1£en-2£son-1
+virtudes de las yerbas mas todos los olores de las virtudes e ansi commo dicen los derechos e todos los Santos Padres la excomunion non procede solamente del homme mas de Dios es conocida proceder.$mas-1£e-1£e-2£la-1£mas-2
+Et quando esto hoye Vermudo con todas sus gentes a el sallio y en las tiendas de Almanzor muytos de los moros mato.$con-1£y-1
+Et como era Almanzor hombre de muyt grant corazon con cofia de oro en la caveza en lugar de corona pussosse en tierra a manera de los principes suyos reforzo e cobro sus gentes en la batalla e los cavalleros de Vermudo encalzaron entro Leon.$con-1£pussosse-1£reforzo-1£e-2
+Mas por las grandes pluvias que alli facian segunt yes tierra de aguas muytas Almanzor fuese pora su tierra.$que-1£segunt-1£Almanzor-1
+Los ciudadanos de Leon e de Astorga dubdando tanto poder de los moros que al aynno vinient verrian sobre ellos los cuerpos de los reyes muertos y el cuerpo de Sant Pelayo ad Asturias los trasladaron y en Oviedo en la yglesia de Santa Maria los metieron que non fuessen$dubdando-1£que-1£los-2£y-1£y-2£que-2
+de los enemigos desonrrados e sobre l' altar de Sant Johan Baptista el cuerpo de sant Pelayo metieron.$e-1
+Otros de los ciudadanos de Leon el cuerpo de sant Froyllan obispo passados los puertos Pireneos en la val que yes clamada de Cesar en la yglesia de sant Johan lo pusieron.$el-1£passados-1£en-1£que-1£en-2
+Al siguient aynno al principio del verano Almanzor plego todo su poder e vino sobre Leon.$al-1£Almanzor-1£e-1
 Vermudo ocupado de la enfermedad de podagra fuesse a Oviedo.$fuesse-1
-Almanzor entendie sobre la ciudat de Leon e teniela cercada un aynno$e-1
-e de parte de la Puerta de occident el muro destruye e$e-1£e-2
-Entonze enviaron a Portogal por este don Alfonso e alzaronlo rey los$por-1£e-1
-de la tierra perelando a la madre ca era de mala vida$perelando-1£ca-1
-e facie mal su facienda como dixemos.$e-1£como-1
-O ssi alguno en tal manera era feito cauallero perdra la cauailleria$O-1£perdra-1
-et las armas et finque todo tienpo villano asi com era d'antes.$et-2£asi-1
-Si algun cauallero en tan grant mallicia quissiere entender que sia a$que-1
-perder la dignidad de caualleria por que eil mismo por defension de$por-1£por-2
-los otros leixa lur digno ofiçio et faze muitos furtos et muitas$et-1
-roberias damos por fuero et por judicio et por todos tiempos que$damos-1£que-1
-quando vera al desponer se cinga el mismo l'espada.$se-1
-Si algun cauer en tant grant malicia uoldra entendre que aya a$que-1
-perdre la dignjtat de caualleria car eles qui son mis per defension$car-1
-de les altres layssat lur digne ofici fan moliz furiz et muytes$layssat-1£fan-1
-roberies donam per for et per judici per toyz tempes que cant$donam-1£cant-1
-venrra al despondre cintiasse el medeys l'espada.$cintiasse-1
-Et sobresto don Johan mio sobrino fijo del infante don Johan et$et-1
-yo viemos nos en uno et acordamos que pues el rey havia$que-1
-ya cumplidos XIIII annos et era entrado en los XV que non$et-1£que-1
-avia mester tutor ninguno e quel dexasemos la tutoria et fisiemos lo$e-1£et-1
-Et dexamos gela lo mas a su serviçio que nos podiemos ante$que-1
-partida de los procuradores que eran y connusco de los mas logares$que-1
-Pero dexamos gelo con tal condicion que siempre le pidiemos merçed por$que-1£por-1
-vos por quanto bien e lealmente le avedes servido vos e todos$e-1£e-2
-Et por quanto por nos avedes fecho que vos faga mucho bien$por-2£que-1
-que avedes.$que-1
-Porque vos ruego que embiedes luego vuestros procuradores al rey e todas$luego-1£e-1
-las cosas que entendades en que el Rey vos pueda faser merçed$que-1£en-1
-enbiadmelo desir e mostrar por ellos e ayudar vos he con el$por-1£e-2
-rey porque vos las faga assy como fare por lo mio mesmo.$porque-1£assy-1
-Dada en Villa Onnes çinco dias de septiembre era de mille et$era-1
+Almanzor entendie sobre la ciudat de Leon e teniela cercada un aynno e de parte de la Puerta de occident el muro destruye e a la puerta de mediodia assi mismo.$e-1£e-2£e-3
+Entonze enviaron a Portogal por este don Alfonso e alzaronlo rey los de la tierra perelando a la madre ca era de mala vida e facie mal su facienda como dixemos.$por-1£e-1£perelando-1£ca-1£e-2£como-1
+O ssi alguno en tal manera era feito cauallero perdra la cauailleria et las armas et finque todo tienpo villano asi com era d'antes.$O-1£perdra-1£et-2£asi-1
+Si algun cauallero en tan grant mallicia quissiere entender que sia a perder la dignidad de caualleria por que eil mismo por defension de los otros leixa lur digno ofiçio et faze muitos furtos et muitas roberias damos por fuero et por judicio et por todos tiempos que quando vera$que-1£por-1£por-2£et-1£damos-1£que-3
+al desponer se cinga el mismo l'espada.$se-1
+Si algun cauer en tant grant malicia uoldra entendre que aya a perdre la dignjtat de caualleria car eles qui son mis per defension de les altres layssat lur digne ofici fan moliz furiz et muytes roberies donam per for et per judici per toyz tempes que cant venrra al$que-1£car-1£layssat-1£fan-1£donam-1£cant-1
+despondre cintiasse el medeys l'espada.$cintiasse-1
+Et sobresto don Johan mio sobrino fijo del infante don Johan et yo viemos nos en uno et acordamos que pues el rey havia ya cumplidos XIIII annos et era entrado en los XV que non avia mester tutor ninguno e quel dexasemos la tutoria et fisiemos lo asi.$et-1£que-1£et-3£que-2£e-1£et-4
+Et dexamos gela lo mas a su serviçio que nos podiemos ante partida de los procuradores que eran y connusco de los mas logares de las nuestras tutorias.$que-1£que-2
+Pero dexamos gelo con tal condicion que siempre le pidiemos merçed por vos por quanto bien e lealmente le avedes servido vos e todos los de las vuestras tutorias.$que-1£por-1£e-1£e-2
+Et por quanto por nos avedes fecho que vos faga mucho bien et mucha merçed.$por-2£que-1
+Et que vos guarde vuestros fueros e privillegios e franquesas e libertades que avedes.$que-2
+Porque vos ruego que embiedes luego vuestros procuradores al rey e todas las cosas que entendades en que el Rey vos pueda faser merçed enbiadmelo desir e mostrar por ellos e ayudar vos he con el rey porque vos las faga assy como fare por lo mio mesmo.$luego-1£e-1£que-2£en-1£por-1£e-3£porque-1£assy-1
+Dada en Villa Onnes çinco dias de septiembre era de mille et tresientos e sesenta e tres annos.$era-1
 Yo Johan Ximenes la escrivi por mandado de Don Johan.$por-1
-la frontera e del regno de Murcia por mio sennor el Rey$e-1£por-1
-don Alfonso beso vuestras manos e me acomiendo en la vuestra gracia$e-1
-como a padre e a sennor para que cobdiçio mucha vida e$como-1£para-1
-mucha salud e a qui he muy grand voluntad de servir en$e-1
-todas las cosas que mandasedes e por bien touiesedes.$que-1
-E nos el sobredicho rey don Ferrando regnante en uno con la$E-1£regnante-1
-reina doña Costança mi muger en Castilla en Toledo en Leon en$mi-1£en-1£en-2£en-3£en-4
-Gallizia en Sevilla en Cordova en Murcia en Jaen en Baeça en$en-1£en-2£en-3£en-4£en-5£en-6
-Badajoz en el Algarbe e en Molina otorgamos este previllejo e confirmamoslo.$en-1£e-1£otorgamos-1
-Yo Gonçalo Martinez lo escrivi por mandado del rey en el año$por-1
-dezeno qu'el rey sobredicho regno.$qu'el-1
-Et agora blasmades a mi que si huuies conoscido la inconueniençia la$Et-1£que-1£la-2
-auria magnifestada a la congreguaçion como aquel que amo el bien de$como-1
-mi tierra et no me corrumpo por moneda porque qui sabe et$et-1£porque-1
-siente el prouecho et no lo dize a sus çiudadanos tanto uale$et-1£tanto-1
-como si no se auisas ni lo sopies et qui lo siente$et-1
-et lo dize si no ama de buen coraçon su tierra bien$si-1£bien-1
-lo dira mas no como se deue dir et si por uentura$mas-1£et-1
-lo dira como se deue si es cobdicioso de moneda sus uirtudes$como-1£si-1£sus-1
-no ualen ren las quales uirtudes no uos deuen semblar que yo$las-1£que-1
+Sennor yo don Johan fijo del infante don Manuel adelantado mayor de la frontera e del regno de Murcia por mio sennor el Rey don Alfonso beso vuestras manos e me acomiendo en la vuestra gracia como a padre e a sennor para que cobdiçio mucha vida e mucha salud$e-1£por-1£e-2£como-1£para-1
+e a qui he muy grand voluntad de servir en todas las cosas que mandasedes e por bien touiesedes.$e-1£que-1
+E nos el sobredicho rey don Ferrando regnante en uno con la reina doña Costança mi muger en Castilla en Toledo en Leon en Gallizia en Sevilla en Cordova en Murcia en Jaen en Baeça en Badajoz en el Algarbe e en Molina otorgamos este previllejo e confirmamoslo.$E-1£regnante-1£mi-1£en-2£en-3£en-4£en-5£en-6£en-7£en-8£en-9£en-10£en-11£en-12£e-1£otorgamos-1
+Yo Gonçalo Martinez lo escrivi por mandado del rey en el año dezeno qu'el rey sobredicho regno.$por-1£qu'el-1
+Et agora blasmades a mi que si huuies conoscido la inconueniençia la auria magnifestada a la congreguaçion como aquel que amo el bien de mi tierra et no me corrumpo por moneda porque qui sabe et siente el prouecho et no lo dize a sus çiudadanos tanto uale como si$Et-1£que-1£la-2£como-1£et-1£porque-1£et-3£tanto-1
+no se auisas ni lo sopies et qui lo siente et lo dize si no ama de buen coraçon su tierra bien lo dira mas no como se deue dir et si por uentura lo dira como se deue si es cobdicioso de moneda sus uirtudes no ualen ren las$et-1£si-1£bien-1£mas-1£et-3£como-2£si-3£sus-1£las-1
+quales uirtudes no uos deuen semblar que yo las aya.$que-1
 Ellos dixieron que farian su mandado.$Ellos-1£que-1
-Y estava entonçe un omne natural de Roma que ando por esculca$que-1
-que era vestido commo griego e andava de aquella manera.$que-1£e-1
+Y estava entonçe un omne natural de Roma que ando por esculca que era vestido commo griego e andava de aquella manera.$que-1£que-2£e-1
 E partiose dela hueste e metiose enla çiudat.$e-1
-E fuese corriendo al palacio del enperador e dixo le Señor mucho$e-1
-Dueña diz Miles bien me nienbra quanto me avedes dicho mas vos$quanto-1£mas-1
-me prometeredes agora que jamas en fecho nin en dicho non faredes$que-1£nin-1
-saber a ninguno que fuestes fija del enperador de Roma nin esposa$que-1£nin-1
-Otro dia partimos de alli e fuemos en par de Çepta e$Otro-1£e-1£e-2
-alli supimos de una nao de vizcaynos como aquellas dos carracas eran$como-1
-de armada e venian de Genova a acompañar a estas otras tres.$e-1
-É fuemos a surgir sobre Çepta e deçendimos en tierra e luego$e-1£e-2
-tomaron una caravela e escrivieron a Caliz a fazerlo saber como ellos$e-1£como-1
-estaban alli esperandolos o a lo menos los fallarian en Malaga porque$o-1£porque-1
-avian ai de tomar e dexar çiertos cargos.$e-1
-É estuvimos este dia en Çepta e yo anduve mirando la çibdat$e-1
-e fuera della la cual me paresçio mucho bien e muestra aver$la-1£e-2
-seydo grant pueblo e sin duda si el rey de Castilla la$e-1
-señorease e se presçiase de nobleçella segunt el sitio donde esta seria$e-1£segunt-1£seria-1
-La tierra es comunalmente abundosa aunque es tierra aspera e de muchas$aunque-1£e-1
-montañas pero tiene buen puerto e muchas tierras e frutas e aguas.$pero-1
-La çibdat es asaz fuerte en aquello que ha quedado tiene al$en-1£tiene-1
-un canto ençima de la montaña una sierra çercada de muro que$que-1
-dizen el Alminan edifiçio bien singular si estuviese como devia.$edifiçio-1£si-1
-En estas sierras de Çepta se crian mas leones reales que en$que-1
-parte del mundo e puercrespines e ximios e onças e ossos e$e-1
-puercos infinitos e dizen que en la parte de África es dubda$e-1
-aver cosa tan alta e tan montañosa e esto dizen que se$e-2£que-1
-faze por la veçindat que tiene con el poniente por la parte$que-1£por-2
-E al prinçipe e a todos los otros caualleros plogo mucho que$e-1£que-1
-el mariscal touiera rrazon para se escusar por que era buen cauallero.$para-1£por-1
+E fuese corriendo al palacio del enperador e dixo le Señor mucho estades seguro.$e-1
+Dueña diz Miles bien me nienbra quanto me avedes dicho mas vos me prometeredes agora que jamas en fecho nin en dicho non faredes saber a ninguno que fuestes fija del enperador de Roma nin esposa de Esmere.$quanto-1£mas-1£que-1£nin-1£que-2£nin-2
+Otro dia partimos de alli e fuemos en par de Çepta e alli supimos de una nao de vizcaynos como aquellas dos carracas eran de armada e venian de Genova a acompañar a estas otras tres.$Otro-1£e-1£e-2£como-1£e-3
+É fuemos a surgir sobre Çepta e deçendimos en tierra e luego tomaron una caravela e escrivieron a Caliz a fazerlo saber como ellos estaban alli esperandolos o a lo menos los fallarian en Malaga porque avian ai de tomar e dexar çiertos cargos.$e-1£e-2£e-3£como-1£o-1£porque-1£e-4
+É estuvimos este dia en Çepta e yo anduve mirando la çibdat e fuera della la cual me paresçio mucho bien e muestra aver seydo grant pueblo e sin duda si el rey de Castilla la señorease e se presçiase de nobleçella segunt el sitio donde esta seria una de$e-1£la-2£e-3£e-4£e-5£segunt-1£seria-1
+La tierra es comunalmente abundosa aunque es tierra aspera e de muchas montañas pero tiene buen puerto e muchas tierras e frutas e aguas.$aunque-1£e-1£pero-1
+La çibdat es asaz fuerte en aquello que ha quedado tiene al un canto ençima de la montaña una sierra çercada de muro que dizen el Alminan edifiçio bien singular si estuviese como devia.$en-1£tiene-1£que-2£edifiçio-1£si-1
+En estas sierras de Çepta se crian mas leones reales que en parte del mundo e puercrespines e ximios e onças e ossos e puercos infinitos e dizen que en la parte de África es dubda aver cosa tan alta e tan montañosa e esto dizen que se faze por$que-1£e-1£e-6£e-8£que-3
+la veçindat que tiene con el poniente por la parte del estrecho.$que-1£por-1
+E al prinçipe e a todos los otros caualleros plogo mucho que el mariscal touiera rrazon para se escusar por que era buen cauallero.$e-1£que-1£para-1£por-1
 E fue muy notada la rrazon que el mariscal le dizia.$que-1
-mas empero que el conocie bien que porque ellos non eran estados$que-2
-enlos patios et conuinencias que el auie fecho con los moros nin$que-1£nin-1
-sabien el secreto qual era que por aquesto les desplazie lo que$que-1£lo-1
-Empero que non lo entendien bien por que segunt los encartamientos que$por-1£que-3
-el auie fecho alos moros el los pudie echar fuera dela villa$el-2
-quando quisiesse porque enlas cartas que dizien que el los deuiesse retener$quando-1£porque-1£que-1
-en Murcia se entendien los suburbios son a saber los barrios o$se-1£son-1
-poblaciones que son fuera dela ciudat et se tienen conla ciudat et$que-1£et-2
-son dichas carreras de aquella et toda es dicha vna poblacion por$et-1£por-1
-la qual razon el los pudie sacar dela villa et meter enla$et-1
-En el CCXCIIIIº capitulo dize que enbio este rey don Fernando al$En-1£que-1
-rey de Granada para su tierra e fynco muy pagado del servicio$para-1£e-1
-quel avie fecho e tornos para Cordoua e ovo su acuerdo que$e-1£que-1
-era mejor de yr çercar a Seuilla pues los moros tenie quebrantados$pues-1
-que non yr para Castilla ca el era çierto que fallaria tantas$que-1£ca-1£que-2
-querellas si alla fuese que non podria tan ayna tornar al Andaluzia$si-1£que-1
-e ssalio luego de Cordoua e fuese para Jahen.$e-1£e-2
-En el CCXCVº capitulo dize que llego a Jahen Rremon Bonifaz de$que-1
-Burgos e plogo mucho al rey con el e mandol luego que$e-1£e-2
-fuesse guisar naves e galeas e la mayor flota que podiese e$que-1£e-3
-E los moros movieron pleytesia que fasta seys meses quel querien dar$que-1
-tributo cierto e al rey plogol mucho con esta pleytesia e venieron$e-1£e-2
-se luego pletear los moros de Costantina e de Rrinna e entregaron$e-2
-Que fabla en que manera deben facer los Cavalleros de la vanda$Que-1£en-1
-quando sopieren que se ha de facer justa en la corte del$quando-1£en-1
-Quando acaesciere que se pregonare justa en la corte del Rey o$en-1
-en otra villa por Cavalleria o por bodas que faga alguno decimos$por-1£o-1£que-1£decimos-1
-que qualquier Cavallero de la vanda siendo a diez leguas que y$que-2
-guisado para justar o para tornear si fallare con quien por que$si-1£por-1
-parezca que a do quier que se probare Cavalleria que siempre se$que-1£que-3
-acierten a y algunos Cavalleros de la vanda ca cierto non seria$ca-1
-honra de la vanda en facerse justa o torneo e el Cavallero$e-1
-de la vanda estar a diez leguas dende e non ser y$e-1
-et el que asi lo ficiere que ge lo loen por ello$et-1£que-2£por-1
-el Rey e los Cavalleros de la vanda et el que lo$e-1£et-1
-sopo e non quiso ir alla quel den por pena que non$e-1£quel-1£que-1
-traya por un mes la vanda e que venga tres venidas con$e-1
-un Cavallero que non sea de la vanda non teniendo el lanza.$que-1£non-2
-quier la gane en la manera que dice en este libro que$quier-1£que-1£que-2
-la deve ganar quier ge la den por bondat que aia en$quier-1£por-1£que-1
-Et decimos que a tambien en la justa como en el torneo$que-1£como-1
-estas condiciones non se entienden salvo en los que quisieren ganar la$salvo-1
-vanda por su Cavalleria pero si otros quisieren justar o tornear con$por-1£pero-1£con-1
-los Cavalleros de la vanda por probar Cavalleria e non por razon$por-1£e-1
-de traer la vanda que lo puedan facer sin estas condiciones que$que-1£que-2
-de suso son dichas cada que quisieren los otros Cavalleros.$que-1
-La primera por que la fizo Dios para defender en la su$para-1
-fe et otro si la segunda para defender cada uno en sus$et-1
-tierras e en sus comarcas sus tierras e sus estados et por$e-1£et-1
-esto fallaredes en las Coronicas antiguas estos grandes fechos que pasaron que$estos-1£que-2
-apretadamente tomo Dios en si los fechos de las Batallas que pasan$si-1£que-1
-por las manos et los Cavalleros et asi se prueba que precio$et-2£que-1
-Dios esta orden mas que ninguna de las ordenes por que se$mas-1£por-1
-defiende la su fe e el mundo por ella et por ende$por-1£et-1
-todo aquel que fuere de buena ventura e se toviere por Cavallero$que-1£e-1£por-1
-segunt su estado debe facer mucho por honrar la Cavalleria et por$debe-1£por-1£por-2
-la levar adelante e por que la cosa del mundo que pertenesce.$e-1
-mas al Cavallero es verdat e lealtad et aun de que se$et-1
-mas paga Dios por ende mando facer este Libro de la orden$por-1
-de la vanda que es fundado sobre estas dos razones sobre la$que-1£sobre-2
-Cavalleria et sobre la lealtat et pues que vos havemos fablado algo$et-2
-de la Cavalleria agora queremos vos decir alguna cosa de la lealtat.$agora-1
-El pan que sobre'l ara consegra el abbat en su carne se$en-1
-torna esta es la verdad el vino torna en sangne salud de$esta-1£el-1£salud-1
-christiandad el sabor non acuerda con la proprïedad.$el-1
-En el pan y el vino hi finca el sabor mas non$hi-1£mas-1
-es pan nin vino cosa es muy mejor cuerpo es de don$cosa-1£cuerpo-1
-Christo el nuestro Salvador qui esto non creyesse serie en grant error.$el-1£qui-1
-En el sexto capitulo que es de comenzar "Qui pridie" comïença qui$que-1£"Qui-1
-lo quiere rezar de las sanctas palavras essi es el limnar que$de-1£que-1
-Quando el sacerdot en es lugar viene prende con ambas manos lo$prende-1£lo-1
-que delante tiene dize essas palavras ca de cor las retiene faze$dize-1£ca-1£faze-1
-cruz con su diestra ca assi le conviene.$ca-1
-Las palavras leidas e la cruz aformada luego es la natura toda$e-1£luego-1
-en al tornada el vino torna en sangne en carne la oblada$el-1£en-3
-aoralos la familia en la tierra prostada.$aoralos-1
-Esta virtut tanmaña tan noble bendicion cosa es que Dios pone sobre$tan-1£cosa-1
-la oblacion de que la christiandad aya consolacion por ont de los$de-1£por-1
-Siquier los sacrificios sequier las prophecias lo que Danïel dixo e lo$sequier-1£lo-1£e-1
-que Jeremias e lo que Abacuc e lo que Isaias todo se$e-1£e-2£todo-1
-Quando vino Messias todo fue aquedado callaron los prophetas el velo fue$callaron-1£el-1
-redrado folgaron los cabrones y el otro ganado Él puso fin a$folgaron-1£Él-1
-todo lo que era passado.$lo-1
-Los que passados eran todos lo sospiraron todos los sacrificios a Él$todos-2
-pronuncïaron quando assomo Elli todos se remataron de que Él dixo "fïat"$quando-1£de-1
-parecer non osaron.$parecer-1
-Deque sofrio don Christo la Passion prophetada cumprio los sacrificios los de$cumprio-1£los-2
-la ley passada levanto la ley nueva la vieja callantada la vieja$levanto-1£la-3£la-4
-Cantando el responso la laude e la prosa viene el Evangelio razon$la-1£viene-1£razon-1
-dulz e sabrosa lo que dixo don Christo Fijo de la Gloriosa$lo-1£Fijo-1
-que nos salvo a todos con su sagne preciosa.$que-1
-Levantase el pueblo cascun de su logar descubren sus cabezas por mejor$cascun-1£descubren-1£por-1
-escuchar fazen cruz en sus fruentes con el dedo pulgar en boca$fazen-1£en-2
-e en pechos ca tres deven estar.$ca-1
-Deve todo christiano fazer estas señales demientre que las faze dezir palavras$demientre-1
-tales "Tu Jhesu nazareno que puedes e que vales Reï de los$"Tu-1£que-1£Reï-1
-judios salva tus serviciales."$salva-1
-Los que lo non entienden bien deven preguntar por que cambia el$por-1
-clerico tan apriessa logar anda diestro siniestro en el sancto altar en$anda-1£siniestro-1£en-2
-cabo do se sovo ali a de tornar.$ali-1
-Los judios significa essa diestra partida a la que faz el clerigo$a-1
-la primera venida essos tenien la leï d'ellos mal entendida por esso$essos-1£por-1
-eran diestros non por la buena vida.$non-1
-A los moros significa el siniestro cornal que non tenien de Dios$que-1
-nin ley nin su sinal por ent a los discipulos dio signo$nin-1£por-1
-especial que non se acostassen a essi hospital.$que-1
-Quando no lo quisieron los diestros recebir passo a los siniestros fizolos$passo-1£fizolos-1
-convertir oyeron evangelio que non solien oir e ganaron la missa toda$oyeron-1£que-1£e-1£toda-1
-La gent de los judios en ora mala nados repoyaron a Christo$en-1£repoyaron-1
-por sus malos pecados recibieronlo moros fueron bienventurados essos andan por fijos$por-1£recibieronlo-1£fueron-1£essos-1£por-2
-los otros por añados.$por-1
-Lo que torna a diestro por la missa acabar muestra que quando$por-1£muestra-1£quando-1
-fuere el mundo a finar entendran los judios todo su malestar creeran$entendran-1£creeran-1
-en don Christo que los vino salvar.$que-1
-Abran nuestro avuelo de ondrada memoria quando de la fazienda tornava con$quando-1
-victoria ofrecie Melchisedech como diz la historia pan e vino e plogoli$ofrecie-1£como-1£pan-1£e-2
-Ofrecer pan e vino en el sancto altar ofrenda es autentica non$en-1£non-1
-podrie mejorar quando con sus discipulos Christo quiso cenar con pan e$quando-1£con-2
-El qui la ostia pone pora sacrificar en la siniestra parte la$pora-1
-deve assentar el caliz a la diestra por mejor le membrar que$el-1£por-1£que-1
-Mandamos… que ninguno natural ni subdito nuestro de quoalquiere estado et condition$Mandamos…-1£que-1£de-1
-sean non sean osados de partir del regno en ninguna manera sin$non-1£regno-1
-licencia nuestra sino que finquen en la tierra a servicio nuestro et$sino-1£a-1
-del regno so pena de ser traydores et todos sus biens confiscados$so-1£et-1
-Et d'este pregon en cada logar que lo faredes fazer retengades carta$que-1
-publica et fazet fazer inquisition qui son aqueil los que son partidos$et-1£los-1
-Et que nos dedes por la fiesta de Sancta Maria de septiembre$por-1
-et que nos lo dedes a la fanega de Onna.$et-1
-Et uos et los que de uos vinieren que non den dineros$que-2
-por enfurçion nin que fagan serna ninguna.$nin-1
-Et esto que uos damos que non lo ayades poder de lo$que-2
-uender nin de lo empennar nin de lo meter so otro sennorio$nin-1£nin-2
-sinon por esso lo perdades todo.$sinon-1
-Et nos don Pero por la gracia de Dios abbat de Onna$por-1
-et nos conuiento des mismo logar esta carta que mandamos fazer confirmamosla$et-1£esta-1£confirmamosla-1
-Et yo Miguel Martin el sobredicho otorgo todos estos paramientos que en$otorgo-1£que-1
-esta carta son escriptos por mi et por los que uernan espos$por-1
-mi que por qualquier d'el los que non cumplamos o en parte$que-1£los-1
-d'ellos que por y lo perdamos todo esto que uos nos dades$que-1£que-2
-et uos que seades poderosos de lo entrar por uuestra propria auctoridat.$et-1£por-1
-Fecha la carta en Onna a XX dias de março era de$a-1£era-1
-Sepan quantos esta carta vieren commo nos don Pero por la gracia$commo-1£por-1
-de Dios abbat de Onna et nos conuiento des mismo logar damos$damos-1
-a uos Miguel Martin de Busto el nuestro solar dy Busto que$que-1
-touo de nos don Martino el clerigo et damos uos lu que$et-1£que-1
-lu ayades con todas sus pertenençias assi commo lo tenia don Martino$assi-1
-de nos por tal pleyto uos lo damos que lu ayades uos$por-1£que-1
-en nuestra uida et uuestros fijos et los que de uos uinieren$los-1
-por et siempre jamas et que nos dedes cad'anno por enffurçion uos$por-1£que-1£por-2£uos-1
-et los que vinieren despues de uos seys fanegas de trigo.$seys-1
-Pues a Priamo bienaventurado llamo Ovidio en el 13º del Methamorfoseos ya$Pues-1£en-1£ya-1
-perdido el reino muriendo sanguinosamente por non antes d'ella ver su amada$muriendo-1£por-1
-fija a Pirro degollar contandolo Encuba en sus lloros que el mesmo$contandolo-1£que-1
-Cuanto mas conviene de la buena muger vuestra esto dezir acabando de$acabando-1
-natural muerte sin violençia e non ver de vos el ultimo e$e-1
-mortal pasamiento que es la mayor dolor que pasar puede coraçon de$que-1£que-2
-leal muger Onde mas complida d'esta migraçion e buena non pudierades para$Onde-1£e-1
-E si aun el tierno coraçon vuestro quisiera non tan festinosa la$non-1
-division corporal e perpetua suya e vuestra fuera esa ora la amenazan$e-1£esa-1
-los peligros reçitados e mayores armados de la posibilidat de los cuales$de-1
-oy pasada a mejor vida es de todo segura.$oy-1£es-1
-Quien tan velada la razon tiene que non cognosca la muerte ser$que-1
-mejor de las terrenas cosas e mostradora de los errores de la$e-1
-humana vida Asi lo testifico Asdrubal en la hora del morir suyo$Asi-1
-diziendo Quiere dezir 'O muerte muy mejor de las cosas terrenales tu$diziendo-1£Quiere-1£muy-1£tu-1
-abres los errores e discutes los sueños de la vida pasada'.$e-1
-DE LOS QUE MUEREN ANTES DEL NATURAL TÉRMINO Este tan poderoso hermano$Este-1
-de Anibal por su esfuerço librado de muchos peligros murio en la$por-1£murio-1
-mar a descubierto de llagas mortales antes del natural termino sin ver$antes-1£sin-1
-Con todo eso por la virtud que en el morava plogole la$por-1£plogole-1
-E cuanto mas le ploguiera si en su cama presente el hermano$si-1£presente-1
-e de otra menor causa cumpliera sus dias Pues por que pesa$e-1£Pues-1
-a vos de lo que a los dichos vuestros padre e abuelos$de-1£e-1
-en su morir fue plazible Plega a vos de su plazer.$Plega-1
-Mayor deveis de su muerte en preçio el dia tener que aquel$que-1
-en que nasçieron por el buen nombre que dexan a quien los$por-1£a-1
-ungüentos preçiosos egualados ser non pueden e el dia de muerte que$e-1£que-1
-el dia del nasçimiento porque dende se toma mejor enxemplo que en$porque-1£que-1
+mas empero que el conocie bien que porque ellos non eran estados enlos patios et conuinencias que el auie fecho con los moros nin sabien el secreto qual era que por aquesto les desplazie lo que auie fecho el.$que-2£que-3£nin-1£que-4£lo-1
+Empero que non lo entendien bien por que segunt los encartamientos que el auie fecho alos moros el los pudie echar fuera dela villa quando quisiesse porque enlas cartas que dizien que el los deuiesse retener en Murcia se entendien los suburbios son a saber los barrios o poblaciones que$por-1£que-3£el-2£quando-1£porque-1£que-4£se-1£son-1£que-6
+son fuera dela ciudat et se tienen conla ciudat et son dichas carreras de aquella et toda es dicha vna poblacion por la qual razon el los pudie sacar dela villa et meter enla rexaca et enla huerta.$et-2£et-3£por-1£et-4
+En el CCXCIIIIº capitulo dize que enbio este rey don Fernando al rey de Granada para su tierra e fynco muy pagado del servicio quel avie fecho e tornos para Cordoua e ovo su acuerdo que era mejor de yr çercar a Seuilla pues los moros tenie quebrantados que non$En-1£que-1£para-1£e-1£e-2£que-2£pues-1£que-3
+yr para Castilla ca el era çierto que fallaria tantas querellas si alla fuese que non podria tan ayna tornar al Andaluzia e ssalio luego de Cordoua e fuese para Jahen.$ca-1£que-1£si-1£que-2£e-1£e-2
+En el CCXCVº capitulo dize que llego a Jahen Rremon Bonifaz de Burgos e plogo mucho al rey con el e mandol luego que fuesse guisar naves e galeas e la mayor flota que podiese e que vyniese con ella para Ssevilla.$que-1£e-1£e-2£que-3£e-5
+E los moros movieron pleytesia que fasta seys meses quel querien dar tributo cierto e al rey plogol mucho con esta pleytesia e venieron se luego pletear los moros de Costantina e de Rrinna e entregaron los castillos al rey.$que-1£e-1£e-2£e-4
+Que fabla en que manera deben facer los Cavalleros de la vanda quando sopieren que se ha de facer justa en la corte del Rey o en otro logar.$Que-1£en-1£quando-1£en-2
+Quando acaesciere que se pregonare justa en la corte del Rey o en otra villa por Cavalleria o por bodas que faga alguno decimos que qualquier Cavallero de la vanda siendo a diez leguas que y guisado para justar o para tornear si fallare con quien por que parezca que$en-1£por-1£o-2£que-2£decimos-1£que-4£si-1£por-3£que-6
+a do quier que se probare Cavalleria que siempre se acierten a y algunos Cavalleros de la vanda ca cierto non seria honra de la vanda en facerse justa o torneo e el Cavallero de la vanda estar a diez leguas dende e non ser y et el que asi$que-2£ca-1£e-1£e-2£et-1
+lo ficiere que ge lo loen por ello el Rey e los Cavalleros de la vanda et el que lo sopo e non quiso ir alla quel den por pena que non traya por un mes la vanda e que venga tres venidas con un Cavallero que non sea de$que-1£por-1£e-1£et-1£e-2£quel-1£que-3£e-3£que-5
+la vanda non teniendo el lanza.$non-1
+De esta manera se a de facer el Cavallero de la vanda quier la gane en la manera que dice en este libro que la deve ganar quier ge la den por bondat que aia en el.$quier-1£que-1£que-2£quier-2£por-1£que-3
+Et decimos que a tambien en la justa como en el torneo estas condiciones non se entienden salvo en los que quisieren ganar la vanda por su Cavalleria pero si otros quisieren justar o tornear con los Cavalleros de la vanda por probar Cavalleria e non por razon de traer$que-1£como-1£salvo-1£por-1£pero-1£con-1£por-2£e-1
+la vanda que lo puedan facer sin estas condiciones que de suso son dichas cada que quisieren los otros Cavalleros.$que-1£que-2£que-3
+La primera por que la fizo Dios para defender en la su fe et otro si la segunda para defender cada uno en sus tierras e en sus comarcas sus tierras e sus estados et por esto fallaredes en las Coronicas antiguas estos grandes fechos que pasaron que apretadamente tomo$para-1£et-1£e-1£et-2£estos-1£que-3
+Dios en si los fechos de las Batallas que pasan por las manos et los Cavalleros et asi se prueba que precio Dios esta orden mas que ninguna de las ordenes por que se defiende la su fe e el mundo por ella et por ende todo aquel que fuere$si-1£que-1£et-2£que-2£mas-1£por-2£por-3£et-3£que-5
+de buena ventura e se toviere por Cavallero segunt su estado debe facer mucho por honrar la Cavalleria et por la levar adelante e por que la cosa del mundo que pertenesce.$e-1£por-1£debe-1£por-2£por-3£e-2
+mas al Cavallero es verdat e lealtad et aun de que se mas paga Dios por ende mando facer este Libro de la orden de la vanda que es fundado sobre estas dos razones sobre la Cavalleria et sobre la lealtat et pues que vos havemos fablado algo de la$et-1£por-1£que-2£sobre-2£et-3
+Cavalleria agora queremos vos decir alguna cosa de la lealtat.$agora-1
+El pan que sobre'l ara consegra el abbat en su carne se torna esta es la verdad el vino torna en sangne salud de christiandad el sabor non acuerda con la proprïedad.$en-1£esta-1£el-2£salud-1£el-3
+En el pan y el vino hi finca el sabor mas non es pan nin vino cosa es muy mejor cuerpo es de don Christo el nuestro Salvador qui esto non creyesse serie en grant error.$hi-1£mas-1£cosa-1£cuerpo-1£el-4£qui-1
+En el sexto capitulo que es de comenzar "Qui pridie" comïença qui lo quiere rezar de las sanctas palavras essi es el limnar que en cuerpo de Christo fazen el pan tornar.$que-1£"Qui-1£de-2£que-2
+Quando el sacerdot en es lugar viene prende con ambas manos lo que delante tiene dize essas palavras ca de cor las retiene faze cruz con su diestra ca assi le conviene.$prende-1£lo-1£dize-1£ca-1£faze-1£ca-2
+Las palavras leidas e la cruz aformada luego es la natura toda en al tornada el vino torna en sangne en carne la oblada aoralos la familia en la tierra prostada.$e-1£luego-1£el-1£en-3£aoralos-1
+Esta virtut tanmaña tan noble bendicion cosa es que Dios pone sobre la oblacion de que la christiandad aya consolacion por ont de los pecados acabden remission.$tan-1£cosa-1£de-1£por-1
+Siquier los sacrificios sequier las prophecias lo que Danïel dixo e lo que Jeremias e lo que Abacuc e lo que Isaias todo se encïerra en la cruz de Messias.$sequier-1£lo-1£e-1£e-2£e-3£todo-1
+Quando vino Messias todo fue aquedado callaron los prophetas el velo fue redrado folgaron los cabrones y el otro ganado Él puso fin a todo lo que era passado.$callaron-1£el-1£folgaron-1£Él-1£lo-1
+Los que passados eran todos lo sospiraron todos los sacrificios a Él pronuncïaron quando assomo Elli todos se remataron de que Él dixo "fïat" parecer non osaron.$todos-2£quando-1£de-1£parecer-1
+Deque sofrio don Christo la Passion prophetada cumprio los sacrificios los de la ley passada levanto la ley nueva la vieja callantada la vieja so la nueva yaze encortinada.$cumprio-1£los-2£levanto-1£la-4£la-5
+Cantando el responso la laude e la prosa viene el Evangelio razon dulz e sabrosa lo que dixo don Christo Fijo de la Gloriosa que nos salvo a todos con su sagne preciosa.$la-1£viene-1£razon-1£lo-1£Fijo-1£que-2
+Levantase el pueblo cascun de su logar descubren sus cabezas por mejor escuchar fazen cruz en sus fruentes con el dedo pulgar en boca e en pechos ca tres deven estar.$cascun-1£descubren-1£por-1£fazen-1£en-2£ca-1
+Deve todo christiano fazer estas señales demientre que las faze dezir palavras tales "Tu Jhesu nazareno que puedes e que vales Reï de los judios salva tus serviciales."$demientre-1£"Tu-1£que-2£Reï-1£salva-1
+Los que lo non entienden bien deven preguntar por que cambia el clerico tan apriessa logar anda diestro siniestro en el sancto altar en cabo do se sovo ali a de tornar.$por-1£anda-1£siniestro-1£en-2£ali-1
+Los judios significa essa diestra partida a la que faz el clerigo la primera venida essos tenien la leï d'ellos mal entendida por esso eran diestros non por la buena vida.$a-1£essos-1£por-1£non-1
+A los moros significa el siniestro cornal que non tenien de Dios nin ley nin su sinal por ent a los discipulos dio signo especial que non se acostassen a essi hospital.$que-1£nin-1£por-1£que-2
+Quando no lo quisieron los diestros recebir passo a los siniestros fizolos convertir oyeron evangelio que non solien oir e ganaron la missa toda hasta'l somir.$passo-1£fizolos-1£oyeron-1£que-1£e-1£toda-1
+La gent de los judios en ora mala nados repoyaron a Christo por sus malos pecados recibieronlo moros fueron bienventurados essos andan por fijos los otros por añados.$en-1£repoyaron-1£por-1£recibieronlo-1£fueron-1£essos-1£por-2£por-3
+Lo que torna a diestro por la missa acabar muestra que quando fuere el mundo a finar entendran los judios todo su malestar creeran en don Christo que los vino salvar.$por-1£muestra-1£quando-1£entendran-1£creeran-1£que-3
+Abran nuestro avuelo de ondrada memoria quando de la fazienda tornava con victoria ofrecie Melchisedech como diz la historia pan e vino e plogoli mucho al Rey de Gloria.$quando-1£ofrecie-1£como-1£pan-1£e-2
+Ofrecer pan e vino en el sancto altar ofrenda es autentica non podrie mejorar quando con sus discipulos Christo quiso cenar con pan e vino solo los quiso comulgar.$en-1£non-1£quando-1£con-2
+El qui la ostia pone pora sacrificar en la siniestra parte la deve assentar el caliz a la diestra por mejor le membrar que en el diestro lado fo el bon fontanar.$pora-1£el-1£por-1£que-1
+Mandamos… que ninguno natural ni subdito nuestro de quoalquiere estado et condition sean non sean osados de partir del regno en ninguna manera sin licencia nuestra sino que finquen en la tierra a servicio nuestro et del regno so pena de ser traydores et todos sus biens confiscados a Nos.$Mandamos…-1£que-1£de-1£non-1£regno-1£sino-1£a-1£so-1£et-3
+Et d'este pregon en cada logar que lo faredes fazer retengades carta publica et fazet fazer inquisition qui son aqueil los que son partidos et nos hend fazed relation.$que-1£et-1£los-1
+Et que nos dedes por la fiesta de Sancta Maria de septiembre et que nos lo dedes a la fanega de Onna.$por-1£et-1
+Et uos et los que de uos vinieren que non den dineros por enfurçion nin que fagan serna ninguna.$que-2£nin-1
+Et esto que uos damos que non lo ayades poder de lo uender nin de lo empennar nin de lo meter so otro sennorio sinon por esso lo perdades todo.$que-2£nin-1£nin-2£sinon-1
+Et nos don Pero por la gracia de Dios abbat de Onna et nos conuiento des mismo logar esta carta que mandamos fazer confirmamosla et mandamosla sellar con nuestros sellos.$por-1£et-1£esta-1£confirmamosla-1
+Et yo Miguel Martin el sobredicho otorgo todos estos paramientos que en esta carta son escriptos por mi et por los que uernan espos mi que por qualquier d'el los que non cumplamos o en parte d'ellos que por y lo perdamos todo esto que uos nos dades et uos$otorgo-1£que-1£por-1£que-3£los-2£que-5£que-6£et-2
+que seades poderosos de lo entrar por uuestra propria auctoridat.$por-1
+Fecha la carta en Onna a XX dias de março era de mill et CCCtos et XXI anno.$a-1£era-1
+Sepan quantos esta carta vieren commo nos don Pero por la gracia de Dios abbat de Onna et nos conuiento des mismo logar damos a uos Miguel Martin de Busto el nuestro solar dy Busto que touo de nos don Martino el clerigo et damos uos lu que lu ayades$commo-1£por-1£damos-1£que-1£et-2£que-2
+con todas sus pertenençias assi commo lo tenia don Martino de nos por tal pleyto uos lo damos que lu ayades uos en nuestra uida et uuestros fijos et los que de uos uinieren por et siempre jamas et que nos dedes cad'anno por enffurçion uos et los que vinieren$assi-1£por-1£que-1£los-1£por-2£que-3£por-3£uos-4
+despues de uos seys fanegas de trigo.$seys-1
+Pues a Priamo bienaventurado llamo Ovidio en el 13º del Methamorfoseos ya perdido el reino muriendo sanguinosamente por non antes d'ella ver su amada fija a Pirro degollar contandolo Encuba en sus lloros que el mesmo Seneca faze en diversos lugares de la Sexta tragedia.$Pues-1£en-1£ya-1£muriendo-1£por-1£contandolo-1£que-1
+Cuanto mas conviene de la buena muger vuestra esto dezir acabando de natural muerte sin violençia e non ver de vos el ultimo e mortal pasamiento que es la mayor dolor que pasar puede coraçon de leal muger Onde mas complida d'esta migraçion e buena non pudierades para ella querer.$acabando-1£e-1£que-1£que-2£Onde-1£e-3
+E si aun el tierno coraçon vuestro quisiera non tan festinosa la division corporal e perpetua suya e vuestra fuera esa ora la amenazan los peligros reçitados e mayores armados de la posibilidat de los cuales oy pasada a mejor vida es de todo segura.$non-1£e-1£esa-1£de-1£oy-1£es-1
+Quien tan velada la razon tiene que non cognosca la muerte ser mejor de las terrenas cosas e mostradora de los errores de la humana vida Asi lo testifico Asdrubal en la hora del morir suyo diziendo Quiere dezir 'O muerte muy mejor de las cosas terrenales tu abres los$que-1£e-1£Asi-1£diziendo-1£Quiere-1£muy-1£tu-1
+errores e discutes los sueños de la vida pasada'.$e-1
+DE LOS QUE MUEREN ANTES DEL NATURAL TÉRMINO Este tan poderoso hermano de Anibal por su esfuerço librado de muchos peligros murio en la mar a descubierto de llagas mortales antes del natural termino sin ver el hermano a el muy caro.$Este-1£por-1£murio-1£antes-1£sin-1
+Con todo eso por la virtud que en el morava plogole la muerte.$por-1£plogole-1
+E cuanto mas le ploguiera si en su cama presente el hermano e de otra menor causa cumpliera sus dias Pues por que pesa a vos de lo que a los dichos vuestros padre e abuelos en su morir fue plazible Plega a vos de su plazer.$si-1£presente-1£e-1£Pues-1£de-2£e-2£Plega-1
+Mayor deveis de su muerte en preçio el dia tener que aquel en que nasçieron por el buen nombre que dexan a quien los ungüentos preçiosos egualados ser non pueden e el dia de muerte que el dia del nasçimiento porque dende se toma mejor enxemplo que en el nasçimiento$que-1£por-1£a-1£e-1£que-4£porque-1£que-5
 DIZE AQUÍ DE LA HEDAT DE LA INFANCIA CÓMO SON SALVOS ETC.$ETC.-1
-Otrosi en esta hedat son mas seguros de la salvaçion suya non$de-1£non-1
-infectos aun de pecados sola la original culpa denigrando su nasçimiento cuya$sola-1£cuya-1
-Son los librados asi falleçiendo de los peligros que en las otras$asi-1£de-1£que-1
-pueden acaesçer hedades donde nasçen mayores al padre enojos que de la$donde-1£que-1
-antiçipada muerte e algunas vezes ge la desean.$e-1
-Cobdiçian los padres a la segunda de pueriçia hedat los fijos lleguen$de-1
-en la cual conteçe sin mandado del padre e sin miedo de$en-1£e-1
-fecho de la potestad paternal irse bevir en lugares lexos do malo$irse-1£do-1
-Como Ciro criado desde su infançia en las escuelas de buenas costumbres$criado-1
-de Persia e venido ya a juventud ya non soportava la magistral$e-1£ya-2
-En fin escusando el yugo de Canvizes su padre se dio a$escusando-1£su-1
-las armas desviando tanto de las primeras costumbres acquiriendo injustamente.$desviando-1£acquiriendo-1
-E tanto declino de la çevil e urbana vida que se atrivio$que-1
-a quitar el imperio de Media a su abuelo Astiago menospreçiando su$menospreçiando-1
-madre Malcanin segunt Senefonte iniçiando escrive De infançia Ciri.$segunt-1
-Bien fuera en la infançia antes muriera e al padre pluguiera que$e-1£que-1
-Laçeradas las puertas e çerraduras entraron al lugar do sabian tenia dinero$entraron-1£do-1
-e tomada alguna parte lo mas non sopieron entre sus manos cognosçer.$e-1£lo-1
-El angel guardian de la casa turbo sus coraçones e los cuchillos$e-1
-que avian aguzado para el omiçidio fazedero cortaron sus manos en el$para-1£en-1
-quebrantar de las puertas e su sangre culpable mereçedora de mayor derramamiento$e-1£mereçedora-1
-quedo en rastro e indiçio las puertas e escalera de cuerda por$quedo-1£las-1£por-1
+Otrosi en esta hedat son mas seguros de la salvaçion suya non infectos aun de pecados sola la original culpa denigrando su nasçimiento cuya ofuscaçion el sacramental bautismo tiene detegida.$de-1£non-1£sola-1£cuya-1
+Son los librados asi falleçiendo de los peligros que en las otras pueden acaesçer hedades donde nasçen mayores al padre enojos que de la antiçipada muerte e algunas vezes ge la desean.$asi-1£de-1£que-1£donde-1£que-2£e-1
+Cobdiçian los padres a la segunda de pueriçia hedat los fijos lleguen en la cual conteçe sin mandado del padre e sin miedo de fecho de la potestad paternal irse bevir en lugares lexos do malo toman criamiento.$de-1£en-1£e-1£irse-1£do-1
+Como Ciro criado desde su infançia en las escuelas de buenas costumbres de Persia e venido ya a juventud ya non soportava la magistral obediençia.$criado-1£e-1£ya-2
+En fin escusando el yugo de Canvizes su padre se dio a las armas desviando tanto de las primeras costumbres acquiriendo injustamente.$escusando-1£su-1£desviando-1£acquiriendo-1
+E tanto declino de la çevil e urbana vida que se atrivio a quitar el imperio de Media a su abuelo Astiago menospreçiando su madre Malcanin segunt Senefonte iniçiando escrive De infançia Ciri.$que-1£menospreçiando-1£segunt-1
+Bien fuera en la infançia antes muriera e al padre pluguiera que tales perpetrar culpas.$e-1£que-1
+Laçeradas las puertas e çerraduras entraron al lugar do sabian tenia dinero e tomada alguna parte lo mas non sopieron entre sus manos cognosçer.$entraron-1£do-1£e-2£lo-1
+El angel guardian de la casa turbo sus coraçones e los cuchillos que avian aguzado para el omiçidio fazedero cortaron sus manos en el quebrantar de las puertas e su sangre culpable mereçedora de mayor derramamiento quedo en rastro e indiçio las puertas e escalera de cuerda por do salieron$e-1£para-1£en-1£e-2£mereçedora-1£quedo-1£las-2£por-1
 Fuien que non les perseguie alguno temien e non les amenazavan.$temien-1
-Dios guardo el dicho vuestro padre e su sueño non fue rompido$e-1
-nin su cuerpo non reçibio lision conservolo a fin bueno e troxolo$nin-1£conservolo-1£e-1
-Esa noche fue trocada aquella muerte a el ordenada por esta que$por-1
-E cuanto mas dolor de aquella que d'esta ovierades tanto d'esta por$que-1£tanto-1£por-1
-Que nombre d'el quedara esa hora E asi fallesçiendo juzgar pudiera el$esa-1£E-1£juzgar-1
-coro popular por Dios desamparado fuese asi como agora por el fue$por-1£asi-1
-Conosçeis por ende que Dios embio sus angeles como temientes a ellos$que-1£como-1
-librasen segunt el salmografo David en el treçesimo terçio dixo salmo.$segunt-1£en-1
-CÓMO LA MUGER FUE LIBRADA DE SU PARTO E LA TROXO DIOS$E-1
-A MUERTE SEGURA Non menos pensando de vuestra muger ordenavades su fazienda$Non-1£ordenavades-1
-e dilatavades su familia esperando su vida esperase en complimiento de vuestras$e-1£esperando-1£en-1
-e lançavan una clara de huevo del dia puesto dentro e levantavanse$e-1£e-2
-astiles e figuras en el agua que paresçen de personas alli diziendo$que-1£alli-1
-los entendidos en esto si era façinado o como le vino e$si-1£e-1
-Otros tomavan un pedaço de pan que lo oviese tenido el paçiente$que-1
-en la mano por media ora e lançandolo en el suelo paravan$por-1£e-1£paravan-1
-mientes si lo levantaria gato o perro o si lo alçaria persona$si-1£o-2
-e de que color e a que parte lo levava e que$e-1£e-2£e-3
-E otras muchas diversidades d'esta natura e condiçion segunt cuenta Cancaf el$d'esta-1£segunt-1
-Indiano e Mushaf al camar el corto segunt oi dezir a un$e-1£segunt-1
-sabidor morisco que dezian Xarifi viejo de Guadalhajara.$que-1
-Iacob quando quiso morir por fe bendixo a los fiios de Ioseph$Iacob-1£por-1
-e aoro sobrel altura de la uerga de Ioseph.$e-1
-Quando Ioseph quiso morir por fe se amenbro de la ida de$por-1
-los fiios de Israel e mando cuemo fiziessen de sos huessos.$e-1
-Compeçamos decabo alabar a nos mismos cuemo si lo ouiessemos mester assi$si-1£assi-1
-cuemo algunos que enuian a uos epistolas de alabança e uos a$que-1£e-1
-ellos Vos sodes nuestra epistola escripta en nuestros coraçones que es sabuda$Vos-1£que-1
-e leyda de todos los ombres malfiestos que uos sodes epistola de$malfiestos-1
-Christo fecha de nos e escripta no con tinta mas con el$fecha-1£no-1£mas-1
-Espirito de Dios uiuo no en tablas de piedra mas en las$no-1£mas-1
-Tal feuza auemos en Dios por Christo non por que nos seamos$non-1
-complidos de cuedar alguna cosa por nos assi cuemo de nos mas$de-1£assi-1£mas-1
-el nuestro complimiento de Dios es que nos fizo complidos seruidores del$que-1
-nueuo testamento non por letra mas por Espirito ca la letra mata$non-1£mas-1£ca-1
-e el Espirito faze uiuir.$e-1
-Pues si el fecho de la ley escripto complida mientre por letras$por-1
-en piedra fue en gloria assi que los fiios de Israel non$assi-1£non-1
-podien catar la cara de Moysen por la gloria de la su$por-1
-faz que se uazia quanto mas sera en gloria el fecho Ca$que-1£quanto-1£Ca-1
-el fecho de dannamiento es en gloria mucho mas abonda el fecho$mucho-1
-Ca no es glorificado lo que resplandecio en esta parte por la$lo-1£por-1
-Esto es que Moyses no fue glorificado en esta part a respecto$a-1
-Por que Por la much alta gloria que es aqui ca la$Por-2£que-2£ca-1
-gloria de la faz de Moysen non touo pro a ninguno ante$non-1
-iuizio ca aquella gloria fue tanta quanta deue ombre creer de sieruo$ca-1
-mas aqui es tanta quanta es la del Padre de Christo ca$mas-1£ca-1
-Ella fue lo dezir a los que fueran con el que estauan$a-1£que-2
-Ellos quando oyeron que uiuo era e que ellal uiera non gelo$que-1£non-1
-Des hy mostros dotra manera a dos del los que yuan a$los-1
+Dios guardo el dicho vuestro padre e su sueño non fue rompido nin su cuerpo non reçibio lision conservolo a fin bueno e troxolo a salida loable.$e-1£nin-1£conservolo-1£e-2
+Esa noche fue trocada aquella muerte a el ordenada por esta que despues ovo.$por-1
+E cuanto mas dolor de aquella que d'esta ovierades tanto d'esta por el libramiento de aquella devedes consolaçion aver.$que-1£tanto-1£por-1
+Que nombre d'el quedara esa hora E asi fallesçiendo juzgar pudiera el coro popular por Dios desamparado fuese asi como agora por el fue librado.$esa-1£E-1£juzgar-1£por-1£asi-2
+Conosçeis por ende que Dios embio sus angeles como temientes a ellos librasen segunt el salmografo David en el treçesimo terçio dixo salmo.$que-1£como-1£segunt-1£en-1
+CÓMO LA MUGER FUE LIBRADA DE SU PARTO E LA TROXO DIOS A MUERTE SEGURA Non menos pensando de vuestra muger ordenavades su fazienda e dilatavades su familia esperando su vida esperase en complimiento de vuestras ganançias e deseos.$E-1£Non-1£ordenavades-1£e-1£esperando-1£en-1
+Otros ponien un orinal nuevo sobre la cabeça del enfermo con agua e lançavan una clara de huevo del dia puesto dentro e levantavanse astiles e figuras en el agua que paresçen de personas alli diziendo los entendidos en esto si era façinado o como le vino e de que$e-1£e-2£que-1£alli-1£si-1£e-4
+Otros tomavan un pedaço de pan que lo oviese tenido el paçiente en la mano por media ora e lançandolo en el suelo paravan mientes si lo levantaria gato o perro o si lo alçaria persona e de que color e a que parte lo levava e que fazia d'el.$que-1£por-1£e-1£paravan-1£si-1£o-2£e-2£e-3£e-4
+E otras muchas diversidades d'esta natura e condiçion segunt cuenta Cancaf el Indiano e Mushaf al camar el corto segunt oi dezir a un sabidor morisco que dezian Xarifi viejo de Guadalhajara.$d'esta-1£segunt-1£e-2£segunt-2£que-1
+Iacob quando quiso morir por fe bendixo a los fiios de Ioseph e aoro sobrel altura de la uerga de Ioseph.$Iacob-1£por-1£e-1
+Quando Ioseph quiso morir por fe se amenbro de la ida de los fiios de Israel e mando cuemo fiziessen de sos huessos.$por-1£e-1
+Compeçamos decabo alabar a nos mismos cuemo si lo ouiessemos mester assi cuemo algunos que enuian a uos epistolas de alabança e uos a ellos Vos sodes nuestra epistola escripta en nuestros coraçones que es sabuda e leyda de todos los ombres malfiestos que uos sodes epistola de Christo fecha$si-1£assi-1£que-1£e-1£Vos-1£que-2£malfiestos-1£fecha-1
+de nos e escripta no con tinta mas con el Espirito de Dios uiuo no en tablas de piedra mas en las tablas del coraçon.$no-1£mas-1£no-2£mas-2
+Tal feuza auemos en Dios por Christo non por que nos seamos complidos de cuedar alguna cosa por nos assi cuemo de nos mas el nuestro complimiento de Dios es que nos fizo complidos seruidores del nueuo testamento non por letra mas por Espirito ca la letra mata e el$non-1£de-1£assi-1£mas-1£que-2£non-2£mas-2£ca-1£e-1
+Pues si el fecho de la ley escripto complida mientre por letras en piedra fue en gloria assi que los fiios de Israel non podien catar la cara de Moysen por la gloria de la su faz que se uazia quanto mas sera en gloria el fecho Ca el fecho$por-1£assi-1£non-1£por-2£que-2£quanto-1£Ca-1
+de dannamiento es en gloria mucho mas abonda el fecho de derecho en gloria.$mucho-1
+Ca no es glorificado lo que resplandecio en esta parte por la muy grand e alta gloria.$lo-1£por-1
+Esto es que Moyses no fue glorificado en esta part a respecto de la nuestra part.$a-1
+Por que Por la much alta gloria que es aqui ca la gloria de la faz de Moysen non touo pro a ninguno ante iuizio ca aquella gloria fue tanta quanta deue ombre creer de sieruo mas aqui es tanta quanta es la del Padre de Christo ca Christo en$Por-2£que-2£ca-1£non-1£ca-2£mas-1£ca-3
+Ella fue lo dezir a los que fueran con el que estauan llorando e llaniendo.$a-1£que-2
+Ellos quando oyeron que uiuo era e que ellal uiera non gelo crouieron.$que-1£non-1
+Des hy mostros dotra manera a dos del los que yuan a una uilla.$los-1
 Ellos fueron lo dezir a los otros e no los crouieron.$e-1
-A la postremeria comiendo en uno de los onze aparecio les Ihesu$comiendo-1£aparecio-1
-Christo e denosto la descreencia dellos e la dureza del coraçon por$e-1£e-2£por-1
-que non crouieran a aquellos quel uieran seer resucitado.$quel-1
-E dixo les Id por tod el mundo e preygat el euangelio$e-1
-El que crouiere e fuer bateado sera saluo mas el que non$e-1£mas-1
-Estas sennales sigran a los que crouieren en el mio nombre sacaran$a-1£en-1
-los demonios e fablaran en nueuas lenguas e toldran las sierpes e$e-1£e-2£e-3
+A la postremeria comiendo en uno de los onze aparecio les Ihesu Christo e denosto la descreencia dellos e la dureza del coraçon por que non crouieran a aquellos quel uieran seer resucitado.$comiendo-1£aparecio-1£e-1£e-2£por-1£quel-1
+E dixo les Id por tod el mundo e preygat el euangelio a toda criatura.$e-1
+El que crouiere e fuer bateado sera saluo mas el que non crouiere sera dannado.$e-1£mas-1
+Estas sennales sigran a los que crouieren en el mio nombre sacaran los demonios e fablaran en nueuas lenguas e toldran las sierpes e si beuieren toxico no les noçra.$a-1£en-1£e-1£e-2£e-3
 Pornan las manos sobre los enfermos e sanaran.$e-1
-El nuestro Sennor Ihesu Christo depues que les fablo esto subios al$depues-1£subios-1
-cielo e esta a la diestra de Dios.$e-1
-E auie una mugier que auie nombre Anna fiia de Phanuel del$que-1£fiia-1£del-1
-linage de Aser e aquella prophetaua e era de muchos dias e$e-1£e-2£e-3
-uisquiera siete annos con so marido estando uirgin e fue biuda setaenta$con-1£e-1
-e nuef annos e numqua se quitaua del templo ayunando e rogando$e-2£ayunando-1
-E sobrevino aquella hora e loaua a Dios e fablaua del a$e-1£e-2
-todos los que esperauan la redemption de Iherusalem.$los-1
-E quando lo ouieron todo complido segund la ley de Dios tornaron$tornaron-1
-se a Galilea a su ciudat Nazareth.$a-2
-El ninno crecie e arreziaua se lleno de saber e la gracia$lleno-1£e-2
-E quando uou doze annos el ninno fueron a Iherusalem segund la$fueron-1
-E acabados los dias quando se tornauan finco se el ninno en$quando-1£finco-1
-Iherusalem non sabiendo lo sos parientes cuedando que uinie en la companna…$non-1£cuedando-1
-E requirien le entre los parientes e los connocientes e quando nol$E-1£e-2
-fallaron tornaron se a Iherusalem demandandol e depues de tres dias fallaron$tornaron-1£e-1
-le en el tiemplo estando en medio de los maestros escuchando los$estando-1£escuchando-1
-Diz el testo Pues los que son de fe benitos seran con$seran-1
-Ca escripto es Malito sera tod aquel que non touiere todas las$Malito-1
-cosas que son escriptas en el libro de la ley e que$que-1£e-1
-E que por la ley no era nenguno iusto esquantra Dios malfiesta$esquantra-1
-cosa es ca el iusto de fe uiue.$ca-1
-La ley no es de fe mas qui fiziere todas las cosas$mas-1
-que son en ella uiura por ellas.$que-1
-Christo nos redimio de la maldicion de la ley fecho el por$fecho-1
-Esto es que fue el tenudo por nos non sola mientre por$non-1
-malito mas por maldicion ca murio cuemo si fuesse el muy peccador$mas-1£ca-1£cuemo-1
-e culpado de muert e por tal le tenien los iudios quando$e-1£e-2£quando-1
-dixieron al ciego que ell alumbro Tu sei diciplo del ca nos$que-1£Tu-1£ca-1
-Diz el testo ca escripto es Malito tod aquel que cuelga en$Malito-1
-el madero Esto es que cuelga en el madero por sus peccados$Esto-1£por-1
-no malito por que es crucifigado mas por que cayo en tal$no-1£mas-1
-culpa por que merecio seer crucifigado lo que no fue en Christo.$por-1£lo-1
-Ca maguer que el fue tenudo por culpado no fue malito de$por-1£no-1
-culpa mas fue malito de pena ca suffrio aquellas penas que los$mas-1£ca-1£que-1
-E quando se vido cargado d'ellas dixo a la muger Confondate Dios$dixo-1
-que esto por el tu consejo se fizo E dixo ella Aun$que-1£por-1£E-1£Aun-1
-non te quedan dos oraçiones e agora ruega a Dios que te$e-1£que-1
-las tuelga pues tanto pasas con ellas.$pues-1
-E el fizo oraçion e tollieronse luego todas e non finco y$e-1£e-2
-E el quando esto vio començo de dezir mal a su muger$començo-1
-e dixo ella Non me maldigas que aun tienes una oraçion e$e-1£que-1£e-2
-ruega a Dios que te torne commo de primero.$que-1
-E rogo a Dios que lo tornase commo de primero e tornol'$que-1£e-1
-Por ende te do por consejo sinon que non mates tu fijo$que-1
-que las maldades de las mugeres non an cabo nin fin e$que-1£non-1£e-1
-E levantose la muger e afeitose e estonçes se asomo a casa$e-2
-de la vieja a ver si avia fallado aquel omne que fuera$a-1£que-1
-E el padre non gelo quiso castigar e vino un dia qu'el$e-1
-E el padre por sacar el fijo afogose el padre en el$por-1£afogose-1
-pielago e afogaronse amos a dos.$e-1
-E señor si tu non te antuvias a castigar tu fijo ante$si-1
-que mas enemiga te faga matarte a.$que-1
-Cuento 4 Panes De commo vino el segundo privado ante el Rey$Panes-1
-por escusar al Infante de muerte.$por-1
-E vino el segundo privado e finco los inojos ante el Rey$e-1
-e dixo Señor si tu ovieses fijos non devies querer mal a$e-1£si-1£non-1
-Demas que non as mas de uno señero e mandaslo matar apriesa$e-1
-ante que sepas la verdat e despues que lo ovieres fecho arrepentirte$que-1£e-1£arrepentirte-1
-as e non lo podras cobrar e sera el tu enxenplo tal$e-1£e-2
-commo del mercador e de la muger e de la moça.$e-1
-E dixo Ay don putero malo esto es lo que yo e$Ay-1£esto-1£e-1
-vos pusiemos e el pleito e omenaje que fiziemos Agora veo que$e-1£que-1£Agora-1£que-2
-guardades las malas mugeres e las malas alcauetas.$e-1
-E quando vio que era sañosa començola de falagar e de rogar$que-1£començola-1
-que l' perdonase e ella non lo quiso perdonar fasta que l'$que-1£e-1£fasta-1
-E dixo el Rey Commo fue eso Ingenia Enxenplo del mançebo que$Commo-1£Ingenia-1£que-1
-non queria casar fasta que sopiese las maldades de las mugeres E$fasta-1£E-1
-señor dixieronme que un omne que non queria casar fasta que sopiese$dixieronme-1£que-2£fasta-1
-e aprendiese las maldades de las mugeres e los sus engaños.$e-1£e-2
-E anduvo tanto fasta que llego a un aldea e dixieronle que$fasta-1£e-1
-avie buenos sabios del engaño de las mugeres e costol' mucho aprender$del-1£e-1
-Dixol' aquel que era mas sabidor Quieres que te diga Jamas nunca$Quieres-1£Jamas-1
-sabras nin aprenderas acabadamente los engaños de las mugeres fasta que te$nin-1£fasta-1
-asientes tres dias sobre la çeniza e non comas sinon un poco$e-1
-de ordio pan de ordio e sal e aprenderas.$pan-1£e-2
+El nuestro Sennor Ihesu Christo depues que les fablo esto subios al cielo e esta a la diestra de Dios.$depues-1£subios-1£e-1
+E auie una mugier que auie nombre Anna fiia de Phanuel del linage de Aser e aquella prophetaua e era de muchos dias e uisquiera siete annos con so marido estando uirgin e fue biuda setaenta e nuef annos e numqua se quitaua del templo ayunando e rogando a Dios$que-1£fiia-1£del-1£e-1£e-2£e-3£con-1£e-4£e-6£ayunando-1
+E sobrevino aquella hora e loaua a Dios e fablaua del a todos los que esperauan la redemption de Iherusalem.$e-1£e-2£los-1
+E quando lo ouieron todo complido segund la ley de Dios tornaron se a Galilea a su ciudat Nazareth.$tornaron-1£a-2
+El ninno crecie e arreziaua se lleno de saber e la gracia de Dios era en el.$lleno-1£e-2
+E quando uou doze annos el ninno fueron a Iherusalem segund la costumbre de la fiesta.$fueron-1
+E acabados los dias quando se tornauan finco se el ninno en Iherusalem non sabiendo lo sos parientes cuedando que uinie en la companna… E requirien le entre los parientes e los connocientes e quando nol fallaron tornaron se a Iherusalem demandandol e depues de tres dias fallaron le en$quando-1£finco-1£non-1£cuedando-1£E-2£e-2£tornaron-1£e-3
+el tiemplo estando en medio de los maestros escuchando los e preguntado los.$estando-1£escuchando-1
+Diz el testo Pues los que son de fe benitos seran con el fiel Abraham.$seran-1
+Ca escripto es Malito sera tod aquel que non touiere todas las cosas que son escriptas en el libro de la ley e que las faga.$Malito-1£que-2£e-1
+E que por la ley no era nenguno iusto esquantra Dios malfiesta cosa es ca el iusto de fe uiue.$esquantra-1£ca-1
+La ley no es de fe mas qui fiziere todas las cosas que son en ella uiura por ellas.$mas-1£que-1
+Christo nos redimio de la maldicion de la ley fecho el por nos malito.$fecho-1
+Esto es que fue el tenudo por nos non sola mientre por malito mas por maldicion ca murio cuemo si fuesse el muy peccador e culpado de muert e por tal le tenien los iudios quando dixieron al ciego que ell alumbro Tu sei diciplo del ca nos diciplos somos$non-1£mas-1£ca-1£cuemo-1£e-1£e-2£quando-1£que-2£Tu-1£ca-2
+Diz el testo ca escripto es Malito tod aquel que cuelga en el madero Esto es que cuelga en el madero por sus peccados no malito por que es crucifigado mas por que cayo en tal culpa por que merecio seer crucifigado lo que no fue en Christo.$Malito-1£Esto-1£por-1£no-1£mas-1£por-4£lo-1
+Ca maguer que el fue tenudo por culpado no fue malito de culpa mas fue malito de pena ca suffrio aquellas penas que los culpados suffrien.$por-1£no-1£mas-1£ca-1£que-2
+E quando se vido cargado d'ellas dixo a la muger Confondate Dios que esto por el tu consejo se fizo E dixo ella Aun non te quedan dos oraçiones e agora ruega a Dios que te las tuelga pues tanto pasas con ellas.$dixo-1£que-1£por-1£E-2£Aun-1£e-1£que-2£pues-1
+E el fizo oraçion e tollieronse luego todas e non finco y ninguna.$e-1£e-2
+E el quando esto vio començo de dezir mal a su muger e dixo ella Non me maldigas que aun tienes una oraçion e ruega a Dios que te torne commo de primero.$començo-1£e-1£que-1£e-2£que-2
+E rogo a Dios que lo tornase commo de primero e tornol' commo de primero.$que-1£e-1
+Por ende te do por consejo sinon que non mates tu fijo que las maldades de las mugeres non an cabo nin fin e desto darte he un enxenplo.$que-1£que-2£non-2£e-1
+E levantose la muger e afeitose e estonçes se asomo a casa de la vieja a ver si avia fallado aquel omne que fuera a buscar.$e-2£a-2£que-1
+E el padre non gelo quiso castigar e vino un dia qu'el niño se afogo.$e-1
+E el padre por sacar el fijo afogose el padre en el pielago e afogaronse amos a dos.$por-1£afogose-1£e-1
+E señor si tu non te antuvias a castigar tu fijo ante que mas enemiga te faga matarte a.$si-1£que-1
+Cuento 4 Panes De commo vino el segundo privado ante el Rey por escusar al Infante de muerte.$Panes-1£por-1
+E vino el segundo privado e finco los inojos ante el Rey e dixo Señor si tu ovieses fijos non devies querer mal a ninguno dellos.$e-1£e-2£si-1£non-1
+Demas que non as mas de uno señero e mandaslo matar apriesa ante que sepas la verdat e despues que lo ovieres fecho arrepentirte as e non lo podras cobrar e sera el tu enxenplo tal commo del mercador e de la muger e de la moça.$e-1£que-2£e-2£arrepentirte-1£e-3£e-4£e-5
+E dixo Ay don putero malo esto es lo que yo e vos pusiemos e el pleito e omenaje que fiziemos Agora veo que guardades las malas mugeres e las malas alcauetas.$Ay-1£esto-1£e-1£e-2£que-2£Agora-1£que-3£e-4
+E quando vio que era sañosa començola de falagar e de rogar que l' perdonase e ella non lo quiso perdonar fasta que l' diese gran algo.$que-1£començola-1£que-2£e-2£fasta-1
+E dixo el Rey Commo fue eso Ingenia Enxenplo del mançebo que non queria casar fasta que sopiese las maldades de las mugeres E señor dixieronme que un omne que non queria casar fasta que sopiese e aprendiese las maldades de las mugeres e los sus engaños.$Commo-1£Ingenia-1£que-1£fasta-1£E-2£dixieronme-1£que-4£fasta-2£e-1£e-2
+E anduvo tanto fasta que llego a un aldea e dixieronle que avie buenos sabios del engaño de las mugeres e costol' mucho aprender las artes.$fasta-1£e-1£del-1£e-2
+Dixol' aquel que era mas sabidor Quieres que te diga Jamas nunca sabras nin aprenderas acabadamente los engaños de las mugeres fasta que te asientes tres dias sobre la çeniza e non comas sinon un poco de ordio pan de ordio e sal e aprenderas.$Quieres-1£Jamas-1£nin-1£fasta-1£e-1£pan-1£e-3
 E el le dixo que le plazia e fizolo asi.$que-1£e-1
-Estonçes posose sobre la çeniza e fizo muchos libros de las artes$e-1
-E despues que esto ovo fecho dixo que se queria tornar para$dixo-1£para-1
-su tierra e poso en casa de un omne bueno.$e-1
-E el huesped le pregunto de todo aquello que levava e el$de-1£e-1
-le dixo donde era e commo se avia asentado sobre la çeniza$e-1£sobre-1
-de mientra trasladara aquellos libros e commo comiera el pan de ordio$e-1
-e commo pasara mucha cueita e mucha lazeria e traslado aquellas artes.$e-1£e-3
-E despues qu'esto le ovo contado tomolo el huesped por la mano$tomolo-1
-e levolo a su muger e dixol' Un omne bueno e fallado$e-1£e-2
-que viene cansado de su camino.$que-1
-Para mouer a Dios que aya uoluntad para perdonarlos a semeiança de$que-1£para-1£a-2
-Santa Maria Magdalena lloro spiritualmiente por oraçiones por aquellos que desffaziendose e$por-1£desffaziendose-1
-podreçiendo yazian en peccados mortales.$yazian-1
-Esso mismo ffaze la Eglesia corporalmiente en ssemeiança de Ssanta Maria echandosse$en-1£echandosse-1
-a prezes pidiendo merçet e ffaziendo bienes e dando limosnas por que$pidiendo-1£por-1
-ssalgan de peccado mortal aquellos que yazen en el assi commo ssoterrados.$aquellos-1£assi-1
-Onde mouidas estas dos hermanas que auemos dichas e rrogando por los$que-1£e-1
-que yazen en peccado mouyendose la piadat de Dios que sse entiende$mouyendose-1£que-2
-por ssu ffijo Ihesu Cristo a âuerles merçet e perdonarlos por la$por-1£a-1£e-1£por-2
-penitençia que ffazen rrepintiendose e doliendosse mucho de aquellos yerros en que$que-1£rrepintiendose-1£en-1
+Estonçes posose sobre la çeniza e fizo muchos libros de las artes de las mugeres.$e-1
+E despues que esto ovo fecho dixo que se queria tornar para su tierra e poso en casa de un omne bueno.$dixo-1£para-1£e-1
+E el huesped le pregunto de todo aquello que levava e el le dixo donde era e commo se avia asentado sobre la çeniza de mientra trasladara aquellos libros e commo comiera el pan de ordio e commo pasara mucha cueita e mucha lazeria e traslado aquellas artes.$de-1£e-1£e-2£sobre-1£e-3£e-4£e-6
+E despues qu'esto le ovo contado tomolo el huesped por la mano e levolo a su muger e dixol' Un omne bueno e fallado que viene cansado de su camino.$tomolo-1£e-1£e-2£que-1
+Para mouer a Dios que aya uoluntad para perdonarlos a semeiança de Santa Maria Magdalena lloro spiritualmiente por oraçiones por aquellos que desffaziendose e podreçiendo yazian en peccados mortales.$que-1£para-1£a-2£por-1£desffaziendose-1£yazian-1
+Esso mismo ffaze la Eglesia corporalmiente en ssemeiança de Ssanta Maria echandosse a prezes pidiendo merçet e ffaziendo bienes e dando limosnas por que ssalgan de peccado mortal aquellos que yazen en el assi commo ssoterrados.$en-1£echandosse-1£pidiendo-1£por-1£aquellos-1£assi-1
+Onde mouidas estas dos hermanas que auemos dichas e rrogando por los que yazen en peccado mouyendose la piadat de Dios que sse entiende por ssu ffijo Ihesu Cristo a âuerles merçet e perdonarlos por la penitençia que ffazen rrepintiendose e doliendosse mucho de aquellos yerros en que cayeron.$que-1£e-1£mouyendose-1£que-3£por-2£a-1£e-2£por-3£que-4£rrepintiendose-1£en-2
 La quinta a quien deuen ffazer las emiendas.$a-1
-Et por todas estas rrazones las palabras deuensse ffazer entender a los$deuensse-1
-omnes entendidos que han ssabor de las oyr e non a los$que-1£e-1
-E asi estuuieron jason & medea con grand gloria con su padre$con-2
+Et por todas estas rrazones las palabras deuensse ffazer entender a los omnes entendidos que han ssabor de las oyr e non a los otros.$deuensse-1£que-1£e-1
+E asi estuuieron jason & medea con grand gloria con su padre eson bien dos años.$con-2
 & era alli tenida por la mas sabia muger del mundo todo.$por-1
-& ovo eneste comedio medea dos fijos & do quier que jason$do-1
-yua lleuaua alla a medea alas caças delos montes & delas aues.$alas-1
+& ovo eneste comedio medea dos fijos & do quier que jason yua lleuaua alla a medea alas caças delos montes & delas aues.$do-1£alas-1
 & asi que en todo este tiempo jason no fizo cauallerias ningunas.$jason-1
-mas oluidando todas las otras cosas diose todo al deleyte siguiendo siempre$diose-1
-Agora dexado esto torna a contar dela ystoria de ysorfile muger primera$a-1
+mas oluidando todas las otras cosas diose todo al deleyte siguiendo siempre la voluntad de medea.$diose-1
+Agora dexado esto torna a contar dela ystoria de ysorfile muger primera de jason.$a-1
 Titulo °xxij° dela carta que embio ysorfile a jason su marido.$que-1
-E esto contece alos pobres ver las viandas andar entre las gentes$ver-1
-& no las poder alcançar morir de fambre.$&-1
+E esto contece alos pobres ver las viandas andar entre las gentes & no las poder alcançar morir de fambre.$ver-1£&-1
 & el como era viejo no pudo tornar a enriquescer por si.$por-1
-Titulo °liij° como paris fue conoscido por fijo del rey priamo &$como-1£por-1£&-1
-como ayunto el rey sus cortes sobre lo de su hermana ansiona.$sobre-1
-E quando paris este juyzio delas dueñas dio deziase entre las gentes$dio-1
-que fijo era del rey priamo.$que-1
-mas aqui fue certificado delos dioses como era fijo del rey priamo$como-1
-& dela reyna ecuba entonces se vino para troya & fizo se$&-1£entonces-1£&-2
-bien fablado & sabidor plogole mucho conel & fallado por buena pesquisa$plogole-1£por-1
-del escudero que lo avia tomado & leuado.$que-1
-& del pastor que lo avia criado fallose por cierto que aquel$que-1£que-2
-era su fijo & tenia los sueños por cosa vana & no$por-1
-de alguna firmeza & entendio que lo avia errado & que dios$que-1£que-2
-escapara aquel infante por su bien.$por-1
-paris como quier que omero dize que antes delas bodas fue conoscido$como-1£que-2
-paris por fijo del rey priamo.$por-1
-& quando paris dio la sentencia dela mançana que por mandado del$que-1
-cibdad abastada de muchas riquezas sobre todos los que estonces viuian.$sobre-1
-E acompañado de muy nobles fijos & poderoso en muchas & ricas$&-1
-E mandola sacar de las cadenas e librarla de la prision e$e-1
-vestirla bien e desi ayuntolas a todas las fijas e dixo assi$e-1£e-2
-a Ipermestra ant'ellas Fija sopovos bien esta morada que avedes alli fecha$Fija-1£que-1
-o tenedesla por buena o tovierades por mejor por ventura en irvos$por-1£o-2£por-2
-como fue e va a vuestras hermanas que fizieron el mi mandamiento$como-1£que-1
-Respusol ella Padre aya yo la vuestra gracia que por miedo de$Respusol-1£Padre-1£que-1
-recebir mal por ello que yo non dexe de dezir el mi$por-1
+Titulo °liij° como paris fue conoscido por fijo del rey priamo & como ayunto el rey sus cortes sobre lo de su hermana ansiona.$como-1£por-1£&-1£sobre-1
+E quando paris este juyzio delas dueñas dio deziase entre las gentes que fijo era del rey priamo.$dio-1£que-1
+mas aqui fue certificado delos dioses como era fijo del rey priamo & dela reyna ecuba entonces se vino para troya & fizo se conoscer al rey priamo.$como-1£&-1£entonces-1£&-2
+& el rey quando le vio tan loçano & fermoso & tan bien fablado & sabidor plogole mucho conel & fallado por buena pesquisa del escudero que lo avia tomado & leuado.$plogole-1£por-1£que-1
+& del pastor que lo avia criado fallose por cierto que aquel era su fijo & tenia los sueños por cosa vana & no de alguna firmeza & entendio que lo avia errado & que dios escapara aquel infante por su bien.$que-1£que-2£por-2£que-3£que-4£por-3
+E el rey & la reyna & todos los otros sus fijos & toda la cibdad & la corte fazian muy grandes fiestas con paris como quier que omero dize que antes delas bodas fue conoscido paris por fijo del rey priamo.$como-1£que-2£por-1
+& quando paris dio la sentencia dela mançana que por mandado del rey estaua enla pequeña bretaña.$que-1
+Asi que muy glorioso estaua el rey priamo & señor de noble cibdad abastada de muchas riquezas sobre todos los que estonces viuian.$sobre-1
+E acompañado de muy nobles fijos & poderoso en muchas & ricas gentes.$&-1
+E mandola sacar de las cadenas e librarla de la prision e vestirla bien e desi ayuntolas a todas las fijas e dixo assi a Ipermestra ant'ellas Fija sopovos bien esta morada que avedes alli fecha o tenedesla por buena o tovierades por mejor por ventura en irvos como fue$e-1£e-3£e-4£Fija-1£que-1£por-1£o-2£por-2£como-1
+e va a vuestras hermanas que fizieron el mi mandamiento Respusol ella Padre aya yo la vuestra gracia que por miedo de recebir mal por ello que yo non dexe de dezir el mi derecho.$que-1£Respusol-1£Padre-1£que-2£por-2
 Dixo el Yo te lo otorgo siquier es derecho en tantos años.$siquier-1
-Dixo ella Pues padre e señor la morada que yo fiz en$Pues-1£que-1
-la vuestra prision si mas fuesse aun yo non la toviera por$si-1£yo-1£por-1
-mala ca la e fecha con justicia e lealtad e mis hermanas$ca-1£e-3
-alli seen grandes e fermosas e muy guisadas nin seen nin estan$nin-1
-tan bien como yo ca si quisiessedes casar oy alguna d'ellas en$tan-1£ca-1
-su derecho non fallaries quien te la quisiesse aunquel diesses todo el$non-1£aunquel-1
-E conmigo non a en la tierra rey que non casas por$que-1£por-1
-lo que yo fiz escuantra el mi marido e de las riquezas$e-1
-e de la vida viciosa d'este mundo cierta so yo que non$d'este-1£que-1
-son cosa durable pero o aspera vida o otra aver la e.$pero-1
-Mas el morir bien pueda yo aver ca el bevir bien d'este$ca-1
-El padre viola bien razonada cuando la su razon non cayesse mal$cuando-1
-por lesonja o por tuerto que fuesse razonado contra ella e plogol$por-1£que-1£e-1
-de como se razonava e pero non le quiso responder a ello$e-1
-nin alabargelo por las otras fijas a quien avie ella alli maltraido$por-1
-assaz en sus razones cuales oyestes.$assaz-1
-E este tiemplo con su alcoba e sus imagenes fizieron alli doña$e-1
-Doluca e doña Munene pora defendimiento de su tierra e de todo$e-1£e-2
-su regno ca dizen las estorias d'aquella tierra que en cuanto aquel$ca-1£que-1
-tiemplo e aquellas imagenes obradas por sus estrellas e por sos encantamientos$e-1£por-1
-como avedes oido estidieron en aquel logar guardadas e enteras que enemigo$como-1£estidieron-1£que-1
-ninguno que mal les pudiesse fazer que les non pudo entrar en$que-1£que-2
-E a fazer esta obra llamo doña Doluca a cuantos estrelleros e$e-1
-adevinos e sabios ovo en amas las Egiptos e pusieron nombre en$e-2
-E segund fallaredes que cuenta esta estoria adelant barbe en egipciano quiere$que-1£barbe-1
-dezir tanto como en castellano pared de vieja e en este logar$tanto-1£e-1
-es tanto como la fortaleza de la sabia por que tan bien$tanto-1£por-1
-los reyes faraones como otros del regno tenien fiuza de fortaleza e$como-1£e-1
-de defendimiento en aquel Barbe como en Dios.$como-1
-E segund ellos razonan en su estoria e vos lo contaremos nos$e-1
-adelant o fablaremos en la estoria de Nabucodonosor assi fue esto fasta$o-1£assi-1£fasta-1
-que Drimiden el sabio d'aquel rey Nabucodonosor vino alli por mandado d'esse$por-1
-rey e fallo aquellas imagenes dañadas ya cuanto e de luengo tiempo$e-1£e-2
-e por culpa de las guardas e dañolas el de todo estonces$e-1£e-2
-de guisa que les tollio tod el poder que avien e passando$que-1£e-1
-antes por muchos periglos tornos a Nabucodonosor e desi entro el rey$por-1£e-1
-Nabucodonosor sin todo embargo e sin todo estorvo a Egipto e destruxola$e-1£e-2
-toda e hermola e todas estas cosas vos contaremos adelant en sos$e-2
-E yerra al juez e por ende es infame e yerra a$e-1£e-2
-su proximo el qual dampnifica por su testimonio falso.$por-1
-E aun faze falsedat el abogado o el procurador que dize las$que-1
-E contienese so este mandamiento que non aponga ninguno nin ninguna a$que-1£nin-1
-otro furto nin terna medida que non deve.$nin-1£que-1
-E contienese so este mandamiento que magüera non faga falsso instrumento nin$que-1£nin-1
-le fabrico que non deve usar del pero quanto a la pena$que-1£pero-1
-de la ley si dize que non quiere usar del puede esquivar$si-1£puede-1
-Çertas en las letras del papa se fazen muchas falsedades de las$se-1£de-1
-E va contra este mandamiento el que falsa las letras del papa$el-1
-por si o por otro e es descomulgado de descomunion mayor.$por-1£e-1
-pero fasta veynte dias le puede esquivar esta sentençia si non quisiere$pero-1£si-1
-Dezimos que deven bevir en continençia e castamente asi que non ayan$e-1£asi-1
-ningunas mugeres por amigas nin deve con ellos morar muger sospechosa e$nin-1£e-1
-parienta sospechosa non deve morar con ellos pero si madre o hermana$pero-1
-o tia o sobrina fueren sin sospecha bien pueden morar con el$sin-1
-clerigo pero tales commo estas quieren aver consigo mançebas de las quales$pero-1£de-1
-pueden aver sospecha e tales non las tengan los clerigos que dize$e-1£que-1
-sant Agostin "Non todas que son con mi hermana son hermanas".$"Non-1
-Non deven los clerigos abitar con las monjas nin frayres nin mucho$nin-1
-E estableçio el cardenal legado don frey Gillem obispo de Sabina que$obispo-1£que-1
-nin seglar nin religioso non fable con monja ninguna salvo con testimonio$non-1£salvo-1
-de dos o de tres monjas en logar convenible e non tarden$e-1
-mucho en la fabla e que non entre sin liçençia de aquella$e-1
-que las guarda e de aquella que es mayor del monesterio si$que-1£e-1£que-2£si-1
-Nin deve morar con las vezinas que a las vegadas so semejança$que-1£so-1
-de sanctidat resçiben entendedores non honestos nin deve fablar el clerigo aparte$nin-1
-E con los obispos e los monjes non deve morar ninguna muger$non-1
-siquier vieja siquier mançeba siquier parienta siquier otra.$siquier-1
-La VIIª vertud es caridat caridat es amar a Dios e su$caridat-2
-proximo por Dios.$por-1
-E es dicha fuente biva que es fuente de bondat en la$que-1£en-1
-qual fuente aquel que non a caridat non a parte.$aquel-1
-E esta caridat a su seja en tres cosas en coraçon puro$en-2
-e en buena conçiençia e en fe non ficta.$e-1
-Segund doctrina de sant Agostin quatro cosas devemos amar por caridat una$quatro-1£por-1£una-1
-cosa que sobre nos es Dios otra cosa que nos somos el$otra-1£el-1
-alma propria la terçera el alma del proximo la IIIIª el cuerpo.$la-1£la-2
-En este amor es benefiçio spiritual el que es mas digno magüer$el-1£magüer-1
-estraño es de proponer si es tenporal el pariente que a tanto$es-1£si-1£que-1
-menester commo el otro es de acorrer e develo dar primeramente a$commo-1£e-1
-los padres que a los fijos que este es mandamiento de Dios$que-1£que-2
-pero algunos dizen lo contrario que lo deven dar primeramente a los$pero-1£que-1
-E devemos amar a nuestros henemigos pero señal de amor non les$pero-1
-devemos mostrar salvo si los viesemos en grand neçessidat o demandasen perdon$si-1
-E destas siete vertudes podriemos dezir muchas cosas e de cada una$e-1
-dellas mas entendemos que cumple quanto agora que sepan los clerigos dichos$mas-1£quanto-1
-E mandamos que espongan estas vertudes a sus perrochianos en los sobredichos$a-1
-E estas siete vertudes tiran los siete pecados prinçipales por la fe$por-1
-que alumbra la voluntad se tira sobervia la esperança que alegra el$que-1£se-1£la-2£que-2
-coraçon por lo que es de venir tira yra la caridat que$por-1£la-1£que-2
-se goza de la bienandança de su proximo tira inbidia la fortaleza$tira-1£la-2
-tira açidia la tenperançia tira gula que pasa manera la prudençia tira$la-1£que-1£la-2
-en respecçion que esta en el caliz la sangre assi la asorven$que-1£assi-1
-los açidentes del primer vino que es mudado en sangre que assi$que-1£que-2
-es commo si non fuesse puesta e por ende el agua non$e-1
-se muda en sangre ante dize que pierde su natura asi que$ante-1£asi-1
-quien toma este sacramento non es dicho tomar agua mas sangre assi$non-1£assi-1
-es ayuno e puede dezir otra vegada missa en las cosas convenibles$e-1
-si non toma la superfision.$si-1
-E esso mismo si ponen vino depues de la consagraçion e sea$si-1£e-1
-poco en respecto de lo que esta en el caliz que es$que-2
-sangre que tal vino pierde su natura e por la virtud de$que-1£e-1
-las açidentes e absorven en si la natura deste vino non se$e-1£non-1
-muda en sangre mas en toda manera que pierde su natura asi$que-1£asi-1
-que quien lo toma toma sangre e si non tomare la superfusion$e-1
-puede asi commo ayuno çelebrar en los casos convenibles.$asi-1
-E esto entienden quando añaden poco en tal manera que fincan los$quando-1£que-1
-açidentes del primer vino en su fuerça asi commo en color o$asi-1
-en sabor e segund esto los açidentes mudan el subiepto por miraglo$e-1£por-1
-mas que por natura mas si tanto añaden del lo que pierde$que-1£mas-2£lo-1
-su fuerça lo primero en color e en sabor e en poner$e-1£e-2
-E pecan que despreçian sus disçipulos que non dexan subir en la$que-1£que-2
-catedra e por muy grand maldat dellos aquello que saben non lo$e-1£aquello-1
-E pecan en non dezir las cosas provechosas mas cosas sotiles por$por-1
-E pecan que enseñan falsas cosas en la catedra contra conçiençia por$por-1
-E estos son falssos maestros e malos e su doctrina mala e$e-2£e-3
-E pecan que callan la verdat por razon que non reprehendan a$por-1£a-1
-si nin pecados en que estan.$en-1
+Dixo ella Pues padre e señor la morada que yo fiz en la vuestra prision si mas fuesse aun yo non la toviera por mala ca la e fecha con justicia e lealtad e mis hermanas alli seen grandes e fermosas e muy guisadas nin seen nin estan tan bien$Pues-1£que-1£si-1£yo-2£por-1£ca-1£e-4£nin-1£tan-1
+como yo ca si quisiessedes casar oy alguna d'ellas en su derecho non fallaries quien te la quisiesse aunquel diesses todo el reino con ella.$ca-1£non-1£aunquel-1
+E conmigo non a en la tierra rey que non casas por lo que yo fiz escuantra el mi marido e de las riquezas e de la vida viciosa d'este mundo cierta so yo que non son cosa durable pero o aspera vida o otra aver la e.$que-1£por-1£e-1£d'este-1£que-3£pero-1
+Mas el morir bien pueda yo aver ca el bevir bien d'este mundo todos los principes le an.$ca-1
+El padre viola bien razonada cuando la su razon non cayesse mal por lesonja o por tuerto que fuesse razonado contra ella e plogol de como se razonava e pero non le quiso responder a ello nin alabargelo por las otras fijas a quien avie ella alli maltraido assaz en$cuando-1£por-1£que-1£e-1£e-2£por-3£assaz-1
+E este tiemplo con su alcoba e sus imagenes fizieron alli doña Doluca e doña Munene pora defendimiento de su tierra e de todo su regno ca dizen las estorias d'aquella tierra que en cuanto aquel tiemplo e aquellas imagenes obradas por sus estrellas e por sos encantamientos como avedes$e-1£e-2£e-3£ca-1£que-1£e-4£por-1£como-1
+oido estidieron en aquel logar guardadas e enteras que enemigo ninguno que mal les pudiesse fazer que les non pudo entrar en Egipto.$estidieron-1£que-1£que-2£que-3
+E a fazer esta obra llamo doña Doluca a cuantos estrelleros e adevinos e sabios ovo en amas las Egiptos e pusieron nombre en su egipciano a aquel tiemplo con sus imagenes el Barbe.$e-1£e-3
+E segund fallaredes que cuenta esta estoria adelant barbe en egipciano quiere dezir tanto como en castellano pared de vieja e en este logar es tanto como la fortaleza de la sabia por que tan bien los reyes faraones como otros del regno tenien fiuza de fortaleza e de defendimiento$que-1£barbe-1£tanto-1£e-1£tanto-2£por-1£como-3£e-2
+en aquel Barbe como en Dios.$como-1
+E segund ellos razonan en su estoria e vos lo contaremos nos adelant o fablaremos en la estoria de Nabucodonosor assi fue esto fasta que Drimiden el sabio d'aquel rey Nabucodonosor vino alli por mandado d'esse rey e fallo aquellas imagenes dañadas ya cuanto e de luengo tiempo e por$e-1£o-1£assi-1£fasta-1£por-1£e-2£e-3£e-4
+culpa de las guardas e dañolas el de todo estonces de guisa que les tollio tod el poder que avien e passando antes por muchos periglos tornos a Nabucodonosor e desi entro el rey Nabucodonosor sin todo embargo e sin todo estorvo a Egipto e destruxola toda e hermola e$e-1£que-1£e-2£por-1£e-3£e-4£e-5£e-7
+E yerra al juez e por ende es infame e yerra a su proximo el qual dampnifica por su testimonio falso.$e-1£e-2£por-2
+E aun faze falsedat el abogado o el procurador que dize las poridades del pleito a su adversario.$que-1
+E contienese so este mandamiento que non aponga ninguno nin ninguna a otro furto nin terna medida que non deve.$que-1£nin-1£nin-2£que-2
+E contienese so este mandamiento que magüera non faga falsso instrumento nin le fabrico que non deve usar del pero quanto a la pena de la ley si dize que non quiere usar del puede esquivar la pena.$que-1£nin-1£que-2£pero-1£si-1£puede-1
+Çertas en las letras del papa se fazen muchas falsedades de las quales ay algunas escripturas en los canones.$se-1£de-1
+E va contra este mandamiento el que falsa las letras del papa por si o por otro e es descomulgado de descomunion mayor.$el-1£por-1£e-1
+Esso mismo es descomulgado quien husa de las letras del papa falsas pero fasta veynte dias le puede esquivar esta sentençia si non quisiere husar dellas.$pero-1£si-1
+Dezimos que deven bevir en continençia e castamente asi que non ayan ningunas mugeres por amigas nin deve con ellos morar muger sospechosa e parienta sospechosa non deve morar con ellos pero si madre o hermana o tia o sobrina fueren sin sospecha bien pueden morar con el clerigo pero$e-1£asi-1£nin-1£e-2£pero-1£sin-1£pero-2
+tales commo estas quieren aver consigo mançebas de las quales pueden aver sospecha e tales non las tengan los clerigos que dize sant Agostin "Non todas que son con mi hermana son hermanas".$de-1£e-1£que-1£"Non-1
+Non deven los clerigos abitar con las monjas nin frayres nin mucho frequentar sus monesterios.$nin-1
+E estableçio el cardenal legado don frey Gillem obispo de Sabina que nin seglar nin religioso non fable con monja ninguna salvo con testimonio de dos o de tres monjas en logar convenible e non tarden mucho en la fabla e que non entre sin liçençia de aquella que las$obispo-1£que-1£non-1£salvo-1£e-1£e-2£que-3
+guarda e de aquella que es mayor del monesterio si non que sea descomulgado.$e-1£que-1£si-1
+Nin deve morar con las vezinas que a las vegadas so semejança de sanctidat resçiben entendedores non honestos nin deve fablar el clerigo aparte con muger sospechosa.$que-1£so-1£nin-1
+E con los obispos e los monjes non deve morar ninguna muger siquier vieja siquier mançeba siquier parienta siquier otra.$non-1£siquier-1
+La VIIª vertud es caridat caridat es amar a Dios e su proximo por Dios.$caridat-2£por-1
+E es dicha fuente biva que es fuente de bondat en la qual fuente aquel que non a caridat non a parte.$que-1£en-1£aquel-1
+E esta caridat a su seja en tres cosas en coraçon puro e en buena conçiençia e en fe non ficta.$en-2£e-1
+Segund doctrina de sant Agostin quatro cosas devemos amar por caridat una cosa que sobre nos es Dios otra cosa que nos somos el alma propria la terçera el alma del proximo la IIIIª el cuerpo.$quatro-1£por-1£una-1£otra-1£el-1£la-1£la-2
+En este amor es benefiçio spiritual el que es mas digno magüer estraño es de proponer si es tenporal el pariente que a tanto menester commo el otro es de acorrer e develo dar primeramente a los padres que a los fijos que este es mandamiento de Dios pero algunos$el-1£magüer-1£es-3£si-1£que-2£commo-1£e-1£que-3£que-4£pero-1
+dizen lo contrario que lo deven dar primeramente a los fijos.$que-1
+E devemos amar a nuestros henemigos pero señal de amor non les devemos mostrar salvo si los viesemos en grand neçessidat o demandasen perdon non con escarnio.$pero-1£si-1
+E destas siete vertudes podriemos dezir muchas cosas e de cada una dellas mas entendemos que cumple quanto agora que sepan los clerigos dichos esto.$e-1£mas-1£quanto-1
+E mandamos que espongan estas vertudes a sus perrochianos en los sobredichos dias.$a-1
+E estas siete vertudes tiran los siete pecados prinçipales por la fe que alumbra la voluntad se tira sobervia la esperança que alegra el coraçon por lo que es de venir tira yra la caridat que se goza de la bienandança de su proximo tira inbidia la fortaleza tira açidia$por-1£que-1£se-1£la-3£que-2£por-2£la-4£que-4£tira-3£la-6
+la tenperançia tira gula que pasa manera la prudençia tira luxuria.$la-1£que-1£la-2
+E dizen algunos que si despues de la consagraçion ponen poca agua en respecçion que esta en el caliz la sangre assi la asorven los açidentes del primer vino que es mudado en sangre que assi es commo si non fuesse puesta e por ende el agua non se muda$que-2£assi-1£que-3£que-4£e-1
+en sangre ante dize que pierde su natura asi que quien toma este sacramento non es dicho tomar agua mas sangre assi es ayuno e puede dezir otra vegada missa en las cosas convenibles si non toma la superfision.$ante-1£asi-1£non-1£assi-1£e-1£si-1
+E esso mismo si ponen vino depues de la consagraçion e sea poco en respecto de lo que esta en el caliz que es sangre que tal vino pierde su natura e por la virtud de las açidentes e absorven en si la natura deste vino non se muda en$si-1£e-1£que-2£que-3£e-2£e-3£non-1
+sangre mas en toda manera que pierde su natura asi que quien lo toma toma sangre e si non tomare la superfusion puede asi commo ayuno çelebrar en los casos convenibles.$que-1£asi-1£e-1£asi-2
+E esto entienden quando añaden poco en tal manera que fincan los açidentes del primer vino en su fuerça asi commo en color o en sabor e segund esto los açidentes mudan el subiepto por miraglo mas que por natura mas si tanto añaden del lo que pierde su fuerça$quando-1£que-1£asi-1£e-1£por-1£que-2£mas-2£lo-1
+lo primero en color e en sabor e en poner lo al en toda manera desfaze el sacramento.$e-1£e-2
+E pecan que despreçian sus disçipulos que non dexan subir en la catedra e por muy grand maldat dellos aquello que saben non lo pueden derechamente enseñar.$que-1£que-2£e-1£aquello-1
+E pecan en non dezir las cosas provechosas mas cosas sotiles por paresçer a los omnes.$por-1
+E pecan que enseñan falsas cosas en la catedra contra conçiençia por plazer a algunos.$por-1
+E estos son falssos maestros e malos e su doctrina mala e en esto caen algunos.$e-2£e-3
+E pecan que callan la verdat por razon que non reprehendan a si nin pecados en que estan.$por-1£a-1£en-1
 Pecan otrosi en falsos consejos que dan por dineros.$que-1
-Pecan los abogados en engañar aquel lo que guardan e descubren a$lo-1£e-1
-Pecan en demandar plazos que nin conviene nin son menester para aquel$que-1£nin-2£para-1
-pleito mas porque sea aprolongado.$mas-1
+Pecan los abogados en engañar aquel lo que guardan e descubren a la otra todas sus poridades.$lo-1£e-1
+Pecan en demandar plazos que nin conviene nin son menester para aquel pleito mas porque sea aprolongado.$que-1£nin-2£para-1£mas-1
 Otrosi pecan en aver grand salario mas de lo que deven.$mas-1
-Otrosi pecan que los que non saben los derechos paganse de dezir$los-1£paganse-1
-E pecan que do ay buenos abogados para tirar a otros ganançias$para-1
-toman ellos menos preçio que deven asi commo viles e despreçiados.$que-1£asi-1
+Otrosi pecan que los que non saben los derechos paganse de dezir denuestos contra la otra parte.$los-1£paganse-1
+E pecan que do ay buenos abogados para tirar a otros ganançias toman ellos menos preçio que deven asi commo viles e despreçiados.$para-1£que-2£asi-1
 Otrosi pecan en sus positiones cautelosas para engañar a su adversario.$para-1
-E pecan en reçibiendo el salario e non cuydando del pleito nin$e-1
-Otrosi pecan en do son ellos convinientes para defender el pleito acomendanlo$para-1
-a otros que non son convinientes nin ydoneos.$que-1
-El preste parrochial peca que commo no sea digno de se ordenar$que-1
-a la cavalleria de la iglesia e pecan que algunos se dexan$e-1
-a este grado sobir por simonia.$por-1
-E pecan en que biven non guardando castidat ante mal de pecado$ante-1
-en muchos obispado las tienen las barraganas publicamente.$en-1
-E es menester este sacramento mayormente depues de la penitençia que el$que-1
-questa en pecado dezimos que esta enfermo e depues que se levanta$que-1£e-1
-por la penitençia esta non rezio en manera denfermo terminado e asi$por-1£e-1
-commo dan a tales manjares buenos para estar mas rezio en la$para-1
-graçia de Dios deve tomar el manjar que es Corpus Christi.$que-1
-E ay otra cosa porque es estableçido este sacramento que asi commo$porque-1£que-1
-por comer del fruto vedado fue perdido el omne asi por comer$por-1£asi-1
-Dizen que estava turbada del mensage nunca visto mas quedo muy confortada$mas-1
-que esperava ser llamada la madre de Jesucristo.$que-1
-Mateo Con el dedo acertaria que deve ser una esposa de Josepe$que-1
-muy hermosa essa tal que tal paria.$muy-1£essa-1
-Bien sabedes como a nuestro señor Dios plugo por su clemençia de$como-1£por-1
-nos dar al prinçipe don Juan nuestro muy caro e muy amado$nuestro-1£e-1
-fijo por primogenito heredero destes nuestros Regnos e como es vso e$por-1£e-1
-costumbre en ellos que todos los proçeres e prinçipales perlados e caualleros$en-1£e-1£e-2
-dellos por si o por sus procuradores bastantes e las çibdades e$por-1£por-2£e-1£e-2
-villas de nuestros Regnos que suelen enbiar procuradores a las Cortes por$que-1£por-1
-sus procuradores de Cortes con sus poderes bastantes enbien e obedesçer e$con-1£enbien-1£e-1
-reçebir e jurar al prinçepe nuevamente nasçido por legitimo heredero de los$por-1£de-1
-dichos nuestros Regnos para despues de los dias de su progenitor a$para-1£a-1
-Segund lo qual por el nasçimiento del dicho prinçepe nuestro fijo el$por-1
-dicho juramento e reçebimiento que asi fesistes a la dicha ynfanta nuestra$e-1£que-1
-fija paresçe quedar sin efetto y vosotros siguiendo la dicha vuestra lealtad$paresçe-1£y-1
-e guardando la dicha costumbre e cumpliendo lo que deueys sodes tenidos$e-1£e-2£lo-1
-de enbiar otra vez vuestros procuradores de Cortes rara faser otro tal$vuestros-1
-reçebimiento e juramento al dicho prinçepe nuestro fijo.$e-1
-E otrosy bien sabedes como entre las otras hordenanças que se fisieron$como-1£que-1
-en la junta general de la Hermandad que se fizo en la$que-1
-villa de Madrid este presente año se contiene en dos ordenanças su$este-1£su-1
-tenor de la qual es este que se sigue Otrosi sepan todos$Otrosi-1
-e sea publico e manifiesto a estos dichos Regnos que los dichos$e-1£que-1
-Rey e Reyna nuestros señores por faser bien e merçed a sus$por-1£a-1
-pueblos e subditos e naturales e en alguna emienda e satisfaçion de$e-3
-su fidelidad y fatigas y trabajos que por su seruiçio han reçebido$que-1
-o reçiben han prometido e prometen e dado su fe e palabra$han-1
-real de non echar ni repartir ni pedir pedidos e monedas ni$de-1£e-1
-enprestidos ni otros pechos algunos sobre las çibdades e villas e logares$sobre-1
-destos dichos sus Regnos que han entrado y entraren e contribuyeron en$destos-1£que-1£e-1
-las dichas Hermandades todos los dichos tres años que a su alteça$que-1
-son otorgados mas que seran libres e francos durante el dicho tiempo$mas-1
-pagando la dicha gente e contribuyendo en los gastos de la dicha$pagando-1£de-1
-Porque nuestra voluntat es que el caso perpetrado de resistencia… villa e$es-1£villa-1
-castillo de Anyon sea rigorosamente e como conuiene punido e castigado vos$e-1£vos-1
-mandamos que luego vos junteys con la ciudat de Çaragoça e con$con-1£e-1
-el justicia de Aragon e con los otros del reyno e toda$e-1£e-2
-dilacion postpuesta deys orden en ir e vays con la mas gente$deys-1£e-1£con-1
-de cauallo e de pie que podieredes a cobrar la dicha fortaleza$que-1£a-1
-de Anyon e castigar los resistentes que fiança tenemos en la aficion$e-1£que-1
-que essa dicha ciudat e los otros del reyno tienen a nuestro$que-1£e-1
-seruicio e a fauorecer la justicia e execucion della que ira con$e-1£que-1
-vos tanta e tal gente que en breues dias e con poco$e-1£que-1£e-2
-E ahun a mayor abundamiento hauemos mandado scriuir a la gente de$hauemos-1
-la ermandat que esta en Calafforra que cada e quando que por$que-1£que-2
-vos fueren requeridos e les scriuieredes vayan a vuestro llamamiento e fagan$vayan-1£e-2
-E puesto que el negocio viniesse en tal estado que cumpliesse conuocar$que-2
-hueste e caualgada lo deueys fazer e vos embiamos para ello las$lo-1£para-1
-letras de la conuocacion las quales seran con la presente pero no$las-1£pero-1
-E otro si vos embiamos cartas para las ciudades villas e lugares$vos-1£para-1
-comarcanos a la dicha fortaleza para que siendo por vos requeridos o$a-1£para-1£siendo-1£o-1
-por el dicho justicia de Aragon vayan al sitio que porneys a$vayan-1£que-1
-la dicha fortaleza e ahun aqua tenemos tal apareio que si esso$e-1£que-1
-no bastasse vos embiaremos tanta gente de cauallo que para mucho mas$vos-1£que-1
-Y porque en todo esto principalmente es neccessario vuestro sfuerço y diligencia$es-1
-ponetlo como de vos confiamos y el negocio lo requiere.$ponetlo-1
+E pecan en reçibiendo el salario e non cuydando del pleito nin estudian nin velan çerca del.$e-1
+Otrosi pecan en do son ellos convinientes para defender el pleito acomendanlo a otros que non son convinientes nin ydoneos.$para-1£que-1
+El preste parrochial peca que commo no sea digno de se ordenar a la cavalleria de la iglesia e pecan que algunos se dexan a este grado sobir por simonia.$que-1£e-1£por-1
+E pecan en que biven non guardando castidat ante mal de pecado en muchos obispado las tienen las barraganas publicamente.$ante-1£en-2
+E es menester este sacramento mayormente depues de la penitençia que el questa en pecado dezimos que esta enfermo e depues que se levanta por la penitençia esta non rezio en manera denfermo terminado e asi commo dan a tales manjares buenos para estar mas rezio en la graçia de$que-1£que-2£e-1£por-1£e-2£para-1
+Dios deve tomar el manjar que es Corpus Christi.$que-1
+E ay otra cosa porque es estableçido este sacramento que asi commo por comer del fruto vedado fue perdido el omne asi por comer del fruto de vida sea reparado.$porque-1£que-1£por-1£asi-2
+Dizen que estava turbada del mensage nunca visto mas quedo muy confortada que esperava ser llamada la madre de Jesucristo.$mas-1£que-2
+Mateo Con el dedo acertaria que deve ser una esposa de Josepe muy hermosa essa tal que tal paria.$que-1£muy-1£essa-1
+Bien sabedes como a nuestro señor Dios plugo por su clemençia de nos dar al prinçipe don Juan nuestro muy caro e muy amado fijo por primogenito heredero destes nuestros Regnos e como es vso e costumbre en ellos que todos los proçeres e prinçipales perlados e caualleros dellos por$como-1£por-1£nuestro-2£e-1£por-2£e-2£en-1£e-4£e-5£por-3
+si o por sus procuradores bastantes e las çibdades e villas de nuestros Regnos que suelen enbiar procuradores a las Cortes por sus procuradores de Cortes con sus poderes bastantes enbien e obedesçer e reçebir e jurar al prinçepe nuevamente nasçido por legitimo heredero de los dichos nuestros Regnos para$por-1£e-1£e-2£que-1£por-2£con-1£enbien-1£e-3£por-3£de-3£para-1
+despues de los dias de su progenitor a quien ha de subçeder.$a-1
+Segund lo qual por el nasçimiento del dicho prinçepe nuestro fijo el dicho juramento e reçebimiento que asi fesistes a la dicha ynfanta nuestra fija paresçe quedar sin efetto y vosotros siguiendo la dicha vuestra lealtad e guardando la dicha costumbre e cumpliendo lo que deueys sodes tenidos de enbiar$por-1£e-1£que-1£paresçe-1£y-1£e-2£e-3£lo-2
+otra vez vuestros procuradores de Cortes rara faser otro tal reçebimiento e juramento al dicho prinçepe nuestro fijo.$vuestros-1£e-1
+E otrosy bien sabedes como entre las otras hordenanças que se fisieron en la junta general de la Hermandad que se fizo en la villa de Madrid este presente año se contiene en dos ordenanças su tenor de la qual es este que se sigue Otrosi sepan todos e sea$como-1£que-1£que-2£este-1£su-1£Otrosi-1£e-1
+publico e manifiesto a estos dichos Regnos que los dichos Rey e Reyna nuestros señores por faser bien e merçed a sus pueblos e subditos e naturales e en alguna emienda e satisfaçion de su fidelidad y fatigas y trabajos que por su seruiçio han reçebido o reçiben han prometido$que-1£por-1£a-2£e-6£que-2£han-2
+e prometen e dado su fe e palabra real de non echar ni repartir ni pedir pedidos e monedas ni enprestidos ni otros pechos algunos sobre las çibdades e villas e logares destos dichos sus Regnos que han entrado y entraren e contribuyeron en las dichas Hermandades todos los dichos$de-1£e-4£sobre-1£destos-1£que-1£e-7
+tres años que a su alteça son otorgados mas que seran libres e francos durante el dicho tiempo pagando la dicha gente e contribuyendo en los gastos de la dicha Hermandad todos los dichos tres años.$que-1£mas-1£pagando-1£de-1
+Porque nuestra voluntat es que el caso perpetrado de resistencia… villa e castillo de Anyon sea rigorosamente e como conuiene punido e castigado vos mandamos que luego vos junteys con la ciudat de Çaragoça e con el justicia de Aragon e con los otros del reyno e toda dilacion postpuesta$es-1£villa-1£e-2£vos-1£con-1£e-4£e-5£e-6
+deys orden en ir e vays con la mas gente de cauallo e de pie que podieredes a cobrar la dicha fortaleza de Anyon e castigar los resistentes que fiança tenemos en la aficion que essa dicha ciudat e los otros del reyno tienen a nuestro seruicio e a fauorecer$deys-1£e-1£con-1£que-1£a-1£e-3£que-2£que-3£e-4£e-5
+la justicia e execucion della que ira con vos tanta e tal gente que en breues dias e con poco affan lo cobrareys todo.$que-1£e-2£que-2£e-3
+E ahun a mayor abundamiento hauemos mandado scriuir a la gente de la ermandat que esta en Calafforra que cada e quando que por vos fueren requeridos e les scriuieredes vayan a vuestro llamamiento e fagan quanto les mandaredes.$hauemos-1£que-1£que-2£vayan-1£e-3
+E puesto que el negocio viniesse en tal estado que cumpliesse conuocar hueste e caualgada lo deueys fazer e vos embiamos para ello las letras de la conuocacion las quales seran con la presente pero no deueys vsar dellas sino en caso muy necessario.$que-2£lo-1£para-1£las-2£pero-1
+E otro si vos embiamos cartas para las ciudades villas e lugares comarcanos a la dicha fortaleza para que siendo por vos requeridos o por el dicho justicia de Aragon vayan al sitio que porneys a la dicha fortaleza e ahun aqua tenemos tal apareio que si esso no bastasse$vos-1£para-1£a-1£para-2£siendo-1£o-1£vayan-1£que-2£e-2£que-3
+vos embiaremos tanta gente de cauallo que para mucho mas satisfaga.$vos-1£que-1
+Y porque en todo esto principalmente es neccessario vuestro sfuerço y diligencia ponetlo como de vos confiamos y el negocio lo requiere.$es-1£ponetlo-1
 Y de todo como succediere seamos por vuestras cartas sabidor.$seamos-1
 Dada en Toledo a xxviiii de enero del anyo m.$a-1
-Magnifico amado Conseiero nuestro Mossen Joan Ferrandez de Eredia regiente el officio$Mossen-1£regiente-1
-Por letras del reyno de Aragon somos certifficados como Luis Cafallo e$como-1
-Jayma Diaz e Armandariz con otras gentes desse reyno de Nauarra se$con-1£se-1
-an puesto en la fortaleza de Anyon y se han alçado con$y-1
-ella desobedeciendo e resistiendo a nuestros officiales e cometiendo otros delictos dignos$desobedeciendo-1£e-2
-de vuestra serenidat pero por ser vassallos vuestros vos rogamos por el$pero-1£vos-1£por-2
-deudo e confederacion que entre nosotros es mandeys con vuestras prouisiones a$que-1£mandeys-1
-los sobredichos so pena de la vida e confiscacion de sus bienes$so-1
-e otras grandes penas luego dexen la dicha fortaleza e la entreguen$e-1£luego-1£e-2
-al gouernador o al iusticia de Aragon de la manera que staua$de-2
-al tiempo que en ella entraron apremiandolos para lo fazer con ocupacion$que-1£apremiandolos-1£con-1
-de sus bienes e otros modos para en tal caso conuenibles y$para-1£y-1
-en caso que obedesser no vos quieran prociendo contra ellos como contra$prociendo-1£como-1
-crebantadores dela dicha confederacion e paz que entre nosotros es porque assi$que-1£porque-1
-por parte de vuestra serenidat apremiados les sea forçado de restituir la$por-1£les-1
-dicha fortaleza por manera que esto que mayores inconuenientes podria procurar.$por-1£que-2
-con quien anda deziendole le mal de cada uno & asacando &$con-1£&-1
-diziendo todo mal con sofismos ma los que han ensy E non$los-1£E-1
-le abonda de fazer esto conel señor mas entre los otros que$mas-1£que-1
-andan enla su casa anda deziendo mal & fablando & metiendo mal$deziendo-1
-entrellos portal que ayan desabenençia & mal querençia entre sy E cada$que-1£E-1
-vno de aquellos conque el fabla se mete por desengañador dela su$por-1
-fazienda & por su conseiero por sus palabras afeytadas dandole a entender$&-1£por-2
-que lo que el dize que lo dize sentiendo se mucho de$que-1£que-3£de-1
-la su fazienda & de su dapño E que le querie desengañar$E-1
-de lo que sabe commo asu amigo E mayor maestria faze asacando$de-1£E-1
-mal que antes que diga alguna cosa aaquel aquien se demuestra por$que-1£por-1
-amigo & ante toma del la Jura o el omenaje que le$que-1
-tenga poridat de aquello que el quiere dezir E desque el otro$de-1£E-1
-gelo ha fecho mete mano a dezir le aquel mal enque anda.$a-1
-guardar mas la fazienda de vn su amigo que non la tuya$que-1
-que eres su Señor & le fazes bien & merçed & que$que-1£&-1
-fias enel Ca tal omne commo este que esto faze non se$Ca-1£que-1
-leuanta de buena verdat njn de lealtad njn de amistad buena &$njn-1
-derecha Ca señor por señor tu con quien el biue eres su$Ca-1£por-1
-señor & non otri Ca el tu señorio es de bien fecho$&-1£Ca-1
-& de naturaleza & por eso ati es fecho & obligado &$&-2
-non aotro Otrosy amigo por amigo ni eres su Señor & su$Otrosy-1
-buen amigo & su buen fazedor & pues has fiança enel deue$&-2
-te seer el amigo sobre todos los otros amigos E sy el$sobre-1£E-1
-ati yerra qual es aquel que enel deue fiar por que non$qual-1£por-1
-es Razon que deua seer en errar ati por buscar bien aotro$que-1£por-1
-segunt que el yerro es Errar ati que eres Su señor por$que-1£que-2£por-1
-plazentear & lisongear a otri grand yerro & grand falsedat faze el$el-1
-mente non deue en njngund caso de ypocreçia mas con verdat &$non-1£mas-1
-por fecho magnifiesto que paresca atodos los omnes que es Rey verdadero$que-1£que-2
-& tiene el Reyno de mano de dios E dize mas que$E-1
-conujene al Rey de honrrar los ponedores & fazedores & guardadores delas$de-1
-leys E conuiene le de auer en Reuerençia alos Religiosos & de$E-1£&-1
-ensalçar los sabios & de auer sus departimjentos & sus consejos conellos$&-1
-Otrosy conuiene al Rey de pensar en las cosas que han de$Otrosy-1£en-1
-venjr & poner Recavdo con sabidoria enlas cosas de auentura que pueden$&-1£enlas-1£que-1
-contesçer Otrosi sabe que mucho conuiene ala Real majestad de se uestir$Otrosi-1£que-1£de-1
-que muy honrrada cosa es enel Rey de guardar se de mucho$que-1
-fablar & de non usar mucho conpasas viles njn con personas Rahezes$&-1£njn-1
-njn auer grand conpasja conellos Ca alas ueses la grand conpasja faze$njn-1£Ca-1
-E Zozimas tornose para el monesterio alabando e glorificando a Dios e$alabando-1£e-2
-E desque llego al monesterio conto al abad e a los monjes$conto-1
-todas las cosas que le acaesçieron desde el comienço non les ascondiendo$que-1£non-1
-cosa alguna de las que viera e oyera por que se maravillasen$de-1£por-1
-de los miraglos grandes del Señor todos los que oyesen la vida$todos-1
-e fin de aquesta santa muger e çelebrasen con temor e amor$e-1£e-2
-e grand fe el dia de su acabamiento bienabenturado.$de-1
-Et este es mas fuerte que ningun catamiento o en bien o$o-1
+Magnifico amado Conseiero nuestro Mossen Joan Ferrandez de Eredia regiente el officio dela gouernacion del reyno de Aragon.$Mossen-1£regiente-1
+Por letras del reyno de Aragon somos certifficados como Luis Cafallo e Jayma Diaz e Armandariz con otras gentes desse reyno de Nauarra se an puesto en la fortaleza de Anyon y se han alçado con ella desobedeciendo e resistiendo a nuestros officiales e cometiendo otros delictos dignos de punicion.$como-1£con-1£se-1£y-1£desobedeciendo-1£e-4
+E ahunque seamos ciertos ella no es fecho con voluntat ni permissio de vuestra serenidat pero por ser vassallos vuestros vos rogamos por el deudo e confederacion que entre nosotros es mandeys con vuestras prouisiones a los sobredichos so pena de la vida e confiscacion de sus bienes e otras$pero-1£vos-1£por-2£que-1£mandeys-1£so-1£e-3
+grandes penas luego dexen la dicha fortaleza e la entreguen al gouernador o al iusticia de Aragon de la manera que staua al tiempo que en ella entraron apremiandolos para lo fazer con ocupacion de sus bienes e otros modos para en tal caso conuenibles y en caso que obedesser$luego-1£e-1£de-2£que-2£apremiandolos-1£con-1£para-2£y-1
+no vos quieran prociendo contra ellos como contra crebantadores dela dicha confederacion e paz que entre nosotros es porque assi por parte de vuestra serenidat apremiados les sea forçado de restituir la dicha fortaleza por manera que esto que mayores inconuenientes podria procurar.$prociendo-1£como-1£que-1£porque-1£por-1£les-1£por-2£que-3
+E tal omne commo este nunca se parte dela oreja del señor con quien anda deziendole le mal de cada uno & asacando & diziendo todo mal con sofismos ma los que han ensy E non le abonda de fazer esto conel señor mas entre los otros que andan enla$con-1£&-1£los-1£E-2£mas-1£que-2
+su casa anda deziendo mal & fablando & metiendo mal entrellos portal que ayan desabenençia & mal querençia entre sy E cada vno de aquellos conque el fabla se mete por desengañador dela su fazienda & por su conseiero por sus palabras afeytadas dandole a entender que lo que el$deziendo-1£que-1£E-1£por-1£&-4£por-3£que-2
+dize que lo dize sentiendo se mucho de la su fazienda & de su dapño E que le querie desengañar de lo que sabe commo asu amigo E mayor maestria faze asacando mal que antes que diga alguna cosa aaquel aquien se demuestra por amigo & ante toma del la$que-1£de-1£E-1£de-3£E-2£que-4£por-1
+Jura o el omenaje que le tenga poridat de aquello que el quiere dezir E desque el otro gelo ha fecho mete mano a dezir le aquel mal enque anda.$que-1£de-1£E-1£a-1
+guardar mas la fazienda de vn su amigo que non la tuya que eres su Señor & le fazes bien & merçed & que fias enel Ca tal omne commo este que esto faze non se leuanta de buena verdat njn de lealtad njn de amistad buena & derecha Ca$que-1£que-2£&-1£Ca-1£que-4£njn-1£Ca-2
+señor por señor tu con quien el biue eres su señor & non otri Ca el tu señorio es de bien fecho & de naturaleza & por eso ati es fecho & obligado & non aotro Otrosy amigo por amigo ni eres su Señor & su buen amigo & su$por-1£&-1£Ca-1£&-3£Otrosy-1
+buen fazedor & pues has fiança enel deue te seer el amigo sobre todos los otros amigos E sy el ati yerra qual es aquel que enel deue fiar por que non es Razon que deua seer en errar ati por buscar bien aotro segunt que el yerro es Errar$&-1£sobre-1£E-1£qual-1£por-1£que-3£por-2£que-4
+ati que eres Su señor por plazentear & lisongear a otri grand yerro & grand falsedat faze el que tu priuado & en tu merçed fuere & te amare derecha mente non deue en njngund caso de ypocreçia mas con verdat & por fecho magnifiesto que paresca atodos los omnes$que-1£por-1£el-1£non-1£mas-1£que-3
+que es Rey verdadero & tiene el Reyno de mano de dios E dize mas que conujene al Rey de honrrar los ponedores & fazedores & guardadores delas leys E conuiene le de auer en Reuerençia alos Religiosos & de ensalçar los sabios & de auer sus departimjentos & sus$que-1£E-1£de-3£E-2£&-4£&-5
+consejos conellos Otrosy conuiene al Rey de pensar en las cosas que han de venjr & poner Recavdo con sabidoria enlas cosas de auentura que pueden contesçer Otrosi sabe que mucho conuiene ala Real majestad de se uestir honesta mente & de paresçer con fermoso aparato Real & sabe mas$Otrosy-1£en-1£&-1£enlas-1£que-2£Otrosi-1£que-3£de-4
+que muy honrrada cosa es enel Rey de guardar se de mucho fablar & de non usar mucho conpasas viles njn con personas Rahezes njn auer grand conpasja conellos Ca alas ueses la grand conpasja faze menospreçio.$que-1£&-1£njn-1£njn-2£Ca-1
+E Zozimas tornose para el monesterio alabando e glorificando a Dios e cantando al Nuestro Señor Jhesu Christo ymnos de loor.$alabando-1£e-2
+E desque llego al monesterio conto al abad e a los monjes todas las cosas que le acaesçieron desde el comienço non les ascondiendo cosa alguna de las que viera e oyera por que se maravillasen de los miraglos grandes del Señor todos los que oyesen la vida e fin$conto-1£que-1£non-1£de-1£por-1£todos-1£e-3
+de aquesta santa muger e çelebrasen con temor e amor e grand fe el dia de su acabamiento bienabenturado.$e-1£de-2
+Et este es mas fuerte que ningun catamiento o en bien o en mal.$o-1
 Et segund aquesto que agora aqui dixiemos es este iuego establecido.$que-1£es-1
 De la figura del Tablero & de como deue seer fecho.$&-1
-Este Tablero ha de seer de Siete lados de fuera porque han$porque-1
-y de iogar siete jogadores cadauno con su planeta.$cadauno-1
-Et ha en ell ocho cercos de dentro redondos segund son los$segund-1
-& las figuras de los doze signos puestas en ell como deuen$como-1
+Este Tablero ha de seer de Siete lados de fuera porque han y de iogar siete jogadores cadauno con su planeta.$porque-1£cadauno-1
+Et ha en ell ocho cercos de dentro redondos segund son los ocho cielos.$segund-1
+& las figuras de los doze signos puestas en ell como deuen seer.$como-1
 Et es partido en doze partes segunt estos doze signos.$segunt-1
-Et del comienço de cada Signo sale una linna & taia los$&-1
-otros siete cercos & llega fata el cerco dell helemento del fuego.$&-1
-Et los otros siete cercos son segund los siete cielos en que$segund-1£en-1
+Et del comienço de cada Signo sale una linna & taia los otros siete cercos & llega fata el cerco dell helemento del fuego.$&-1£&-2
+Et los otros siete cercos son segund los siete cielos en que estan las siete planetas.$segund-1£en-1
 & esta en cadauno dellos una tabla quadrada que anda enderredor.$que-1
-Et en estas tablas ha logares o ponen las figuras de las$o-1
-siete planetas quando quieren iogar.$quando-1
-& cadauna destas tablas ha de seer de la color de la$de-2
-planeta que han de poner en ella.$que-1
-Et otrossi ha y quatro cercos redondos que son segundo los quatro$que-1
-helementos que son de dentro destos ocho.$que-1
+Et en estas tablas ha logares o ponen las figuras de las siete planetas quando quieren iogar.$o-1£quando-1
+& cadauna destas tablas ha de seer de la color de la planeta que han de poner en ella.$de-2£que-1
+Et otrossi ha y quatro cercos redondos que son segundo los quatro helementos que son de dentro destos ocho.$que-1£que-2
 El primero es uermeio que es por ell helemento del fuego.$que-1
 El segundo es cardeno claro por ell helemento dell ayre.$por-1
 El tercero es blanco por ell elemento dell agua.$por-1
-El quarto es redondo a manera de pella & de color parda$&-1
-que es por ell helemento de la tierra.$que-1
-Del departimiento de los siete cercos & de quantas casas ha en$&-1
-LOs blancos iuegan primero & an de dar mathe al Rey prieto$&-1
-en tres uezes de los sus iuegos mismos ni mas ni menos$ni-1
-si los prietos no lo sopieren alongar & si lo sopieren alongar$si-1£&-1
-fincan los blancos por uençudos.$por-1
-Por la qual cosa pareçie presto ayudador & grant rectorico tanto que$pareçie-1£tanto-1
-aquellos a qui ayudaua & los otros que no auian menester de$que-1
-su aiutorio lo jutgauan por sufficient no solament a tales castiellos &$por-1
-casales mas a grandes fechos & a grant senyoria.$mas-1
-& fue fecha aquella batalla a la tornada de las miesses seyendo$seyendo-1
-la luna plena en aquel dia que contecio a los Fabios la$que-1
-grant passion que los tirenos tallaron por pieças de la generacion de$que-1£de-1
-& finco por memoria que aquel dia se clamas por el rio$que-1£por-2
-Mas por los dias malos si hombre lo deue creyer o no$si-1
-et si Yraclito repto derechament a Yfsiodo porque algunos dias reputaua buenos$et-1£porque-1
-& algunos malos pues qu'el no conocie que la natura de todos$pues-1£que-1
-los dias es vna en otros afferes lo auemos declarado.$en-1
-No res menos los romanos reputan aquel dia vno de los malos$los-1
-& por esto se guardan aun II o III dias cerca de$&-1
-aquel por aquel miedo que ellos han de aquel accident.$por-1£que-1
-Et esto fazen por costumbre segunt que mas clarament lo dezimos alli$segunt-1
-do screuimos por las Suspiciones de los romanos.$do-1£por-1
-Et si los gallicos huuiesen la hora depues la batalla seguido a$a-1
-aquellos qui fuyhan sin algun embargamjento era del todo destruyda Roma &$era-1£&-1
-Tanto miedo fizieron aquellos qui fuyhan a aquellos qui los sperauan &$aquellos-1£&-1
-tanto sallieron de lur seso por el grant miedo Mas los barbaros$por-1£Mas-1
-de assin grant uictoria como huuieron mas que no credian por grant$como-1£mas-1£por-1
-alegria se pusieron a folgar & a robar & partir entre ellos$a-1
-lo que robauan.$lo-1
-A todos aquellos qui fuyhan los dexauan yr francament & aquellos qui$&-1
-fincauan los assegurauan entro que fuessen apareiados.$que-1
-Por la qual cosa ellos desempararon toda la ciudat & armaron solament$ellos-1£&-1
-al Capitolio & lo muraron & tomaron algunas cosas sagradas en el$&-1
-Ni ella lo negaua antes quando ella pario fillo masclo ya sea$antes-1£ya-1
-que lo clamauan Leotiquido ella entre las donzellas & sus amigas dezia$ella-1
-murmurando "Esti es Alchibiado".$"Esti-1
-Tanto la auia ocupada l'amor de Alchibiado & el por grant alegria$&-1
-qu'el auia dezia "Yo no he fecho esta cosa por mi deleit$"Yo-1£por-1
-ni por jniuria de algun otro mas solament por tal que de$mas-1£que-1
-Las quales paraulas muchos la reportaron al rey Agio tanto qu'el s'ende$tanto-1
-certifico & specialment por el tiempo.$&-1
-Porque el por ocasion de tierratremol se partio de su cambra &$se-1
-de su muller & passados X meses … Agio sentencio que esti$&-1£que-1
-& depues que los de Athenas huuieron aduersidat en Sicilia los de$los-2
-Sio & de Metellin & del Qujsico enuiaron a Spartia embaxadores a$a-2
-& a los de Quisico Farnauaso.$&-1
-Mas Alchibiado jnduxo a los spartanos que antes diessen ayuda a los$que-1
-Por la qual cosa el passo la mar con ellos ensemble &$el-1£&-1
-por poco finco que no departio toda la Yonia de los de$que-1
-& la companya qu'el tenia a los capitanes de los laçedemonios nozia$nozia-1
-mas aun le leuaua special odio por la gloria que daua.$mas-1£por-1
-Porque Alchibiado era famoso en todas partes & deziase que todo lo$&-1
-& los otros spartanos mas poderosos & mas honrados lo querian mal$lo-1
-por jnuidia en tanto que ellos huuieron tanto poderio que ellos ordenaron$en-1£que-2
-con lures gentiles hombres que de Laçedemonia scriuiessen todos a Yonio que$que-1£que-2
-& en los dos destos III dias Cesaro ha contrastado por Cicero$por-1
-tanto quanto ha podido mas en el terçero no pudiendo mas consintio$mas-1£no-1£consintio-1
-& assi fue uendido Cicero de Cesaro & de Lepido Paulo su$&-2
-hermano & de Anthonio Leuquio Cesaro su tio.$Leuquio-1£su-1
-Los quales tanto se alegraron de la conciencia por su furor &$por-1
-cobdicia de la senyoria que mostraron que no auie mas furioso animal$que-1£que-2
-qu'el hombre segunt su deseo & conquista senyoria.$qu'el-1
-Et seyendo Cicero en sus casales con su hermano sabiendo nueuas del$sabiendo-1
-dicho tractado fecho contra el se partio de alli & yuase a$se-1£&-1
-un otro casal clamado Astira el qual era cerca la marina entendiendo$el-1£entendiendo-1
-de passar a Maçedonia do era Bruto.$do-1
+El quarto es redondo a manera de pella & de color parda que es por ell helemento de la tierra.$&-1£que-1
+Del departimiento de los siete cercos & de quantas casas ha en ellos.$&-1
+LOs blancos iuegan primero & an de dar mathe al Rey prieto en tres uezes de los sus iuegos mismos ni mas ni menos si los prietos no lo sopieren alongar & si lo sopieren alongar fincan los blancos por uençudos.$&-1£ni-1£si-1£&-2£por-1
+Por la qual cosa pareçie presto ayudador & grant rectorico tanto que aquellos a qui ayudaua & los otros que no auian menester de su aiutorio lo jutgauan por sufficient no solament a tales castiellos & casales mas a grandes fechos & a grant senyoria.$pareçie-1£tanto-1£que-2£por-1£mas-1
+& fue fecha aquella batalla a la tornada de las miesses seyendo la luna plena en aquel dia que contecio a los Fabios la grant passion que los tirenos tallaron por pieças de la generacion de los Fabios IIIC.$seyendo-1£que-1£que-2£de-2
+& finco por memoria que aquel dia se clamas por el rio Aliada.$que-1£por-2
+Mas por los dias malos si hombre lo deue creyer o no et si Yraclito repto derechament a Yfsiodo porque algunos dias reputaua buenos & algunos malos pues qu'el no conocie que la natura de todos los dias es vna en otros afferes lo auemos declarado.$si-1£et-1£porque-1£pues-1£que-1£en-1
+No res menos los romanos reputan aquel dia vno de los malos & por esto se guardan aun II o III dias cerca de aquel por aquel miedo que ellos han de aquel accident.$los-1£&-1£por-2£que-1
+Et esto fazen por costumbre segunt que mas clarament lo dezimos alli do screuimos por las Suspiciones de los romanos.$segunt-1£do-1£por-2
+Et si los gallicos huuiesen la hora depues la batalla seguido a aquellos qui fuyhan sin algun embargamjento era del todo destruyda Roma & consumados todos los qui eran en ella.$a-1£era-1£&-1
+Tanto miedo fizieron aquellos qui fuyhan a aquellos qui los sperauan & tanto sallieron de lur seso por el grant miedo Mas los barbaros de assin grant uictoria como huuieron mas que no credian por grant alegria se pusieron a folgar & a robar & partir entre ellos lo que$aquellos-1£&-1£por-1£Mas-1£como-1£mas-1£por-2£a-2£lo-1
+A todos aquellos qui fuyhan los dexauan yr francament & aquellos qui fincauan los assegurauan entro que fuessen apareiados.$&-1£que-1
+Por la qual cosa ellos desempararon toda la ciudat & armaron solament al Capitolio & lo muraron & tomaron algunas cosas sagradas en el Capitolio.$ellos-1£&-1£&-2
+Ni ella lo negaua antes quando ella pario fillo masclo ya sea que lo clamauan Leotiquido ella entre las donzellas & sus amigas dezia murmurando "Esti es Alchibiado".$antes-1£ya-1£ella-3£"Esti-1
+Tanto la auia ocupada l'amor de Alchibiado & el por grant alegria qu'el auia dezia "Yo no he fecho esta cosa por mi deleit ni por jniuria de algun otro mas solament por tal que de mi linage seya rey de los lacedemonios".$&-1£"Yo-1£por-2£mas-1£que-1
+Las quales paraulas muchos la reportaron al rey Agio tanto qu'el s'ende certifico & specialment por el tiempo.$tanto-1£&-1
+Porque el por ocasion de tierratremol se partio de su cambra & de su muller & passados X meses … Agio sentencio que esti jnfant no era de su semiença.$se-1£&-2£que-1
+& depues que los de Athenas huuieron aduersidat en Sicilia los de Sio & de Metellin & del Qujsico enuiaron a Spartia embaxadores a significar que no querian seyer mas en la liga de los de Athenas.$los-2£a-2
+Et en esta cosa dauan fauor a los de Metellin los biotos & a los de Quisico Farnauaso.$&-1
+Mas Alchibiado jnduxo a los spartanos que antes diessen ayuda a los de Sio.$que-1
+Por la qual cosa el passo la mar con ellos ensemble & por poco finco que no departio toda la Yonia de los de Athenas.$el-1£&-1£que-1
+& la companya qu'el tenia a los capitanes de los laçedemonios nozia mucho a los de Athenas.$nozia-1
+Et por esto Agio no solament lo queria mal por su muller mas aun le leuaua special odio por la gloria que daua.$mas-1£por-3
+Porque Alchibiado era famoso en todas partes & deziase que todo lo que fazien los laçedemonios Alchibiado lo endreçaua.$&-1
+& los otros spartanos mas poderosos & mas honrados lo querian mal por jnuidia en tanto que ellos huuieron tanto poderio que ellos ordenaron con lures gentiles hombres que de Laçedemonia scriuiessen todos a Yonio que matassen a Alchibiado.$lo-1£en-1£que-2£que-3£que-4
+& en los dos destos III dias Cesaro ha contrastado por Cicero tanto quanto ha podido mas en el terçero no pudiendo mas consintio con ellos.$por-1£mas-1£no-1£consintio-1
+& assi fue uendido Cicero de Cesaro & de Lepido Paulo su hermano & de Anthonio Leuquio Cesaro su tio.$&-2£Leuquio-1£su-2
+Los quales tanto se alegraron de la conciencia por su furor & cobdicia de la senyoria que mostraron que no auie mas furioso animal qu'el hombre segunt su deseo & conquista senyoria.$por-1£que-1£que-2£qu'el-1
+Et seyendo Cicero en sus casales con su hermano sabiendo nueuas del dicho tractado fecho contra el se partio de alli & yuase a un otro casal clamado Astira el qual era cerca la marina entendiendo de passar a Maçedonia do era Bruto.$sabiendo-1£se-1£&-1£el-2£entendiendo-1£do-1
 Porque auie nueuas que prosperaua.$que-1
-& por la malenconia & desplazer que auie houido del dicho tractado$que-1
-se fazie leuar en vna carbeta & semblantment su hermano.$se-1£&-1
-& yendo por el camino de lugar en lugar se fazien deuallar$se-1
-& entre los otros Cohinto auie mayor desplazer porque no auie podido$porque-1
-tomar ninguna cosa de su casa pora despensa & semblantment Cicero.$&-1
-& pareçioles bueno que Cicero s'ende fues & el tornas a tomar$&-2
-& abraçaron & besaronse ensemble & saludando el vno al otro se$&-3
-Et apres pocos dias Cohnitho fue uendido de sus seruidores a aquellos$Cohnitho-1
-qui lo çercauan & fue muerto el & su fillo.$&-1
-Mas Ciçero plego entro a Austria en do trobando un nauilio aparellado$en-1
-subitament puyo suso & auiendo buen uiento fueron entro a Quirquio &$&-1£fueron-1£&-2
-de alli queriendo los marineros passar auant Çicero o por miedo de$Çicero-1
-la mar o auiendo esperança en Cesaro deuallo en tierra.$deuallo-1
-& porque aquel lo dexo & le dixo "O Alquibiado tu muerdes$"O-1£tu-1
-como las muieres" et Alquibiado dixo "No pas como las muieres mas$et-1£"No-1£mas-1
+& por la malenconia & desplazer que auie houido del dicho tractado se fazie leuar en vna carbeta & semblantment su hermano.$que-1£se-1£&-3
+& yendo por el camino de lugar en lugar se fazien deuallar en tierra & besauanse ensemble.$se-1
+& entre los otros Cohinto auie mayor desplazer porque no auie podido tomar ninguna cosa de su casa pora despensa & semblantment Cicero.$porque-1£&-2
+& pareçioles bueno que Cicero s'ende fues & el tornas a tomar alguna cosa.$&-2
+& abraçaron & besaronse ensemble & saludando el vno al otro se partieron.$&-3
+Et apres pocos dias Cohnitho fue uendido de sus seruidores a aquellos qui lo çercauan & fue muerto el & su fillo.$Cohnitho-1£&-1
+Mas Ciçero plego entro a Austria en do trobando un nauilio aparellado subitament puyo suso & auiendo buen uiento fueron entro a Quirquio & de alli queriendo los marineros passar auant Çicero o por miedo de la mar o auiendo esperança en Cesaro deuallo en tierra.$en-1£&-1£fueron-1£&-2£Çicero-1£deuallo-1
+& porque aquel lo dexo & le dixo "O Alquibiado tu muerdes como las muieres" et Alquibiado dixo "No pas como las muieres mas aun como los leones".$"O-1£tu-1£et-1£"No-1£mas-1
 Quando el era chico el jugaua en la carrera a los huessos.$el-2
-& quando la buelta uino a el conteçio que vn carro uino$conteçio-1
-& primerament Alquibiado comando al carretero que aturasse porqu'el tracto o lanç$que-1
-suyo era en el camino del carro.$era-1
+& quando la buelta uino a el conteçio que vn carro uino cargado.$conteçio-1
+& primerament Alquibiado comando al carretero que aturasse porqu'el tracto o lanç suyo era en el camino del carro.$que-1£era-1
 El carretero por su rustiqueria no lo escuchaua mas siempre yua auant.$mas-1
 Por la qual cosa todos los otros moços se partieron.$todos-1
-Mas Alchibiado se echo boca yuso dauant los bueyes & estendio su$&-1
-persona diziendo al carretero "Passa agora si quieres ".$"Passa-1
-& todos aquellos qui uidieron esta cosa fueron turbados & con grandes$&-2
-Et quando fue de hedat de reprender alguna cosa a todos los$a-1
+Mas Alchibiado se echo boca yuso dauant los bueyes & estendio su persona diziendo al carretero "Passa agora si quieres ".$&-1£"Passa-1
+& todos aquellos qui uidieron esta cosa fueron turbados & con grandes uozes corrieron enta el.$&-2
+Et quando fue de hedat de reprender alguna cosa a todos los otros maestros era muyt obedient.$a-1
+Et por non tardar aquesta cosa por quiero si a uos plazera que caualguemos de continent et que uayamos uos et yo en Paris et aqui seremos uos et yo et ordenaremos todo aquesti fecho con el rey."$por-2£si-1£que-1£et-1£et-3£et-5
+Et micer Jufre respondio et dixo que le plazia et que ell era contento et que andassen de continent en Paris.$que-1£et-2£et-3
+Et quando el marques fue en Paris deuant del rey et de la reyna su ermana el rey et la reyna le fizieron grant fiesta et fueron mucho contentos de su uenida.$et-1£el-2£et-3
+Et el marques dixo al rey et a la reyna como el comte de Flandres et el comte de Tholosa auian ordenado un passage a la Terra Santa et que querian que el fuesse del dicho passage capitan general" mas yo les respondi que non faria aquesta cosa sin uostra$como-1£et-2£et-3£que-2£mas-1£que-3£sin-1
+Mas el rey le dixo que lo fiziesse que ell era mucho contento porque le era grant su honor et porque pudies andar mas honradament el rey le queria dar.$que-2£porque-1£et-1
+mil liuras de parisines et queriale ayudar de mil hombres de armas pora el passage et que fuesen en su conpanya.$et-1£et-2
+Et la reyna su ermana le dio otras cient mil liuras de parisines et diole cauallos et mucha uaxiella de argent et de oro et otros arnesos de cosas neçessarias que le fazian menester como a la persona de vn rey.$et-1£et-4£que-1£como-1
+Et estando micer Guillem en la Archadya con toda su gent huuo su consello con los prelados & uarones et muchos otros caualleros que era bueno que aquellas terras que auian conquerido de partirlas a cascuno segunt quel pertenesçia.$huuo-1£que-1£que-3£segunt-1
+De que fueron ordenados partidores vn prelado et dos caualleros et el prelado fue el arceuispo de Patras et de los caualleros la huno fue miçer Jufre de Uilardoyn et el otro cauallero fue el cançeller.$vn-1£et-2£et-3£la-1£et-4
+Et tomaron en su companya dos griegos muy discretos que sabian todas las tierras et casales et uinyas et uillanos et todas las cosas de la terra la qual se clama Peloponissos.$que-1£et-2£la-2
+Et estando todos ensemble por fer la dicha partiçion ordenaron qu'el dicho miçer Guillem fuese senyor de toda la tierra et que a miçer Galter el Alamany fuesse dada la baronia de Patras con cauallerias de tierra et de uilanos et a micer Gautier de Rosieres fuese dado en la$por-1£ordenaron-1£et-1£con-1£et-3
+Misserea una baronia la qual se clama Matagrifon en franco & en griego Acoua con cauallerias de terras he de uilanos.$la-1£con-1
+Et a miçer Jufre de Brieres fuese dado en baronia el castiello del Buçelleto clamado en griego Oreoclauo en la Escorta con cauallerias de tierra el qual miçer Iufre fizo alli un castiello el qual se clama agora Quarantaua.$fuese-1£clamado-1£con-1£el-2£el-3
+A miçer Iohan un cauallero de Burgunya qui era grant merechal de la huest et de la terra fue dado en las partidas de la marina de Lacedemonia cauallerias de terra et de uilanos en baronia et aqui fizo un castiello el qual se clamo Passaua et por el nombre$qui-1£fue-1£cauallerias-1£et-3£el-1£et-4
+de aquel castiello era clamado el dicho miçer Johan micer Johan de Passaua.$era-1£micer-1
+Et passado algunt tiempo micer Guillem de la Roçia duch de Atenas qui era bayle murio et fizo su testamiento et ordinaçion et ordeno que un su fil lo que auia qui se nombraua micer Gui de la Roçia fuesse en gouernaçion del conte de Brena qui era marido de$micer-1£qui-1£murio-1£et-3£lo-1£fuesse-1£qui-3
+su ermana la qual era estada muller del senyor de Quarantana.$la-1
+Et el conte de Brena sabiendo de la muerte del duch de Athenas paso et fue al ducame por tomar la gouernaçion del ducame et de micer Gui su nieto.$sabiendo-1£paso-1£por-1
+Et los uarones de la tierra uidiendo que el bayle era muerto se apleguaron todos en Clarença por ordenar de bayle & gouernador de la tierra et enuiar al rey.$uidiendo-1£se-1£por-1£et-1
+Et seyendo alli apleguados ordenaron et fizieron bayle a micer Gui de Trimula senyor de la Calandriça.$ordenaron-1£a-1
+Et gouernando micer Gui la tierra le sobreuino la muert et murio seyendo bayle.$et-1
+De que los uarones de la tierra ordenaron et fizieron bayle micer Nicola de Santomier grant mereschal del principado et enuiaron al rey Karles micer Johan de Iadron grant conestable del prinçipado.$grant-1£et-2£grant-2
+Et seyendo bayle el grant mereschal uino vn cauallero qui se nombraua micer Jufre de Brieres cosino hermano del senyor de Carantana qui fue et aduxo letras del rey Karles al bayle que deuiesse auer su consello con los barones de la tierra.$uino-1£qui-1£cosino-1£qui-2£que-1
+Et si ell auia razon en la baronia de Quarantana por la muert de su cosino hermano que gela rendiessen & si no auria razon que no gela diessen.$por-1£que-1£&-1£que-2
+De que el dicho miçer Jufre de Brieres uino deuant del bayle et presento la letra del rey Carles et demando que le fuesse rendida la baronia de Quarantana la qual era de conquista et le pertenesçia por razon como mas cercano del linatge del senyor de Quarantana.$et-1£et-2£la-3£por-1
+De que el capitan con todas las gentes caualguo he fue en el plano de la Morea en hun lugar qui se clama Picotin apres de Paliopoli qui es luguar de la religion de Sant Johan.$he-1£en-2£apres-1£qui-2
+Et en aquel mismo tiempo el arçeuispe de Patras con toda su gent et con aquella de la Bostiça et con aquellos de los castiellos qui se tenian por la princessa caualguo por combatir et tomar la Calandrica.$el-1£et-1£et-2£caualguo-1
+Et seyendo aqui conbatieronla et fue muyt dura batalla porque los cathalanes et los de la tierra se defendieron muy ualientment et non la pudieron tomar.$conbatieronla-1£porque-1£et-3
+Et don Ferrando sabiendo aquesto huuo grant plazer que los hombres de la Calandriça se tuuieron fuertes en su fieldat et enuioles a dezir que uiniessen a ell.$sabiendo-1£huuo-1£que-1£et-1
+de los mellores de la terra porque los queria honrar et fer graçias et asi lo fizieron.$porque-1£et-2
+Et aquellos que uinieron a ell fueron aquestos Miçer Iohan Delfin Micer Roger de Maramont Andeniu Cortera Guillemin Engreno Perrin de Morena Johan Ianopolo Harion de Uiena Pandulfin de Brandiz Raynalt Ialomati et Mamallera Uasilaqui.$Miçer-1£Micer-1£Andeniu-1£Guillemin-1£Perrin-1£Johan-1£Harion-1£Pandulfin-1£Raynalt-1
+Et quando fueron en Andreuilla con don Ferrando ell los reçibio graçiosament et prometioles que si Dios le daua graçia que pudies tomar la tierra qu'el les faria grant bien.$ell-1£que-1£que-2£qu'el-1
+Et don Ferrando seyendo en Andreuilla et huyendo que los burgunyones et los de la terra qui eran por la princessa eran aqui apres al Picotin ordeno de caualgar et yr a combatir con ellos.$seyendo-1£que-1£por-1£ordeno-1
+Et hun dia el domingo de carnestultas comando que su gent se armasse que queria caualguar.$comando-1£que-2
+Et ydo el dicho miçer Andrea en Clarença los prelados barones et caualleros se apleguaron todos en Clarença.$los-1
+Et reçebidas las letras del emperador Phelipo auieron lur consello et fue determinado que miçer Çenturion Zacaria senyor de la Calandriça fuesse a Taranto al emperador Pelipo et que reçibiesse el sagrament del dicho emperador.$auieron-1£que-1£senyor-1£fuesse-1£et-2
+Et el dicho miçer Çenturion se partio et fue a Taranto et reçibio el sagrament del emperador Phelipo.$et-2
+Et fecho el sagrament el dicho emperador ordeno et enuio por bayle en la Morea et por reçebir todas las fortalezas et el sagrament de los barones et caualleros del prinçipado hun cauallero qui se nombraua miçer Simon del Pueyo de Perosa.$el-2£et-1£et-2£et-3£hun-1
+Et aplegado en Clarença le fueron asicnadas todas las fortalezas et todos los barones et caualleros le fizieron el omenage que deuian fazer reseruada la fortaleza de Porto de Iunco que non pudo auer por que la tenia hun escudero qui se nombraua Guillermo de Talay diziendo qu'el que la$le-1£et-1£que-1£reseruada-1£que-2£por-1£diziendo-1
+tenia por su senyora madama Maria de Borbon que fue muller del emperador Rubert por el derecho de su dot.$por-1£que-1£por-2
+Et el dicho bayle miçer Simon del Pueyo caualguo et fue al dicho castiello de Porto Iunco por faular con el dicho Guillermo Talay capitan del dicho castiello & aplegado alli fizieron lures fidanças por uenir a parlament.$et-1£por-1£capitan-1£&-1£por-2
+Et quando fueron ensemble por faular a Guilermo de Talay paresçiole que podia tomar al bayle.$por-1£que-1
+Et los otros caualleros qui eran en companya del bayle uiendo aquesto se partieron et se'n tornaron.$uiendo-1
+Et depues se aplegaron ensemble et escriuieron letras a su senyor el emperador Philipo faziendole a saber como Guillermo de Talay auia preso su bayle et mesolo en presion en el castiello de Porto Iunco.$et-1£faziendole-1£como-1£et-2
+Et en aquel tiempo el dicho micer Gauter bayle con los prelados barones et caualleros de la Morea con el dispot de los grieguos Chir Manoli Catacosino et con çiertas gualeas de ueneçianos et con ciertas galeas del hospital del conuento de Rodas de que fou capitan fray Remon Belenguer$con-1£barones-1£con-2£et-2£et-3£de-5
+qui depues fue maestro de Rodas fueron todos ensemble a la Megra et alli cremaron.$qui-1£fueron-1
+lenyos de turcos et los turcos se'n fuyeron a Estiuas a Roger de Loria qui era en aquel tiempo uicario et gouernador del ducame.$et-1£qui-1
+Et uiendo los senyores de la huest & los capitanes de las galeas que non podian fer res a los turcos se partieron et cascunos se'n fueron a sus lugares.$&-1£que-1£se-1£et-1
+Et tornado micer Gauter en Clarença apres poco tiempo fue fecho bayle micer Boson de Fabriano.$apres-1
+Et despues a cabo de tempo el emperador Roberto enuio por bayle en la Morea un cauallero de Pulla qui se nombraua micer Phelipo de Sant Blas.$por-1£qui-1
+Et depues a cabo de tempo fue en la Morea por bayle micer Perroto Arrimeno de Napol el qual a cabo de tempo murio en Clarença et fue enterrado en la orden de los Frayres Menores.$fue-1£por-1£el-1£et-1
+Et muerto el bayle los prelados et caualleros et barones se aplegaron en Clarença et ordenaron et fizieron bayle el cançeller del prinçipado qui se nombraua micer Nicola Ballena.$los-1£et-3£qui-1
+Et el emperador Roberto sabido que miçer Perroto Arrimeno bayle de la Morea era muerto enuio en la Morea miçer Adam por bayle qui era uizconte de Tremblay.$sabido-1£bayle-1£era-1£enuio-1£qui-1
+Et depues a cabo de tiempo el emperador Ruberto enuio por bayle a la Morea un cauallero de Napol qui se nombraua miçer Carresello.$por-1£qui-1
+Et aquesta madama Margarita o Katerina de Ualoys qui se clamaua imperadriz de Contastinoble et seyendo baylessa et gouernadriz de sus fillos enuio al princep Iohan hermano de su marido micer Philipo prinçep de Taranto que le deuiesse fer omenage del principado de la Morea como era tenido et solia$qui-1£et-1£enuio-1£hermano-1£prinçep-1£que-1£como-1
+De que el princep Johan non queriendo fer omenage a sus nietos enuio a dezir a la emperadriz su cunyada que non queria fer el omenage porque ell auia dado a su hermano el princep Philipo onças et si ella rendia aquestas honças que tomasse su principado de la Morea$non-1£enuio-1£que-2£porque-1£et-1£que-3
+que non queria seyer subiecto a sus nietos.$que-1
+Et la emperadriz uiendo aquesto fue deuant del rey Rubert a demandarle derecho d'aquesta cosa.$uiendo-1£fue-1£a-1
+Et el rey Rubert non queriendo que question fuesse entre su hermano el prinçep Johan et sus nietos ordeno que la emperadriz su cunyada diesse al prinçep Johan honças et el prinçep Johan enuio letras en la Morea et fizo asignar el prinçipado de la Morea a miçer Gayo de$non-1£que-1£ordeno-1£et-2£et-3£a-1
+la Scalea ordenado bayle de la Morea por la imperadriz en nombre de sus fiios.$ordenado-1£por-1
+Et reçebido miçer Gayo de la Scalea el prinçipado de la Morea assi como bayle de la emperadriz apres poco tempo la emperadriz enuio por bayle en la Morea miçer Johan Assauti senyor de Nizare et depues poco tiempo la emperadriz enuio por bayle a la Morea micer Beltran del$assi-1£apres-1£por-1£senyor-1£et-1£por-2
+Balso senyor de Corteson.$senyor-1
+Et fizole priuilegios de la donaçion et diole comandamientos ha miçer Jufre de Uillardoyn et el senyal que auia houido con el que le deuiesse render la tierra asi como auia proposado con el et que la dicha tierra lo deuiesse reconosçer como a senyor subirano que la auia conquerido.$et-1£ha-1£et-2£que-1£con-1£asi-1£et-3£como-2£que-4
+Et el dicho miçer Rubert fue mucho contento et fizo su omenatge a su cosino el conte de Chanpanya et depues el comte de Champanya le dio muy grandes espensas por tal que fuesse a su honor et reçibiese su senyoria et diole letras pora todos los senyores de las$et-1£a-1£et-2£por-1£et-3£et-4£pora-1
+terras qu'el deuia passar pora yr a reçebir su senyoria que le deuiessen ayudar et les fue recomandado.$qu'el-1£pora-1£que-1£et-1
+Agora dexaremos de faular de Campanya & de miçer Rubert su cosino ermano et tornaremos a faular de miçer Jufre de Uillardoyn el qual era romanido bayle et gouernador de la Morea.$&-1£et-1£el-1
+Micer Jufre uidiendo tanta nobleza et tanta senyoria que le era remanida en su mano el peccado de la auariçia lo çeguo et fizole fer contra el sagrament que auia fecho.$uidiendo-1£que-1£el-1£et-2£que-2
+Et por aquesto enuio sus secretarios a miçer Origo Dandulo duch de Ueneçia el qual era mucho su amigo por la conpanya que auian fecho en la conquista de Contastinoble faziendole a saber los pactos que auia fecho con miçer Guillem conte de Chanpanya et que en caso qu'el dicho$a-1£el-1£por-2£que-1£faziendole-1£que-2£et-1
+miçer Guillem passase por alli o otro por ell a uenir a recobrar la Morea por los pactos que auian fechos que le plaziesse de empachar lo que non pudiesse passar d'entro el tiempo que auia promeso es a saber de un anyo & un dia.$por-1£por-2£por-3£que-2£lo-1£que-4£es-1
+Et assimismo ordeno por todas las partidas de Esclauonia et de Pulla et de la ysla de Corfon et de Chifolonia por grandes monedas que dio et assimismo fizo por todas las capitanias de la Morea.$por-1£por-2£et-4£por-3
+De que el emperador ueyendo aquesto huuo muyt grant dolor uidiendo que no podia fer iustiçia pues que todos los uarones eran ensenble.$ueyendo-1£huuo-1£uidiendo-1£pues-1
+De que l'emperador armo galeas pora yr se'nde en Roma a clamarse dauant del Papa de tan grant desonor como le era estado fecha.$a-1£como-1
+Et la dicha emperadriz tomo el trasoro que pudo et fizo un monesterio en Contastinoble et fizose monya depues la muert del marido.$que-1
+Et ueyendo los uarones qu'el emperador Enrich se'nde yua en Roma tomaron su fiio et non lo dexaron yr con el padre.$tomaron-1
+Et el dicho emperador seyendo en Roma dauant del Papa fizo la querella de la uergonya que los dichos barones le auian fecho et demandaua al Papa que fiziesse escomunion & proçeso grandes contra los barones.$seyendo-1£fizo-1£que-1£et-1£que-2
+De que el Papa auido su consello non quiso fer la excomunion nin el proçeso por tal que se podria seguir grant confusion et se podria por aquesto perder l'mperio.$auido-1£non-1£por-1£et-1
+Et uidiendo el emperador qu'el Papa non queria fer ninguna cosa de lo que le demandaua como hombre desesperado se'n tornaua con condiçion de fer uengança de todos los barones con griegos et con toda gent la mayor que auies podido.$qu'el-1£de-1£como-1£con-1£con-2£la-1
+Et sintiendo aquesto los procuradores de los qu'el emperador uinia con aquella intençion de fer uengança de todos los barones ordenaron con lures amigos que tornado l'emperador de Roma aribasse em Patras que lo enpozonasen.$de-1£con-1£ordenaron-1£tornado-1£aribasse-1£que-2
+Et sabiendo los uarones del imperio qu'el emperador era muerto por tal que Baldoyn su fiio era chico mandaron por miçer Johan de Brienna el qual era estado marido de la ermana del rey de Espanya de la qual auia una fiia et muerta aquella muller tomo la reyna de$qu'el-1£por-1£mandaron-1£el-1£de-4£muerta-1£tomo-1
+Jerusalem et fue fecho rey de Jerusalem.$et-1
+Et reçebida la respuesta Melic de micer Antelm caualgo con sus turquos et uinose al plano de la Morea.$caualgo-1£et-1
+Et quando fue al casal de la Ruuiata micer Antelm fue a el et lo acompanyo entro Andreuilla do era el prinçep.$micer-1£do-1
+Et como el princep supo qu'el era assi cerqua de Andreuilla caualguo et salliolo a reçebir et reçebiolo con grant honor et lo leuo en Andreuilla et aqui fizieron grandes fiestas por algunos dias.$qu'el-1£caualguo-1£et-2£et-3£et-4£por-1
+Et despues el prinçep le dio por muller la senyora de la Poliça et de Simico la qual auia un fillo del primer marido qui se clamaua micer Aymo de Simico.$por-1£la-3£qui-1
+Et el dicho turquo Milic presa la muller dixo al prinçep que non era bueno perder tiempo et dexar reposar sus enemigos mas que quisiesse aplegar sus gentes et que fuessen contra sus enemiguos.$presa-1£dixo-1£et-1£mas-1£et-2
+Et el prinçep dixo que aquesto le plazia mucho et de continent apleguo et ordeno su gente et caualguaron et fueron a las partidas de Calamata.$que-1£et-1£et-3
+Et porque micer Ançelm sabia la lengua de los turcos et que lo amauan mucho lo fizo capitan d'ellos.$et-1£lo-2
+Et quando fueron aplegados en la castellania de Calamata en el plano de los Lacos aqui reposaron por ordenar como deuian entrar en la tierra de los enemiguos.$en-2£aqui-1£por-1
+Et quando uino a la noche Melic el turco tomo dos flechas et a las estrellas fizo su art et trobo que deuian trobar batalla et que serian uençedores.$Melic-1£et-1£et-2£que-1£et-3
+Et fues ende al prinçep et dixole qu'el trobaua que otro dia manyana deuian trobar batalla et que serian uençedores & que le plaziesse de ordenar sus gentes et sus batallas et que de manyana caualguassen.$et-1£que-1£et-2£&-1£et-4
+Et porque la tierra por do deuian sallir era mal passo el qual se clama Macriplay el queria leuar la delantera con sus turquos por assegurar el passo al prinçep su senyor.$por-1£el-1£el-2£por-2
+Tu non as muller et nos hemos pensado que pues que Dios te a enuiado aquesta duenya en tu poder que es filla de emperador et hermana de emperador que tu la tomes por tu muller et auras fillos de inperial linatge.$et-1£pues-1£que-3£que-4£et-3
+Et el dicho miçer Jufre respondio a sus uarones que ell dubdaua de fer aquesta empresa por occasion que non se sentia tan poderoso senyor que pudiese contrastar al emperador de Contastinoble et al rey de Aragon.$que-1£por-1£que-3£et-1
+Et los uarones le respondieron que non calia dubdar de aquesto por aquesto que l'enperador auia grandes guerras con los grieguos et el rey de Aragon auia grandes guerras con el rey de Françia."$que-1£por-1£et-1
+De que uos prometemos que toda ora que l'emperador ni el rey de Aragon te fiziessen guerra de defenderte con los cuerpos et con los aueres."$que-2£que-3£con-1
+Et huyda miçer Jufre la respuesta de sus borones los regraçio mucho.$los-1
+Et auido aqueste consello fizo tomar la duenya et leuarla en su cambra et dixole qu'el no auia muller et que la queria tomar por muller.$fizo-1£et-2£que-1
+Et la duenya le respondio que aquesto non podia seyer porque ella era firmada con el rey de Aragon.$que-1£porque-1
+& miçer Iufre le dixo que aquesto se conuenia a fazer o por fuerça o por su uoluntat et que iamas non yria en Aragon.$que-1£o-1£et-1
+Et uidiendo la duenya que aqui era fuerça et dubdandose que ella fuesse desonrada consintio en las palauras del dicho miçer Jufre.$que-1£que-2£consintio-1
+De que miçer Iufre la esposo et depues enuio por todos los prelados barones et sus caualleros et fizo grandes bodas et grandes alegrias et aquellos que eran de las gualeas se recullieron et se tornan en Contastinoble mucho dolentes et coruçados.$et-1£barones-1£et-3£et-5£et-6
+Et por aquesto ordenaron et enuiaron con la gualea por embaxadores a madama la reyna quatro barones de la Morea el conte de Chifollonia el senyor de la Archadia & el grant conestable et el grant merechal.$por-2£el-1£el-2
+Et despues ordenaron por la gouernaçion de la terra et fizieron bayle Andronico Assani fillo del grant conestable.$et-1£fillo-1
+Et ordenado et fecho aquesto el senyor de la Archadia et el grant conestable entraron en la galea de madama la reyna.$el-1£entraron-1
+Et el conte de Chiffollonia et el grant merechal en huna otra galea del conte de Chifollonia ensemble con los otros nobles hombres fueron en Napol et fizieron la reuerençia a madama la reyna la qual los reçibio con grant honor et apres fueron en parlament sobre el fecho del$ensemble-1£fueron-1£et-2£la-3£et-3
+De que la reyna les dixo que ella queria auer el prinçipado como sobirana senyora et heredera que era del dicho principado porque ni la hermana del dicho emperador Phelipo ni nenguno otro auia razon nin derecho en el dicho prinçipado.$que-2£como-1£que-3£porque-1
+Et aquellos nobles hombres huyendo las palauras de la reyna respondieron que querian auer lur consello.$huyendo-1£respondieron-1
+Et auido lur consello determinaron que non podian deneguar la senyora madama la reyna como lur senyora sobirana que era a la qual auian fecho sagrament de fieldat et depues que fuesse en iudiçio de madama et de su cort si la hermana del emperador auia derecho ho no.$determinaron-1£como-1£a-1£et-1£et-2£si-1
+Et determinado aquesto fueron a madama la reyna et le demandaron qu'ella primerament fiziesse el sagrament de mantener lures usanças et lures costumbres assi como auian fecho los senyores antes passados.$fueron-1£et-1£de-1£assi-1
+De que la reyna se fizo presentar los euangelios et fizo el sagrament como lo deuia far.$et-1£como-1
+Et depues aquellos senyores fizieron el sagrament como eran tenidos.$como-1
+Et a poco de tiempo murio miçer Jufre et romanio senyor su fillo miçer Jufre primogenito.$et-1
+Et en aquel tiempo murio micer Gui senyor del ducame de Athenas et dexo dos fillos de los quales el uno auia nombre miçer Guillem et el otro miçer Otho.$senyor-1£et-1£de-2£et-2
+Et en aquel tiempo era en Stiuas un cauallero qui era senyor de la meytat de Stiuas et auia nombre miçer Uelant de Santomer et tomo por muller la filla del rey de Ongria que era ermana de la madre del rey Rubert de Napol.$qui-1£et-1£et-2£que-1
+Et d'aquesta su muller huuo tres fillos uarones el primero se clamo miçer Otho el secundo se clamo miçer Nicola et el terçero se clamo miçer Johan.$el-1£el-2£et-1
+Et en aquel tiempo mismo murio el senyor de Patras miçer Galter el Alamany et dexo un fillo el qual se clamo miçer Corrado el qual miçer Corrado en su tiempo fizo la Calandriça.$miçer-1£et-1£el-3£el-4
+Et de que miçer Jufre de Uilardoyn el iouen tomo la senyoria de la Morea fazia todos dias fiestas grandes et estaua en grandes plazeres con sus uarones et caualleros.$fazia-1£et-1
+Estando en la Gregera dos galeas del emperador de Contastinoble arribaron con temporal al castiello de Belueder sobre las quales gualeas era la filla del emperador de Contastinoble por seyer muller del rey de Aragon et supido aquesto miçer Jufre caualguo et ando a Belueder et mando de sus caualleros$dos-1£sobre-1£por-1£supido-1£miçer-1£et-3
+preguando a la duenya & ad aquellos que la gouernauan que les plaziesse de descender en tierra que por el mal tiempo no era de estar en galea la qual cosa plazio a la duenya & desçendieron en tierra.$preguando-1£&-1£que-2£por-1£no-1£la-3£&-2
+Et el dicho miçer Jufre los reçibio con grant honor et con grant alegria he leuolos al castiello et despues enuio por todas las gentiles duenyas que se trobauan alli apres por fazier fiesta ad aquesta gentil duenya de que todos dias fazian danças et solaçes.$con-1£he-1£et-2£que-1£por-2£de-1
+La tierra de India es assi como vna ysla.$assi-1
+De la vna part es enuironada de disierto et de la otra de la Mar Occeana por la qual cosa hombre no podria liugerament entrar en aquella tierra sino deues el regno de Perssia.$et-1£por-1£sino-1
+Et aquellos que quieren entrar en aquella tierra uan primerament en vna ciudat que es clamada Hermes la qual ciudat fizo Hermes el philosopho por grant art assi como hombre dize.$que-2£la-1£assi-1
+Apres se van por vn destreito de mar entro ha vna ciudat que es clamada Combaoth et aqui son trobados los auçelles que hombre clama papagays et ande tantos de aquellos aucelles en aquella tierra como ay auzelles chicos en esta tierra.$por-1£que-1£et-1£que-2£et-2£como-1
+Forment et ordio se faze poco en aquella encontrada antes comen en aquella tierra aroz miio leche et manteca datiles et otras fruytas de las quales ellos han grant abundancia.$antes-1£miio-1£et-3£de-1
+El regno de Perssia es departido en dos partes et es contado por vn regno solo car vn senyor todo solo ha tenido toda ora la senyoria.$et-1£car-1
+La primera partida del regno de Perssia se stiende por ocçident entro al rio que es clamado Phison ques vno de los rios que yxen de parayso terenal.$por-1£que-1£ques-1£que-2
+Et deues septentrion se stiende entro la Mar Caspis Aquella tierra es quasi toda plana et ay dos grandes et ricas ciudades la vna es clamada Bocata et la otra Samorgat.$Aquella-1£et-1£la-2
+La gent de aquella tiera son dichos perssanos et han lenguage proprio que ellos faulan.$et-1£que-1
+El rey de Cumania cuydo bien deffender su tierra et aplego su huest et combatiosse con los tartaros.$et-1£et-2
+Mas a la fin los cumanianos fueron desbaratados et fueron encalçados entro al regno de Ongria et gitados de su tierra et encara entro al dia de oy habitan en aquella tierra muchos cumanianos.$et-1£et-2£et-3
+Apres que Baco los huuo echado del regno de Cumania el entro en el regno de Rosia et priso lo et conquisto la tierra gazera et el regno de Vulgaria.$el-1£et-1
+Apres de aquesto los tartaros passaron deues Alamanna et fueron tanto que plegaron a la ribera de vn rio qui corre por el ducat de Ostaricha.$los-1£et-1£que-1£por-1
+Los tartres cuydaron passar por vn puent que aqui auia mas el duch de Staricha fizo fornir el puent et assi no pudieron passar auant los tartres.$por-1£mas-1£et-1
+Quando Baco vio que non podria passar por el puent el se metio dentro en el rio et mando a su gent que hide passassen por la qual cosa el metio assi metex en el periglo de la muert et a su gent.$que-1£por-1£el-2£et-1£que-2£por-2£assi-1
+Car antes que el pudies passar su cauallo fue tanto treballado que no pudo pus et assi fue negado Baco et grant partida de sus gentes dentro del rio antes que pudiessen passar de la otra part.$su-1£que-2£et-1£et-2£antes-2
+Quando los tartres qui encara non eran entrados en el agua vidieron negar su senyor Baco et sus companyones tornaron se al regno de Rosia et de Cumania et iamas despues los tartaros no entraron en Alamanya.$qui-1£vidieron-1£tornaron-1£et-3
+Et enuio y de mercaderos con grant quantidat de moneda et fizo comprar los iouenes de aquellos cumans et muy grant quantidat ne fueron leuados en Egipto.$et-1£et-2
+Melechsala fizo venir los cumans et amaua los mucho et fazia les mostrar a caualgar et deportar armas et fiaua se mucho en ellos et tenie los cerca si.$et-1£et-2£et-4£et-5
+En el tiempo que sant Loys rey de Françia passo vltramar et fue preso por los moros los cumans desuso dichos qui eran estados vendidos et comprados mataron su senyor Melechsala et fizieron senyor de vno dellos qui auia nombre Turcamen et por aquesta razon el rey de Françia et$que-1£et-1£los-2£qui-1£mataron-1£et-3£qui-2£et-4£et-5
+su hermano qui estauan en la presion de los moros fueron mas liugerament rescatados et deliurados del preson.$qui-1£fueron-1
+Et es aquesta naçion de cumans clamada Capchath en las partidas de Orient.$clamada-1
+Apres pocos dias vn otro de aquellos esclauos qui auia nombre Chatos mato el dicho Turtament et fizo se soldan et fue clamado Melezineses.$qui-1£mato-1£et-1£et-2
+Et aquesti Melezineses fue al regno de Siria et echonde Giloga et Tartres los quales Aloon auia dexados por guardar la tierra de Siria.$los-1£por-1
+Et assi como ellos sende tornauan en Egipto vn otro de aquellos cumans qui auie nombre Rondochdar mato aquesti Melezineses et fizo se soldan et fizo se clamar Melechdaer.$vn-1£qui-1£mato-1£et-1£et-2
+Aquesti fue muy sauio et ualient en armas et en su tiempo creçio mucho el poder de los moros en el regno de Egipto et de Siria et priso muchas çiudades et tierras que los christianos tenien.$et-2£en-3£et-4£que-1
+Et priso por fuerça la noble çiudat dAnthioochia en el anyo de Nuestro Senyor.$en-1
+Apres tuuo la senyoria de Aloon su fillo Aquesti Abaga quiso que el imperio Cubila su tio le comfirmasse la senyoria et Cubila lo fizo muy uolenter por que sabie bien que era el fillo mas sauio que Haloon auia et assi fue clamado Abagatan.$Aquesti-1£que-1£le-1£et-1£por-1£que-4£et-2
+Como Abagatan regno apres su padre el qual fue ydolatre et huuo guerra continuadament con sus vezinos et por aquello no fizo rem contra el soldan Abagatan fue proz et muy sauio et gouernaua su senyoria sauiament et fue muy auenturoso en todas cosas sino que no quiso seyer christiano$el-1£et-1£et-2£contra-1£et-4£et-5£sino-1
+asi como era estado su padre Haloon antes fue ydolatriz et tanto como biuio huuo guerra con sus vezinos et por aquesto no pudo enueir el soldan de Egipto.$asi-1£antes-1£et-1£huuo-1£et-2
+Et por aquesta razon el regno de Egipto stuuo en paz luengo tiempo et todos los moros qui pudien escapar del poder de los tartres sen fuyen en Egipto et por aquesto crescio mucho el pueblo del soldan.$et-1£et-2
+Encara el soldan de Egipto fizo vna sotilidat car el enuio por mar sus missageros a los tartres qui eran en el regno de Comania et Rosia et fizo con ellos companya et amistat et ordeno que si Abagata querie entrar en la tierra de Egipto que aquellos le mouiessen$car-1£por-1£qui-1£et-2£et-4£que-2
+Et por aquesto los moros la derrocaron et la han trasportada luent de la mar et del rio et no yde han fecho mur ni fuerça et claman aquella villa Damiata la Nueva et Damiata la Uiella es de todo deshabitada.$et-1£et-3£et-4£et-5
+De aquestos puertos de Damiata et de Alexandria ha el soldan grandes entradas et grant auer.$ha-1
+Vino han poco mas aquel que si faze es fuert bueno et bien olient.$mas-1
+Los moros no osan beuer vino car vedado les es en su ley.$car-1
+Carneros cabrones et gallinas et otras viandas han assaz mas han pocos buyes et comen carne de camello.$mas-1
+En el regno de Egipto abitan algunos christianos que hombre clama Leepti et tienen la secta de los iacobins.$que-1£et-1
+Et hay en aquellas partidas assaz de bellas abadias et tienen las francament et en paz.$et-1
+Et aquestos cheptis fueron los mas antigos habitadores de la tierra de Egipto car los moros començaron habitar en la tierra de Egipto despues que ellos huuieron la senyoria.$car-1£que-1
+Las cosas que no se troban en Egipto et que los egicianos no podrien auer si hombre no les ne portaua de otra son suffre figuos fusta et pegua et los esclauos con los quales ellos fortifican su huest et de aquestas cosas han ellos tan grant menester que sin$et-1£si-1£suffre-1£et-3£et-4£que-3
+tartres en el regno de Siria et en las partidas de Palestina tuuo la tierra en paz et en reposo et amaua et honrraua mucho los christianos por que el era del linage de los reyes de orient qui vinieron a adorar la natiuitat de Nuestro Senyor.$et-1£tuuo-1£et-3£por-1£qui-1
+Asi como Giloga se treballaua en recobrar la Tierra Santa el diablo va a mouer vna grant discordia entre ell et los christianos que eran en las partidas de Saota.$el-1£entre-1£que-1
+Car en la tierra de Bellfort que es de la senyoria de Sayeta auia muchas villas do habitauan moros qui fazien trehudo a los tartres deuino se que la gent de Saheta et Bellfort se aiustaron et corrieron et robaron aquellas villas de aquellos moros los vnos matauan los otros$que-1£auia-1£do-1£qui-1£deuino-1£que-2£et-2£de-5£los-3
+El nebot de Giloga era en aquellas encontradas et corrio apres de aquellos christianos con poca companya de cauallo et como el los reptas de lo que auien fecho et les quisies tirar la presa que leuauan algunos de aquellos christianos firieron en el et mataron lo.$et-1£con-1£et-2£et-3£que-2£algunos-1£et-4
+Quando Giloga entendio que los christianos de Saeta auien muerto su nebot el caualgo con sus gentes et vino a Saeta et mato quantos christianos hi trobo.$que-1£el-1£et-1
+Es verdat que la gent de Saeta se eran fuydos enantes por que pocos hide murieron.$por-1
+Giloga fizo meter fuego a la çiudat et fizo derrocar vna partida de los moros et iamas apres Giloga no huuo fiança en los christianos de Siria ni ellos en el.$et-1£et-2£ni-1
+Apres fueron gitados aquestos tartres del regno de Siria por el poder del soldan de Egipto assi como sera dicho aqui apres.$por-1£assi-1
+Apres murio Ayton monge en el anyo de Nuestro Senyor.$en-1
+Como el soldan vino en Turquia & echo los tartres de aquella et apres Abagatan ende gito a el & de lo que se siguio El fillo del rey Hayton Liuon fue sauio uaron et valient et gouerno sauiament su regno et fue mucho amado de su gent et los$&-1£et-1£&-2£El-1£fue-1£et-3£et-4£et-5
+tartres le leuauan reuerençia et honor et mucho se treballaua el rey Liuon en dapnificar los moros con los tartres et a menudo amonestaua por sus missageros ha Habagatan que vinies a recobrar la Tierra Santa et confonder el poder de Egipto.$et-2£en-1£et-3£por-1£que-1£et-4
+En aquel tiempo se sdeuino que el soldan de Egipto entro con su poder en el regno de Turquia et mato et gito los tartres qui alla eran et priso muchas tierras et çiudades car vn traydor qui Abagatan auia fecho capitan de Turquia el qual auia nonbre Paruana se$que-1£en-1£et-1£et-3£car-1£el-3£se-2
+rebello et fizo obediençia al soldan et fazia su poder de echar los tartres fuera de la Turquia.$et-1£et-2
+Quando Abagatan entendio aquestas nueuas el aplego su huest et caualgo cuytadament Quando el soldan supo la venida de los tartres no oso sperar antes sen departio cuytadament et Abagatan enuio su gent apres del et antes que el soldan pudiesse tornar en el regno de Egipto los tartres aconssiguieron$el-1£Quando-2£no-1£antes-1£et-2£et-3£los-2
+la reçagua de la huest de los moros en vn luguar qui es nombrado el passo Vlaco et firieron en ellos et tomaron ne de cauallo et ganaron grandes riquezas et ultra aquello prendieron cases de cordins qui eran de aquellas partidas.$qui-1£et-1£et-2£et-3£et-4£qui-2
+Et Abagatan fue conssellado que no entras en la tierra de Egipto por el grant calor que la ora fazia et por los cauallos qui eran fuert treballados.$que-1£por-1£et-1
+Los primeros cayeron et los otros qui uenien apres cayeron sobre aquellos et assi el vno cayo sobrel otro et los tartres tirauan a menudo por la qual razon scaparon pocos de los moros que no fuessen muertos o nafrados.$et-1£et-2£et-3£por-1£que-1
+Quando el soldan vido aquesto el se tiro atras et Cassan mando tantost a su gent que muntassen a cauallo et esuayr uigorosament los enemigos.$el-2£et-1£que-1
+Cassan fue el primero qui se fue a combatir con el soldan et tuuo tanto la mescla con aquella poca gent que el auia aderredor de si que todos sus varones vinieron ordenadament a la batalla.$qui-1£et-1£que-1£que-2
+La ora començo la mescla de todas partes et duro el sol exido entro ha cerca de nona.$et-1
+A la fin el soldan no pudo durar deuant Cassan que de su mano fazie marauellas et puso se en fuyda con sus gentes.$que-1£et-1
+Cassan et los suyos encalçaron los enemigos entro a la noche escura matando todos quantos ne aconssiguien.$matando-1
+La ora fueron abatidos et muertos tantos de moros que toda la tierra ne fue cubierta.$que-1
+Aquella noche aturo Cassan en vn lugar qui ha nombre Cauech alegre et ioyos de la victoria que Dios le auie dada.$en-1£alegre-1£que-1
+Apres Cassan mando al rey de Erminia et a vn su uaron qui auia nombre Melax que con tartres deuiesse seguir el soldan entro al desierto de Egipto qui era luent del campo do la batalla fue iornadas et mando que deuiesse sperar su mandamiento en las encontradas de Çesare.$et-1£qui-1£que-1£entro-1£qui-2£do-1£et-2£en-1
+El rey de Erminia et Molax con los tartres sende partieron antes del dia et fueron apres el soldan et mataron todos quantos moros pudieron aconsseguir.$sende-1£et-2£et-3
+De otra part todos los prinçipes de los moros qui solien dar ayuda al soldan de Egipto son todos muertos et destruydos por el poder de los tartres et vno todo solo ne ha fincado qui ha nombre soldan de Meredin el qual nueuament es estado tornado en el poder$qui-1£son-1£por-1£et-2£qui-2£el-2
+Et por esto en aquesti tiempo sin periglo et con poco treballo podria seyer recobada la Tierra Santa et podria seyer connquistado el regno de Egipto et el de Siria et podria seyer destruydo el poder de los enemigos asaz mas liugerament en el tiempo de agora que no aurie$en-1£sin-1£podria-1£et-2£et-4£asaz-1£que-1
+Encara es tiempo conuinient el qual Dios demuestra a los christianos car los tartres se son offreçidos de dar ayuda a los christianos contra los moros et por aquesto Carbanda el rey de los tartres ha enuiado sus missageros offreçiendo se de meter todo su poder a conffonder los enemigos$el-1£car-1£et-1£ha-1£offreçiendo-1
+Et en aquesti tiempo mayorment con la ayuda de los tartres la Tierra Santa podrie seyer recobrada et el regno de Egipto et de Siria conquistados liugerament et sin periglo.$mayorment-1£la-2£et-1
+Et en aquellas partidas de Antiochia habitan christianos assaz qui son buenos hombres de armas et vendrien tantost a la huest de los christianos et los podrien fer muchos seruiçios.$habitan-1£qui-1£et-1£et-2
+Apres quando los peregrinos se partieron de aqui ellos podrien yr por la via de la mar entro a la ciudat de Liexa et aquesta les seria la mas curta via et la mas millor et el nauilio podria toda ora seguir et yr cerca la huest de tierra.$ellos-1£entro-1£et-1£et-3£et-4
+Verdaderament çerca de Mergat en la riba de la mar ha vn passo muyt fuert et enoyoso a passar grant gent.$ha-1
+Et si se esdeuinia que los enemigos huuiessen de antes establido aquell passo en tal guisa que los peregrinos no pudiessen passar nuestras gentes sende podrien tornar sin periglo en Anthiochia et podrien yr por el camino de Euffemia deues Cessaria muntando por la ribera del rio el qual es$que-1£en-1£nuestras-1£sin-1£por-1£por-2£el-2
+clamado Reuell et por aquell camino la huest trobaria pasturas et buenas aguas et las tierras de los enemigos fornidas de vitualia et de otros bienes de que la huest podria auer grant reffrescament.$et-1£et-3£et-4£de-4
+Et por aquel camino podrien yr nuestras gentes entro a la çiudat de Amay qui es muy rica ciudat et uiniessen a batallar contra los christianos los christianos haurien grant auantaia de combatedores en aquell lugar et con la ayuda de Dios ellos desbaratarien liugerament los enemigos et si los$qui-1£los-2£et-2£ellos-1£et-3
+christianos pudien desbaratar vna vegada la huest del soldan no trobarien despues nengun contrast et podrien sende yr derechament a la ciudat de Damas la qual ellos prendrien et ella se rendria con çiertos patios a los christianos.$no-1£et-1£la-3£et-2
+Apres del terçer dia Cassan enuio mandar al rey de Erminia que se deuies tornar que el querie asitiar la çiudat de Homes et mando que Molax fuesse apres el soldan mas el soldan fuyo de noche et de dia caualgando camells corredores en companya de beduins qui le guiauan.$Cassan-1£que-1£que-2£et-1£mas-1£caualgando-1£en-1£qui-1
+Ningun hombre no puede puyar sobre aquella montanya por la grant habundançia de la nieu que hi es de inuierno et de istiu mas enssomo de la montanya pareçe vna cosa que honbre dize que es la archa de Nohe.$por-1£que-1£mas-1£que-2
+En el regno de Iorgie deues orient comiença a vna grant montanya que es clamada Alborc et aqui habitan muchas naçiones de gentes et por aquesto es clamada aquella comarca Alame.$comiença-1£que-1£et-1£et-2
+Et de aqui se stiende el regno de Iorgie por ocçident deues septemtrion entro ha vnas prouinçias del regno de Turquia.$deues-1£entro-1
+Aquesti regno de Iorgie es departido en regnos el vno es nombrado Iorgie et el otro Archas aquell de Iorgie es dius el emperador de Asia aquell de Abcas es poderoso de gentes et de fuertes castiellos et no fue iamas subieto al emperador de Asia ni a los tartaros.$el-1£aquell-1£aquell-2£et-3
+En aquell regno de Iorgie parece vna grant marauilla la qual yo no osaria contar sino la huuies yo uista.$la-1£sino-1
+Et por que yo fuy alla et la vi la oso contar que en Iorgie ha vna prouincia que hombre clama Auisen qui tiene bien.$la-2£que-2£que-3£qui-1
+iornadas et tanto como dura aquella prouincia ay por todo tan grant scuredat que ningun hombre no es assi ardit que ose entrar en aquella tierra.$et-1£como-1£por-1£que-1£assi-1
+Et los habitadores de aquella tierra cuentan que ellos hoyen bozes de hombres canto de gallo et de relinchamiento de cauallos et por vn rio que yxe de aquel lugar vienen en senyales que pareçe que gentes hi habiten verdaderament.$que-1£canto-1£et-1£et-2£que-2£que-3
+Quando los tartres deuen passar por encontrada do no cuydan trobar habundançia de vitualia ellos fazen leuar grant multitud de bestias con ellos de vacas et de yeguas et biuen de la leche et maian la carne de los cauallos et la tienen por buena carne.$por-1£do-1£ellos-1£de-3£et-2£et-3£et-4
+Los tartres son muy auisados en fechos de armas a cauallo mas a piet ualen poco por que non saben yr a piet.$mas-1£por-1
+Quando los tartres son ordenados pora combatir ellos entienden tantost la voluntat del lur capitan et fazen lo que han a fazer por la qual cosa los capitanes guuiernan liugerament su gent et con poco treballo.$ellos-1£et-1£lo-1£por-1£et-2
+Los tartres cercan todo tiempo auantaia contra sus enemigos en batalla et no an verguenya de partir se ni de fazer otra cosa a su prouecho.$contra-1£et-1£ni-1
