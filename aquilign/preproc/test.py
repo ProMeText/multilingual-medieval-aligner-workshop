@@ -150,7 +150,7 @@ def get_correspondence(sent, tokenizer):
 def test(file, model_path, tokenizer_name, num):
     with open(file, "r") as input_file:
         # as_list = [item.replace("\n", "") for item in input_file.readlines()]
-        as_list = input_file.read()
+        as_string = input_file.read()
     
     all_examples, all_labels = [], []
     
@@ -159,9 +159,9 @@ def test(file, model_path, tokenizer_name, num):
     tokenizer = BertTokenizer.from_pretrained(tokenizer_name, max_length=10)
     
     
-    toks_and_labels = functions.convertToSentencesAndLabels(example, tokenizer)
+    toks_and_labels = functions.convertToSentencesAndLabels(as_string, tokenizer)
+    print(toks_and_labels)
     for example in toks_and_labels:
-        print(toks_and_labels)
         # BERT-tok
         enco_nt_tok = tokenizer.encode(example, truncation=True, padding=True, return_tensors="pt")
         # get the predictions from the model
