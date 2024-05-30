@@ -29,7 +29,7 @@ def convertToSentencesAndLabels(text, tokenizer):
         for i in range(len(splitOk)):
             if re.search(r'-\d', splitOk[i]):
                 position = re.split('-', splitOk[i])[1]
-                print(position)
+                # print(position)
                 positionList.append(int(position))
                 splitOkk = re.split('-', splitOk[i])[0]
                 tokenList.append(splitOkk)
@@ -41,7 +41,7 @@ def convertToSentencesAndLabels(text, tokenizer):
 
         #set tokenList to get all the concerned values
         tL = list(set(tokenList))
-        print(f'tl {type(tL)}')
+        # print(f'tl {type(tL)}')
 
         #prepare an emptyList with as empty sublists as concerned words
         emptyList = []
@@ -199,6 +199,8 @@ def compute_metrics(eval_pred):
     metric4 = evaluate.load("f1")
 
     predictions, labels = eval_pred
+    print(eval_pred)
+    exit(0)
     # get the label predictions
     predictions = np.argmax(predictions, axis=2)
 
