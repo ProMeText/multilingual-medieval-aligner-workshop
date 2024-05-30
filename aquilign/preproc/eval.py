@@ -20,7 +20,7 @@ def get_labels_from_preds(preds):
     return bert_labels
 
 
-def evaluate(preds, gt):
+def get_metrics(preds, gt):
     metric1 = evaluate.load("accuracy")
     metric2 = evaluate.load("recall")
     metric3 = evaluate.load("precision")
@@ -76,7 +76,7 @@ def test(file, model_path, tokenizer_name, num):
         print("---")
         all_preds_as_array = np.asarray([[bert_labels]])
         all_gt_as_array = np.asarray([[cropped_gt_labels]])
-        evaluate(bert_labels, cropped_gt_labels)
+        get_metrics(bert_labels, cropped_gt_labels)
     print(all_preds)
     print(all_gts)
        
