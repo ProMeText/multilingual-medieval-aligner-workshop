@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import sys
 from transformers import BertTokenizer, Trainer, TrainingArguments, AutoModelForTokenClassification
-from tok_trainer_functions import *
+import tok_trainer_functions as trainer_functions
+import re
 
 ## script for the training of the text tokenizer : identification of tokens (label 1) which will be used to split the text
 ## produces folder with models (best for each epoch) and logs
@@ -26,12 +27,10 @@ def training_trainer(modelName, train_dataset, eval_dataset, num_train_epochs, b
     train_lines = train_file.readlines()
     eval_file = open(eval_dataset, "r")
     eval_lines = eval_file.readlines()
-    train_texts = convertToSentencesAndLabels(train_lines)[0]
-    train_labels = convertToSentencesAndLabels(train_lines)[1]
-    eval_texts = convertToSentencesAndLabels(eval_lines)[0]
-    eval_labels = convertToSentencesAndLabels(eval_lines)[1]
-    train_dataset = SentenceBoundaryDataset(train_texts, train_labels, tokenizer)
-    eval_dataset = SentenceBoundaryDataset(eval_texts, eval_labels, tokenizer)
+    train_texts_and_labels = trainer_functions.convertToSentencesAndLabels(train_lines, tokenizer)
+    eval_texts_and_labels = trainer_functions.convertToSentencesAndLabels(eval_lines, tokenizer)
+    train_dataset = trainer_functions.SentenceBoundaryDataset(train_texts_and_labels, tokenizer)
+    eval_dataset = trainer_functions.SentenceBoundaryDataset(eval_texts_and_labels, tokenizer)
 
     if '/' in modelName:
         name_of_model = re.split('/', modelName)[1]
@@ -49,6 +48,10 @@ def training_trainer(modelName, train_dataset, eval_dataset, num_train_epochs, b
         per_device_eval_batch_size=batch_size,
         evaluation_strategy="epoch",
         logging_strategy="epoch",
+        dataloader_num_workers=8,
+        dataloader_prefetch_factor=4,
+        bf16=True,
+        use_cpu=False,
         save_strategy="epoch",
         load_best_model_at_end=True
         # best model is evaluated on loss
@@ -60,11 +63,13 @@ def training_trainer(modelName, train_dataset, eval_dataset, num_train_epochs, b
         args=training_args,
         train_dataset=train_dataset,
         eval_dataset=eval_dataset,
-        compute_metrics=compute_metrics
+        compute_metrics=trainer_functions.compute_metrics
     )
 
     # fine-tune the model
+    print("Starting training")
     trainer.train()
+    print("End of training")
 
     # get the best model path
     best_model_path = trainer.state.best_model_checkpoint

@@ -3,12 +3,10 @@ import re
 import torch
 import evaluate
 import numpy as np
-
+import tqdm 
 # function to convert text in input as tokens and labels (if label is identified in the file, gives 1, in other cases, 0)
-def convertToSentencesAndLabels(text):
-
+def convertToSentencesAndLabels(text, tokenizer):
     print("Converting to sentences and labels")
-
     sentencesList = []
     splitList = []
 
@@ -96,7 +94,34 @@ def convertToSentencesAndLabels(text):
         sentencesList.append(sentence)
         splitList.append(localList)
 
-    return sentencesList, splitList
+    num_max_length = get_token_max_length(sentencesList, tokenizer)
+    out_toks_and_labels = []
+    for text, labels in tqdm.tqdm(zip(sentencesList, splitList)):
+        toks = tokenizer(text, padding="max_length", max_length=num_max_length, truncation=True,
+                              return_tensors="pt")
+        
+        # get the text with the similar splits as for the creation of the data
+        tokens = re.findall(r"[\.,;—:?!’'«»“/-]|\w+", text)
+        # get the index correspondences between text and tok text
+        corresp = get_index_correspondence(tokens, tokenizer)
+        # aligning the label
+        new_labels = align_labels(corresp, labels)
+        # get the length of the tensor
+        sq = (toks['input_ids'].squeeze())
+        ### insert 2 for in the new_labels in order to get tensors with the same size !
+        if len(sq) == len(new_labels):
+            pass
+        else:
+            diff = len(sq) - len(new_labels)
+            for elem in range(diff):
+                new_labels.append(2)
+        assert len(sq) == len(new_labels), "Mismatch"
+        # tensorize the new labels
+        label = torch.tensor(new_labels)
+        out_toks_and_labels.append({'input_ids': toks['input_ids'].squeeze(), 
+                         'attention_mask': toks['attention_mask'].squeeze(),
+                         'labels': label})
+    return out_toks_and_labels
 
 
 
@@ -107,7 +132,7 @@ def get_index_correspondence(sent, tokenizer):
     for word in sent:
         (raw_end, expand_end) = correspondence[-1]
         tokenized_word = tokenizer.tokenize(word)
-        print(tokenized_word)
+        # print(tokenized_word)
         correspondence.append((raw_end+1, expand_end+len(tokenized_word)))
     return correspondence
 
@@ -119,10 +144,10 @@ def align_labels(corresp, orig_labels):
         # label which is interesting : 1
         if label == 1:
             ### verbose ?
-            print(f"index is {index}")
-            print(f"label is {label}")
-            print(f"Corresp first subword is {corresp[index][1] + 1}")
-            print(f"Corresp first subword actual index is {corresp[index][1]}")
+            # print(f"index is {index}")
+            # print(f"label is {label}")
+            # print(f"Corresp first subword is {corresp[index][1] + 1}")
+            # print(f"Corresp first subword actual index is {corresp[index][1]}")
             ###
             ### if the length of the new list = the current index
             if len(new_labels) == corresp[index][1]:
@@ -153,57 +178,20 @@ def get_token_max_length(train_texts, tokenizer):
 
 # dataset class which fits the requirements
 class SentenceBoundaryDataset(torch.utils.data.Dataset):
-    def __init__(self, texts, labels, tokenizer):
-        self.texts = texts
-        self.labels = labels
-        self.tokenizer = tokenizer
+    def __init__(self, texts_and_labels, tokenizer):
+        self.texts_and_labels = texts_and_labels
 
     def __len__(self):
-        return len(self.texts)
+        return len(self.texts_and_labels)
 
     def __getitem__(self, idx):
         # get the max length of the training set in order to have the good feature to put in tokenizer
-        num_max_length = get_token_max_length(self.texts, self.tokenizer)
-        print("Getting new item")
         # current text (one line, ie 12 tokens [before automatic BERT tokenization])
-        text = self.texts[idx]
-        # current labels for the line
-        labels = self.labels[idx]
-        print(text)
-        print(labels)
-        # tokenize the text with padding to get tensors with equal size (inserts 2, as for special tokens)
-        # num_max_length is got supra
-        toks = self.tokenizer(text, padding="max_length", max_length=num_max_length, truncation=True, return_tensors="pt")
-        # get the text
-        #tokens = text.split()
-        # get the text with the similar splits as for the creation of the data
-        tokens = re.findall(r"[\.,;—:?!’'«»“/-]|\w+", text)
-        # get the index correspondences between text and tok text
-        corresp = get_index_correspondence(tokens, self.tokenizer)
-        # aligning the label
-        new_labels = align_labels(corresp, labels)
-        # get the length of the tensor
-        sq = (toks['input_ids'].squeeze())
-        ### insert 2 for in the new_labels in order to get tensors with the same size !
-        if len(sq) == len(new_labels):
-            pass
-        else:
-            diff = len(sq) - len(new_labels)
-            for elem in range(diff):
-                new_labels.append(2)
-        assert len(sq) == len(new_labels), "Mismatch"
-        # tensorize the new labels
-        label = torch.tensor(new_labels)
-        print(f"New label {new_labels}")
-        # return the results
-        return {
-            'input_ids': toks['input_ids'].squeeze(),
-            'attention_mask': toks['attention_mask'].squeeze(),
-            'labels': label
-        }
+        return self.texts_and_labels[idx]
 
 
 def compute_metrics(eval_pred):
+    print("Starting eval")
     # load the metrics we want to evaluate
     metric1 = evaluate.load("accuracy")
     metric2 = evaluate.load("recall")
@@ -222,8 +210,8 @@ def compute_metrics(eval_pred):
     ###
     labels = [0 if x == -100 else x for x in labels]
     ###
-    print(predictions)
-    print(labels)
+    # print(predictions)
+    # print(labels)
 
     acc = metric1.compute(predictions=predictions, references=labels)
     recall = metric2.compute(predictions=predictions, references=labels, average=None)
@@ -236,4 +224,5 @@ def compute_metrics(eval_pred):
     f1_l = []
     [f1_l.extend(v) for k, v in f1.items()]
 
+    print("Eval finished")
     return {"accurracy": acc, "recall": recall_l, "precision": precision_l, "f1": f1_l}
