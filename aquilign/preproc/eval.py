@@ -60,6 +60,10 @@ def test(file, model_path, tokenizer_name, num):
         print(f"Ground Truth: {cropped_gt_labels}")
         print(len(bert_labels))
         print(len(cropped_gt_labels))
+
+        classifier = pipeline("token-classification", model=new_model, tokenizer=tokenizer)
+        print(classifier(txt_example))
+
         print("---")
        
         
