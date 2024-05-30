@@ -27,10 +27,10 @@ def get_metrics(preds, gt):
     metric4 = evaluate.load("f1")
     all_accs, all_recall, all_precision, all_f1 = [], [], [], []
     for un_pred, un_gt in zip(preds, gt):
-        all_accs.append(metric1.compute(predictions=un_pred, references=un_gt))
-        all_recall.append(metric2.compute(predictions=un_pred, references=un_gt, average=None))
-        all_precision.append(metric3.compute(predictions=un_pred, references=un_gt, average=None))
-        all_f1.append(metric4.compute(predictions=un_pred, references=un_gt, average=None))
+        all_accs.append(metric1.compute(predictions=un_pred, references=un_gt)['accuracy'])
+        all_recall.append(metric2.compute(predictions=un_pred, references=un_gt, average=None)['recall'])
+        all_precision.append(metric3.compute(predictions=un_pred, references=un_gt, average=None)['precision'])
+        all_f1.append(metric4.compute(predictions=un_pred, references=un_gt, average=None)['f1'])
     
     mean_acc = np.mean(all_accs)
     mean_recall = np.mean(all_recall)
