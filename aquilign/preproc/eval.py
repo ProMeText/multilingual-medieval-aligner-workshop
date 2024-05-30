@@ -43,6 +43,7 @@ def test(file, model_path, tokenizer_name, num):
     
 
     toks_and_labels = functions.convertToSentencesAndLabels(as_list, tokenizer)
+    assert len(as_list) == len(toks_and_labels), "Lists mismatch"
     for txt_example, gt in zip(as_list, toks_and_labels):
         # BERT-tok
         enco_nt_tok = tokenizer.encode(txt_example, truncation=True, padding=True, return_tensors="pt")
