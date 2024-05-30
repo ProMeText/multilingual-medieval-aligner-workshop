@@ -4,6 +4,7 @@ from transformers import BertTokenizer, AutoModelForTokenClassification, pipelin
 import re
 import torch
 import numpy as np
+import evaluate
 
 
 
