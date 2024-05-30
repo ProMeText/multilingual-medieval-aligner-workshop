@@ -57,6 +57,8 @@ def test(file, model_path, tokenizer_name, num):
         print(f"Text: {txt_example}")
         print(f"Predicted: {bert_labels}")
         print(f"Ground Truth: {cropped_gt_labels}")
+        print(len(bert_labels))
+        print(len(cropped_gt_labels))
         print("---")
        
         
