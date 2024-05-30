@@ -1,8 +1,10 @@
 import tok_trainer_functions as functions
 import sys
-from transformers import BertTokenizer, AutoModelForTokenClassification
+from transformers import BertTokenizer, AutoModelForTokenClassification, pipeline
 import re
 import torch
+import numpy as np
+import evaluate
 
 
 
@@ -17,6 +19,29 @@ def get_labels_from_preds(preds):
         bert_labels.append(label)
     return bert_labels
 
+
+def get_metrics(preds, gt):
+    metric1 = evaluate.load("accuracy")
+    metric2 = evaluate.load("recall")
+    metric3 = evaluate.load("precision")
+    metric4 = evaluate.load("f1")
+    all_accs, all_recall, all_precision, all_f1 = [], [], [], []
+    for un_pred, un_gt in zip(preds, gt):
+        all_accs.append(metric1.compute(predictions=un_pred, references=un_gt)['accuracy'])
+        all_recall.append(metric2.compute(predictions=un_pred, references=un_gt, average=None)['recall'])
+        all_precision.append(metric3.compute(predictions=un_pred, references=un_gt, average=None)['precision'])
+        all_f1.append(metric4.compute(predictions=un_pred, references=un_gt, average=None)['f1'])
+    
+    mean_acc = np.mean(all_accs)
+    mean_recall = np.mean(all_recall)
+    mean_precision = np.mean(all_precision)
+    mean_f1 = np.mean(all_f1)
+    print(f"Mean accuracy: {mean_acc}")
+    print(f"Mean recall: {mean_recall}")
+    print(f"Mean precision: {mean_precision}")
+    print(f"Mean f1: {mean_f1}")
+    
+    
 # correspondences between our labels and labels from the BERT-tok
 def get_correspondence(sent, tokenizer):
     out = {}
@@ -35,29 +60,38 @@ def test(file, model_path, tokenizer_name, num):
     with open(file, "r") as input_file:
         as_list = [item.replace("\n", "") for item in input_file.readlines()]
     
-    all_examples, all_labels = [], []
+    all_preds, all_gts = [], []
     print(as_list)
     tokenizer = BertTokenizer.from_pretrained(tokenizer_name, max_length=10)
     new_model = AutoModelForTokenClassification.from_pretrained(model_path, num_labels=3)
     # get the path of the default tokenizer
-    
-
     toks_and_labels = functions.convertToSentencesAndLabels(as_list, tokenizer)
+    assert len(as_list) == len(toks_and_labels), "Lists mismatch"
     for txt_example, gt in zip(as_list, toks_and_labels):
+        # We get only the text
+        example, _ = txt_example.split("$")
         # BERT-tok
-        enco_nt_tok = tokenizer.encode(txt_example, truncation=True, padding=True, return_tensors="pt")
+        enco_nt_tok = tokenizer.encode(example, truncation=True, padding=True, return_tensors="pt")
         # get the predictions from the model
         predictions = new_model(enco_nt_tok)
         preds = predictions[0]
         # apply the functions
         bert_labels = get_labels_from_preds(preds)
         gt_label_as_list = gt['labels'].tolist()
-        print(f"Text: {txt_example}")
-        print(f"Predicted: {bert_labels}")
-        print(f"Ground Truth: {gt_label_as_list}")
+        # Continuer à supprimer les paddings pour pouvoir comparer les résultats.
+        cropped_gt_labels = gt_label_as_list[:len(bert_labels)]
+        print(f"Text: {example}")
+        print(f"Orig predictions not cropped: {gt_label_as_list}")
+        print(f"Predicted:    {bert_labels}")
+        print(f"Ground Truth: {cropped_gt_labels}")
         print(len(bert_labels))
-        print(len(gt_label_as_list))
+        print(len(cropped_gt_labels))
+        all_preds.append(bert_labels)
+        all_gts.append(cropped_gt_labels)
         print("---")
+        all_preds_as_array = np.asarray([[bert_labels]])
+        all_gt_as_array = np.asarray([[cropped_gt_labels]])
+    get_metrics(all_preds, all_gts)
        
         
         
