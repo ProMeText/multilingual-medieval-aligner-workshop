@@ -199,8 +199,6 @@ def compute_metrics(eval_pred):
     metric4 = evaluate.load("f1")
 
     predictions, labels = eval_pred
-    print(eval_pred)
-    exit(0)
     # get the label predictions
     predictions = np.argmax(predictions, axis=2)
 

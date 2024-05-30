@@ -3,6 +3,7 @@ import sys
 from transformers import BertTokenizer, AutoModelForTokenClassification, pipeline
 import re
 import torch
+import numpy as np
 
 
 
@@ -63,7 +64,9 @@ def test(file, model_path, tokenizer_name, num):
         all_preds.append(bert_labels)
         all_gts.append(cropped_gt_labels)
         print("---")
-    functions.compute_metrics((all_preds, all_gts))
+    all_preds_as_array = np.asarray(all_preds)
+    all_gt_as_array = np.asarray(all_gts)
+    functions.compute_metrics((all_preds_as_array, all_gt_as_array))
        
         
         
