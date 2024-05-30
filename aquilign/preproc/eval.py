@@ -1,6 +1,6 @@
 import tok_trainer_functions as functions
 import sys
-from transformers import BertTokenizer, AutoModelForTokenClassification
+from transformers import BertTokenizer, AutoModelForTokenClassification, pipeline
 import re
 import torch
 
@@ -40,8 +40,8 @@ def test(file, model_path, tokenizer_name, num):
     tokenizer = BertTokenizer.from_pretrained(tokenizer_name, max_length=10)
     new_model = AutoModelForTokenClassification.from_pretrained(model_path, num_labels=3)
     # get the path of the default tokenizer
-    
 
+    classifier = pipeline("token-classification", model=new_model, tokenizer=tokenizer)
     toks_and_labels = functions.convertToSentencesAndLabels(as_list, tokenizer)
     assert len(as_list) == len(toks_and_labels), "Lists mismatch"
     for txt_example, gt in zip(as_list, toks_and_labels):
@@ -61,7 +61,6 @@ def test(file, model_path, tokenizer_name, num):
         print(len(bert_labels))
         print(len(cropped_gt_labels))
 
-        classifier = pipeline("token-classification", model=new_model, tokenizer=tokenizer)
         print(classifier(txt_example))
 
         print("---")
