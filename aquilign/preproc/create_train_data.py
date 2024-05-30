@@ -2,23 +2,41 @@ import sys
 import re
 import operator 
 
-def main(file, keep_punct, examples_length):
+
+def convert_text_to_labels(tokenized_text):
+    print(tokenized_text)
+    labels = []
+    for idx, syntagm in enumerate(tokenized_text):
+        splitted = syntagm.split()
+        if idx == 0:
+            [labels.append(0) for token in splitted]
+        else:
+            labels.append(1)
+            [labels.append(0) for token in splitted[1:]]
+    print(labels)
+
+
+def format(file, keep_punct, examples_length, save_file=True, standalone=True, tokenized_text:list=None, keep_dots=True):
     """
     Cette fonction produit à partir d'un fichier tokénisé à l'aide de retour charriot \n
     un fichier de ground truth pour la tokénisation
     """
-    punctuation_regex = r'[·;,:!¿?¡]'
-    with open(file, "r") as input_file:
-        as_list = [line.replace("\n", "") for line in input_file.readlines()]
-        if keep_punct is False:
-            as_list = [re.sub(punctuation_regex, "", line) for line in as_list]
+    if keep_dots is False:
+        punctuation_regex = r'[\.·;,:!¿?¡]'
+    else:
+        punctuation_regex = r'[·;,:!¿?¡]'
+    if standalone:
+        with open(file, "r") as input_file:
+            as_list = [line.replace("\n", "") for line in input_file.readlines()]
+            if keep_punct is False:
+                as_list = [re.sub(punctuation_regex, "", line) for line in as_list]
+    else:
+        as_list = tokenized_text
     
     as_sentences = {}
     n = 0
-    
     # On a deux façons de comprendre le terme "exemple". Un exemple en entrée de fonction, 
     # c'est une phrase. Un exemple en sortie de fonction, c'est une suite de mots de longueur n.
-    
     # On splitte les exemples et on le met dans un dictionnaire
     for line in as_list:
         try:
@@ -70,7 +88,6 @@ def main(file, keep_punct, examples_length):
                 n += 1
                 updated_index = 0
             updated_index += 1
-        print(examples[n-1])
     
     
     out_list = []
@@ -85,13 +102,16 @@ def main(file, keep_punct, examples_length):
         elif example["labels"] == []:
             continue
         out_list.append(text+labels)
-    
-    with open(file.replace(".txt", ".formatted.txt"), "w") as output_file:
-        output_file.write("\n".join(out_list))
-            
+    print(out_list)
+        
+    if save_file:
+        with open(file.replace(".txt", ".formatted.txt"), "w") as output_file:
+            output_file.write("\n".join(out_list))
+    return out_list
             
 if __name__ == '__main__':
     file_to_create = sys.argv[1]
-    keep_punct = False
+    keep_punct = sys.argv[2]
+    keep_dot = sys.argv[3]
     examples_length = 50
-    main(file_to_create, keep_punct, examples_length)
+    format(file_to_create, keep_punct, examples_length, keep_dot)
