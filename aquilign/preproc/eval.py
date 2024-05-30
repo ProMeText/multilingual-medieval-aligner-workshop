@@ -61,7 +61,7 @@ def test(file, model_path, tokenizer_name, num):
         print(len(bert_labels))
         print(len(cropped_gt_labels))
         all_preds.append(bert_labels)
-        all_labels.append(cropped_gt_labels)
+        all_gts.append(cropped_gt_labels)
         print("---")
     functions.compute_metrics((all_preds, all_gts))
        
