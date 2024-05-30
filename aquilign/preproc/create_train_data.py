@@ -115,5 +115,7 @@ if __name__ == '__main__':
     file_to_create = sys.argv[1]
     keep_punct = sys.argv[2]
     punct = keep_punct == "True"
+    keep_dot = sys.argv[3]
+    dot = keep_dot == "True"
     examples_length = 50
-    format(file_to_create, punct, examples_length)
+    format(file_to_create, punct, examples_length, keep_dot)
