@@ -25,15 +25,23 @@ def get_metrics(preds, gt):
     metric2 = evaluate.load("recall")
     metric3 = evaluate.load("precision")
     metric4 = evaluate.load("f1")
-
-    acc = metric1.compute(predictions=preds, references=gt)
-    recall = metric2.compute(predictions=preds, references=gt, average=None)
-    precision = metric3.compute(predictions=preds, references=gt, average=None)
-    f1 = metric4.compute(predictions=preds, references=gt, average=None)
-    print(acc)
-    print(recall)
-    print(precision)
-    print(f1)
+    all_accs, all_recall, all_precision, all_f1 = [], [], [], []
+    for un_pred, un_gt in zip(preds, gt):
+        all_accs.append(metric1.compute(predictions=un_pred, references=un_gt))
+        all_recall.append(metric2.compute(predictions=un_pred, references=un_gt, average=None))
+        all_precision.append(metric3.compute(predictions=un_pred, references=un_gt, average=None))
+        all_f1.append(metric4.compute(predictions=un_pred, references=un_gt, average=None))
+    
+    mean_acc = np.mean(all_accs)
+    mean_recall = np.mean(all_recall)
+    mean_precision = np.mean(all_precision)
+    mean_f1 = np.mean(all_f1)
+    print(f"Mean accuracy: {mean_acc}")
+    print(f"Mean recall: {mean_recall}")
+    print(f"Mean precision: {mean_precision}")
+    print(f"Mean f1: {mean_f1}")
+    
+    
 # correspondences between our labels and labels from the BERT-tok
 def get_correspondence(sent, tokenizer):
     out = {}
