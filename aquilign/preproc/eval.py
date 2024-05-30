@@ -81,6 +81,7 @@ def test(file, model_path, tokenizer_name, num):
         # Continuer à supprimer les paddings pour pouvoir comparer les résultats.
         cropped_gt_labels = gt_label_as_list[:len(bert_labels)]
         print(f"Text: {example}")
+        print(f"Orig predictions not cropped: {gt_label_as_list}")
         print(f"Predicted:    {bert_labels}")
         print(f"Ground Truth: {cropped_gt_labels}")
         print(len(bert_labels))
@@ -91,8 +92,6 @@ def test(file, model_path, tokenizer_name, num):
         all_preds_as_array = np.asarray([[bert_labels]])
         all_gt_as_array = np.asarray([[cropped_gt_labels]])
     get_metrics(all_preds, all_gts)
-    print(all_preds)
-    print(all_gts)
        
         
         
