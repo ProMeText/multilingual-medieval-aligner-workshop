@@ -93,5 +93,5 @@ def main(file, keep_punct, examples_length):
 if __name__ == '__main__':
     file_to_create = sys.argv[1]
     keep_punct = False
-    examples_length = 12
+    examples_length = 50
     main(file_to_create, keep_punct, examples_length)
