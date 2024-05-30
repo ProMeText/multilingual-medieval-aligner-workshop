@@ -35,16 +35,15 @@ def test(file, model_path, tokenizer_name, num):
     with open(file, "r") as input_file:
         as_list = [item.replace("\n", "") for item in input_file.readlines()]
     
-    all_examples, all_labels = [], []
+    all_preds, all_gts = [], []
     print(as_list)
     tokenizer = BertTokenizer.from_pretrained(tokenizer_name, max_length=10)
     new_model = AutoModelForTokenClassification.from_pretrained(model_path, num_labels=3)
     # get the path of the default tokenizer
-
-    classifier = pipeline("token-classification", model=new_model, tokenizer=tokenizer)
     toks_and_labels = functions.convertToSentencesAndLabels(as_list, tokenizer)
     assert len(as_list) == len(toks_and_labels), "Lists mismatch"
     for txt_example, gt in zip(as_list, toks_and_labels):
+        # We get only the text
         example, _ = txt_example.split("$")
         # BERT-tok
         enco_nt_tok = tokenizer.encode(example, truncation=True, padding=True, return_tensors="pt")
@@ -61,10 +60,10 @@ def test(file, model_path, tokenizer_name, num):
         print(f"Ground Truth: {cropped_gt_labels}")
         print(len(bert_labels))
         print(len(cropped_gt_labels))
-
-        print(classifier(example))
-
+        all_preds.append(bert_labels)
+        all_labels.append(cropped_gt_labels)
         print("---")
+    functions.compute_metrics((all_preds, all_gts))
        
         
         
