@@ -18,6 +18,15 @@ def get_labels_from_preds(preds):
         bert_labels.append(label)
     return bert_labels
 
+
+def evaluate(preds, gt):
+    metric1 = evaluate.load("accuracy")
+    metric2 = evaluate.load("recall")
+    metric3 = evaluate.load("precision")
+    metric4 = evaluate.load("f1")
+
+    acc = metric1.compute(predictions=preds, references=gt)
+
 # correspondences between our labels and labels from the BERT-tok
 def get_correspondence(sent, tokenizer):
     out = {}
@@ -66,7 +75,7 @@ def test(file, model_path, tokenizer_name, num):
         print("---")
         all_preds_as_array = np.asarray([[bert_labels]])
         all_gt_as_array = np.asarray([[cropped_gt_labels]])
-        functions.compute_metrics((all_preds_as_array, all_gt_as_array))
+        evaluate(bert_labels, cropped_gt_labels)
     print(all_preds)
     print(all_gts)
        
