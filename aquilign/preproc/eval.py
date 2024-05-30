@@ -45,8 +45,9 @@ def test(file, model_path, tokenizer_name, num):
     toks_and_labels = functions.convertToSentencesAndLabels(as_list, tokenizer)
     assert len(as_list) == len(toks_and_labels), "Lists mismatch"
     for txt_example, gt in zip(as_list, toks_and_labels):
+        example, _ = txt_example.split("$")
         # BERT-tok
-        enco_nt_tok = tokenizer.encode(txt_example, truncation=True, padding=True, return_tensors="pt")
+        enco_nt_tok = tokenizer.encode(example, truncation=True, padding=True, return_tensors="pt")
         # get the predictions from the model
         predictions = new_model(enco_nt_tok)
         preds = predictions[0]
@@ -55,13 +56,13 @@ def test(file, model_path, tokenizer_name, num):
         gt_label_as_list = gt['labels'].tolist()
         # Continuer à supprimer les paddings pour pouvoir comparer les résultats.
         cropped_gt_labels = gt_label_as_list[:len(bert_labels)]
-        print(f"Text: {txt_example}")
+        print(f"Text: {example}")
         print(f"Predicted:    {bert_labels}")
         print(f"Ground Truth: {cropped_gt_labels}")
         print(len(bert_labels))
         print(len(cropped_gt_labels))
 
-        print(classifier(txt_example))
+        print(classifier(example))
 
         print("---")
        
