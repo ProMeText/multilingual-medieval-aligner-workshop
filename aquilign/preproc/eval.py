@@ -27,7 +27,13 @@ def get_metrics(preds, gt):
     metric4 = evaluate.load("f1")
 
     acc = metric1.compute(predictions=preds, references=gt)
-
+    recall = metric2.compute(predictions=preds, references=gt, average=None)
+    precision = metric3.compute(predictions=preds, references=gt, average=None)
+    f1 = metric4.compute(predictions=preds, references=gt, average=None)
+    print(acc)
+    print(recall)
+    print(precision)
+    print(f1)
 # correspondences between our labels and labels from the BERT-tok
 def get_correspondence(sent, tokenizer):
     out = {}
@@ -76,7 +82,7 @@ def test(file, model_path, tokenizer_name, num):
         print("---")
         all_preds_as_array = np.asarray([[bert_labels]])
         all_gt_as_array = np.asarray([[cropped_gt_labels]])
-        get_metrics(bert_labels, cropped_gt_labels)
+    get_metrics(all_preds, all_gts)
     print(all_preds)
     print(all_gts)
        
