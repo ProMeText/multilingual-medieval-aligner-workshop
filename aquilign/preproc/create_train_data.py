@@ -14,13 +14,15 @@ def convert_text_to_labels(tokenized_text):
             labels.append(1)
             [labels.append(0) for token in splitted[1:]]
     print(labels)
+    exit(0)
 
 
-def format(file, keep_punct, examples_length, save_file=True, standalone=True, tokenized_text:list=None, keep_dots=True):
+def format(file, keep_punct, examples_length, save_file=True, standalone=True, tokenized_text:list=None, keep_dots=False):
     """
     Cette fonction produit à partir d'un fichier tokénisé à l'aide de retour charriot \n
     un fichier de ground truth pour la tokénisation
     """
+    
     if keep_dots is False:
         punctuation_regex = r'[\.·;,:!¿?¡]'
     else:
@@ -112,6 +114,6 @@ def format(file, keep_punct, examples_length, save_file=True, standalone=True, t
 if __name__ == '__main__':
     file_to_create = sys.argv[1]
     keep_punct = sys.argv[2]
-    keep_dot = sys.argv[3]
+    punct = keep_punct == "True"
     examples_length = 50
-    format(file_to_create, keep_punct, examples_length, keep_dot)
+    format(file_to_create, punct, examples_length)
