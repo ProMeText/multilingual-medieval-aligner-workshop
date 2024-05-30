@@ -54,7 +54,7 @@ def test(file, model_path, tokenizer_name, num):
         bert_labels = get_labels_from_preds(preds)
         gt_label_as_list = gt['labels'].tolist()
         # Continuer à supprimer les paddings pour pouvoir comparer les résultats.
-        cropped_gt_labels = gt_label_as_list[:len(bert_labels) + 1]
+        cropped_gt_labels = gt_label_as_list[:len(bert_labels)]
         print(f"Text: {txt_example}")
         print(f"Predicted: {bert_labels}")
         print(f"Ground Truth: {cropped_gt_labels}")
