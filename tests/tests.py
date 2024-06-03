@@ -2,6 +2,9 @@ import unittest
 import main
 
 class Main(unittest.TestCase):
+    """
+    Cette classe teste l'intégralité de la chaîne
+    """
     def test_full_workflow(self):
         virtualArgs = {'input_dir': 'tests/test_data/', 
                        'out_dir': 'result_dir/', 
