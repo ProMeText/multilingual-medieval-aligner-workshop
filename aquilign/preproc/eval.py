@@ -8,7 +8,7 @@ import torch
 import numpy as np
 import evaluate
 from tabulate import tabulate
-
+import unicodedata
 
 def unalign_labels(human_to_bert, predicted_labels, splitted_text):
     realigned_list = []
@@ -40,7 +40,19 @@ def unalign_labels(human_to_bert, predicted_labels, splitted_text):
         [element if final_prediction[index] != 1 else f"\n{element}" for index, element in enumerate(splitted_text)])
     return final_prediction
 
-def simpleconversion(text:list):
+
+def tokenize_words(sentence:str) -> list:
+    """
+    Cette fonction tokénise une phrase selon un certain nombre de marqueurs
+    """
+    words_delimiters = r"[\.,;—:?!’'«»“/-]|\w+"
+    sentenceAsList = re.findall(words_delimiters, sentence)
+    print(f"Sentence: {sentence}")
+    print(f"Tokenized: {sentenceAsList}")
+    
+    return sentenceAsList
+
+def words_to_labels(text:list):
     sentencesList = []
     splitList = []
     for l in text:
@@ -50,7 +62,7 @@ def simpleconversion(text:list):
         i = re.split('\n', l)[0]
         j = re.split('\$', i)
 
-        sentenceAsList = re.findall(r"[\.,;—:?!’'«»“/-]|\w+", j[0])
+        sentenceAsList = tokenize_words(j[0])
         split= j[1]
         if '£' in split:
             splitOk = re.split('£', split)
@@ -139,26 +151,37 @@ def get_labels_from_preds(preds):
     return bert_labels
 
 
-def get_metrics(preds, gt):
+def pad_list(input_list:list, tgt_length:int) -> list:
+    out_padded_list = []
+    for item in input_list:
+        pad_num = tgt_length - len(item)
+        padding = [2 for item in range(pad_num)]
+        padded_list = item
+        padded_list.extend(padding)
+        out_padded_list.append(padded_list)
+    return out_padded_list
+
+def get_metrics(preds, tgts):
     """
     This function produces the metrics for evaluating the model at the end of training
     """
-    metric1 = evaluate.load("accuracy")
-    metric2 = evaluate.load("recall")
-    metric3 = evaluate.load("precision")
-    metric4 = evaluate.load("f1")
+    accuracies = evaluate.load("accuracy")
+    all_other_metrics = evaluate.combine(["recall", "precision", "f1"])
     all_accs, all_recall, all_precision, all_f1 = [], [], [], []
-    for un_pred, un_gt in zip(preds, gt):
-        assert len(un_gt) == len(un_pred), "Length mismatch"
-        all_accs.append(metric1.compute(predictions=un_pred, references=un_gt)['accuracy'])
-        all_recall.append(metric2.compute(predictions=un_pred, references=un_gt, average=None)['recall'])
-        all_precision.append(metric3.compute(predictions=un_pred, references=un_gt, average=None)['precision'])
-        all_f1.append(metric4.compute(predictions=un_pred, references=un_gt, average=None)['f1'])
-    mean_acc = np.mean(all_accs, axis=0)
-    mean_recall = list(np.mean(all_recall, axis=0))
-    mean_precision = list(np.mean(all_precision, axis=0))
-    mean_f1 = list(np.mean(all_f1, axis=0))
-    return mean_acc, mean_precision, mean_recall ,mean_f1
+    max_preds_length = max(len(pred) for pred in preds)
+    max_tgts_length = max(len(tgt) for tgt in tgts)
+    assert max_tgts_length == max_tgts_length, "Issue with max length"
+    padded_preds = pad_list(preds, max_preds_length)
+    padded_tgts = pad_list(tgts, max_preds_length)
+    for preds, refs in zip(padded_preds, padded_tgts):
+        accuracies.add_batch(references=refs, predictions=preds)
+        all_other_metrics.add_batch(references=refs, predictions=preds)
+    accuracy = accuracies.compute()['accuracy']
+    metrics = all_other_metrics.compute(average=None)
+    recall = metrics['recall'].tolist()
+    precision = metrics['precision'].tolist()
+    f1 = metrics['f1'].tolist()
+    return accuracy, precision, recall ,f1
     
     
 # correspondences between our labels and labels from the BERT-tok
@@ -167,7 +190,7 @@ def get_correspondence(sent, tokenizer):
     # First token is CLS
     tokenized_index =  1
     out[0] = (0,)
-    for index, word in enumerate(sent.replace("'", " ").split()):
+    for index, word in enumerate(tokenize_words(sent)):
         tokenized_word = tokenizer.tokenize(word)
         out[index + 1] = tuple(item for item in range(tokenized_index, tokenized_index + len(tokenized_word)))
         tokenized_index += len(tokenized_word)
@@ -176,15 +199,19 @@ def get_correspondence(sent, tokenizer):
     return human_split_to_bert, bert_split_to_human_split
 
 
+def unicode_normalise(string:str) -> str:
+    return unicodedata.normalize("NFC", string)
+
 def run_eval(file, model_path, tokenizer_name, num, verbose=False):
     with open(file, "r") as input_file:
-        as_list = [item.replace("\n", "").replace(".", "") for item in input_file.readlines()]
+        as_list = [unicode_normalise(item.replace("\n", "")) for item in input_file.readlines()]
     
     all_preds, all_gts = [], []
     tokenizer = BertTokenizer.from_pretrained(tokenizer_name, max_length=10)
     new_model = AutoModelForTokenClassification.from_pretrained(model_path, num_labels=3)
     # get the path of the default tokenizer
-    result = simpleconversion(as_list)
+    result = words_to_labels(as_list)
+    print(result)
     texts, labels = result
     assert len(texts) == len(labels),  "Lists mismatch"
     
@@ -192,14 +219,32 @@ def run_eval(file, model_path, tokenizer_name, num, verbose=False):
     # First, regexp evaluation
     syntactic_preds, all_syntactic_gt = [], []
     for idx, (example, label) in enumerate(zip(texts, labels)):
-        tokenized = SyntacticTok.syntactic_tokenization(path=None, standalone=False, text=example, use_punctuation=False)
-        formatted = FormatData.format(file=None, keep_punct=False, save_file=False, standalone=False, tokenized_text=tokenized, examples_length=100)
-        predicted = [labels[0] for labels in simpleconversion(formatted)][1]
-        assert len(predicted) == len(label), "Length mismatch, please check the regular expressions don't split any word."
+        print(f"---\nSynttok New example: {example}")
+        tokenized = SyntacticTok.syntactic_tokenization(path=None, standalone=False, text=example,
+                                                        use_punctuation=False)
+        formatted = FormatData.format(file=None, keep_punct=False, save_file=False, standalone=False,
+                                      tokenized_text=tokenized, examples_length=100)
+        to_labels = words_to_labels(formatted)
+        
+        # Si la fonction words_to_labels ne renvoie que des listes vides, c'est que la tokénisation n'a rien donné.
+        if to_labels == ([], []):
+            predicted = [0 for item in label]
+        else:
+            predicted = to_labels[1][0]
+            
+        syntactic_preds.append(predicted)
+        all_syntactic_gt.append(label)
+        print(f"Predicted:  {predicted}")
+        print(f"Formated:  {formatted}")
+        print(f"To labels:  {to_labels}")
+        print(f"Labels:     {label}")
+        assert len(predicted) == len(label), f"Length mismatch, please check the regular expressions don't split any word:\n" \
+                                             f"{example}\n" \
+                                             f"(label: {len(label)} and predicted: {len(predicted)})"
         syntactic_preds.append(predicted)
         all_syntactic_gt.append(label)
         if verbose:
-            print("---\nNew example")
+            print("---\nBERTtok New example")
             print(f"Example:   {example}")
             print(f"Predicted:    {predicted}")
             print(f"Ground Truth: {label}")
@@ -208,6 +253,7 @@ def run_eval(file, model_path, tokenizer_name, num, verbose=False):
             print(f"GT length: {len(label)}")
             print(f"Orig GT: {as_list[idx]}")
     synt_results = get_metrics(syntactic_preds, all_syntactic_gt)
+    print(synt_results)
     
     
     # Second, model evaluation
@@ -216,7 +262,7 @@ def run_eval(file, model_path, tokenizer_name, num, verbose=False):
     for txt_example, gt in zip(as_list, toks_and_labels):
         # We get only the text
         example, _ = txt_example.split("$")
-        splitted_example = example.replace("'", " ").split()
+        splitted_example = tokenize_words(example)
         # BERT-tok
         enco_nt_tok = tokenizer.encode(example, truncation=True, padding=True, return_tensors="pt")
         # get the predictions from the model
@@ -258,9 +304,11 @@ def run_eval(file, model_path, tokenizer_name, num, verbose=False):
             print(f"Predictions (words):               {unaligned_preds}")
             print(f"Targets (words):                   {unaligned_tgts}")
             print(f"Length: {len(unaligned_preds)}")
+            assert len(unaligned_preds) - len(splitted_example) == 2, "Something went wrong during words/subwords alignment"
     bert_results = get_metrics(all_preds, all_gts)
     
     zipped_results = list(zip(['Accuracy', 'Precision', 'Recall', 'F1-score'], synt_results, bert_results))
+    print(zipped_results)
     print(tabulate(zipped_results, headers=['', 'Synt (None, Delim.)', 'Bert (None, Delim., Pad.)'], tablefmt='orgtbl'))
         
         
