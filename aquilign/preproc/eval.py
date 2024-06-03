@@ -1,4 +1,4 @@
-import tok_trainer_functions as functions
+import aquilign.preproc.tok_trainer_functions as functions
 import aquilign.tokenize.syntactic_tokenization as SyntacticTok
 import aquilign.preproc.create_train_data as FormatData
 import sys
