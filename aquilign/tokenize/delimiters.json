@@ -27,7 +27,7 @@
   "·",
 "¶"], 
   "word_delimiters": [
-	"los? que",
+	" los? que",
 	"nin para",
 	"a[ns]?si que",
 	"[Cc]a s[yi]", 
@@ -87,6 +87,8 @@
 	"[Dd]on[ct]",
 	"[pP]uis",
 	"[&⁊]",
+	"pour",
+	"comment",
 	"/",
 	"[Mm]ais"
   ]}, "it": 
@@ -132,7 +134,6 @@
   "[pP]er", 
   "[Qq]ue",
 	"a que",
-	"los? que",
 	"si", 
 	"[Dd]o", 
 	"[Ee]",
