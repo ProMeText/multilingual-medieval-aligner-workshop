@@ -40,16 +40,12 @@ def unalign_labels(human_to_bert, predicted_labels, splitted_text):
         [element if final_prediction[index] != 1 else f"\n{element}" for index, element in enumerate(splitted_text)])
     return final_prediction
 
-
 def tokenize_words(sentence:str) -> list:
     """
     Cette fonction tokénise une phrase selon un certain nombre de marqueurs
     """
     words_delimiters = r"[\.,;—:?!’'«»“/-]|\w+"
     sentenceAsList = re.findall(words_delimiters, sentence)
-    print(f"Sentence: {sentence}")
-    print(f"Tokenized: {sentenceAsList}")
-    
     return sentenceAsList
 
 def words_to_labels(text:list):
@@ -202,7 +198,7 @@ def get_correspondence(sent, tokenizer):
 def unicode_normalise(string:str) -> str:
     return unicodedata.normalize("NFC", string)
 
-def run_eval(file, model_path, tokenizer_name, num, verbose=False):
+def run_eval(file, model_path, tokenizer_name, verbose=False):
     with open(file, "r") as input_file:
         as_list = [unicode_normalise(item.replace("\n", "")) for item in input_file.readlines()]
     
@@ -211,7 +207,6 @@ def run_eval(file, model_path, tokenizer_name, num, verbose=False):
     new_model = AutoModelForTokenClassification.from_pretrained(model_path, num_labels=3)
     # get the path of the default tokenizer
     result = words_to_labels(as_list)
-    print(result)
     texts, labels = result
     assert len(texts) == len(labels),  "Lists mismatch"
     
@@ -219,7 +214,6 @@ def run_eval(file, model_path, tokenizer_name, num, verbose=False):
     # First, regexp evaluation
     syntactic_preds, all_syntactic_gt = [], []
     for idx, (example, label) in enumerate(zip(texts, labels)):
-        print(f"---\nSynttok New example: {example}")
         tokenized = SyntacticTok.syntactic_tokenization(path=None, standalone=False, text=example,
                                                         use_punctuation=False)
         formatted = FormatData.format(file=None, keep_punct=False, save_file=False, standalone=False,
@@ -234,10 +228,6 @@ def run_eval(file, model_path, tokenizer_name, num, verbose=False):
             
         syntactic_preds.append(predicted)
         all_syntactic_gt.append(label)
-        print(f"Predicted:  {predicted}")
-        print(f"Formated:  {formatted}")
-        print(f"To labels:  {to_labels}")
-        print(f"Labels:     {label}")
         assert len(predicted) == len(label), f"Length mismatch, please check the regular expressions don't split any word:\n" \
                                              f"{example}\n" \
                                              f"(label: {len(label)} and predicted: {len(predicted)})"
@@ -308,15 +298,13 @@ def run_eval(file, model_path, tokenizer_name, num, verbose=False):
     bert_results = get_metrics(all_preds, all_gts)
     
     zipped_results = list(zip(['Accuracy', 'Precision', 'Recall', 'F1-score'], synt_results, bert_results))
-    print(zipped_results)
     print(tabulate(zipped_results, headers=['', 'Synt (None, Delim.)', 'Bert (None, Delim., Pad.)'], tablefmt='orgtbl'))
         
-        
+
 
 
 if __name__ == '__main__':
     file_to_test = sys.argv[1]
     model_path = sys.argv[2]
     tokenizer_name = sys.argv[3]
-    num = int(sys.argv[4])
-    run_eval(file_to_test, model_path, tokenizer_name, num)
+    run_eval(file_to_test, model_path, tokenizer_name)

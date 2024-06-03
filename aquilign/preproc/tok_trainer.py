@@ -2,35 +2,38 @@
 import sys
 from transformers import BertTokenizer, Trainer, TrainingArguments, AutoModelForTokenClassification
 import tok_trainer_functions as trainer_functions
+import eval as evaluation
 import re
 
 ## script for the training of the text tokenizer : identification of tokens (label 1) which will be used to split the text
 ## produces folder with models (best for each epoch) and logs
 
 
-## usage : python tok_trainer.py model_name train_file.txt eval_file.txt num_train_epochs batch_size logging_steps
+## usage : python tok_trainer.py model_name train_file.txt dev_file.txt num_train_epochs batch_size logging_steps
 ## where :
 # model_name is the full name of the model (same name for model and tokenizer)
 # train_file.txt is the file with the sentences and words of interest are identified  (words are identified with $ after the line)
 # which will be used for training
 ## ex. : uoulentiers mais il nen est pas encor temps. Certes fait elle si$mais£Certes
-# eval_file.txt is the file with the sentences and words of interest which will be used for eval
+# dev_file.txt is the file with the sentences and words of interest which will be used for eval
 # num_train_epochs : the number of epochs we want to train (ex : 10)
 # batch_size : the batch size (ex : 8)
 # logging_steps : the number of logging steps (ex : 50)
 
 # function which produces the train, which first gets texts, transforms them into tokens and labels, then trains model with the specific given arguments
-def training_trainer(modelName, train_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps):
+def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps):
     model = AutoModelForTokenClassification.from_pretrained(modelName, num_labels=3)
     tokenizer = BertTokenizer.from_pretrained(modelName, max_length=10)
     train_file = open(train_dataset, "r")
     train_lines = train_file.readlines()
-    eval_file = open(eval_dataset, "r")
-    eval_lines = eval_file.readlines()
+    dev_file = open(dev_dataset, "r")
+    dev_lines = dev_file.readlines()
+    eval_files = open(eval_dataset, "r")
+    eval_lines = eval_files.readlines()
     train_texts_and_labels = trainer_functions.convertToSentencesAndLabels(train_lines, tokenizer)
-    eval_texts_and_labels = trainer_functions.convertToSentencesAndLabels(eval_lines, tokenizer)
+    eval_texts_and_labels = trainer_functions.convertToSentencesAndLabels(dev_lines, tokenizer)
     train_dataset = trainer_functions.SentenceBoundaryDataset(train_texts_and_labels, tokenizer)
-    eval_dataset = trainer_functions.SentenceBoundaryDataset(eval_texts_and_labels, tokenizer)
+    dev_dataset = trainer_functions.SentenceBoundaryDataset(eval_texts_and_labels, tokenizer)
 
     if '/' in modelName:
         name_of_model = re.split('/', modelName)[1]
@@ -62,7 +65,7 @@ def training_trainer(modelName, train_dataset, eval_dataset, num_train_epochs, b
         model=model,
         args=training_args,
         train_dataset=train_dataset,
-        eval_dataset=eval_dataset,
+        dev_dataset=dev_dataset,
         compute_metrics=trainer_functions.compute_metrics
     )
 
@@ -73,6 +76,11 @@ def training_trainer(modelName, train_dataset, eval_dataset, num_train_epochs, b
 
     # get the best model path
     best_model_path = trainer.state.best_model_checkpoint
+    print(f"Evaluation.")
+    
+    evaluation.run_eval(file=eval_files, model_path=best_model_path, tokenizer_name=tokenizer, verbose=False)
+    
+    
     print(f"Best model can be found at : {best_model_path} ")
 
     # print the whole log_history with the compute metrics
