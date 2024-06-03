@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import sys
 from transformers import BertTokenizer, Trainer, TrainingArguments, AutoModelForTokenClassification
-import tok_trainer_functions as trainer_functions
-import eval as evaluation
+import aquilign.preproc.tok_trainer_functions as trainer_functions
+import aquilign.preproc.eval as evaluation
 import re
 
 ## script for the training of the text tokenizer : identification of tokens (label 1) which will be used to split the text
