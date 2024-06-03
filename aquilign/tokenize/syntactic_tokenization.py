@@ -22,6 +22,16 @@ def syntactic_tokenization(path, corpus_limit=None, use_punctuation=False, stand
         codelang = "es"
     if codelang == "eo" or codelang == "ht":
         codelang = "fr"
+    if codelang == "jv":
+        codelang = "it"
+        
+    try:
+        dictionary[codelang]
+    except KeyError:
+        print("Re-running language identification:")
+        print(text)
+        codelang, _ = langid.classify(text)
+        print(codelang)
     
     single_tokens_punctuation = [punct for punct in dictionary[codelang]['punctuation'] if len(punct) == 1]
     multiple_tokens_punctuation = [punct for punct in dictionary[codelang]['punctuation'] if len(punct) != 1]
