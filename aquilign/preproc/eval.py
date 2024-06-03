@@ -70,8 +70,13 @@ def words_to_labels(text:list):
         tokenList = []
         for i in range(len(splitOk)):
             if re.search(r'-\d', splitOk[i]):
-                position = re.split('-', splitOk[i])[1]
-                positionList.append(int(position))
+                position = re.split('-', splitOk[i])[-1]
+                try:
+                    positionList.append(int(position))
+                except ValueError:
+                    print(f"Tokenisation error in {splitOk}")
+                    print(f"Full sentence: {l}")
+                    exit(0)
                 splitOkk = re.split('-', splitOk[i])[0]
                 tokenList.append(splitOkk)
             else:
