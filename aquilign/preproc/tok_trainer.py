@@ -94,11 +94,12 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
 # list of arguments to provide and application of the main function
 if __name__ == '__main__':
     model = sys.argv[1]
-    train_text = sys.argv[2]
-    eval_text = sys.argv[3]
-    num_train_epochs = int(sys.argv[4])
-    batch_size = int(sys.argv[5])
-    logging_steps = int(sys.argv[6])
+    train_dataset = sys.argv[2]
+    dev_dataset = sys.argv[3]
+    eval_dataset = sys.argv[4]
+    num_train_epochs = int(sys.argv[5])
+    batch_size = int(sys.argv[6])
+    logging_steps = int(sys.argv[7])
 
-    training_trainer(model, train_text, eval_text, num_train_epochs, batch_size, logging_steps)
+    training_trainer(model, train_dataset, dev_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps)
 
