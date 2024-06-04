@@ -4,14 +4,16 @@ import torch
 import evaluate
 import numpy as np
 import tqdm 
+
+
 # function to convert text in input as tokens and labels (if label is identified in the file, gives 1, in other cases, 0)
-def convertToSentencesAndLabels(text, tokenizer):
-    print("Converting to sentences and labels")
+def convertToSentencesAndLabels(text, tokenizer, verbose=False):
+    if verbose:
+        print("Converting to sentences and labels")
     sentencesList = []
     splitList = []
 
     for l in text:
-        print(l)
         i = re.split('\n', l)[0]
         j = re.split('\$', i)
 
@@ -29,7 +31,6 @@ def convertToSentencesAndLabels(text, tokenizer):
         for i in range(len(splitOk)):
             if re.search(r'-\d', splitOk[i]):
                 position = re.split('-', splitOk[i])[1]
-                # print(position)
                 positionList.append(int(position))
                 splitOkk = re.split('-', splitOk[i])[0]
                 tokenList.append(splitOkk)
@@ -96,7 +97,7 @@ def convertToSentencesAndLabels(text, tokenizer):
 
     num_max_length = get_token_max_length(sentencesList, tokenizer)
     out_toks_and_labels = []
-    for text, labels in tqdm.tqdm(zip(sentencesList, splitList)):
+    for text, labels in zip(sentencesList, splitList):
         toks = tokenizer(text, padding="max_length", max_length=num_max_length, truncation=True,
                               return_tensors="pt")
         
@@ -115,7 +116,12 @@ def convertToSentencesAndLabels(text, tokenizer):
             diff = len(sq) - len(new_labels)
             for elem in range(diff):
                 new_labels.append(2)
-        assert len(sq) == len(new_labels), "Mismatch"
+        assert len(sq) == len(new_labels), f"Mismatch.\n" \
+                                           f"Text: {text}\n" \
+                                           f"{(sq.tolist())}\n" \
+                                           f"{(new_labels)}\n" \
+                                           f"sq: {len(sq)}\n" \
+                                           f"new labels: {len(new_labels)}"
         # tensorize the new labels
         label = torch.tensor(new_labels)
         out_toks_and_labels.append({'input_ids': toks['input_ids'].squeeze(), 
@@ -132,24 +138,16 @@ def get_index_correspondence(sent, tokenizer):
     for word in sent:
         (raw_end, expand_end) = correspondence[-1]
         tokenized_word = tokenizer.tokenize(word)
-        # print(tokenized_word)
         correspondence.append((raw_end+1, expand_end+len(tokenized_word)))
     return correspondence
 
 
-# function to align labels between the tokens in input and the tokenized tokens
 def align_labels(corresp, orig_labels):
+# function to align labels between the tokens in input and the tokenized tokens
     new_labels = [0 for r in range(corresp[-1][1])]
     for index, label in enumerate(orig_labels):
         # label which is interesting : 1
         if label == 1:
-            ### verbose ?
-            # print(f"index is {index}")
-            # print(f"label is {label}")
-            # print(f"Corresp first subword is {corresp[index][1] + 1}")
-            # print(f"Corresp first subword actual index is {corresp[index][1]}")
-            ###
-            ### if the length of the new list = the current index
             if len(new_labels) == corresp[index][1]:
                 new_labels[(corresp[index][1]) - 1] = 1
             else:
