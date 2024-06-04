@@ -44,7 +44,7 @@ def convertToWordsSentencesAndLabels(corpus :list, delimiter="£") -> (list, lis
 
 
 # function to convert text in input as tokens and labels (if label is identified in the file, gives 1, in other cases, 0)
-def convertToSubWordsSentencesAndLabels(corpus, delimiter, tokenizer, verbose=False):
+def convertToSubWordsSentencesAndLabels(corpus, tokenizer, delimiter="£",  verbose=False):
     """
     This function takes a corpus and returns the tokenized corpus as subwords with their labels.
     """

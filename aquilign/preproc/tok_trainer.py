@@ -31,8 +31,8 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
     dev_lines = dev_file.readlines()
     eval_files = open(eval_dataset, "r")
     eval_lines = eval_files.readlines()
-    train_texts_and_labels = utils.convertToSubWordsSentencesAndLabels(train_lines, tokenizer)
-    eval_texts_and_labels = utils.convertToSubWordsSentencesAndLabels(dev_lines, tokenizer)
+    train_texts_and_labels = utils.convertToSubWordsSentencesAndLabels(train_lines, tokenizer=tokenizer, delimiter="£")
+    eval_texts_and_labels = utils.convertToSubWordsSentencesAndLabels(dev_lines, tokenizer=tokenizer, delimiter="£")
     train_dataset = trainer_functions.SentenceBoundaryDataset(train_texts_and_labels, tokenizer)
     dev_dataset = trainer_functions.SentenceBoundaryDataset(eval_texts_and_labels, tokenizer)
 
