@@ -216,13 +216,10 @@ def run_eval(file, model_path, tokenizer_name, verbose=True, delimiter="£", sta
     for idx, (example, label) in enumerate(zip(texts, labels)):
         tokenized = SyntacticTok.syntactic_tokenization(path=None, standalone=False, text=example,
                                                         use_punctuation=False)
-        print(tokenized)
         formatted = [f" {delimiter}".join(tokenized)]
-        print(formatted)
         # formatted = FormatData.format(file=None, keep_punct=False, save_file=False, standalone=False,
         # tokenized_text=tokenized, examples_length=100)
         to_labels = utils.convertToWordsSentencesAndLabels(formatted)
-        print(to_labels)
         
         # Si la fonction words_to_labels ne renvoie que des listes vides, c'est que la tokénisation n'a rien donné.
         if to_labels == ([], []):
