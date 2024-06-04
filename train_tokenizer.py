@@ -5,7 +5,8 @@ import aquilign.preproc.tok_trainer_functions as trainer_functions
 import aquilign.preproc.eval as evaluation
 import aquilign.preproc.utils as utils
 import re
-
+import shutil
+import glob
 ## script for the training of the text tokenizer : identification of tokens (label 1) which will be used to split the text
 ## produces folder with models (best for each epoch) and logs
 
@@ -94,15 +95,18 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
     
     evaluation.run_eval(file=eval_lines, model_path=best_model_path, tokenizer_name=tokenizer.name_or_path, verbose=False)
     
+    # We move the best state dir name to "best", to remove all other dirs and save space
+    new_best_path = f"results_{name_of_model}/epoch{num_train_epochs}_bs{batch_size}/best"
+    shutil.move(best_model_path, new_best_path)
+    print(f"Best model can be found at : {new_best_path} ")
     
-    print(f"Best model can be found at : {best_model_path} ")
-
+    print(f"You should remove the following directorys by using rm -r `results_{name_of_model}/epoch{num_train_epochs}_bs{batch_size}/checkpoint-*`")
     # print the whole log_history with the compute metrics
     print("Best model is evaluated on the loss results. Here is the log history with the performances of the models :")
     print(trainer.state.log_history)
 
     # functions returns best model_path
-    return best_model_path
+    return new_best_path
 
 
 # list of arguments to provide and application of the main function
