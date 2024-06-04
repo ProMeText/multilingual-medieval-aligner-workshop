@@ -253,7 +253,7 @@ def run_eval(file, model_path, tokenizer_name, verbose=True, delimiter="£", sta
     
     # Second, model evaluation
     print("Performing bert-based tokenization evaluation")
-    gt_toks_and_labels = utils.convertToSubWordsSentencesAndLabels(corpus_as_list, delimiter, tokenizer)
+    gt_toks_and_labels = utils.convertToSubWordsSentencesAndLabels(corpus_as_list, tokenizer=tokenizer, delimiter=delimiter)
     for txt_example, gt in zip(corpus_as_list, gt_toks_and_labels):
         # We get only the text
         example = txt_example.replace(delimiter, "")
