@@ -22,19 +22,32 @@ import re
 # logging_steps : the number of logging steps (ex : 50)
 
 # function which produces the train, which first gets texts, transforms them into tokens and labels, then trains model with the specific given arguments
-def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps):
+def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps, keep_punct=False):
     model = AutoModelForTokenClassification.from_pretrained(modelName, num_labels=3)
     tokenizer = BertTokenizer.from_pretrained(modelName, max_length=10)
-    train_file = open(train_dataset, "r")
-    train_lines = train_file.readlines()
-    dev_file = open(dev_dataset, "r")
-    dev_lines = dev_file.readlines()
-    eval_files = open(eval_dataset, "r")
-    eval_lines = eval_files.readlines()
+    
+    with open(train_dataset, "r") as train_file:
+        train_lines = [item.replace("\n", "") for item in train_file.readlines()]
+        if keep_punct is False:
+            train_lines = [utils.remove_punctuation(line) for line in train_lines]
+        
+    with open(dev_dataset, "r") as dev_file:
+        dev_lines = [item.replace("\n", "") for item in dev_file.readlines()]
+        if keep_punct is False:
+            dev_lines = [utils.remove_punctuation(line) for line in dev_lines]
+        
+    with open(eval_dataset, "r") as eval_files:
+        eval_lines = [item.replace("\n", "") for item in eval_files.readlines()]
+        if keep_punct is False:
+            eval_lines = [utils.remove_punctuation(line) for line in eval_lines]
+    
+    # Train corpus
     train_texts_and_labels = utils.convertToSubWordsSentencesAndLabels(train_lines, tokenizer=tokenizer, delimiter="£")
-    eval_texts_and_labels = utils.convertToSubWordsSentencesAndLabels(dev_lines, tokenizer=tokenizer, delimiter="£")
     train_dataset = trainer_functions.SentenceBoundaryDataset(train_texts_and_labels, tokenizer)
-    dev_dataset = trainer_functions.SentenceBoundaryDataset(eval_texts_and_labels, tokenizer)
+    
+    # Dev corpus
+    dev_texts_and_labels = utils.convertToSubWordsSentencesAndLabels(dev_lines, tokenizer=tokenizer, delimiter="£")
+    dev_dataset = trainer_functions.SentenceBoundaryDataset(dev_texts_and_labels, tokenizer)
 
     if '/' in modelName:
         name_of_model = re.split('/', modelName)[1]
