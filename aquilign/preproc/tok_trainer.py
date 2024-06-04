@@ -3,6 +3,7 @@ import sys
 from transformers import BertTokenizer, Trainer, TrainingArguments, AutoModelForTokenClassification
 import aquilign.preproc.tok_trainer_functions as trainer_functions
 import aquilign.preproc.eval as evaluation
+import aquilign.preproc.utils as utils
 import re
 
 ## script for the training of the text tokenizer : identification of tokens (label 1) which will be used to split the text
@@ -30,8 +31,8 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
     dev_lines = dev_file.readlines()
     eval_files = open(eval_dataset, "r")
     eval_lines = eval_files.readlines()
-    train_texts_and_labels = trainer_functions.convertToSentencesAndLabels(train_lines, tokenizer)
-    eval_texts_and_labels = trainer_functions.convertToSentencesAndLabels(dev_lines, tokenizer)
+    train_texts_and_labels = utils.convertToSubWordsSentencesAndLabels(train_lines, tokenizer)
+    eval_texts_and_labels = utils.convertToSubWordsSentencesAndLabels(dev_lines, tokenizer)
     train_dataset = trainer_functions.SentenceBoundaryDataset(train_texts_and_labels, tokenizer)
     dev_dataset = trainer_functions.SentenceBoundaryDataset(eval_texts_and_labels, tokenizer)
 

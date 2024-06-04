@@ -4,18 +4,68 @@ import operator
 
 
 def convert_text_to_labels(tokenized_text):
-    print(tokenized_text)
-    labels = []
+    all_labels = []
     for idx, syntagm in enumerate(tokenized_text):
+        labels = []
         splitted = syntagm.split()
         if idx == 0:
             [labels.append(0) for token in splitted]
         else:
             labels.append(1)
             [labels.append(0) for token in splitted[1:]]
-    print(labels)
-    exit(0)
+        all_labels.append(labels)
+    return all_labels
 
+
+def convert_to_new_format(file, delimiter="£", save_file=True, max_len=30):
+    """
+    This function takes a \n separated text file and converts each token to the adapted format (each example as a line with
+    some delimiters)
+    """
+    with open(file, "r") as input_file:
+        as_list = [line.replace("\n", "") for line in input_file.readlines()]
+    
+    as_sentences = {}
+    n = 0
+    for line in as_list:
+        try:
+            as_sentences[n].append(line)
+        except KeyError:
+            as_sentences[n] = [line]
+        if "." in line:
+            n += 1
+
+    examples = {}
+    all_examples = []
+    for key, example in as_sentences.items():
+        out_example = {0:""}
+        n = 0
+        for syntagm in example:
+            if len(out_example[n].split()) + len(syntagm) > max_len:
+                n += 1
+            try:
+                if out_example[n] != "":
+                    out_example[n] += f" {delimiter}{syntagm}"
+                else:
+                    out_example[n] = syntagm
+            except KeyError:
+                out_example[n] = syntagm
+            out_example[n] = out_example[n].strip()
+            
+        filtered_dict = {}
+        for key, value in out_example.items():
+            if len(value.split()) < 15:
+                continue
+            else:
+                filtered_dict[key] = value 
+        all_examples.extend(filtered_dict.values())
+    if save_file:
+        with open(file.replace(".txt", ".formatted_new.txt"), "w") as output_file:
+            output_file.write("\n".join(all_examples))
+    
+    return all_examples
+    
+    
 
 def format(file, keep_punct, examples_length, save_file=True, standalone=True, tokenized_text:list=None, keep_dots=False):
     """
@@ -52,7 +102,6 @@ def format(file, keep_punct, examples_length, save_file=True, standalone=True, t
     examples = {}
     n = 0
     for key, sentence in as_sentences.items():
-        print(f"\n---\n New sentence: {sentence}")
         as_string = " ".join(sentence)
         splitted = as_string.split()
         clusters = {}
@@ -66,7 +115,6 @@ def format(file, keep_punct, examples_length, save_file=True, standalone=True, t
         for index, element in enumerate(all_delimiters[:-1]):
             delim_indices.append(element + previous_value)
             previous_value = element + previous_value
-        
         updated_index = 0 
         # On va créer un dictionnaire de forme {index: {"labels": [...], "text": [...]}}
         for index, token in enumerate(splitted):
@@ -95,7 +143,6 @@ def format(file, keep_punct, examples_length, save_file=True, standalone=True, t
     out_list = []
     for example in examples.values():
         text = " ".join(example['text'])
-        print(len(text.split()))
         labels = ""
         if example["labels"] != [] and len(example["labels"]) != 1:
             labels = f"${example['labels'][0]}" + "£" + '£'.join(example['labels'][1:])
@@ -104,7 +151,6 @@ def format(file, keep_punct, examples_length, save_file=True, standalone=True, t
         elif example["labels"] == []:
             continue
         out_list.append(text+labels)
-    print(out_list)
         
     if save_file:
         with open(file.replace(".txt", ".formatted.txt"), "w") as output_file:
@@ -119,3 +165,4 @@ if __name__ == '__main__':
     dot = keep_dot == "True"
     examples_length = 50
     format(file_to_create, punct, examples_length, keep_dot)
+    convert_to_new_format(file_to_create, max_len=examples_length)
