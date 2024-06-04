@@ -79,7 +79,7 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
     best_model_path = trainer.state.best_model_checkpoint
     print(f"Evaluation.")
     
-    evaluation.run_eval(file=eval_files, model_path=best_model_path, tokenizer_name=tokenizer.name_or_path, verbose=False)
+    evaluation.run_eval(file=eval_lines, model_path=best_model_path, tokenizer_name=tokenizer.name_or_path, verbose=False)
     
     
     print(f"Best model can be found at : {best_model_path} ")

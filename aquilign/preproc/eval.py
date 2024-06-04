@@ -193,10 +193,14 @@ def get_correspondence(sent, tokenizer):
 def unicode_normalise(string:str) -> str:
     return unicodedata.normalize("NFC", string)
 
-def run_eval(file, model_path, tokenizer_name, verbose=True, delimiter="£"):
-    with open(file, "r") as input_file:
-        corpus_as_list = [unicode_normalise(item.replace("\n", "")) for item in input_file.readlines()]
-        corpus_as_list = [utils.remove_punctuation(item) for item in corpus_as_list]
+def run_eval(file, model_path, tokenizer_name, verbose=True, delimiter="£", standalone=False):
+    if standalone:
+        with open(file, "r") as input_file:
+            corpus_as_list = [unicode_normalise(item.replace("\n", "")) for item in input_file.readlines()]
+    else:
+        corpus_as_list = [unicode_normalise(item) for item in file]
+            
+    corpus_as_list = [utils.remove_punctuation(item) for item in corpus_as_list]
     
     all_preds, all_tgts = [], []
     tokenizer = BertTokenizer.from_pretrained(tokenizer_name, max_length=10)
@@ -308,4 +312,4 @@ if __name__ == '__main__':
     file_to_test = sys.argv[1]
     model_path = sys.argv[2]
     tokenizer_name = sys.argv[3]
-    run_eval(file_to_test, model_path, tokenizer_name)
+    run_eval(file_to_test, model_path, tokenizer_name, standalone=True)
