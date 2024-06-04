@@ -95,7 +95,6 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
     
     evaluation.run_eval(file=eval_lines, model_path=best_model_path, tokenizer_name=tokenizer.name_or_path, verbose=False)
     
-    shutil.move(best_model_path, new_best_path)
     # print the whole log_history with the compute metrics
     print("\nBest model is evaluated on the loss results. Here is the log history with the performances of the models :")
     print(trainer.state.log_history)
@@ -103,6 +102,7 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
 
     # We move the best state dir name to "best"
     new_best_path = f"results_{name_of_model}/epoch{num_train_epochs}_bs{batch_size}/best"
+    shutil.move(best_model_path, new_best_path)
     print(f"You should remove the following directorys by using rm -r `results_{name_of_model}/epoch{num_train_epochs}_bs{batch_size}/checkpoint-*`")
 
     # functions returns best model_path
