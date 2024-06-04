@@ -18,7 +18,7 @@ def syntactic_tokenization(path, corpus_limit=None, use_punctuation=False, stand
     with open("aquilign/tokenize/delimiters.json", "r") as input_json:
         dictionary = json.load(input_json)
     # Il ne reconnaît pas toujours le castillan
-    if codelang == "an" or codelang == "oc":
+    if codelang == "an" or codelang == "oc" or codelang == "pt":
         codelang = "es"
     if codelang == "eo" or codelang == "ht":
         codelang = "fr"
