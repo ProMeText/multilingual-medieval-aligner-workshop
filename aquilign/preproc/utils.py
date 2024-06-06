@@ -7,11 +7,12 @@ def tokenize(text,num):
     return [' '.join(words[i:i+num]) for i in range(0, len(words), num)]
 
 
-def remove_punctuation(text):
+def remove_punctuation(text:str):
     punct = re.compile(r"[\.,;—:\?!’'«»“/\-]")
     cleaned_text = re.sub(punct, "", text)
     return cleaned_text
     
+
 
 def tokenize_words(sentence:str) -> list:
     """
