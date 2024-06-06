@@ -3,6 +3,7 @@ import random
 import re
 
 def main(in_file, splits):
+    random.seed(1234)
     with open(in_file, "r") as input_file:
         as_list = [line.replace("\n", "") for line in input_file.readlines()]
     train, dev, test = splits
@@ -30,9 +31,6 @@ def main(in_file, splits):
     out_list_clean = [re.sub(regexp, "", example) for example in test_list]
     punctuation_pattern = re.compile('["·?¡¿!,:;]')
     
-
-    with open(in_file.replace(".txt", ".test-nolabel.txt"), "w") as output_test_2:
-        output_test_2.write("\n".join([re.sub(punctuation_pattern, "", example) for example in out_list_clean]))
 
 if __name__ == '__main__':
     random.seed(1234)
