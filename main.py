@@ -9,7 +9,7 @@ import numpy as np
 import aquilign.align.graph_merge as graph_merge
 import aquilign.align.utils as utils
 import aquilign.preproc.tok_apply as tokenize
-import aquilign.tokenize.syntactic_tokenization as syntactic_tokenization
+import aquilign.preproc.syntactic_tokenization as syntactic_tokenization
 from aquilign.align.encoder import Encoder
 from aquilign.align.aligner import Bertalign
 import pandas as pd
