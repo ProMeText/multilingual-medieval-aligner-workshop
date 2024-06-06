@@ -4,8 +4,6 @@ import sys
 import os
 from os.path import join
 from transformers import BertTokenizer, AutoModelForTokenClassification
-import utils as utils
-
 ## script for applying the tokenisation to text
 ## it produces .txt files which has been tokenized ; each element of tokenisation is marked by a breakline
 
@@ -20,6 +18,13 @@ import utils as utils
 
 
 ### functions
+
+
+def remove_punctuation(text: str):
+    punct = re.compile(r"[\.,;—:\?!’'«»“/\-]")
+    cleaned_text = re.sub(punct, "", text)
+    return cleaned_text
+
 
 # tokenize text (BERT as a max length of 512) ; recommended : get the same length as for the training
 def tokenize(text,num):
@@ -110,7 +115,7 @@ if __name__ == '__main__':
         textL = f.read().splitlines()
     localText = " ".join(str(element) for element in textL)
     if remove_punct:
-        localText = utils.remove_punctuation(localText)
+        localText = remove_punctuation(localText)
 
     #get the number of tokens per fragment to tokenize
     num = int(sys.argv[4])
