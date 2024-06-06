@@ -4,7 +4,7 @@ import sys
 import os
 from os.path import join
 from transformers import BertTokenizer, AutoModelForTokenClassification
-
+import re
 ## script for applying the tokenisation to text
 ## it produces .txt files which has been tokenized ; each element of tokenisation is marked by a breakline
 
@@ -19,6 +19,13 @@ from transformers import BertTokenizer, AutoModelForTokenClassification
 
 
 ### functions
+
+
+def remove_punctuation(text: str):
+    punct = re.compile(r"[\.,;—:\?!’'«»“/\-]")
+    cleaned_text = re.sub(punct, "", text)
+    return cleaned_text
+
 
 # tokenize text (BERT as a max length of 512) ; recommended : get the same length as for the training
 def tokenize(text,num):
@@ -93,6 +100,7 @@ def unalign_labels(bert_to_human, predicted_labels, splitted_text):
 ###
 if __name__ == '__main__':
     # get the path of the model
+    remove_punct = True
     new_path = sys.argv[1]
     new_model = AutoModelForTokenClassification.from_pretrained(new_path, num_labels=3)
     new_model
@@ -106,7 +114,9 @@ if __name__ == '__main__':
 
     with open(input_file) as f:
         textL = f.read().splitlines()
-        localText = " ".join(str(element) for element in textL)
+    localText = " ".join(str(element) for element in textL)
+    if remove_punct:
+        localText = remove_punctuation(localText)
 
     #get the number of tokens per fragment to tokenize
     num = int(sys.argv[4])
