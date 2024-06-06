@@ -4,7 +4,7 @@ import sys
 import os
 from os.path import join
 from transformers import BertTokenizer, AutoModelForTokenClassification
-import aquilign.preproc.utils as utils
+import utils as utils
 
 ## script for applying the tokenisation to text
 ## it produces .txt files which has been tokenized ; each element of tokenisation is marked by a breakline
