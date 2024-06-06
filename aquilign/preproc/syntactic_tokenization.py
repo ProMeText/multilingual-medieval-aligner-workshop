@@ -15,7 +15,7 @@ def syntactic_tokenization(path, corpus_limit=None, use_punctuation=False, stand
         pass
     # text = utils.normalize_text(text)
     codelang, _ = langid.classify(text[:300])
-    with open("aquilign/tokenize/delimiters.json", "r") as input_json:
+    with open("aquilign/preproc/delimiters.json", "r") as input_json:
         dictionary = json.load(input_json)
     # Il ne reconnaît pas toujours le castillan
     if codelang == "an" or codelang == "oc" or codelang == "pt" or codelang == "gl":
@@ -54,7 +54,7 @@ def syntactic_tokenization(path, corpus_limit=None, use_punctuation=False, stand
         tokenized_text = [text]
     # Let's limit the length for test purposes
     if corpus_limit:
-        tokenized_text = tokenized_text[:corpus_limit]
+        tokenized_text = tokenized_text[:round(len(tokenized_text)*corpus_limit)]
     return tokenized_text
 
 if __name__ == '__main__':

@@ -197,6 +197,7 @@ def tokenize_text(input_file:str, model_path=None, tokenizer_name=None, remove_p
         filename_corr = input_file.split('.')[0]
 
     output_file = join(output_dir, f'{filename_corr}-tok.txt')
+    
 
     # create or no the directory
     try:
