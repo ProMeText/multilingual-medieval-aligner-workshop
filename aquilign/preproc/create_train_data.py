@@ -17,7 +17,7 @@ def convert_text_to_labels(tokenized_text):
     return all_labels
 
 
-def convert_to_new_format(file, delimiter="£", save_file=True, max_len=30):
+def convert_to_new_format(file, delimiter="£", save_file=True, max_len=50):
     """
     This function takes a \n separated text file and converts each token to the adapted format (each example as a line with
     some delimiters)
@@ -41,7 +41,8 @@ def convert_to_new_format(file, delimiter="£", save_file=True, max_len=30):
         out_example = {0:""}
         n = 0
         for syntagm in example:
-            if len(out_example[n].split()) + len(syntagm) > max_len:
+            syntagm = syntagm.strip()
+            if len(out_example[n].split()) + len(syntagm.split()) > max_len:
                 n += 1
             try:
                 if out_example[n] != "":
@@ -50,7 +51,7 @@ def convert_to_new_format(file, delimiter="£", save_file=True, max_len=30):
                     out_example[n] = syntagm
             except KeyError:
                 out_example[n] = syntagm
-            out_example[n] = out_example[n].strip()
+            out_example[n] = out_example[n].strip().replace("  ", " ")
             
         filtered_dict = {}
         for key, value in out_example.items():
@@ -60,7 +61,7 @@ def convert_to_new_format(file, delimiter="£", save_file=True, max_len=30):
                 filtered_dict[key] = value 
         all_examples.extend(filtered_dict.values())
     if save_file:
-        with open(file.replace(".txt", ".formatted_new.txt"), "w") as output_file:
+        with open(file.replace(".txt", ".formatted.txt"), "w") as output_file:
             output_file.write("\n".join(all_examples))
     
     return all_examples
