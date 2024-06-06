@@ -88,6 +88,14 @@ class Aligner:
         This function procedes to the alignments two by two and then merges the alignments into a single alignement
         """
         pairs = create_pairs(self.files_path, self.main_file_index)
+        # if tokenize = False:
+        #     pass
+        # elif tokenize = "regexp":
+        #     first_tokenized_text = utils.clean_tokenized_content(
+        #         syntactic_tokenization.syntactic_tokenization(pairs[0][0], corpus_limit=self.corpus_size,
+        #                                                       use_punctuation=True))
+        # else:
+        #     predict_tokens(pairs[0][0])
         first_tokenized_text = utils.clean_tokenized_content(syntactic_tokenization.syntactic_tokenization(pairs[0][0], corpus_limit=self.corpus_size, use_punctuation=True))
         assert first_tokenized_text != [], "Erreur avec le texte tokénisé du témoin base"
         
