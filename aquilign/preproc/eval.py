@@ -101,7 +101,6 @@ def unicode_normalise(string:str) -> str:
     return unicodedata.normalize("NFC", string)
 
 def run_eval(data:list|str, model_path, tokenizer_name, verbose=True, delimiter="£", standalone=False, remove_punctuation=False, lang=None):
-    print(f"Lang is: {str(lang)}")
     if standalone:
         with open(data, "r") as input_file:
             corpus_as_list = [unicode_normalise(item.replace("\n", "")) for item in input_file.readlines()]
