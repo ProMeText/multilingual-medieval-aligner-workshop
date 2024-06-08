@@ -9,7 +9,7 @@ class Main(unittest.TestCase):
         virtualArgs = {'input_dir': 'tests/test_data/', 
                        'out_dir': 'result_dir/', 
                        'use_punctuation': True, 
-                       'main_wit': 'tests/test_data/castillan/lanzarote-ii-48.txt', 
+                       'main_wit': 'tests/test_data/es/lanzarote-ii-48.txt', 
                        'prefix': None, 
                        'device': 'cpu'}
         input_dir = virtualArgs['input_dir']
