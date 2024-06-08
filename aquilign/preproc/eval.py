@@ -100,14 +100,13 @@ def get_correspondence(sent, tokenizer):
 def unicode_normalise(string:str) -> str:
     return unicodedata.normalize("NFC", string)
 
-def run_eval(file, model_path, tokenizer_name, verbose=True, delimiter="£", standalone=False, remove_punctuation=False):
+def run_eval(data:list|str, model_path, tokenizer_name, verbose=True, delimiter="£", standalone=False, remove_punctuation=False, lang=None):
     if standalone:
-        with open(file, "r") as input_file:
+        with open(data, "r") as input_file:
             corpus_as_list = [unicode_normalise(item.replace("\n", "")) for item in input_file.readlines()]
-        lang = None
-    else:
-        corpus_as_list = [unicode_normalise(item) for item in file]
         lang = file.split("/")[-2]
+    else:
+        corpus_as_list = [unicode_normalise(item) for item in data]
     
     if remove_punctuation:
         corpus_as_list = [utils.remove_punctuation(item) for item in corpus_as_list]
@@ -128,7 +127,7 @@ def run_eval(file, model_path, tokenizer_name, verbose=True, delimiter="£", sta
                                                         standalone=False, 
                                                         text=example,
                                                         use_punctuation=False,
-                                                        lang=wit_lang)
+                                                        lang=lang)
         formatted = [f" {delimiter}".join(tokenized)]
         # formatted = FormatData.format(file=None, keep_punct=False, save_file=False, standalone=False,
         # tokenized_text=tokenized, examples_length=100)
