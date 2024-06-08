@@ -131,7 +131,7 @@ class Aligner:
                 pass
             elif self.tokenizer == "regexp":
                 second_tokenized_text = utils.clean_tokenized_content(
-                    syntactic_tokenization.syntactic_tokenization(path=wit_to_compare, 
+                    syntactic_tokenization.syntactic_tokenization(input_file=wit_to_compare, 
                                                                   corpus_limit=self.corpus_limit,
                                                                   use_punctuation=True, 
                                                                   lang=current_wit_lang))
