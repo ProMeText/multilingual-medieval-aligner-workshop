@@ -100,7 +100,7 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
     print(f"Best model path according to precision: {best_model_path}")
     print(f"Full metrics: {best_step_metrics}")
     
-    evaluation.run_eval(data=eval_lines, 
+    eval_results = evaluation.run_eval(data=eval_lines, 
                         model_path=best_model_path, 
                         tokenizer_name=tokenizer.name_or_path, 
                         verbose=False, 
@@ -118,10 +118,12 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
     
     with open(f"{new_best_path}/model_name", "w") as model_name:
         model_name.write(modelName)
-        
 
-    with open(f"{new_best_path}/metrics.json", "w") as model_name:
-        json.dump(best_step_metrics, model_name)
+    with open(f"{new_best_path}/eval.txt", "w") as evaluation:
+        evaluation.write(eval_results)
+
+    with open(f"{new_best_path}/metrics.json", "w") as metrics:
+        json.dump(best_step_metrics, metrics)
     
     print(f"\n\nBest model can be found at : {new_best_path} ")
     print(f"You should remove the following directories by using `rm -r results_{name_of_model}/epoch{num_train_epochs}_bs{batch_size}/checkpoint-*`")
