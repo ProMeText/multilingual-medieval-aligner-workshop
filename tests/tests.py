@@ -11,7 +11,7 @@ class Main(unittest.TestCase):
                        'use_punctuation': True, 
                        'main_wit': 'tests/test_data/castillan/lanzarote-ii-48.txt', 
                        'prefix': None, 
-                       'device': 'cuda:0'}
+                       'device': 'cpu'}
         input_dir = virtualArgs['input_dir']
         out_dir = virtualArgs['out_dir']
         main_wit = virtualArgs['main_wit']
