@@ -119,8 +119,8 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
     with open(f"{new_best_path}/model_name", "w") as model_name:
         model_name.write(modelName)
 
-    with open(f"{new_best_path}/eval.txt", "w") as evaluation:
-        evaluation.write(eval_results)
+    with open(f"{new_best_path}/eval.txt", "w") as evaluation_results:
+        evaluation_results.write(eval_results)
 
     with open(f"{new_best_path}/metrics.json", "w") as metrics:
         json.dump(best_step_metrics, metrics)
