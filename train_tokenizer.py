@@ -102,7 +102,7 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
     evaluation.run_eval(data=eval_lines, 
                         model_path=best_model_path, 
                         tokenizer_name=tokenizer.name_or_path, 
-                        verbose=True, 
+                        verbose=False, 
                         lang=eval_data_lang)
     
 
