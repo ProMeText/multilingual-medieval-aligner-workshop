@@ -102,7 +102,7 @@ class Aligner:
             pass
         elif self.tokenizer == "regexp":
             first_tokenized_text = utils.clean_tokenized_content(
-                syntactic_tokenization.syntactic_tokenization(path=pivot_text, 
+                syntactic_tokenization.syntactic_tokenization(input_file=pivot_text, 
                                                               corpus_limit=self.corpus_limit,
                                                               use_punctuation=True,
                                                               lang=pivot_text_lang))
