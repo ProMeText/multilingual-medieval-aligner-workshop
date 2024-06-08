@@ -66,8 +66,9 @@ class Aligner:
         self.text_dict = dict()
         self.files_path = glob.glob(f"{input_dir}/*/*.txt")
         self.device = device
+        assert any([main_wit in path for path in self.files_path]), "Main wit doesn't match witnesses paths, please check arguments. " \
+                                                                    f"Main wit: {main_wit}, other wits: {self.files_path}"
         print(self.files_path)
-        assert any([main_wit in path for path in self.files_path]), "Main wit doesn't match witnesses paths, please check arguments."
         self.main_file_index = next(index for index, path in enumerate(self.files_path) if main_wit in path)
         self.corpus_limit = corpus_limit
         self.max_align = max_align
