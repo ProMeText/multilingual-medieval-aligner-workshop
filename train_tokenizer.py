@@ -113,7 +113,7 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
         os.rmdir(new_best_path)
     except FileNotFoundError:
         pass
-    os.path.move(best_model_path, new_best_path)
+    os.rename(best_model_path, new_best_path)
     print(f"\n\nBest model can be found at : {new_best_path} ")
     print(f"You should remove the following directories by using `rm -r results_{name_of_model}/epoch{num_train_epochs}_bs{batch_size}/checkpoint-*`")
 
