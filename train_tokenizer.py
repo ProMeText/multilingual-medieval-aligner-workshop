@@ -6,6 +6,7 @@ import aquilign.preproc.eval as evaluation
 import aquilign.preproc.utils as utils
 import re
 import os
+import json
 import glob
 ## script for the training of the text tokenizer : identification of tokens (label 1) which will be used to split the text
 ## produces folder with models (best for each epoch) and logs
@@ -114,6 +115,14 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
     except FileNotFoundError:
         pass
     os.rename(best_model_path, new_best_path)
+    
+    with open(f"{new_best_path}/model_name", "w") as model_name:
+        model_name.write(modelName)
+        
+
+    with open(f"{new_best_path}/metrics.json", "w") as model_name:
+        json.dump(best_step_metrics, model_name)
+    
     print(f"\n\nBest model can be found at : {new_best_path} ")
     print(f"You should remove the following directories by using `rm -r results_{name_of_model}/epoch{num_train_epochs}_bs{batch_size}/checkpoint-*`")
 
