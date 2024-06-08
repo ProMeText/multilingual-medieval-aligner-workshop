@@ -5,7 +5,7 @@ import aquilign.preproc.tok_trainer_functions as trainer_functions
 import aquilign.preproc.eval as evaluation
 import aquilign.preproc.utils as utils
 import re
-import shutil
+import os
 import glob
 ## script for the training of the text tokenizer : identification of tokens (label 1) which will be used to split the text
 ## produces folder with models (best for each epoch) and logs
@@ -23,7 +23,7 @@ import glob
 # logging_steps : the number of logging steps (ex : 50)
 
 # function which produces the train, which first gets texts, transforms them into tokens and labels, then trains model with the specific given arguments
-def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps, keep_punct=False):
+def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps, keep_punct=True):
     model = AutoModelForTokenClassification.from_pretrained(modelName, num_labels=3)
     tokenizer = BertTokenizer.from_pretrained(modelName, max_length=10)
     
@@ -39,8 +39,7 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
         
     with open(eval_dataset, "r") as eval_files:
         eval_lines = [item.replace("\n", "") for item in eval_files.readlines()]
-        if keep_punct is False:
-            eval_lines = [utils.remove_punctuation(line) for line in eval_lines]
+    eval_data_lang = eval_dataset.split("/")[-2]
     
     # Train corpus
     train_texts_and_labels = utils.convertToSubWordsSentencesAndLabels(train_lines, tokenizer=tokenizer, delimiter="£")
@@ -93,15 +92,32 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
     best_model_path = trainer.state.best_model_checkpoint
     print(f"Evaluation.")
     
-    evaluation.run_eval(file=eval_lines, model_path=best_model_path, tokenizer_name=tokenizer.name_or_path, verbose=False)
+    
+    result_dict = {}
+    
+    for result in trainer.state.log_history:
+        interm_dict = {}
+        result_dict[result['step']] = {**result_dict[result['step']], **result}
+    print(result_dict)
+            
+    print(all_precisions)
+    
+    evaluation.run_eval(data=eval_lines, 
+                        model_path=best_model_path, 
+                        tokenizer_name=tokenizer.name_or_path, 
+                        verbose=False, 
+                        lang=eval_data_lang)
     
     # print the whole log_history with the compute metrics
     print("\nBest model is evaluated on the loss results. Here is the log history with the performances of the models :")
     print(trainer.state.log_history)
+    best_precision_step, best_step_metrics = utils.get_best_precision(trainer.state.log_history)
 
     # We move the best state dir name to "best"
+    #### CONTINUER ICI
+    best_model_path = f"results_{name_of_model}/epoch{num_train_epochs}_bs{batch_size}/checkpoint-{best_precision_step}"
     new_best_path = f"results_{name_of_model}/epoch{num_train_epochs}_bs{batch_size}/best"
-    shutil.move(best_model_path, new_best_path)
+    os.move(best_model_path, new_best_path)
     print(f"\n\nBest model can be found at : {new_best_path} ")
     print(f"You should remove the following directories by using `rm -r results_{name_of_model}/epoch{num_train_epochs}_bs{batch_size}/checkpoint-*`")
 

@@ -7,6 +7,26 @@ def tokenize(text,num):
     return [' '.join(words[i:i+num]) for i in range(0, len(words), num)]
 
 
+def get_best_precision(results):
+    """
+    This function gets the best precision of label 1 (= delimiter) given the results of the trainer
+    """
+    result_dict = {}
+    for result in results:
+        try:
+            result_dict[result['step']] = {**result_dict[result['step']], **result}
+        except KeyError:
+            result_dict[result['step']] = result
+
+    all_precisions = {}
+    for key, value in result_dict.items():
+        precision = value['eval_precision'][1]
+        all_precisions[key] = precision
+
+    best_step = next(step for step, precision in all_precisions.items() if precision == max(all_precisions.values()))
+    print(f"Best step according to precision: {best_step}")
+    return best_step, result_dict[best_step]
+
 def remove_punctuation(text:str):
     punct = re.compile(r"[\.,;—:\?!’'«»“/\-]")
     cleaned_text = re.sub(punct, "", text)
