@@ -100,14 +100,17 @@ def get_correspondence(sent, tokenizer):
 def unicode_normalise(string:str) -> str:
     return unicodedata.normalize("NFC", string)
 
-def run_eval(file, model_path, tokenizer_name, verbose=True, delimiter="£", standalone=False):
+def run_eval(file, model_path, tokenizer_name, verbose=True, delimiter="£", standalone=False, remove_punctuation=False):
     if standalone:
         with open(file, "r") as input_file:
             corpus_as_list = [unicode_normalise(item.replace("\n", "")) for item in input_file.readlines()]
+        lang = None
     else:
         corpus_as_list = [unicode_normalise(item) for item in file]
-            
-    corpus_as_list = [utils.remove_punctuation(item) for item in corpus_as_list]
+        lang = file.split("/")[-2]
+    
+    if remove_punctuation:
+        corpus_as_list = [utils.remove_punctuation(item) for item in corpus_as_list]
     
     all_preds, all_tgts = [], []
     tokenizer = BertTokenizer.from_pretrained(tokenizer_name, max_length=10)
@@ -121,8 +124,11 @@ def run_eval(file, model_path, tokenizer_name, verbose=True, delimiter="£", sta
     # First, regexp evaluation
     syntactic_preds, all_syntactic_gt = [], []
     for idx, (example, label) in enumerate(zip(texts, labels)):
-        tokenized = SyntacticTok.syntactic_tokenization(path=None, standalone=False, text=example,
-                                                        use_punctuation=False)
+        tokenized = SyntacticTok.syntactic_tokenization(path=None, 
+                                                        standalone=False, 
+                                                        text=example,
+                                                        use_punctuation=False,
+                                                        lang=wit_lang)
         formatted = [f" {delimiter}".join(tokenized)]
         # formatted = FormatData.format(file=None, keep_punct=False, save_file=False, standalone=False,
         # tokenized_text=tokenized, examples_length=100)
