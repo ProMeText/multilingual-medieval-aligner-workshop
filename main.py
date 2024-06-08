@@ -67,6 +67,7 @@ class Aligner:
         self.files_path = glob.glob(f"{input_dir}/*/*.txt")
         self.device = device
         print(self.files_path)
+        assert any([main_wit in path for path in self.files_path]), "Main wit doesn't match witnesses paths, please check arguments."
         self.main_file_index = next(index for index, path in enumerate(self.files_path) if main_wit in path)
         self.corpus_limit = corpus_limit
         self.max_align = max_align
@@ -96,19 +97,23 @@ class Aligner:
         This function procedes to the alignments two by two and then merges the alignments into a single alignement
         """
         pivot_text = self.wit_pairs[0][0]
+        pivot_text_lang = pivot_text.split("/")[-2]
         if self.tokenizer is None:
             pass
         elif self.tokenizer == "regexp":
             first_tokenized_text = utils.clean_tokenized_content(
-                syntactic_tokenization.syntactic_tokenization(pivot_text, corpus_limit=self.corpus_limit,
-                                                              use_punctuation=True))
+                syntactic_tokenization.syntactic_tokenization(path=pivot_text, 
+                                                              corpus_limit=self.corpus_limit,
+                                                              use_punctuation=True,
+                                                              lang=pivot_text_lang))
         else:
-            first_tokenized_text = tokenize.tokenize_text(pivot_text, 
+            first_tokenized_text = tokenize.tokenize_text(input_file=pivot_text, 
                                                           corpus_limit=self.corpus_limit, 
                                                           remove_punct=False, 
                                                           tok_models=self.tok_models, 
                                                           output_dir=self.out_dir, 
-                                                          device=self.device)
+                                                          device=self.device,
+                                                          lang=pivot_text_lang)
         
         assert first_tokenized_text != [], "Erreur avec le texte tokénisé du témoin base"
         
@@ -120,19 +125,24 @@ class Aligner:
         for index, (main_wit, wit_to_compare) in enumerate(self.wit_pairs):
             main_wit_name = main_wit.split("/")[-1].split(".")[0]
             wit_to_compare_name = wit_to_compare.split("/")[-1].split(".")[0]
-            print(f"Aligning {main_wit} with {wit_to_compare}")
+            current_wit_lang = wit_to_compare.split("/")[-2]
             print(len(first_tokenized_text))
             if self.tokenizer is None:
                 pass
             elif self.tokenizer == "regexp":
                 second_tokenized_text = utils.clean_tokenized_content(
-                    syntactic_tokenization.syntactic_tokenization(wit_to_compare, corpus_limit=self.corpus_limit,
-                                                                  use_punctuation=True))
+                    syntactic_tokenization.syntactic_tokenization(path=wit_to_compare, 
+                                                                  corpus_limit=self.corpus_limit,
+                                                                  use_punctuation=True, 
+                                                                  lang=current_wit_lang))
             else:
-                second_tokenized_text = tokenize.tokenize_text(wit_to_compare, corpus_limit=self.corpus_limit,
-                                                              remove_punct=False, tok_models=self.tok_models,
-                                                              output_dir=self.out_dir, 
-                                                          device=self.device)
+                second_tokenized_text = tokenize.tokenize_text(input_file=wit_to_compare, 
+                                                               corpus_limit=self.corpus_limit,
+                                                               remove_punct=False, 
+                                                               tok_models=self.tok_models,
+                                                               output_dir=self.out_dir, 
+                                                               device=self.device,
+                                                               lang=current_wit_lang)
             assert second_tokenized_text != [], f"Erreur avec le texte tokénisé du témoin comparé {wit_to_compare_name}"
             utils.write_json(f"result_dir/{self.out_dir}/tokenized_{wit_to_compare_name}.json", second_tokenized_text)
             utils.write_tokenized_text(f"result_dir/{self.out_dir}/tokenized_{wit_to_compare_name}.txt", second_tokenized_text)
@@ -142,7 +152,7 @@ class Aligner:
             self.text_dict[index + 1] = second_tokenized_text
             
             # Let's align the texts
-            
+            print(f"Aligning {main_wit} with {wit_to_compare}")
             
             # Tests de profil et de paramètres
             profile = 0
@@ -306,10 +316,13 @@ if __name__ == '__main__':
     tok_models = {"fr": 
                       {"model": "models/fr", 
                        "tokenizer": "dbmdz/bert-base-french-europeana-cased", 
-                       "tokens_per_example": 10}, 
+                       "tokens_per_example": 12}, 
                   "es": {"model": "models/es", 
                          "tokenizer": "dccuchile/bert-base-spanish-wwm-cased", 
-                         "tokens_per_example": 30}}
+                         "tokens_per_example": 30}, 
+                  "it": {"model": "models/it", 
+                         "tokenizer": "dbmdz/bert-base-italian-xxl-cased", 
+                         "tokens_per_example": 12}}
     assert tokenizer in ["None", "regexp", "bert-based"], "Authorized values for tokenizer are: None, regexp, bert-based"
     if tokenizer == "None":
         tokenizer = None
