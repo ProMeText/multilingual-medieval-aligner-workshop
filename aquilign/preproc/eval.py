@@ -123,18 +123,18 @@ def run_eval(data:list|str, model_path, tokenizer_name, verbose=True, delimiter=
     # First, regexp evaluation
     syntactic_preds, all_syntactic_gt = [], []
     for idx, (example, label) in enumerate(zip(texts, labels)):
-        tokenized = SyntacticTok.syntactic_tokenization(input_file=None, 
+        tokenized_text = SyntacticTok.syntactic_tokenization(input_file=None, 
                                                         standalone=False, 
                                                         text=example,
                                                         use_punctuation=False,
                                                         lang=lang)
-        formatted = [f" {delimiter}".join(tokenized)]
+        formatted_preds = [f" {delimiter}".join(tokenized_text)]
         # formatted = FormatData.format(file=None, keep_punct=False, save_file=False, standalone=False,
         # tokenized_text=tokenized, examples_length=100)
-        to_labels = utils.convertToWordsSentencesAndLabels(formatted)
+        preds_to_labels = utils.convertToWordsSentencesAndLabels(formatted_preds)
         
         # Si la fonction words_to_labels ne renvoie que des listes vides, c'est que la tokénisation n'a rien donné.
-        if to_labels == ([], []):
+        if preds_to_labels == ([], []):
             predicted = [0 for item in label]
         else:
             predicted = to_labels[1][0]

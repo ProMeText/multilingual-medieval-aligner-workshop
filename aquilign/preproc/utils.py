@@ -43,7 +43,7 @@ def tokenize_words(sentence:str) -> list:
     return sentenceAsList
 
 
-def convertToWordsSentencesAndLabels(corpus :list, delimiter="£") -> (list, list):
+def convertToWordsSentencesAndLabels(corpus:list, delimiter="£") -> (list, list):
     """
     This function take a corpus as a list of examples and returns the masks for each token as words
     """
