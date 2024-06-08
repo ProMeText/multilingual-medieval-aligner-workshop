@@ -102,7 +102,17 @@ def unalign_labels(human_to_bert, predicted_labels, splitted_text, verbose=False
     return tokenized_sentence
 
 
-def tokenize_text(input_file:str, model_path=None, tokenizer_name=None, remove_punct=False, tok_models:dict=None, corpus_limit=None, output_dir=None, tokens_per_example=None, device="cpu", verbose=False):
+def tokenize_text(input_file:str, 
+                  model_path=None, 
+                  tokenizer_name=None, 
+                  remove_punct=False, 
+                  tok_models:dict=None, 
+                  corpus_limit=None, 
+                  output_dir=None, 
+                  tokens_per_example=None, 
+                  device="cpu", 
+                  verbose=False,
+                  lang=None):
     """
     Performs tokenization with given model, tokenizer on given file
     """
@@ -114,15 +124,20 @@ def tokenize_text(input_file:str, model_path=None, tokenizer_name=None, remove_p
         localText = localText[:round(len(localText)*corpus_limit)]
     if remove_punct:
         localText = remove_punctuation(localText)
-    codelang, _ = langid.classify(localText[:300])
-    # Il ne reconnaît pas toujours le castillan
-    if codelang == "an" or codelang == "oc" or codelang == "pt" or codelang == "gl" or codelang == "it":
-        codelang = "es"
-    if codelang == "eo" or codelang == "ht":
-        codelang = "fr"
-    if codelang == "jv":
-        codelang = "it"
-    print(f"Detected lang: {codelang}")
+        
+    if not lang:
+        codelang, _ = langid.classify(localText[:300])
+        # Il ne reconnaît pas toujours le castillan
+        if codelang == "an" or codelang == "oc" or codelang == "pt" or codelang == "gl":
+            codelang = "es"
+        if codelang == "eo" or codelang == "ht":
+            codelang = "fr"
+        if codelang == "jv":
+            codelang = "it"
+        print(f"Detected lang: {codelang}")
+    else:
+        
+        codelang = lang
     
     # get the path of the model
     if model_path:
