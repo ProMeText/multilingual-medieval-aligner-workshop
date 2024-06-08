@@ -104,7 +104,7 @@ def run_eval(data:list|str, model_path, tokenizer_name, verbose=True, delimiter=
     if standalone:
         with open(data, "r") as input_file:
             corpus_as_list = [unicode_normalise(item.replace("\n", "")) for item in input_file.readlines()]
-        lang = file.split("/")[-2]
+        lang = data.split("/")[-2]
     else:
         corpus_as_list = [unicode_normalise(item) for item in data]
     
@@ -123,7 +123,7 @@ def run_eval(data:list|str, model_path, tokenizer_name, verbose=True, delimiter=
     # First, regexp evaluation
     syntactic_preds, all_syntactic_gt = [], []
     for idx, (example, label) in enumerate(zip(texts, labels)):
-        tokenized = SyntacticTok.syntactic_tokenization(path=None, 
+        tokenized = SyntacticTok.syntactic_tokenization(input_file=None, 
                                                         standalone=False, 
                                                         text=example,
                                                         use_punctuation=False,
