@@ -123,29 +123,32 @@ def run_eval(data:list|str, model_path, tokenizer_name, verbose=True, delimiter=
     # First, regexp evaluation
     syntactic_preds, all_syntactic_gt = [], []
     for idx, (example, label) in enumerate(zip(texts, labels)):
+        if verbose:
+            print("---\nSYNTtok New example")
         tokenized_text = SyntacticTok.syntactic_tokenization(input_file=None, 
                                                         standalone=False, 
                                                         text=example,
                                                         use_punctuation=False,
                                                         lang=lang)
         formatted_preds = [f" {delimiter}".join(tokenized_text)]
-        # formatted = FormatData.format(file=None, keep_punct=False, save_file=False, standalone=False,
-        # tokenized_text=tokenized, examples_length=100)
         preds_to_labels = utils.convertToWordsSentencesAndLabels(formatted_preds)
+        if verbose:
+            print(f"Example:   {example}")
+            print(f"Tokenized text: {tokenized_text}")
+            print(f"Formatted: {formatted_preds}")
+            print(f"As labels: {preds_to_labels}")
         
         # Si la fonction words_to_labels ne renvoie que des listes vides, c'est que la tokénisation n'a rien donné.
         if preds_to_labels == ([], []):
             predicted = [0 for item in label]
         else:
-            predicted = to_labels[1][0]
+            predicted = preds_to_labels[1][0]
             
         syntactic_preds.append(predicted)
         all_syntactic_gt.append(label)
         syntactic_preds.append(predicted)
         all_syntactic_gt.append(label)
         if verbose:
-            print("---\nSYNTtok New example")
-            print(f"Example:   {example}")
             print(f"Predicted:    {predicted}")
             print(f"Ground Truth: {label}")
             print(f"Example length: {len(example.split())}")
