@@ -93,14 +93,11 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
     print(f"Evaluation.")
     
     
-    result_dict = {}
-    
-    for result in trainer.state.log_history:
-        interm_dict = {}
-        result_dict[result['step']] = {**result_dict[result['step']], **result}
-    print(result_dict)
-            
-    print(all_precisions)
+    # print the whole log_history with the compute metrics
+    best_precision_step, best_step_metrics = utils.get_best_precision(trainer.state.log_history)
+    best_model_path = f"results_{name_of_model}/epoch{num_train_epochs}_bs{batch_size}/checkpoint-{best_precision_step}"
+    print(f"Best model path according to precision: {best_model_path}")
+    print(f"Full metrics: {best_step_metrics}")
     
     evaluation.run_eval(data=eval_lines, 
                         model_path=best_model_path, 
@@ -108,14 +105,9 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
                         verbose=False, 
                         lang=eval_data_lang)
     
-    # print the whole log_history with the compute metrics
-    print("\nBest model is evaluated on the loss results. Here is the log history with the performances of the models :")
-    print(trainer.state.log_history)
-    best_precision_step, best_step_metrics = utils.get_best_precision(trainer.state.log_history)
 
     # We move the best state dir name to "best"
     #### CONTINUER ICI
-    best_model_path = f"results_{name_of_model}/epoch{num_train_epochs}_bs{batch_size}/checkpoint-{best_precision_step}"
     new_best_path = f"results_{name_of_model}/epoch{num_train_epochs}_bs{batch_size}/best"
     os.move(best_model_path, new_best_path)
     print(f"\n\nBest model can be found at : {new_best_path} ")
