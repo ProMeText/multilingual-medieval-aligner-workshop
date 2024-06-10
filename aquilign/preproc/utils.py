@@ -34,12 +34,17 @@ def remove_punctuation(text:str):
     
 
 
-def tokenize_words(sentence:str) -> list:
+def tokenize_words(sentence:str, delimiter) -> list:
     """
     Cette fonction tokénise une phrase selon un certain nombre de marqueurs
     """
-    words_delimiters = re.compile(r"[\.,;—:\?!’'«»“/\-]|[^\.,;—:\?!’'«»“/\-\s]+")
+    words_delimiters = re.compile(r"[\.,;——:\?!’'«»“/\-]|[^\.,;——:\?!’'«»“/\-\s]+")
     sentenceAsList = re.findall(words_delimiters, sentence)
+    if delimiter in sentenceAsList:
+        # Some workaround for when the delimiter is used on a token in the list of word delimiters.
+        alone_delim_index = next(idx for idx, token in enumerate(sentenceAsList) if token == delimiter)
+        to_merge = sentenceAsList.pop(alone_delim_index + 1)
+        sentenceAsList[alone_delim_index] = delimiter + to_merge
     return sentenceAsList
 
 
@@ -50,8 +55,10 @@ def convertToWordsSentencesAndLabels(corpus:list, delimiter="£") -> (list, list
 
     sentencesList = []
     sentencesAsLabels = []
+    sentences_as_list_of_tokens = []
     for text in corpus:
-        sentenceAsList = tokenize_words(text)
+        sentenceAsList = tokenize_words(text, delimiter)
+        sentences_as_list_of_tokens.append(sentenceAsList)
         masks = []
         for token in sentenceAsList:
             if delimiter in token:
@@ -61,7 +68,7 @@ def convertToWordsSentencesAndLabels(corpus:list, delimiter="£") -> (list, list
         sentencesAsLabels.append(masks)
         sentence = text.replace(delimiter, "")
         sentencesList.append(sentence)
-    return sentencesList, sentencesAsLabels
+    return sentencesList, sentencesAsLabels, sentences_as_list_of_tokens
 
 
 # function to convert text in input as tokens and labels (if label is identified in the file, gives 1, in other cases, 0)
@@ -74,7 +81,7 @@ def convertToSubWordsSentencesAndLabels(corpus, tokenizer, delimiter="£",  verb
     sentencesList = []
     sentencesAsLabels = []
     for text in corpus:
-        sentenceAsList = tokenize_words(text)
+        sentenceAsList = tokenize_words(text, delimiter)
         masks = []
         for token in sentenceAsList:
             if delimiter in token:
@@ -92,7 +99,7 @@ def convertToSubWordsSentencesAndLabels(corpus, tokenizer, delimiter="£",  verb
                          return_tensors="pt")
 
         # get the text with the similar splits as for the creation of the data
-        tokens = tokenize_words(text)
+        tokens = tokenize_words(text, delimiter)
         # get the index correspondences between text and tok text
         corresp = functions.get_index_correspondence(tokens, tokenizer)
         # aligning the label
