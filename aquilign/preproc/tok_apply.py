@@ -221,7 +221,7 @@ def tokenize_text(input_file:str,
         pass
 
     # write the file
-    with open(output_file, "w") as text_file:
+    with open(f"result_dir/{output_file}", "w") as text_file:
         text_file.write("\n".join(restruct))
         print(f"Saving to {output_file}")
     return restruct
