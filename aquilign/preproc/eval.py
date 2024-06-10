@@ -1,5 +1,5 @@
 import aquilign.preproc.tok_trainer_functions as functions
-import aquilign.tokenize.syntactic_tokenization as SyntacticTok
+import aquilign.preproc.syntactic_tokenization as SyntacticTok
 import aquilign.preproc.create_train_data as FormatData
 import aquilign.preproc.utils as utils
 import sys
@@ -100,14 +100,16 @@ def get_correspondence(sent, tokenizer):
 def unicode_normalise(string:str) -> str:
     return unicodedata.normalize("NFC", string)
 
-def run_eval(file, model_path, tokenizer_name, verbose=True, delimiter="£", standalone=False):
+def run_eval(data:list|str, model_path, tokenizer_name, verbose=True, delimiter="£", standalone=False, remove_punctuation=False, lang=None):
     if standalone:
-        with open(file, "r") as input_file:
+        with open(data, "r") as input_file:
             corpus_as_list = [unicode_normalise(item.replace("\n", "")) for item in input_file.readlines()]
+        lang = data.split("/")[-2]
     else:
-        corpus_as_list = [unicode_normalise(item) for item in file]
-            
-    corpus_as_list = [utils.remove_punctuation(item) for item in corpus_as_list]
+        corpus_as_list = [unicode_normalise(item) for item in data]
+    
+    if remove_punctuation:
+        corpus_as_list = [utils.remove_punctuation(item) for item in corpus_as_list]
     
     all_preds, all_tgts = [], []
     tokenizer = BertTokenizer.from_pretrained(tokenizer_name, max_length=10)
@@ -121,26 +123,32 @@ def run_eval(file, model_path, tokenizer_name, verbose=True, delimiter="£", sta
     # First, regexp evaluation
     syntactic_preds, all_syntactic_gt = [], []
     for idx, (example, label) in enumerate(zip(texts, labels)):
-        tokenized = SyntacticTok.syntactic_tokenization(path=None, standalone=False, text=example,
-                                                        use_punctuation=False)
-        formatted = [f" {delimiter}".join(tokenized)]
-        # formatted = FormatData.format(file=None, keep_punct=False, save_file=False, standalone=False,
-        # tokenized_text=tokenized, examples_length=100)
-        to_labels = utils.convertToWordsSentencesAndLabels(formatted)
+        if verbose:
+            print("---\nSYNTtok New example")
+        tokenized_text = SyntacticTok.syntactic_tokenization(input_file=None, 
+                                                        standalone=False, 
+                                                        text=example,
+                                                        use_punctuation=False,
+                                                        lang=lang)
+        formatted_preds = [f" {delimiter}".join(tokenized_text)]
+        preds_to_labels = utils.convertToWordsSentencesAndLabels(formatted_preds)
+        if verbose:
+            print(f"Example:   {example}")
+            print(f"Tokenized text: {tokenized_text}")
+            print(f"Formatted: {formatted_preds}")
+            print(f"As labels: {preds_to_labels}")
         
         # Si la fonction words_to_labels ne renvoie que des listes vides, c'est que la tokénisation n'a rien donné.
-        if to_labels == ([], []):
+        if preds_to_labels == ([], []):
             predicted = [0 for item in label]
         else:
-            predicted = to_labels[1][0]
+            predicted = preds_to_labels[1][0]
             
         syntactic_preds.append(predicted)
         all_syntactic_gt.append(label)
         syntactic_preds.append(predicted)
         all_syntactic_gt.append(label)
         if verbose:
-            print("---\nSYNTtok New example")
-            print(f"Example:   {example}")
             print(f"Predicted:    {predicted}")
             print(f"Ground Truth: {label}")
             print(f"Example length: {len(example.split())}")
@@ -208,6 +216,7 @@ def run_eval(file, model_path, tokenizer_name, verbose=True, delimiter="£", sta
     
     zipped_results = list(zip(['Accuracy', 'Precision', 'Recall', 'F1-score'], synt_results, bert_results))
     print(tabulate(zipped_results, headers=['', 'Synt (None, Delim.)', 'Bert (None, Delim., Pad.)'], tablefmt='orgtbl'))
+    return tabulate(zipped_results, headers=['', 'Synt (None, Delim.)', 'Bert (None, Delim., Pad.)'], tablefmt='orgtbl')
         
 
 

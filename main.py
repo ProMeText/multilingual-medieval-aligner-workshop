@@ -8,7 +8,8 @@ import numpy as np
 # import collatex
 import aquilign.align.graph_merge as graph_merge
 import aquilign.align.utils as utils
-import aquilign.tokenize.syntactic_tokenization as syntactic_tokenization
+import aquilign.preproc.tok_apply as tokenize
+import aquilign.preproc.syntactic_tokenization as syntactic_tokenization
 from aquilign.align.encoder import Encoder
 from aquilign.align.aligner import Bertalign
 import pandas as pd
@@ -31,9 +32,10 @@ result_b = [([0], [0]), ([1, 2, 3], [1, 2]), ([4, 5], [3]), ([6, 7], [4]), ([8],
             ([30, 31, 32], [32]), ([33], [33]), ([34, 35], [34]), ([36, 37], [35]),
             ([38], [36]), ([39], [37, 38, 39])]
 
-def create_pairs(full_list:list, main_wit_index:int) -> list:
+def create_pairs(full_list:list, main_wit_index:int) -> list[tuple]:
     """
-    From a list of witnesses and the main witness index, create all possible pairs with this witness.
+    From a list of witnesses and the main witness index, create all possible pairs with this witness. Returns a list 
+    of tuples with the main wit and the wit to compare it to
     """
     pairs = []
     main_wit = full_list.pop(int(main_wit_index))
@@ -48,26 +50,34 @@ class Aligner:
 
     def __init__(self,
                  model,
-                 corpus_size:None, 
+                 corpus_limit:None, 
                  max_align=3, 
                  out_dir="out", 
                  use_punctuation=True, 
                  input_dir="in", 
                  main_wit=None, 
                  prefix=None,
-                 device="cpu"):
+                 device="cpu",
+                 tokenizer="regexp", 
+                 tok_models=None
+                 ):
         self.model = model
         self.alignment_dict = dict()
         self.text_dict = dict()
         self.files_path = glob.glob(f"{input_dir}/*/*.txt")
         self.device = device
+        assert any([main_wit in path for path in self.files_path]), "Main wit doesn't match witnesses paths, please check arguments. " \
+                                                                    f"Main wit: {main_wit}, other wits: {self.files_path}"
         print(self.files_path)
         self.main_file_index = next(index for index, path in enumerate(self.files_path) if main_wit in path)
-        self.corpus_size = corpus_size
+        self.corpus_limit = corpus_limit
         self.max_align = max_align
         self.out_dir = out_dir
         self.use_punctiation = use_punctuation
         self.prefix = prefix
+        self.tokenizer = tokenizer
+        self.tok_models = tok_models
+        self.wit_pairs = create_pairs(self.files_path, self.main_file_index)
 
         try:
             os.mkdir(f"result_dir")
@@ -87,29 +97,53 @@ class Aligner:
         """
         This function procedes to the alignments two by two and then merges the alignments into a single alignement
         """
-        pairs = create_pairs(self.files_path, self.main_file_index)
-        # if tokenize = False:
-        #     pass
-        # elif tokenize = "regexp":
-        #     first_tokenized_text = utils.clean_tokenized_content(
-        #         syntactic_tokenization.syntactic_tokenization(pairs[0][0], corpus_limit=self.corpus_size,
-        #                                                       use_punctuation=True))
-        # else:
-        #     predict_tokens(pairs[0][0])
-        first_tokenized_text = utils.clean_tokenized_content(syntactic_tokenization.syntactic_tokenization(pairs[0][0], corpus_limit=self.corpus_size, use_punctuation=True))
+        pivot_text = self.wit_pairs[0][0]
+        pivot_text_lang = pivot_text.split("/")[-2]
+        if self.tokenizer is None:
+            pass
+        elif self.tokenizer == "regexp":
+            first_tokenized_text = utils.clean_tokenized_content(
+                syntactic_tokenization.syntactic_tokenization(input_file=pivot_text, 
+                                                              corpus_limit=self.corpus_limit,
+                                                              use_punctuation=True,
+                                                              lang=pivot_text_lang))
+        else:
+            first_tokenized_text = tokenize.tokenize_text(input_file=pivot_text, 
+                                                          corpus_limit=self.corpus_limit, 
+                                                          remove_punct=False, 
+                                                          tok_models=self.tok_models, 
+                                                          output_dir=self.out_dir, 
+                                                          device=self.device,
+                                                          lang=pivot_text_lang)
+        
         assert first_tokenized_text != [], "Erreur avec le texte tokénisé du témoin base"
         
-        main_wit_name = pairs[0][0].split("/")[-1].split(".")[0]
+        main_wit_name = self.wit_pairs[0][0].split("/")[-1].split(".")[0]
         utils.write_json(f"result_dir/{self.out_dir}/tokenized_{main_wit_name}.json", first_tokenized_text)
         utils.write_tokenized_text(f"result_dir/{self.out_dir}/tokenized_{main_wit_name}.txt", first_tokenized_text)
         
         # Let's loop and align each pair
-        for index, (main_wit, wit_to_compare) in enumerate(pairs):
+        for index, (main_wit, wit_to_compare) in enumerate(self.wit_pairs):
             main_wit_name = main_wit.split("/")[-1].split(".")[0]
             wit_to_compare_name = wit_to_compare.split("/")[-1].split(".")[0]
-            print(f"Aligning {main_wit} with {wit_to_compare}")
+            current_wit_lang = wit_to_compare.split("/")[-2]
             print(len(first_tokenized_text))
-            second_tokenized_text = utils.clean_tokenized_content(syntactic_tokenization.syntactic_tokenization(wit_to_compare, corpus_limit=self.corpus_size, use_punctuation=True))
+            if self.tokenizer is None:
+                pass
+            elif self.tokenizer == "regexp":
+                second_tokenized_text = utils.clean_tokenized_content(
+                    syntactic_tokenization.syntactic_tokenization(input_file=wit_to_compare, 
+                                                                  corpus_limit=self.corpus_limit,
+                                                                  use_punctuation=True, 
+                                                                  lang=current_wit_lang))
+            else:
+                second_tokenized_text = tokenize.tokenize_text(input_file=wit_to_compare, 
+                                                               corpus_limit=self.corpus_limit,
+                                                               remove_punct=False, 
+                                                               tok_models=self.tok_models,
+                                                               output_dir=self.out_dir, 
+                                                               device=self.device,
+                                                               lang=current_wit_lang)
             assert second_tokenized_text != [], f"Erreur avec le texte tokénisé du témoin comparé {wit_to_compare_name}"
             utils.write_json(f"result_dir/{self.out_dir}/tokenized_{wit_to_compare_name}.json", second_tokenized_text)
             utils.write_tokenized_text(f"result_dir/{self.out_dir}/tokenized_{wit_to_compare_name}.txt", second_tokenized_text)
@@ -119,7 +153,7 @@ class Aligner:
             self.text_dict[index + 1] = second_tokenized_text
             
             # Let's align the texts
-            
+            print(f"Aligning {main_wit} with {wit_to_compare}")
             
             # Tests de profil et de paramètres
             profile = 0
@@ -146,27 +180,29 @@ class Aligner:
                                          f"{main_wit_name}_{wit_to_compare_name}", self.out_dir)
         utils.write_json(f"result_dir/{self.out_dir}/alignment_dict.json", self.alignment_dict)
 
-    def save_final_result(self, merged_alignments:list, file_titles:list):
+    def save_final_result(self, merged_alignments:list, delimiter="\t"):
         """
         Saves result to csv file
         """
-        filenames = [path.split("/")[-1] for path in file_titles]
+        
+        all_wits = [self.wit_pairs[0][0]] + [pair[1] for pair in self.wit_pairs]
+        filenames = [wit.split("/")[-1].replace(".txt", "") for wit in all_wits]
         with open(f"result_dir/{self.out_dir}/final_result.csv", "w") as output_text:
-            output_text.write("," + ",".join(filenames) + "\n")
+            output_text.write(delimiter + delimiter.join(filenames) + "\n")
             # TODO: remplacer ça, c'est pas propre et ça sert à rien
             translation_table = {letter:index for index, letter in enumerate(string.ascii_lowercase)}
             for alignment_unit in merged_alignments:
-                output_text.write("|".join(value for value in alignment_unit['a']) + ",")
+                output_text.write("|".join(value for value in alignment_unit['a']) + delimiter)
                 for index, witness in enumerate(merged_alignments[0]):
                     output_text.write("|".join(self.text_dict[translation_table[witness]][int(value)] for value in
                                                alignment_unit[witness]))
                     if index + 1 != len(merged_alignments[0]):
-                        output_text.write(",")
+                        output_text.write(delimiter)
                 output_text.write("\n")
         
         
         with open(f"result_dir/{self.out_dir}/readable.csv", "w") as output_text:
-            output_text.write(",".join(filenames) + "\n")
+            output_text.write(delimiter.join(filenames) + "\n")
             # TODO: remplacer ça, c'est pas propre et ça sert à rien
             translation_table = {letter:index for index, letter in enumerate(string.ascii_lowercase)}
             for alignment_unit in merged_alignments:
@@ -174,20 +210,20 @@ class Aligner:
                     output_text.write(" ".join(self.text_dict[translation_table[witness]][int(value)] for value in
                                                alignment_unit[witness]))
                     if index + 1 != len(merged_alignments[0]):
-                        output_text.write(",")
+                        output_text.write(delimiter)
                 output_text.write("\n")
         
         with open(f"result_dir/{self.out_dir}/final_result_as_index.csv", "w") as output_text:
-            output_text.write("," + ",".join(filenames) + "\n")
+            output_text.write(delimiter + ",".join(filenames) + "\n")
             for alignment_unit in merged_alignments:
                 for index, witness in enumerate(merged_alignments[0]):
                     output_text.write("|".join(value for value in
                                                alignment_unit[witness]))
                     if index + 1 != len(merged_alignments[0]):
-                        output_text.write(",")
+                        output_text.write(delimiter)
                 output_text.write("\n")
 
-        data = pd.read_csv(f"result_dir/{self.out_dir}/final_result.csv")
+        data = pd.read_csv(f"result_dir/{self.out_dir}/final_result.csv", delimiter="\t")
         # Convert the DataFrame to an HTML table
         html_table = data.to_html()
         full_html_file = f"""<html>
@@ -203,7 +239,7 @@ class Aligner:
             output_html.write(full_html_file)
 
 
-def run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation, corpus_size=None):
+def run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation, tokenizer, tok_models, corpus_limit=None):
     # TODO: augmenter la sensibilité à la différence sémantique pour apporter plus d'omissions dans le texte. La fin
     # Est beaucoup trop mal alignée, alors que ça irait bien avec + d'absence. Ça doit être possible vu que des omissions sont créés.
 
@@ -214,7 +250,16 @@ def run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation
     
     
     print(f"Punctuation for tokenization: {use_punctuation}")
-    MyAligner = Aligner(model, corpus_size=corpus_size, max_align=3, out_dir=out_dir, use_punctuation=use_punctuation, input_dir=input_dir, main_wit=main_wit, prefix=prefix, device=device)
+    MyAligner = Aligner(model, corpus_limit=corpus_limit, 
+                        max_align=3, 
+                        out_dir=out_dir, 
+                        use_punctuation=use_punctuation, 
+                        input_dir=input_dir, 
+                        main_wit=main_wit, 
+                        prefix=prefix, 
+                        device=device, 
+                        tokenizer=tokenizer, 
+                        tok_models=tok_models)
     MyAligner.parallel_align()
     utils.write_json(f"result_dir/{out_dir}/alignment_dict.json", MyAligner.alignment_dict)
     align_dict = utils.read_json(f"result_dir/{out_dir}/alignment_dict.json")
@@ -233,7 +278,7 @@ def run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation
     
     
     # Let's save the final tables (indices and texts)
-    MyAligner.save_final_result(merged_alignments=list_of_merged_alignments, file_titles=sys.argv[1:-3])
+    MyAligner.save_final_result(merged_alignments=list_of_merged_alignments)
     
     return tested_table
     
@@ -253,6 +298,8 @@ if __name__ == '__main__':
                         help="Prefix for produced files (to be implemented).")
     parser.add_argument("-d", "--device", default='cpu',
                         help="Device to be used (default: cpu).")
+    parser.add_argument("-t", "--tokenizer", default='regexp', help="Tokenizer to be used (None, regexp, bert-based)")
+    parser.add_argument("-l", "--corpus_limit", default=None, help="Limit alignment to given proportion of each text (float)")
 
     
     args = parser.parse_args()
@@ -263,8 +310,25 @@ if __name__ == '__main__':
     assert main_wit != None,  "Main wit path is mandatory"
     prefix = args.prefix
     device = args.device
+    corpus_limit = args.corpus_limit
+    if corpus_limit:
+        corpus_limit = float(corpus_limit)
+    tokenizer = args.tokenizer
+    tok_models = {"fr": 
+                      {"model": "models/fr", 
+                       "tokenizer": "dbmdz/bert-base-french-europeana-cased", 
+                       "tokens_per_example": 12}, 
+                  "es": {"model": "models/es", 
+                         "tokenizer": "dccuchile/bert-base-spanish-wwm-cased", 
+                         "tokens_per_example": 30}, 
+                  "it": {"model": "models/it", 
+                         "tokenizer": "dbmdz/bert-base-italian-xxl-cased", 
+                         "tokens_per_example": 12}}
+    assert tokenizer in ["None", "regexp", "bert-based"], "Authorized values for tokenizer are: None, regexp, bert-based"
+    if tokenizer == "None":
+        tokenizer = None
     use_punctuation = args.use_punctuation
-    run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation)
+    run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation, tokenizer, tok_models, corpus_limit)
                 
             
     

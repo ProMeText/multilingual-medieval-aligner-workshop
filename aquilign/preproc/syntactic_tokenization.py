@@ -7,23 +7,31 @@ import sys
 import langid 
 import aquilign.align.utils as utils
 
-def syntactic_tokenization(path, corpus_limit=None, use_punctuation=False, standalone=True, text=None):
+def syntactic_tokenization(input_file:str, 
+                           corpus_limit=None, 
+                           use_punctuation=False, 
+                           standalone=True, 
+                           text=None,
+                           lang=None):
     if standalone:
-        with open(path, "r") as input_text:
+        with open(input_file, "r") as input_text:
             text = input_text.read().replace("\n", " ")
     else:
         pass
     # text = utils.normalize_text(text)
-    codelang, _ = langid.classify(text[:300])
-    with open("aquilign/tokenize/delimiters.json", "r") as input_json:
+    with open("aquilign/preproc/delimiters.json", "r") as input_json:
         dictionary = json.load(input_json)
-    # Il ne reconnaît pas toujours le castillan
-    if codelang == "an" or codelang == "oc" or codelang == "pt" or codelang == "gl":
-        codelang = "es"
-    if codelang == "eo" or codelang == "ht":
-        codelang = "fr"
-    if codelang == "jv":
-        codelang = "it"
+    if not lang:
+        codelang, _ = langid.classify(text[:300])
+        # Il ne reconnaît pas toujours le castillan
+        if codelang == "an" or codelang == "oc" or codelang == "pt" or codelang == "gl":
+            codelang = "es"
+        if codelang == "eo" or codelang == "ht":
+            codelang = "fr"
+        if codelang == "jv":
+            codelang = "it"
+    else:
+        codelang = lang
         
     try:
         dictionary[codelang]
@@ -54,7 +62,7 @@ def syntactic_tokenization(path, corpus_limit=None, use_punctuation=False, stand
         tokenized_text = [text]
     # Let's limit the length for test purposes
     if corpus_limit:
-        tokenized_text = tokenized_text[:corpus_limit]
+        tokenized_text = tokenized_text[:round(len(tokenized_text)*corpus_limit)]
     return tokenized_text
 
 if __name__ == '__main__':
