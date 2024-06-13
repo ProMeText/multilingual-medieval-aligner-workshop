@@ -8,6 +8,7 @@ import re
 import os
 import json
 import glob
+import argparse
 ## script for the training of the text tokenizer : identification of tokens (label 1) which will be used to split the text
 ## produces folder with models (best for each epoch) and logs
 
