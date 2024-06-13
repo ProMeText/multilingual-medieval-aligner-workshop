@@ -7,9 +7,10 @@ def tokenize(text,num):
     return [' '.join(words[i:i+num]) for i in range(0, len(words), num)]
 
 
-def get_best_precision(results):
+def get_best_step(results):
     """
-    This function gets the best precision of label 1 (= delimiter) given the results of the trainer
+    This function gets the best metrics of label 1 (= delimiter) given the results of the trainer.
+    As for now it is the weighted average of precision (w=2) and recall (w=1) 
     """
     result_dict = {}
     for result in results:
@@ -18,12 +19,12 @@ def get_best_precision(results):
         except KeyError:
             result_dict[result['step']] = result
 
-    all_precisions = {}
+    all_metrics = {}
     for key, value in result_dict.items():
-        precision = value['eval_precision'][1]
-        all_precisions[key] = precision
+        metric = (value['eval_precision'][1] + value['eval_recall'][1]*2)/3
+        all_metrics[key] = metric
 
-    best_step = next(step for step, precision in all_precisions.items() if precision == max(all_precisions.values()))
+    best_step = next(step for step, metric in all_metrics.items() if metric == max(all_metrics.values()))
     print(f"Best step according to precision: {best_step}")
     return best_step, result_dict[best_step]
 
@@ -34,12 +35,17 @@ def remove_punctuation(text:str):
     
 
 
-def tokenize_words(sentence:str) -> list:
+def tokenize_words(sentence:str, delimiter) -> list:
     """
     Cette fonction tokénise une phrase selon un certain nombre de marqueurs
     """
-    words_delimiters = re.compile(r"[\.,;—:\?!’'«»“/\-]|[^\.,;—:\?!’'«»“/\-\s]+")
+    words_delimiters = re.compile(r"[\.,;——:\?!’'«»“/\-]|[^\.,;——:\?!’'«»“/\-\s]+")
     sentenceAsList = re.findall(words_delimiters, sentence)
+    if delimiter in sentenceAsList:
+        # Some workaround for when the delimiter is used on a token in the list of word delimiters.
+        alone_delim_index = next(idx for idx, token in enumerate(sentenceAsList) if token == delimiter)
+        to_merge = sentenceAsList.pop(alone_delim_index + 1)
+        sentenceAsList[alone_delim_index] = delimiter + to_merge
     return sentenceAsList
 
 
@@ -50,8 +56,10 @@ def convertToWordsSentencesAndLabels(corpus:list, delimiter="£") -> (list, list
 
     sentencesList = []
     sentencesAsLabels = []
+    sentences_as_list_of_tokens = []
     for text in corpus:
-        sentenceAsList = tokenize_words(text)
+        sentenceAsList = tokenize_words(text, delimiter)
+        sentences_as_list_of_tokens.append(sentenceAsList)
         masks = []
         for token in sentenceAsList:
             if delimiter in token:
@@ -61,7 +69,7 @@ def convertToWordsSentencesAndLabels(corpus:list, delimiter="£") -> (list, list
         sentencesAsLabels.append(masks)
         sentence = text.replace(delimiter, "")
         sentencesList.append(sentence)
-    return sentencesList, sentencesAsLabels
+    return sentencesList, sentencesAsLabels, sentences_as_list_of_tokens
 
 
 # function to convert text in input as tokens and labels (if label is identified in the file, gives 1, in other cases, 0)
@@ -74,7 +82,7 @@ def convertToSubWordsSentencesAndLabels(corpus, tokenizer, delimiter="£",  verb
     sentencesList = []
     sentencesAsLabels = []
     for text in corpus:
-        sentenceAsList = tokenize_words(text)
+        sentenceAsList = tokenize_words(text, delimiter)
         masks = []
         for token in sentenceAsList:
             if delimiter in token:
@@ -92,7 +100,7 @@ def convertToSubWordsSentencesAndLabels(corpus, tokenizer, delimiter="£",  verb
                          return_tensors="pt")
 
         # get the text with the similar splits as for the creation of the data
-        tokens = tokenize_words(text)
+        tokens = tokenize_words(text, delimiter)
         # get the index correspondences between text and tok text
         corresp = functions.get_index_correspondence(tokens, tokenizer)
         # aligning the label

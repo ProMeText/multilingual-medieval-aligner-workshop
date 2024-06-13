@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys
-from transformers import BertTokenizer, Trainer, TrainingArguments, AutoModelForTokenClassification
+from transformers import BertTokenizer, Trainer, TrainingArguments, AutoModelForTokenClassification, set_seed
 import aquilign.preproc.tok_trainer_functions as trainer_functions
 import aquilign.preproc.eval as evaluation
 import aquilign.preproc.utils as utils
@@ -8,6 +8,7 @@ import re
 import os
 import json
 import glob
+import argparse
 ## script for the training of the text tokenizer : identification of tokens (label 1) which will be used to split the text
 ## produces folder with models (best for each epoch) and logs
 
@@ -95,7 +96,7 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
     
     
     # print the whole log_history with the compute metrics
-    best_precision_step, best_step_metrics = utils.get_best_precision(trainer.state.log_history)
+    best_precision_step, best_step_metrics = utils.get_best_step(trainer.state.log_history)
     best_model_path = f"results_{name_of_model}/epoch{num_train_epochs}_bs{batch_size}/checkpoint-{best_precision_step}"
     print(f"Best model path according to precision: {best_model_path}")
     print(f"Full metrics: {best_step_metrics}")
@@ -134,13 +135,30 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
 
 # list of arguments to provide and application of the main function
 if __name__ == '__main__':
-    model = sys.argv[1]
-    train_dataset = sys.argv[2]
-    dev_dataset = sys.argv[3]
-    eval_dataset = sys.argv[4]
-    num_train_epochs = int(sys.argv[5])
-    batch_size = int(sys.argv[6])
-    logging_steps = int(sys.argv[7])
+    set_seed(42)
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-m", "--model", default=None,
+                        help="Base model to finetune.")
+    parser.add_argument("-t", "--train_dataset", default="",
+                        help="Path to train dataset.")
+    parser.add_argument("-d", "--dev_dataset", default="",
+                        help="Path to dev dataset.")
+    parser.add_argument("-e", "--eval_dataset", default="",
+                        help="Path to eval dataset.")
+    parser.add_argument("-ep", "--epochs", default=10,
+                        help="Number of epochs to be realized.")
+    parser.add_argument("-b", "--batch_size", default=32,
+                        help="Batch size.")
+    parser.add_argument("-l", "--logging_steps", default=500)
+    args = parser.parse_args()
+    model = args.model
+    train_dataset = args.train_dataset
+    dev_dataset = args.dev_dataset
+    eval_dataset = args.eval_dataset
+    num_train_epochs = int(args.epochs)
+    batch_size = int(args.batch_size)
+    logging_steps = int(args.logging_steps)
 
     training_trainer(model, train_dataset, dev_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps)
 
