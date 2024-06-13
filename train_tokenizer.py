@@ -156,9 +156,9 @@ if __name__ == '__main__':
     train_dataset = args.train_dataset
     dev_dataset = args.dev_dataset
     eval_dataset = args.eval_dataset
-    num_train_epochs = args.epochs
+    num_train_epochs = int(args.epochs)
     batch_size = int(args.batch_size)
-    logging_steps = args.logging_steps
+    logging_steps = int(args.logging_steps)
 
     training_trainer(model, train_dataset, dev_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps)
 
