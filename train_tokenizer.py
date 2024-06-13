@@ -150,6 +150,7 @@ if __name__ == '__main__':
                         help="Number of epochs to be realized.")
     parser.add_argument("-b", "--batch_size", default=32,
                         help="Batch size.")
+    parser.add_argument("-l", "--logging_steps", default=500)
     args = parser.parse_args()
     model = args.model
     train_dataset = args.train_dataset
