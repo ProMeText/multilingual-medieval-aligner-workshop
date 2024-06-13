@@ -135,13 +135,28 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
 # list of arguments to provide and application of the main function
 if __name__ == '__main__':
     set_seed(42)
-    model = sys.argv[1]
-    train_dataset = sys.argv[2]
-    dev_dataset = sys.argv[3]
-    eval_dataset = sys.argv[4]
-    num_train_epochs = int(sys.argv[5])
-    batch_size = int(sys.argv[6])
-    logging_steps = int(sys.argv[7])
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-m", "--model", default=None,
+                        help="Base model to finetune.")
+    parser.add_argument("-t", "--train_dataset", default="",
+                        help="Path to train dataset.")
+    parser.add_argument("-d", "--dev_dataset", default="",
+                        help="Path to dev dataset.")
+    parser.add_argument("-e", "--eval_dataset", default="",
+                        help="Path to eval dataset.")
+    parser.add_argument("-ep", "--epochs", default=10,
+                        help="Number of epochs to be realized.")
+    parser.add_argument("-b", "--batch_size", default=32,
+                        help="Batch size.")
+    args = parser.parse_args()
+    model = args.model
+    train_dataset = args.train_dataset
+    dev_dataset = args.dev_dataset
+    eval_dataset = args.eval_dataset
+    num_train_epochs = args.epochs
+    batch_size = args.batch_size
+    logging_steps = args.logging_steps
 
     training_trainer(model, train_dataset, dev_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps)
 
