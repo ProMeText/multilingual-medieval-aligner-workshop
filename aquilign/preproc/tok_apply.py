@@ -215,6 +215,7 @@ def tokenize_text(input_file:str,
     
 
     # create or no the directory
+    # TODO: corriger ça
     try:
         os.mkdir(output_dir)
     except OSError as exception:
