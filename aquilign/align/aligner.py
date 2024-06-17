@@ -63,6 +63,9 @@ class Bertalign:
         if torch.cuda.is_available() and self.device == 'cuda:0':  # GPU version
             cos = nn.CosineSimilarity(dim=1, eps=1e-6)
             output = cos(torch.from_numpy(self.search_simple_vecs), torch.from_numpy(self.tgt_simple_vecs))
+        else:
+            print("Code to run on CPU not implemented. Exiting")
+            exit(0)
         return output
         
     def align_sents(self, first_alignment_only=False):

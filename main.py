@@ -214,7 +214,7 @@ class Aligner:
                 output_text.write("\n")
         
         with open(f"result_dir/{self.out_dir}/final_result_as_index.csv", "w") as output_text:
-            output_text.write(delimiter + ",".join(filenames) + "\n")
+            output_text.write(delimiter + delimiter.join(filenames) + "\n")
             for alignment_unit in merged_alignments:
                 for index, witness in enumerate(merged_alignments[0]):
                     output_text.write("|".join(value for value in
