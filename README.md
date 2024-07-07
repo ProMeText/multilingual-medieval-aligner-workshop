@@ -17,7 +17,7 @@ on the GPU. The results will be saved in `result_dir/lancelot`
 
 `python3 main.py --help` to print help.
 
-Each text must be stored 
+Files must be sorted by language, using the ISO_639-1 language code as parent directory name (`es`, `fr`, `it`, `en`, etc).
 ## Citation
 
 Lei Liu & Min Zhu. 2022. Bertalign: Improved word embedding-based sentence alignment for Chinese–English parallel corpora of literary texts, *Digital Scholarship in the Humanities*. [https://doi.org/10.1093/llc/fqac089](https://doi.org/10.1093/llc/fqac089).
