@@ -11,9 +11,13 @@ The scripts relies for now on a prior phase of text segmentation at syntagm leve
 
 ## Use
 
-`python3 main.py -o result_dir/ -i data/extraitsLancelot/ii-48/ -mw data/extraitsLancelot/ii-48/castillan/lanzarote-ii-48.txt -d cuda:0`
+`python3 main.py -o lancelot -i data/extraitsLancelot/ii-48/ -mw data/extraitsLancelot/ii-48/fr/micha-ii-48.txt -d 
+cuda:0 -t bert-based` to perform alignment with our bert-based segmenter, choosing Micha edition as base witness,
+on the GPU. The results will be saved in `result_dir/lancelot`
 
 `python3 main.py --help` to print help.
+
+Files must be sorted by language, using the ISO_639-1 language code as parent directory name (`es`, `fr`, `it`, `en`, etc).
 ## Citation
 
 Lei Liu & Min Zhu. 2022. Bertalign: Improved word embedding-based sentence alignment for Chinese–English parallel corpora of literary texts, *Digital Scholarship in the Humanities*. [https://doi.org/10.1093/llc/fqac089](https://doi.org/10.1093/llc/fqac089).
