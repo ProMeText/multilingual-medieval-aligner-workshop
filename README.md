@@ -3,11 +3,11 @@
 [![codecov](https://codecov.io/github/ProMeText/Aquilign/graph/badge.svg?token=TY5HCBOOKL)](https://codecov.io/github/ProMeText/Aquilign)
 
 
-This repo contains a set of scripts to align and collate a multilingual medieval corpus. Its designers are Matthias Gille Levenson, Lucence Ing and Jean-Baptiste Camps.  
+This repo contains a set of scripts to align (and soon collate) a multilingual medieval corpus. Its designers are Matthias Gille Levenson, Lucence Ing and Jean-Baptiste Camps.  
 
 It is based on a fork of the automatic multilingual sentence aligner Bertalign.
 
-The scripts relies for now on a prior phase of text segmentation at syntagm level using regular expressions to match grammatical syntagms and produce a more precise alignment.
+The scripts relies on a prior phase of text segmentation at syntagm level using regular expressions or bert-based segmentation to match grammatical syntagms and produce a more precise alignment.
 
 ## Use
 
