@@ -17,5 +17,5 @@ nvidia-nvjitlink-cu12>=12.4.99
 nvidia-nvtx-cu12>=12.1.105
 langid==1.1.6
 torch>=1.13.0
-torchvision>=0.14
+torchvision>=0.14+cu117
 triton>=2.2.0
