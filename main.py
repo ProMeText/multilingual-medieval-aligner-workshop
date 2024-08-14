@@ -323,7 +323,10 @@ if __name__ == '__main__':
                          "tokens_per_example": 30}, 
                   "it": {"model": "models/it", 
                          "tokenizer": "dbmdz/bert-base-italian-xxl-cased", 
-                         "tokens_per_example": 12}}
+                         "tokens_per_example": 12}, 
+                  "la": {"model": "models/la", 
+                         "tokenizer": "LuisAVasquez/simple-latin-bert-uncased", 
+                         "tokens_per_example": 50}}
     assert tokenizer in ["None", "regexp", "bert-based"], "Authorized values for tokenizer are: None, regexp, bert-based"
     if tokenizer == "None":
         tokenizer = None
