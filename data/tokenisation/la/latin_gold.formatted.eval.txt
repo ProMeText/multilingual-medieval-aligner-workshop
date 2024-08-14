@@ -1,33 +1,48 @@
-Prudentia ergo regnatiua et legum positiua, £idest prudentia quae requiritur in Rege et principante, £cuius est leges ferre, £et regere regnum et ciuitatem, £est alia a prudentia oeconomica quae requiritur in patrefamilias, £cuius est gubernare domum: £immo quanto bonum ciuitatis £et regni excedit bonum domesticum, £et bonum alicuius particularis personae,
-Immo quia (secundum Philosophum in Politicis) £quae oportet dominum scire praecipere, £haec oportet subditum scire facere: £si per hunc librum instruuntur Principes, £quomodo debeant se habere, £et qualiter debeant suis subditis imperare, £oportet doctrinam hanc extendere usque ad populum, £ut sciat qualiter debeat suis Principibus obedire.
-His visis sciendum quadrangularem formam aciei £inter caeteras formas esse magis inutilem: £ideo £secundum hanc formam nunquam formanda est acies simpliciter, £sed in casu: £ut si situs talem formam requireret, £in huiusmodi casu construenda est forma praedicta.
-si contingat eos pedestres esse, £si volunt boni bellatores existere, £sic ab ipsa iuuentute exercitandi sunt ad saliendum, £ut possint per saltum foueas, £et alia impedimenta transire.
-Primo enim milites £et ipsi pedites, £et uniuersaliter bellantes assuescendi sunt ad gradum et passum bellicum, £ut gradatim pergant ita, £ut quilibet se in suo ordine teneat.
-Nam bonum est in exercitu aliquos exiliores praecurrere, £qui de facili non possint ab ipsis hostibus comprehendit, £explorantes conditiones et facta hostium.
-Tertio circa situm considerandum est spatium £ut pro numero bellatorum accipiendum est spatium, £circa quod sunt munitiones erigendae: £ut non accipiatur de spatio £ultra quam requirat huiusmodi multitudo, £nec etiam accipietur tam modicus, £ut ultra quam debeat, oporteat exercitum constringi £et constipari. Quarto
-Cum ergo ista tria contingunt, £quod agamus bona, £ex electione, et delectabiliter, £maxime contingit nos sic finem £consequi haec autem maxime contingunt, £cognito fine.
-Viso utile esse circa exercitum facere fossas £et construere castra: £restat ostendere, quomodo huiusmodi monitiones et castra sunt construenda.
-Ex his autem sequitur tertium, £videlicet, quod felicitas consistat in bonis animae, £non in bonis corporis.
-Haec enim duo in acie sunt necessaria: £ut scilicet non possit de facili perforari ab hostibus, £et non impediatur ad percutiendum.
-Considerare quidem debemus, £quod quic quid est hosti nociuum, £secundum quod huiusmodi, est nobis proficuum: £ideo in exercitu ubi quaeritur mors aduersariorum, £percutiendum est punctim, £quia sic feriendo citius infligitur plaga mortifera.
-Nam sicut si signum se moueret £et non staret fixum, £non sic de facili percuteretur ab arcu, £sic homo se circumuoluens, £non sic de facili vulneratur ab hoste.
-Secundo exercitandi sunt bellatores £tam pedites quam equites ad cursum, £ut sint habiles in praecurrendo.
-Nam inter cetera, £per quae quis redditur bonus pugnatiuus, £est (ut dicebatur) velle honorari ex pugna, £et erubescere turpem fugam.
-Ut ergo sciatur £quid sit de quaesito tenendum, oportet aduertere, £quod secundum diuersitatem pugnarum diuersi eligendi sunt bellatores.
+nec dux dicitur habere ciuitatem, £si in regno vel ciuitate sunt aliqui, £qui non obediant regi, vel duci: £sic homo aliquis singularis £dicitur non habere seipsum, £si appetitus dissentiat rationi, £et si rationale per participationem £non obediat rationali per essentiam: £homo enim £(secundum Philosophum 9 Ethi’)
+Sed quae non agimus ex electione, £non agimus volentes: £ergo per se loquendo ex talibus operibus £(secundum quod huiusmodi sunt) £non consequimur beatitudinem, et felicitatem.
+Quod autem honor sit bonum £ad aliud ordinatum, £patet per Philosophum 1 Ethicorum, £qui vult honorem esse exhibitionem reuerentiae in testimonium virtutis.
+Viso ex quibus partibus meliores sunt bellatores: £videre restat, ex quibus partibus £eligendi sunt bellantes.
+Quanto ergo quis appropinquat plus ad unitatem £et bonitatem, £tanto est conformior primo principio, £et perfectius habet ipsum Deus.
+Ideo dicitur 1 Ethic’ £quod infirmi egentes ut sint sani, £felicitatem ponunt in sanitate, £et mendici in diuitiis, £turpes in pulchritudine, debiles in robore.
+Nam si sagitta signum non percipit, £non tamen propter hoc impeditur quin signum percutiat, £quia a sagittante in signum dirigitur, £sicut igitur magis expedit sagittatorem signum percipere quam sagitta, £eo quod sit sagittae director: £sic magis expedit regiam maiestatem felicitatem, £et finem cognoscere quam populum, £eo quod fit populi directiua.
+Nam expedit aliquando pugnantibus die noctuque esse in armis: £propter quod nec in stando, £nec in iacendo est eis commodum aut requies.
+In hoc autem capitulo specialem doctrinam £volumus dare peditibus, £qualiter debeant stare £cum volunt hostes percutere.
+Nam quanto maiestas regia in loco altiori consistit, £tanto magis indiget diuina gratia, £ut possit virtutum opera exercere, £et sibi subditos valere inducere £ad virtutem.
+Debet enim Princeps possidere sufficientes diuitias, £ut possit regnum defendere, £et exercere operationes virtutum: £decet enim Regem esse magnificum, beneficiare personas dignas: £quod sine diuitiis fieri non potest. Sic etiam,
+Quomodo homines bellatores stare debeant, £si velint hostes percutere, £et quomodo debeant eos circundare, £et quomodo debeant se declinare a pugna, £si non sit bonum pugnam committere.
+Sic etiam tollitur pulchritudo, £quia amissa sanitate, £membra fiunt macilenta, £non remanet in eis color debitus: £amittunt conformitatem illam, £in qua reseruatur decor, £et pulchritudo.
+Contigit enim aliquos prauos facere aliqua de genere bonorum, £tamen quia non faciunt ea bene et delectabiliter, £non oportet per huiusmodi opera eos £consequi finem vel felicitatem.
+Nam ut ait Vegetius, melius est £ut iuuenis exercitatus causetur aetatem £nondum aduenisse pugnandi gratia, £quam doleat praeteriisse.
 Nam si hostes sunt absentes £facile est fossas circa exercitum fodere, £munitiones erigere et castra construere.
-Nam, ut ait Vegetius, £nisi bellantes sint ordinati, £et occupent debitum spatium, £bene pugnare non poterunt.
-Secundo in talibus non est ponenda felicitas, £quia non sunt bona secundum rationem, £sed magis sunt bona secundum sensum, £bona enim secundum rationem £quanto maiora sunt, £tanto magis reddunt rationem liberam, et expeditam.
-Nam (ut supra tangebatur) £omnibus volentibus viuere recte, £necessaria est diuina gratia, £et maxime necessaria est Legibus, £et Rectoribus aliorum.
-Unde Philosophus 1 Ethic’ ait, £quod in Olimpidiadibus, £idest in illis bellis £et agonibus non coronantur fortissimi, £sed agonizantes: £qui enim fortissimi sunt, £potentes agonixare, £attamen si non actu agonizant, £non debetur eis corona.
-Senes enim (ut suo loco ostendetur) £sunt naturaliter increduli, et auari : £iuuenes vero sunt naturaliter liberales, £et creditiui.
-Quare cum velle honorari £et erubescere de aliquo turpi facto, £magis conueniat nobilibus quam rusticis, £ii meliores esse videntur ad pugnam, £eo quod verecundentur fugere.
-Ideo non omnino sunt utiles operibus bellicis, £quia consilium et prudentia in dimicando £non est modicum utilis.
-Nam siue equitem siue peditem oportet esse bellantem, £quasi fortuito videtur peruenire ad palmam, £si caret industria bellandi.
-Spectat enim ad fortem £et ad bonum bellatorem, £ut innuit Philosophus 3 Ethic’ £non curare in bello bene mori.
-Nam licet executio bellorum, £et remouere impedimenta ipsius communis boni, £spectet ad ipsos milites, £et etiam ad eos quibus ipse Rex £aut Princeps voluerit committere talia: £scire £tamen quomodo committenda sint bella, £et qualiter caute remoueri possint impedientia commune bonum, £maxime spectat ad principantem.
-Immo cum ex operibus virtuosis felicitatem consequamur £(quia virtus est habitus electiuus in medietate consistens, £ut dicitur 2 Ethic.)
-Nam agere et communicare in actionibus cum aliis, £competit homini ut homo est: £sed speculari et cognoscere veritatem, £competit ei ut est in eo intellectus speculatiuus, £qui est aliquid diuinum, £et secundum quem communicamus cum Deo, £et cum substantiis separatis.
-Numeratis iis quae habere debent bellatores viri: £restat inquirere, £qui sunt meliores bellantes, £an urbani an nobiles, an rurales.
-Bona autem honesta, sunt bona per excellentiam: £nam in his bonis £(secundum ipsum) £includuntur bona delectabilia, et utilia.
-Nam prudens ex hoc aliquis dicitur, £ut patet ex septimo Ethicorum: £quia scit bene consiliari, £et bene dirigere ad bonum finem: £ubi ergo reperitur alia £et alia ratio boni, £ibi reperitur alia £et alia species prudentiae: £quare cum bonum domesticum,
+Viso in qua aetate assuescendi sunt qui debent effici bellatores ad actiones bellicas: £videre restat, £ex quibus signis cognosci habeant homines bellicosi.
+Cum enim doctrina de regimine Principum £sit de actibus humanis, £et comprehendatur sub morali negocio, £quia materia moralis £(ut dictum est) non patitur perscrutationem subtilem, £sed est de negociis singularibus: £quae (ut declarari habet 2 Ethicorum) £propter sui variabilitatem, £magnam incertitudinem habent.
+Qualiter autem talis industria habeatur, £et qualiter sit feriendum hostem, £et quae adminiculantur ad ista, infra patebit.
+Haec enim duo in acie sunt necessaria: £ut scilicet non possit de facili perforari ab hostibus, £et non impediatur ad percutiendum.
+Nam si bellantes nimis se fatigent, £non valentes laborem illum tolerare, £de facili dimittunt aciem, £et conuertuntur in fugam.
+Sed si habeat aequatas potentias, £ut quod inferiores potentiae subsint rationi; £et sit sanus, et fortis mente: £et si huiusmodi potentias habeat ornatas virtutibus, £et bonis operibus et sit pulcher in anima, £tunc (ut exigit suus status) credat se esse felicem.
+Tertio in talibus non est ponenda felicitas, £quia aurum, £et argentum, £et omnia numismata non solum animam non satiant, £nec sunt perfectum bonum, £sed etiam per seipsa non satisfaciunt indigentiae corporali.
+In sanitate ergo, et fortitudine, et pulchritudine corporali, £quia sunt quodammodo bona exteriora, £felicitas poni non debet.
+Tertia est, habere secum plures sapientes fideles principi, exercitatos in bellis, £de quorum consilio agat £quicquid viderit ipse dux belli esse fiendum.
+Inde est quod apud Romanos antiquitus consuetudo erat, £quod iuuenes futuri bellatores £postquam per magnam partem dici exercitati essent ad arma, £si tempus erat natationi congruum, £ducebantur ad fluuium, £ut artem natandi addiscerent.
+Aequatio enim humorum, £cum subsunt motui supercoelestium corporum, £variationi aeris, mutationi ciborum, £de facili variationem recipit.
+Non ergo Rex debet se credere esse felicem, £si per violentiam, £et per ciuilem potentiam dominetur: £quia tale dominium cum sit violentum, £et contra naturam, £diu durare non potest: £felicitas enim non est ponenda in aliquo transitorio, £sed magis in aliquo sempiterno.
+Quarto dux exercitus sic se temperare debet: £ut tali hora faciat suos commilitones cibum capere, £et requiescere: £et eorum equos pausare, £ut possint inuadere hostes ex improuiso; £ut eos inuadant quando cibum capiunt, £vel quando dormiunt, quando sunt securi existentes inermes, vacantes, discalceati, distractis equis, £non suspicantes eorum aduentum.
+Sciendum etiam, £quod semper in cornu aciei £et in locis £ubi maius periculum est, £ne acies confundatur, apponendi sunt probiores pugnatores, £qui possint virilius dimicare.
+Secundo in talibus non est ponenda felicitas, £quia non habent £quod sint diuitiae, £nisi ex ordinatione Hominum.
+Recitat Vegetius in libro De re militari, £exercitationem armorum, et industriam bellandi fuisse £ea, quae terrarum orbem Romano Populo subiecerunt.
+Nam potior est cognitio rei £per quam cognoscitur in se ipsa, £quam cognoscitur in pictura, £vel in alio simili.
+In forma vero forficulari, £est utilis ad circum dandum et concludendum, £cum hostes sunt pauci.
+Quare si male agentes digni sunt £ut mala consequantur, quia malum contrariatur bono, £per consequens contrariatur fini, £male agentes £(secundum quod huiusmodi) digni sunt, £non ut consequantur finem, £sed contrarium finis.
+Non igitur debet Rex £se credere esse beatum, £si sit in gloria apud homines: £attamen beatus est, £si sit in gloria apud Deum. Dictum enim est,
+Regnum enim cuiuslibet hominis, £est ex eo quod potentiae animae reguntur per rationem, £et intellectum.
+Militaris ergo est quaedam species prudentiae, £per quam superantur hostes £et prohibentes bonum ciuile £et commune.
 Quod ergo dictum est de spe, £et timore, intelligendum est de aliis passionibus : £singulae enim affectiones et passiones £aliquam inclinationem in nobis efficiunt, £ut alia, et alia opera faciamus.
+Nam regimen regni, et ciuitatis, £si sit rectum et ordinatum, £assimilatur iis quae videmus in uno et eodem homine.
+Stabant enim a remotis £et assuefaciebant brachia, £ut possent palum percutere, £vel saltem prope ipsum proiicere.
+Nam quia contingit £quod ipsos hostes non possumus immediate attingere, £utile est eos sagittis impugnare: £immo dato quod pugnantes se cum hostibus possint coniungere, £antequam coniungantur proficuum est eos arcubus £et ballistis terrere.
+Diximus supra, Philosophum velle in 8 Polit’ Iuuenes a quarto £de imo anno ultra assuefaciendos esse ad labores fortes, £ut ad labores militares et bellicosos.
+Ex Regia, £ac sanctissima prosapia oriundo suo Domino speciali Domino Philippo primogenito, £et haeredi praeclarissimi viri Domini Philippi £Dei gratia Illustrissimi Regis Francorum, £Suus deuotus Fr’ Aegidius Romanus Ordinis Fratrum Eremitarum S Augustini, £cum recommendatione seipsum, £et ad omnia famulatum.
+Nam aliud est quod sciat se regere £ut est aliquid in se, £et aliud ut subiectus principanti.
+Nam (ut scribitur 2 Ethic’) opus morale £suscipimus non contemplationis gratia, £neque ut sciamus, sed ut boni fiamus.
+Enumeranda sunt igitur ea quae requiruntur in hominibus bellicosis, £ut sciamus quales homines sunt eligendi ad bellum, £et ex quibus artibus sunt assumendi bellantes.
+Quarto non est ponenda felicitas in ciuili potentia: £quia si Princeps se crederet esse felicem, £si abundet in ciuili potentia, £non ordinabit ciues, £nisi ad exercitum armorum, et ad ea, £per quae sibi possit subiicere nationes.
