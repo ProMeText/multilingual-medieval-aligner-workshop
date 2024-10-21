@@ -2,7 +2,7 @@ import sys
 import random
 import re
 
-def main(in_file, splits):
+def main(in_file, splits, extension):
     random.seed(1234)
     with open(in_file, "r") as input_file:
         as_list = [line.replace("\n", "") for line in input_file.readlines()]
@@ -18,13 +18,13 @@ def main(in_file, splits):
         else:
             test_list.append(example)
     
-    with open(in_file.replace(".txt", ".train.txt"), "w") as output_train:
+    with open(in_file.replace(f".{extension}", f".train.{extension}"), "w") as output_train:
         output_train.write("\n".join(train_list))
 
-    with open(in_file.replace(".txt", ".dev.txt"), "w") as output_dev:
+    with open(in_file.replace(f".{extension}", f".dev.{extension}"), "w") as output_dev:
         output_dev.write("\n".join(dev_list))
         
-    with open(in_file.replace(".txt", ".eval.txt"), "w") as output_test:
+    with open(in_file.replace(f".{extension}", f".eval.{extension}"), "w") as output_test:
         output_test.write("\n".join(test_list))
     
     regexp = re.compile(r"\$.+", flags=re.MULTILINE)
@@ -36,4 +36,5 @@ if __name__ == '__main__':
     random.seed(1234)
     splits = [0.8, 0.1, 0.1]
     assert sum(splits) == 1, "Please verify proportions"
-    main(sys.argv[1], splits)
+    extension = sys.argv[2]
+    main(sys.argv[1], splits, extension)
