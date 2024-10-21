@@ -5,6 +5,7 @@ import string
 from numpyencoder import NumpyEncoder
 import sys
 import numpy as np
+import random
 # import collatex
 import aquilign.align.graph_merge as graph_merge
 import aquilign.align.utils as utils
@@ -123,6 +124,8 @@ class Aligner:
         utils.write_tokenized_text(f"result_dir/{self.out_dir}/tokenized_{main_wit_name}.txt", first_tokenized_text)
         
         # Let's loop and align each pair
+        # We randomize the pairs. It can help resolving memory issue.
+        random.shuffle(self.wit_pairs)
         for index, (main_wit, wit_to_compare) in enumerate(self.wit_pairs):
             main_wit_name = main_wit.split("/")[-1].split(".")[0]
             wit_to_compare_name = wit_to_compare.split("/")[-1].split(".")[0]
