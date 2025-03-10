@@ -27,3 +27,11 @@ Lei Liu & Min Zhu. 2022. Bertalign: Improved word embedding-based sentence align
 
 This fork is released under the [GNU General Public License v3.0](./LICENCE)
 
+## Funding
+
+This work benefited́ from national funding managed by the Agence Nationale de la Recherche under the Investissements d'avenir programme with the reference ANR-21-ESRE-0005 (Biblissima+). 
+
+Ce travail a bénéficié́ d'une aide de l’État gérée par l'Agence Nationale de la Recherche au titre du programme d’Investissements d’avenir portant la référence ANR-21-ESRE-0005 (Biblissima+) 
+
+![image](https://github.com/user-attachments/assets/915c871f-fbaa-45ea-8334-2bf3dde8252d)
+
