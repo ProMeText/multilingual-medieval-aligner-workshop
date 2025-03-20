@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys
-from transformers import BertTokenizer, Trainer, TrainingArguments, AutoModelForTokenClassification, set_seed, TrainerCallback
+from transformers import BertTokenizer, Trainer, TrainingArguments, AutoModelForTokenClassification, set_seed, TrainerCallback, EarlyStoppingCallback
 import aquilign.preproc.tok_trainer_functions as trainer_functions
 import aquilign.preproc.eval as evaluation
 import aquilign.preproc.utils as utils
@@ -93,7 +93,7 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
         train_dataset=train_dataset,
         eval_dataset=dev_dataset,
         compute_metrics=trainer_functions.compute_metrics,
-        callbacks=[SaveEveryNEpochsCallback(save_every=save_every)]
+        callbacks=[SaveEveryNEpochsCallback(save_every=save_every), EarlyStoppingCallback(early_stopping_patience=8)]
 
     )
 
