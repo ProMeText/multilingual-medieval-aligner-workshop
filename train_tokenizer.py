@@ -11,7 +11,15 @@ import glob
 import argparse
 ## script for the training of the text tokenizer : identification of tokens (label 1) which will be used to split the text
 ## produces folder with models (best for each epoch) and logs
+class SaveEveryNEpochsCallback(TrainerCallback):
+    def __init__(self, save_every=10):
+        self.save_every = save_every
 
+    def on_epoch_end(self, args, state, control, **kwargs):
+        if state.epoch % self.save_every == 0:
+            control.should_save = True  # Forces saving
+        else:
+            control.should_save = False  # Skips saving
 
 ## usage : python tok_trainer.py model_name train_file.txt dev_file.txt num_train_epochs batch_size logging_steps
 ## where :
@@ -83,9 +91,10 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
         train_dataset=train_dataset,
         eval_dataset=dev_dataset,
         compute_metrics=trainer_functions.compute_metrics,
-        save_epochs=10
+        callbacks=[SaveEveryNEpochsCallback(save_every=10)]
 
     )
+
 
     # fine-tune the model
     print("Starting training")
