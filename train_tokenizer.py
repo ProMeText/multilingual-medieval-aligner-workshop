@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys
-from transformers import BertTokenizer, Trainer, TrainingArguments, AutoModelForTokenClassification, set_seed
+from transformers import BertTokenizer, Trainer, TrainingArguments, AutoModelForTokenClassification, set_seed, TrainerCallback
 import aquilign.preproc.tok_trainer_functions as trainer_functions
 import aquilign.preproc.eval as evaluation
 import aquilign.preproc.utils as utils
