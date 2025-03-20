@@ -172,7 +172,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     model = args.model
     train_dataset = args.train_dataset
-    save_every = args.save_every
+    save_every = int(args.save_every)
     dev_dataset = args.dev_dataset
     eval_dataset = args.eval_dataset
     num_train_epochs = int(args.epochs)
