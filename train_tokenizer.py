@@ -97,7 +97,7 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
     
     # print the whole log_history with the compute metrics
     best_precision_step, best_step_metrics = utils.get_best_step(trainer.state.log_history)
-    best_model_path = f"results_{name_of_model}/epoch{num_train_epochs}_bs{batch_size}/checkpoint-{best_precision_step}"
+    best_model_path = f"results_{out_name}/epoch{num_train_epochs}_bs{batch_size}/checkpoint-{best_precision_step}"
     print(f"Best model path according to precision: {best_model_path}")
     print(f"Full metrics: {best_step_metrics}")
     
@@ -110,7 +110,7 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
 
     # We move the best state dir name to "best"
     #### CONTINUER ICI
-    new_best_path = f"results_{name_of_model}/epoch{num_train_epochs}_bs{batch_size}/best"
+    new_best_path = f"results_{out_name}/epoch{num_train_epochs}_bs{batch_size}/best"
     try:
         os.rmdir(new_best_path)
     except FileNotFoundError:
@@ -127,7 +127,7 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
         json.dump(best_step_metrics, metrics)
     
     print(f"\n\nBest model can be found at : {new_best_path} ")
-    print(f"You should remove the following directories by using `rm -r results_{name_of_model}/epoch{num_train_epochs}_bs{batch_size}/checkpoint-*`")
+    print(f"You should remove the following directories by using `rm -r results_{out_name}/epoch{num_train_epochs}_bs{batch_size}/checkpoint-*`")
 
     # functions returns best model_path
     return new_best_path
