@@ -72,8 +72,7 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
     training_args = TrainingArguments(
         output_dir=f"results_{out_name}/epoch{num_train_epochs}_bs{batch_size}",
         num_train_epochs=num_train_epochs,
-        logging_strategy="steps",
-        logging_steps=1,
+        logging_strategy="epoch",
         per_device_train_batch_size=batch_size,
         per_device_eval_batch_size=batch_size,
         evaluation_strategy="epoch",
