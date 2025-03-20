@@ -25,7 +25,7 @@ import argparse
 # logging_steps : the number of logging steps (ex : 50)
 
 # function which produces the train, which first gets texts, transforms them into tokens and labels, then trains model with the specific given arguments
-def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps, keep_punct=True):
+def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps, use_cpu, bf_16, keep_punct=True):
     model = AutoModelForTokenClassification.from_pretrained(modelName, num_labels=3)
     tokenizer = BertTokenizer.from_pretrained(modelName, max_length=10)
     
@@ -69,8 +69,8 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
         logging_strategy="epoch",
         dataloader_num_workers=8,
         dataloader_prefetch_factor=4,
-        bf16=True,
-        use_cpu=False,
+        bf16=bf_16,
+        use_cpu=use_cpu,
         save_strategy="epoch",
         load_best_model_at_end=True
         # best model is evaluated on loss
@@ -151,6 +151,8 @@ if __name__ == '__main__':
     parser.add_argument("-b", "--batch_size", default=32,
                         help="Batch size.")
     parser.add_argument("-l", "--logging_steps", default=500)
+    parser.add_argument("-dev", "--device", default="cpu")
+    parser.add_argument("-bf16", "--bfloat16", action=argparse.BooleanOptionalAction, default=False)
     args = parser.parse_args()
     model = args.model
     train_dataset = args.train_dataset
@@ -159,6 +161,9 @@ if __name__ == '__main__':
     num_train_epochs = int(args.epochs)
     batch_size = int(args.batch_size)
     logging_steps = int(args.logging_steps)
+    device = args.device
+    bf_16 = args.bfloat16
+    use_cpu = True if device == "cpu" else False
 
-    training_trainer(model, train_dataset, dev_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps)
+    training_trainer(model, train_dataset, dev_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps, use_cpu, bf_16)
 
