@@ -11,8 +11,10 @@ import glob
 import argparse
 ## script for the training of the text tokenizer : identification of tokens (label 1) which will be used to split the text
 ## produces folder with models (best for each epoch) and logs
+
+# Callback to save every N epoch (usefull for small datasets)
 class SaveEveryNEpochsCallback(TrainerCallback):
-    def __init__(self, save_every=10):
+    def __init__(self, save_every):
         self.save_every = save_every
 
     def on_epoch_end(self, args, state, control, **kwargs):
@@ -33,7 +35,7 @@ class SaveEveryNEpochsCallback(TrainerCallback):
 # logging_steps : the number of logging steps (ex : 50)
 
 # function which produces the train, which first gets texts, transforms them into tokens and labels, then trains model with the specific given arguments
-def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps, use_cpu, bf_16, out_name, keep_punct=True):
+def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps, use_cpu, bf_16, out_name, save_every, keep_punct=True):
     model = AutoModelForTokenClassification.from_pretrained(modelName, num_labels=3)
     tokenizer = BertTokenizer.from_pretrained(modelName, max_length=10)
     
@@ -91,7 +93,7 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
         train_dataset=train_dataset,
         eval_dataset=dev_dataset,
         compute_metrics=trainer_functions.compute_metrics,
-        callbacks=[SaveEveryNEpochsCallback(save_every=10)]
+        callbacks=[SaveEveryNEpochsCallback(save_every=save_every)]
 
     )
 
@@ -165,10 +167,12 @@ if __name__ == '__main__':
                         help="Batch size.")
     parser.add_argument("-l", "--logging_steps", default=500)
     parser.add_argument("-dev", "--device", default="cpu")
+    parser.add_argument("-s", "--save_every", default=1)
     parser.add_argument("-bf16", "--bfloat16", action=argparse.BooleanOptionalAction, default=False)
     args = parser.parse_args()
     model = args.model
     train_dataset = args.train_dataset
+    save_every = args.save_every
     dev_dataset = args.dev_dataset
     eval_dataset = args.eval_dataset
     num_train_epochs = int(args.epochs)
@@ -180,5 +184,5 @@ if __name__ == '__main__':
     bf_16 = args.bfloat16
     use_cpu = True if device == "cpu" else False
 
-    training_trainer(model, train_dataset, dev_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps, use_cpu, bf_16, out_name)
+    training_trainer(model, train_dataset, dev_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps, use_cpu, bf_16, out_name, save_every)
 
