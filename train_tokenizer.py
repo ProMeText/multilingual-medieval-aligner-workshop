@@ -77,7 +77,6 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
         per_device_train_batch_size=batch_size,
         per_device_eval_batch_size=batch_size,
         evaluation_strategy="epoch",
-        logging_strategy="epoch",
         dataloader_num_workers=8,
         dataloader_prefetch_factor=4,
         bf16=bf_16,
