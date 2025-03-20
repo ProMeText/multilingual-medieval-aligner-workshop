@@ -110,9 +110,6 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
     
     # print the whole log_history with the compute metrics
     best_precision_step, best_step_metrics = utils.get_best_step(trainer.state.log_history)
-    print(trainer.state.log_history)
-    print(best_precision_step, best_step_metrics)
-    exit(0)
 
     # On s'assure de prendre le step le plus proche
     best_precision_step = best_precision_step % save_every
