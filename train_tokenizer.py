@@ -25,7 +25,7 @@ import argparse
 # logging_steps : the number of logging steps (ex : 50)
 
 # function which produces the train, which first gets texts, transforms them into tokens and labels, then trains model with the specific given arguments
-def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps, use_cpu, bf_16, keep_punct=True):
+def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps, use_cpu, bf_16, out_name, keep_punct=True):
     model = AutoModelForTokenClassification.from_pretrained(modelName, num_labels=3)
     tokenizer = BertTokenizer.from_pretrained(modelName, max_length=10)
     
@@ -60,7 +60,7 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
     # num train epochs, logging_steps and batch_size should be provided
     # evaluation is done by epoch and the best model of each one is stored in a folder "results_+name"
     training_args = TrainingArguments(
-        output_dir=f"results_{name_of_model}/epoch{num_train_epochs}_bs{batch_size}",
+        output_dir=f"results_{out_name}/epoch{num_train_epochs}_bs{batch_size}",
         num_train_epochs=num_train_epochs,
         logging_steps=logging_steps,
         per_device_train_batch_size=batch_size,
@@ -140,6 +140,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("-m", "--model", default=None,
                         help="Base model to finetune.")
+    parser.add_argument("-n", "--out_name", default=None,
+                        help="Out dir to save the models.")
     parser.add_argument("-t", "--train_dataset", default="",
                         help="Path to train dataset.")
     parser.add_argument("-d", "--dev_dataset", default="",
@@ -161,9 +163,11 @@ if __name__ == '__main__':
     num_train_epochs = int(args.epochs)
     batch_size = int(args.batch_size)
     logging_steps = int(args.logging_steps)
+    out_name = args.out_name
+    assert out_name != "", "Please indicate out name (with flag -n). Exiting"
     device = args.device
     bf_16 = args.bfloat16
     use_cpu = True if device == "cpu" else False
 
-    training_trainer(model, train_dataset, dev_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps, use_cpu, bf_16)
+    training_trainer(model, train_dataset, dev_dataset, eval_dataset, num_train_epochs, batch_size, logging_steps, use_cpu, bf_16, out_name)
 
