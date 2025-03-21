@@ -26,6 +26,8 @@ def syntactic_tokenization(input_file:str,
         # Il ne reconnaît pas toujours le castillan
         if codelang == "an" or codelang == "oc" or codelang == "pt" or codelang == "gl":
             codelang = "es"
+        if codelang == "multilingual":
+            codelang = "la"
         if codelang == "eo" or codelang == "ht":
             codelang = "fr"
         if codelang == "jv":
