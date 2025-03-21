@@ -40,7 +40,7 @@ def tokenize_words(sentence:str, delimiter) -> list:
     """
     Cette fonction tokénise une phrase selon un certain nombre de marqueurs
     """
-    words_delimiters = re.compile(r"[\.,;—:\?\(\)!’'\"«»/\-]|[^\.,;—:\?!’'\(\)«»\"/\-\s]+")
+    words_delimiters = re.compile(r"[\.,;——:\?!’'«»“/\-]|[^\.,;——:\?!’'«»“/\-\s]+")
     sentenceAsList = re.findall(words_delimiters, sentence)
     if delimiter in sentenceAsList:
         # Some workaround for when the delimiter is used on a token in the list of word delimiters.
