@@ -64,6 +64,7 @@ def training_trainer(modelName,
     with open(eval_dataset, "r") as eval_files:
         eval_lines = [item.replace("\n", "") for item in eval_files.readlines()]
     eval_data_lang = eval_dataset.split("/")[-2]
+    print(eval_data_lang)
     
     # Train corpus
     train_texts_and_labels = utils.convertToSubWordsSentencesAndLabels(train_lines, tokenizer=tokenizer, delimiter="£")
