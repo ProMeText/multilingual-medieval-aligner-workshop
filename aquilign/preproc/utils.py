@@ -45,7 +45,11 @@ def tokenize_words(sentence:str, delimiter) -> list:
     if delimiter in sentenceAsList:
         # Some workaround for when the delimiter is used on a token in the list of word delimiters.
         alone_delim_index = next(idx for idx, token in enumerate(sentenceAsList) if token == delimiter)
-        to_merge = sentenceAsList.pop(alone_delim_index + 1)
+        try:
+            to_merge = sentenceAsList.pop(alone_delim_index + 1)
+        except IndexError:
+            print(f"Index error on sentence {sentence}. Exiting")
+            exit(0)
         sentenceAsList[alone_delim_index] = delimiter + to_merge
     return sentenceAsList
 
