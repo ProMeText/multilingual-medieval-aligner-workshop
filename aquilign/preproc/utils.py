@@ -12,6 +12,7 @@ def get_best_step(results):
     This function gets the best metrics of label 1 (= delimiter) given the results of the trainer.
     As for now it is the weighted average of precision (w=2) and recall (w=1) 
     """
+    print(results)
     result_dict = {}
     for result in results:
         try:
@@ -39,7 +40,7 @@ def tokenize_words(sentence:str, delimiter) -> list:
     """
     Cette fonction tokénise une phrase selon un certain nombre de marqueurs
     """
-    words_delimiters = re.compile(r"[\.,;——:\?!’'«»“/\-]|[^\.,;——:\?!’'«»“/\-\s]+")
+    words_delimiters = re.compile(r"[\.,;—:\?\(\)!’'\"«»/\-]|[^\.,;—:\?!’'\(\)«»\"/\-\s]+")
     sentenceAsList = re.findall(words_delimiters, sentence)
     if delimiter in sentenceAsList:
         # Some workaround for when the delimiter is used on a token in the list of word delimiters.
