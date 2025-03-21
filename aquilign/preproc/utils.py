@@ -48,9 +48,9 @@ def tokenize_words(sentence:str, delimiter) -> list:
         try:
             to_merge = sentenceAsList.pop(alone_delim_index + 1)
         except IndexError:
-            print(f"Index error on sentence {sentence}. Exiting")
+            print(f"Index error on sentence:\n '{sentence}'")
             if sentence[-1] == delimiter:
-                print("Last char of the sentence should not be the delimiter.")
+                print("Last char of the sentence should not be the delimiter. Exiting")
             exit(0)
         sentenceAsList[alone_delim_index] = delimiter + to_merge
     return sentenceAsList
@@ -111,7 +111,7 @@ def convertToSubWordsSentencesAndLabels(corpus, tokenizer, delimiter="£",  verb
         # get the index correspondences between text and tok text
         corresp = functions.get_index_correspondence(tokens, tokenizer)
         # aligning the label
-        new_labels = functions.align_labels(corresp, labels)
+        new_labels = functions.align_labels(corresp, labels, text)
         # get the length of the tensor
         sq = (toks['input_ids'].squeeze())
         ### insert 2 for in the new_labels in order to get tensors with the same size !
