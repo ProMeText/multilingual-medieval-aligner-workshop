@@ -26,8 +26,13 @@ def align_labels(corresp, orig_labels):
     for index, label in enumerate(orig_labels):
         # label which is interesting : 1
         if label == 1:
-            if len(new_labels) == corresp[index][1]:
-                new_labels[(corresp[index][1]) - 1] = 1
+            try:
+                if len(new_labels) == corresp[index][1]:
+                    new_labels[(corresp[index][1]) - 1] = 1
+            except IndexError:
+                print(new_labels)
+                print("Error.")
+                exit(0)
             else:
                 new_labels[(corresp[index][1])] = 1
         else:
