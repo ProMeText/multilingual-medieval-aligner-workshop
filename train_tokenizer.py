@@ -111,9 +111,17 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
     best_precision_step, best_step_metrics = utils.get_best_step(trainer.state.log_history)
 
     # On s'assure de prendre le step le plus proche
-    best_precision_step = best_precision_step - best_precision_step % save_every
+    all_checkpoints = glob.glob(f"results_{out_name}/epoch{num_train_epochs}_bs{batch_size}/checkpoint-*")
+    as_ints = [int(checkpoint.replace(f"results_{out_name}/epoch{num_train_epochs}_bs{batch_size}/checkpoint-", "") 
+               for checkpoint in all_checkpoints)]
+    
+    all_diffs = [abs(best_precision_step - checkpoint) for checkpoint in as_ints]
+    min_index = all_diffs.index(min(all_diffs))
+    best_model_path = all_checkpoints[min_index]
+    
+    # best_precision_step = best_precision_step - best_precision_step % save_every
 
-    best_model_path = f"results_{out_name}/epoch{num_train_epochs}_bs{batch_size}/checkpoint-{best_precision_step}"
+    # best_model_path = f"results_{out_name}/epoch{num_train_epochs}_bs{batch_size}/checkpoint-{nearest_model}"
     print(f"Best model path according to precision: {best_model_path}")
     print(f"Full metrics: {best_step_metrics}")
     
