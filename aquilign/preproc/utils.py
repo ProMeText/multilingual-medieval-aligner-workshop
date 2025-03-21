@@ -49,6 +49,8 @@ def tokenize_words(sentence:str, delimiter) -> list:
             to_merge = sentenceAsList.pop(alone_delim_index + 1)
         except IndexError:
             print(f"Index error on sentence {sentence}. Exiting")
+            if sentence[-1] == delimiter:
+                print("Last char of the sentence should not be the delimiter.")
             exit(0)
         sentenceAsList[alone_delim_index] = delimiter + to_merge
     return sentenceAsList
