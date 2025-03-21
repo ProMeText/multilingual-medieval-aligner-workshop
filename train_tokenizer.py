@@ -112,8 +112,8 @@ def training_trainer(modelName, train_dataset, dev_dataset, eval_dataset, num_tr
 
     # On s'assure de prendre le step le plus proche
     all_checkpoints = glob.glob(f"results_{out_name}/epoch{num_train_epochs}_bs{batch_size}/checkpoint-*")
-    as_ints = [int(checkpoint.replace(f"results_{out_name}/epoch{num_train_epochs}_bs{batch_size}/checkpoint-", "") 
-               for checkpoint in all_checkpoints)]
+    as_ints = [int(checkpoint.replace(f"results_{out_name}/epoch{num_train_epochs}_bs{batch_size}/checkpoint-", "")) 
+               for checkpoint in all_checkpoints]
     
     all_diffs = [abs(best_precision_step - checkpoint) for checkpoint in as_ints]
     min_index = all_diffs.index(min(all_diffs))
