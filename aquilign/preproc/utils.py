@@ -56,6 +56,29 @@ def tokenize_words(sentence:str, delimiter) -> list:
     return sentenceAsList
 
 
+def test_data(data, label, delimiter):
+    """
+    This function tests if the training data can be correctly parsed. If not, it blocks the training and exists.
+    """
+    regexp = re.compile(r"£([^A-Za-zẽ\d+çéçáíóúý&])\s?")
+    valid_list = []
+    for idx, example in enumerate(data):
+        search = re.search(regexp, example)
+        if search:
+            print("\n")
+            print(f"Problem with some example (example {idx + 1}):\n{example}")
+            print(search)
+            print("\n")
+            valid_list.append(False)
+    
+    if any([item is False for item in valid_list]):
+        print(f"Test on {label} failed. Exiting")
+        exit(0)
+    else:
+        print(f"Test on {label} passed.")
+    
+    
+
 def convertToWordsSentencesAndLabels(corpus:list, delimiter="£") -> (list, list):
     """
     This function take a corpus as a list of examples and returns the masks for each token as words

@@ -48,8 +48,8 @@ def training_trainer(modelName,
                      save_every, 
                      early_stopping,
                      keep_punct=True):
-    model = AutoModelForTokenClassification.from_pretrained(modelName, num_labels=3)
-    tokenizer = BertTokenizer.from_pretrained(modelName, max_length=10)
+    
+    delimiter = "£"
     
     with open(train_dataset, "r") as train_file:
         train_lines = [item.replace("\n", "") for item in train_file.readlines()]
@@ -66,13 +66,23 @@ def training_trainer(modelName,
     eval_data_lang = eval_dataset.split("/")[-2]
     print(eval_data_lang)
     
+    # We first test the data so we are sure they can be correctly parsed and used for training
+    utils.test_data(train_lines, "Training", delimiter=delimiter)
+    utils.test_data(dev_lines, "Dev", delimiter=delimiter)
+    utils.test_data(eval_lines, "Test", delimiter=delimiter)
+
+    model = AutoModelForTokenClassification.from_pretrained(modelName, num_labels=3)
+    tokenizer = BertTokenizer.from_pretrained(modelName, max_length=10)
+
     # Train corpus
-    train_texts_and_labels = utils.convertToSubWordsSentencesAndLabels(train_lines, tokenizer=tokenizer, delimiter="£")
+    train_texts_and_labels = utils.convertToSubWordsSentencesAndLabels(train_lines, tokenizer=tokenizer, delimiter=delimiter)
     train_dataset = trainer_functions.SentenceBoundaryDataset(train_texts_and_labels, tokenizer)
     
     # Dev corpus
-    dev_texts_and_labels = utils.convertToSubWordsSentencesAndLabels(dev_lines, tokenizer=tokenizer, delimiter="£")
+    dev_texts_and_labels = utils.convertToSubWordsSentencesAndLabels(dev_lines, tokenizer=tokenizer, delimiter=delimiter)
     dev_dataset = trainer_functions.SentenceBoundaryDataset(dev_texts_and_labels, tokenizer)
+
+
 
     if '/' in modelName:
         name_of_model = re.split('/', modelName)[1]
