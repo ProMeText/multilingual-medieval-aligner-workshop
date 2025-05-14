@@ -1,6 +1,7 @@
 import re
 import aquilign.preproc.tok_trainer_functions as functions
 import torch
+import jsonschema
 
 def tokenize(text,num):
     words = text.split(" ")
@@ -56,10 +57,32 @@ def tokenize_words(sentence:str, delimiter) -> list:
     return sentenceAsList
 
 
-def test_data(data, label, delimiter):
+def remove_punctuation_from_corpus(data:dict)-> dict:
+    """
+    This function removes the punctuation from the json formated corpus.
+    """
+    updated_list_of_examples = []
+    for example in data["examples"]:
+        without_punct = remove_punctuation(example["example"])
+        new_example = {"example": without_punct,
+                       "lang": example["lang"]}
+        updated_list_of_examples.append(new_example)
+    data["examples"] = updated_list_of_examples
+    return data
+
+def test_data(data, label, delimiter, schema):
     """
     This function tests if the training data can be correctly parsed. If not, it blocks the training and exists.
     """
+    # We first test if the data format is OK
+    try:
+        jsonschema.validate(data, schema)
+    except jsonschema.ValidationError as e:
+        print(f"The data is not valid. Please make sure the structure follows the example in the README. "
+              f"Error: {e}")
+        exit(0)
+    
+    
     regexp = re.compile(r"£([^A-Za-zẽ\d+çéçáíóúý&])\s?")
     valid_list = []
     for idx, example in enumerate(data):

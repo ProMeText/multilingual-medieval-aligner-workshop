@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "metadata": {},
+    "examples": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "example": {
+              "type": "string"
+            },
+            "lang": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "example",
+            "lang"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "example": {
+              "type": "string"
+            },
+            "lang": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "example",
+            "lang"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "metadata",
+    "examples"
+  ]
+}

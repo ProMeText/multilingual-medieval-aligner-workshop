@@ -9,6 +9,7 @@ import os
 import json
 import glob
 import argparse
+import jsonschema
 ## script for the training of the text tokenizer : identification of tokens (label 1) which will be used to split the text
 ## produces folder with models (best for each epoch) and logs
 
@@ -50,26 +51,32 @@ def training_trainer(modelName,
                      keep_punct=True):
     
     delimiter = "£"
-    
+
     with open(train_dataset, "r") as train_file:
-        train_lines = [item.replace("\n", "") for item in train_file.readlines()]
+        train_lines = json.load(train_file)
         if keep_punct is False:
-            train_lines = [utils.remove_punctuation(line) for line in train_lines]
+            train_lines = utils.remove_punctuation_from_corpus(train_lines)
         
     with open(dev_dataset, "r") as dev_file:
-        dev_lines = [item.replace("\n", "") for item in dev_file.readlines()]
+        dev_lines = json.load(dev_file)
         if keep_punct is False:
-            dev_lines = [utils.remove_punctuation(line) for line in dev_lines]
+            dev_lines = utils.remove_punctuation_from_corpus(dev_lines)
         
     with open(eval_dataset, "r") as eval_files:
-        eval_lines = [item.replace("\n", "") for item in eval_files.readlines()]
+        eval_lines = json.load(eval_files)
+        if keep_punct is False:
+            eval_lines = utils.remove_punctuation_from_corpus(eval_lines)
     eval_data_lang = eval_dataset.split("/")[-2]
     print(eval_data_lang)
-    
+
+
+    with open("aquilign/tokenizer/dataSchema.json", "r") as input_file: 
+        JsonSchema = json.load(input_file)
     # We first test the data so we are sure they can be correctly parsed and used for training
-    utils.test_data(train_lines, "Training", delimiter=delimiter)
-    utils.test_data(dev_lines, "Dev", delimiter=delimiter)
-    utils.test_data(eval_lines, "Test", delimiter=delimiter)
+    utils.test_data(train_lines, "Training", delimiter=delimiter, schema=JsonSchema)
+    utils.test_data(dev_lines, "Dev", delimiter=delimiter, schema=JsonSchema)
+    utils.test_data(eval_lines, "Test", delimiter=delimiter, schema=JsonSchema)
+    exit(0)
 
     model = AutoModelForTokenClassification.from_pretrained(modelName, num_labels=3)
     tokenizer = BertTokenizer.from_pretrained(modelName, max_length=10)
