@@ -2,6 +2,7 @@ import re
 import aquilign.preproc.tok_trainer_functions as functions
 import torch
 import jsonschema
+import json
 
 def tokenize(text,num):
     words = text.split(" ")
@@ -70,9 +71,26 @@ def remove_punctuation_from_corpus(data:dict)-> dict:
     data["examples"] = updated_list_of_examples
     return data
 
-def test_data(data, label, delimiter, schema):
+def json_corpus_to_lines(corpus:str, keep_punct)-> list[dict]:
     """
-    This function tests if the training data can be correctly parsed. If not, it blocks the training and exists.
+    This function imports the json files and performs a first validation of the data structure. It returns
+    the examples as a liste of dictionnaries with the example and its language information
+    """
+    with open(corpus, "r") as corpus_file:
+        examples = json.load(corpus_file)
+        if keep_punct is False:
+            examples = remove_punctuation_from_corpus(examples)
+    
+    # Let's perform some tests        
+    with open("aquilign/tokenizer/dataSchema.json", "r") as input_file: 
+        JsonSchema = json.load(input_file)
+    test_data(examples, corpus, schema=JsonSchema)
+    
+    return examples["examples"]
+
+def test_data(data, label, schema):
+    """
+    This function tests if the training data can be correctly parsed. If not, it stops the training and exits.
     """
     # We first test if the data format is OK
     try:
@@ -81,15 +99,16 @@ def test_data(data, label, delimiter, schema):
         print(f"The data is not valid. Please make sure the structure follows the example in the README. "
               f"Error: {e}")
         exit(0)
-    
-    
-    regexp = re.compile(r"£([^A-Za-zẽ\d+çéçáíóúý&])\s?")
+        
+    delimiter = data['metadata']["delimiter"]
+    regexp = re.compile(rf"{delimiter}([^A-Za-zẽ\d+çéçáíóúýþ&])\s?")
     valid_list = []
-    for idx, example in enumerate(data):
-        search = re.search(regexp, example)
+    for idx, example in enumerate(data["examples"]):
+        example_text = example["example"]
+        search = re.search(regexp, example_text)
         if search:
             print("\n")
-            print(f"Problem with some example (example {idx + 1}):\n{example}")
+            print(f"Problem with some example (example {idx + 1}):\n{example_text}")
             print(search)
             print("\n")
             valid_list.append(False)
