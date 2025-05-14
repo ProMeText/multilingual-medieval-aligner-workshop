@@ -33,17 +33,17 @@ precision, saving the model every two epochs and with and early stopping value o
 The training data must follow the following structure and will be validated against a specific JSON schema.
 
 ```JSON
-{'metadata': 
+{"metadata": 
   {
-    'lang': ['la', 'it', 'es', 'fr', 'en', 'ca', 'pt'],
-    'centuries': [13, 14, 15, 16], 'delimiter': '£'
+    "lang": ["la", "it", "es", "fr", "en", "ca", "pt"],
+    "centuries": [13, 14, 15, 16], "delimiter": "£"
   },
-'examples': 
+"examples": 
     [
-      {'example': 'que mi padre me diese £por muger a un su fijo del Rey', 
-        'lang': 'es'},
-      {'example': 'Per fé, disse Lion, £i v’andasse volentieri, £ma i vo veggio £qui', 
-        'lang': 'it'}
+      {"example": "que mi padre me diese £por muger a un su fijo del Rey", 
+        "lang": "es"},
+      {"example": "Per fé, disse Lion, £i v’andasse volentieri, £ma i vo veggio £qui", 
+        "lang": "it"}
     ]
 }
 ```
