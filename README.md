@@ -47,9 +47,11 @@ The training data must follow the following structure and will be validated agai
     ]
 }
 ```
+The metadata will not be parsed and is used for describing the corpus. 
+It can contain any information the user wants.
 
 We recommend using the ISO codes for the target languages. 
-The codes must match the language codes that are in the [aquilign/preproc/delimiters.json](`aquilign/preproc/delimiters.json`) file, used for the
+The codes must match the language codes that are in the [`aquilign/preproc/delimiters.json`](aquilign/preproc/delimiters.json) file, used for the
 regexp tokenization that can be used as a baseline. 
 
 ## Use of the aligner
