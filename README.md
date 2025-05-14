@@ -9,7 +9,50 @@ It is based on a fork of the automatic multilingual sentence aligner Bertalign.
 
 The scripts relies on a prior phase of text segmentation at syntagm level using regular expressions or bert-based segmentation to match grammatical syntagms and produce a more precise alignment.
 
-## Use
+## Training the segmenter
+
+The segmenter we use is based on a Bert AutoModelForTokenClassification that is trainable. 
+
+Example of use: 
+
+`python3 train_tokenizer.py -m google-bert/bert-base-multilingual-cased  
+-t ../Multilingual_Aegidius/data/segmentation_data/split/multilingual/full.train.txt 
+-d ../Multilingual_Aegidius/data/segmentation_data/split/multilingual/full.dev.txt 
+-e ../Multilingual_Aegidius/data/segmentation_data/split/multilingual/full.eval.txt 
+-ep 100 
+-b 100 
+--device cuda:0 
+-bf16 
+-n multilingual_model 
+-s 2 
+-es 10`
+
+For finetuning a multilingual model from the `bert-base-multilingual-cased` model, on 100 epochs, with the GPU, using bf16 
+precision, saving the model every two epochs and with and early stopping value of 10.
+
+The training data must follow the following structure and will be validated against a specific JSON schema.
+
+```JSON
+{'metadata': 
+  {
+    'lang': ['la', 'it', 'es', 'fr', 'en', 'ca', 'pt'],
+    'centuries': [13, 14, 15, 16], 'delimiter': '£'
+  },
+'examples': 
+    [
+      {'example': 'que mi padre me diese £por muger a un su fijo del Rey', 
+        'lang': 'es'},
+      {'example': 'Per fé, disse Lion, £i v’andasse volentieri, £ma i vo veggio £qui', 
+        'lang': 'it'}
+    ]
+}
+```
+
+We recommend using the ISO codes for the target languages. 
+The codes must match the language codes that are in the [aquilign/preproc/delimiters.json](`aquilign/preproc/delimiters.json`) file, used for the
+regexp tokenization that can be used as a baseline. 
+
+## Use of the aligner
 
 `python3 main.py -o lancelot -i data/extraitsLancelot/ii-48/ -mw data/extraitsLancelot/ii-48/fr/micha-ii-48.txt -d 
 cuda:0 -t bert-based` to perform alignment with our bert-based segmenter, choosing Micha edition as base witness,
