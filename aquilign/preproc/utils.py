@@ -12,6 +12,7 @@ def get_best_step(results):
     This function gets the best metrics of label 1 (= delimiter) given the results of the trainer.
     As for now it is the weighted average of precision (w=2) and recall (w=1) 
     """
+    print(results)
     result_dict = {}
     for result in results:
         try:
@@ -39,15 +40,44 @@ def tokenize_words(sentence:str, delimiter) -> list:
     """
     Cette fonction tokénise une phrase selon un certain nombre de marqueurs
     """
-    words_delimiters = re.compile(r"[\.,;——:\?!’'«»“/\-]|[^\.,;——:\?!’'«»“/\-\s]+")
+    words_delimiters = re.compile(r"[\.,;—:\?!’'«»“/\-]|[^\.,;—:\?!’'«»“/\-\s]+")
     sentenceAsList = re.findall(words_delimiters, sentence)
     if delimiter in sentenceAsList:
         # Some workaround for when the delimiter is used on a token in the list of word delimiters.
         alone_delim_index = next(idx for idx, token in enumerate(sentenceAsList) if token == delimiter)
-        to_merge = sentenceAsList.pop(alone_delim_index + 1)
+        try:
+            to_merge = sentenceAsList.pop(alone_delim_index + 1)
+        except IndexError:
+            print(f"Index error on sentence:\n '{sentence}'")
+            if sentence[-1] == delimiter:
+                print("Last char of the sentence should not be the delimiter. Exiting")
+            exit(0)
         sentenceAsList[alone_delim_index] = delimiter + to_merge
     return sentenceAsList
 
+
+def test_data(data, label, delimiter):
+    """
+    This function tests if the training data can be correctly parsed. If not, it blocks the training and exists.
+    """
+    regexp = re.compile(r"£([^A-Za-zẽ\d+çéçáíóúý&])\s?")
+    valid_list = []
+    for idx, example in enumerate(data):
+        search = re.search(regexp, example)
+        if search:
+            print("\n")
+            print(f"Problem with some example (example {idx + 1}):\n{example}")
+            print(search)
+            print("\n")
+            valid_list.append(False)
+    
+    if any([item is False for item in valid_list]):
+        print(f"Test on {label} failed. Exiting")
+        exit(0)
+    else:
+        print(f"Test on {label} passed.")
+    
+    
 
 def convertToWordsSentencesAndLabels(corpus:list, delimiter="£") -> (list, list):
     """
@@ -104,7 +134,7 @@ def convertToSubWordsSentencesAndLabels(corpus, tokenizer, delimiter="£",  verb
         # get the index correspondences between text and tok text
         corresp = functions.get_index_correspondence(tokens, tokenizer)
         # aligning the label
-        new_labels = functions.align_labels(corresp, labels)
+        new_labels = functions.align_labels(corresp, labels, text)
         # get the length of the tensor
         sq = (toks['input_ids'].squeeze())
         ### insert 2 for in the new_labels in order to get tensors with the same size !

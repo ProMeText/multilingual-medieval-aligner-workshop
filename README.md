@@ -20,7 +20,31 @@ on the GPU. The results will be saved in `result_dir/lancelot`
 Files must be sorted by language, using the ISO_639-1 language code as parent directory name (`es`, `fr`, `it`, `en`, etc).
 ## Citation
 
-Lei Liu & Min Zhu. 2022. Bertalign: Improved word embedding-based sentence alignment for Chinese–English parallel corpora of literary texts, *Digital Scholarship in the Humanities*. [https://doi.org/10.1093/llc/fqac089](https://doi.org/10.1093/llc/fqac089).
+Gille Levenson, M., Ing, L., & Camps, J.-B. (2024). Textual Transmission without Borders: Multiple Multilingual Alignment and Stemmatology of the ``Lancelot en prose’’ (Medieval French, Castilian, Italian). In W. Haverals, M. Koolen, & L. Thompson (Eds.), Proceedings of the Computational Humanities   Research Conference 2024 (Vol. 3834, pp. 65–92). CEUR. https://ceur-ws.org/Vol-3834/#paper104
+
+
+```
+@inproceedings{gillelevenson_TextualTransmissionBorders_2024a,
+  title = {Textual {{Transmission}} without {{Borders}}: {{Multiple Multilingual Alignment}} and {{Stemmatology}} of the ``{{Lancelot}} En Prose'' ({{Medieval French}}, {{Castilian}}, {{Italian}})},
+  shorttitle = {Textual {{Transmission}} without {{Borders}}},
+  booktitle = {Proceedings of the {{Computational Humanities}}   {{Research Conference}} 2024},
+  author = {Gille Levenson, Matthias and Ing, Lucence and Camps, Jean-Baptiste},
+  editor = {Haverals, Wouter and Koolen, Marijn and Thompson, Laure},
+  date = {2024},
+  series = {{{CEUR Workshop Proceedings}}},
+  volume = {3834},
+  pages = {65--92},
+  publisher = {CEUR},
+  location = {Aarhus, Denmark},
+  issn = {1613-0073},
+  url = {https://ceur-ws.org/Vol-3834/#paper104},
+  urldate = {2024-12-09},
+  eventtitle = {Computational {{Humanities Research}} 2024},
+  langid = {english},
+  file = {/home/mgl/Bureau/Travail/Bibliotheque_zoteros/storage/CIH7IAHV/Levenson et al. - 2024 - Textual Transmission without Borders Multiple Multilingual Alignment and Stemmatology of the ``Lanc.pdf}
+}
+
+```
 
 
 ## Licence

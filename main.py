@@ -317,19 +317,19 @@ if __name__ == '__main__':
     if corpus_limit:
         corpus_limit = float(corpus_limit)
     tokenizer = args.tokenizer
-    tok_models = {"fr": 
-                      {"model": "models/french_model", 
-                       "tokenizer": "google-bert/bert-base-multilingual-cased", 
-                       "tokens_per_example": 100}, 
-                  "es": {"model": "ProMeText/aquilign_spanish_segmenter", 
-                         "tokenizer": "dccuchile/bert-base-spanish-wwm-cased", 
-                         "tokens_per_example": 30}, 
-                  "it": {"model": "ProMeText/aquilign_italian_segmenter", 
-                         "tokenizer": "dbmdz/bert-base-italian-xxl-cased", 
-                         "tokens_per_example": 12}, 
-                  "la": {"model": "models/latin_model", 
-                         "tokenizer": "google-bert/bert-base-multilingual-cased", 
-                         "tokens_per_example": 100}}
+    tok_models = {"fr":
+                      {"model": "ProMeText/aquilign_french_segmenter",
+                       "tokenizer": "dbmdz/bert-base-french-europeana-cased",
+                       "tokens_per_example": 12},
+                  "es": {"model": "ProMeText/aquilign_spanish_segmenter",
+                         "tokenizer": "dccuchile/bert-base-spanish-wwm-cased",
+                         "tokens_per_example": 30},
+                  "it": {"model": "ProMeText/aquilign_italian_segmenter",
+                         "tokenizer": "dbmdz/bert-base-italian-xxl-cased",
+                         "tokens_per_example": 12},
+                  "la": {"model": "ProMeText/aquilign_segmenter_latin",
+                         "tokenizer": "LuisAVasquez/simple-latin-bert-uncased",
+                         "tokens_per_example": 50}}
     assert tokenizer in ["None", "regexp", "bert-based"], "Authorized values for tokenizer are: None, regexp, bert-based"
     if tokenizer == "None":
         tokenizer = None
