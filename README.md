@@ -9,6 +9,13 @@ It is based on a fork of the automatic multilingual sentence aligner Bertalign.
 
 The scripts relies on a prior phase of text segmentation at syntagm level using regular expressions or bert-based segmentation to match grammatical syntagms and produce a more precise alignment.
 
+## Installation
+
+**Caveat**: the code is being tested on Python 3.9 and 3.10 due to some libraries limitations. 
+
+`pip3 install -r requirements.txt`
+
+
 ## Training the segmenter
 
 The segmenter we use is based on a Bert AutoModelForTokenClassification that is trainable. 
