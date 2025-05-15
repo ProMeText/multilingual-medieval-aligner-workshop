@@ -10,6 +10,7 @@ import numpy as np
 import evaluate
 from tabulate import tabulate
 import unicodedata
+import json
 
 def unalign_labels(human_to_bert, predicted_labels, splitted_text):
     realigned_list = []
@@ -97,31 +98,28 @@ def get_correspondence(sent, tokenizer, delimiter):
     bert_split_to_human_split = {value: key for key, value in human_split_to_bert.items()}
     return human_split_to_bert, bert_split_to_human_split
 
-def unicode_normalise(string:str) -> str:
-    return unicodedata.normalize("NFC", string)
 
-def run_eval(data:list|str, model_path, tokenizer_name, verbose=False, delimiter="£", standalone=False, remove_punctuation=False, lang=None):
+def run_eval(data:list|str, model_path, tokenizer_name, verbose=False, delimiter="£", standalone=False, remove_punctuation=False):
     if standalone:
         with open(data, "r") as input_file:
-            corpus_as_list = [unicode_normalise(item.replace("\n", "")) for item in input_file.readlines()]
-        lang = data.split("/")[-2]
+            corpus_as_list = json.load(input_file)
     else:
-        corpus_as_list = [unicode_normalise(item) for item in data]
+        corpus_as_list = data
     
-    if remove_punctuation:
-        corpus_as_list = [utils.remove_punctuation(item) for item in corpus_as_list]
+    # if remove_punctuation:
+        # corpus_as_list = [utils.remove_punctuation(item) for item in corpus_as_list]
     
     all_preds, all_tgts = [], []
     tokenizer = BertTokenizer.from_pretrained(tokenizer_name, max_length=10)
     new_model = AutoModelForTokenClassification.from_pretrained(model_path, num_labels=3)
     # get the path of the default tokenizer
-    texts, labels, tokenized_text = utils.convertToWordsSentencesAndLabels(corpus_as_list)
+    texts, labels, tokenized_text, langs = utils.convertToWordsSentencesAndLabels(corpus_as_list)
     assert len(texts) == len(labels),  "Lists mismatch"
     
-    print("Performing syntactic tokenization evaluation")
+    print("Performing regexp based tokenization evaluation")
     # First, regexp evaluation
     syntactic_preds, all_syntactic_gt = [], []
-    for idx, (example, label, tokens) in enumerate(zip(texts, labels, tokenized_text)):
+    for idx, (example, label, tokens, lang) in enumerate(zip(texts, labels, tokenized_text, langs)):
         if verbose:
             print("---\nSYNTtok New example")
             print(f"Example:   {example}")
@@ -171,7 +169,7 @@ def run_eval(data:list|str, model_path, tokenizer_name, verbose=False, delimiter
     gt_toks_and_labels = utils.convertToSubWordsSentencesAndLabels(corpus_as_list, tokenizer=tokenizer, delimiter=delimiter)
     for txt_example, gt in zip(corpus_as_list, gt_toks_and_labels):
         # We get only the text
-        example = txt_example.replace(delimiter, "")
+        example = txt_example["example"].replace(delimiter, "")
         splitted_example = utils.tokenize_words(example, delimiter)
         # BERT-tok
         enco_nt_tok = tokenizer.encode(example, truncation=True, padding=True, return_tensors="pt")

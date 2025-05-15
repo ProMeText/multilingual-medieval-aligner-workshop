@@ -9,6 +9,7 @@ import os
 import json
 import glob
 import argparse
+import jsonschema
 ## script for the training of the text tokenizer : identification of tokens (label 1) which will be used to split the text
 ## produces folder with models (best for each epoch) and logs
 
@@ -49,36 +50,24 @@ def training_trainer(modelName,
                      early_stopping,
                      keep_punct=True):
     
-    delimiter = "£"
-    
-    with open(train_dataset, "r") as train_file:
-        train_lines = [item.replace("\n", "") for item in train_file.readlines()]
-        if keep_punct is False:
-            train_lines = [utils.remove_punctuation(line) for line in train_lines]
-        
-    with open(dev_dataset, "r") as dev_file:
-        dev_lines = [item.replace("\n", "") for item in dev_file.readlines()]
-        if keep_punct is False:
-            dev_lines = [utils.remove_punctuation(line) for line in dev_lines]
-        
-    with open(eval_dataset, "r") as eval_files:
-        eval_lines = [item.replace("\n", "") for item in eval_files.readlines()]
+    train_lines = utils.json_corpus_to_lines(train_dataset, keep_punct)
+    dev_lines = utils.json_corpus_to_lines(dev_dataset, keep_punct)
+    eval_lines, delimiter = utils.json_corpus_to_lines(eval_dataset, keep_punct, return_delimiter=True)
     eval_data_lang = eval_dataset.split("/")[-2]
-    print(eval_data_lang)
     
-    # We first test the data so we are sure they can be correctly parsed and used for training
-    utils.test_data(train_lines, "Training", delimiter=delimiter)
-    utils.test_data(dev_lines, "Dev", delimiter=delimiter)
-    utils.test_data(eval_lines, "Test", delimiter=delimiter)
+
+    
 
     model = AutoModelForTokenClassification.from_pretrained(modelName, num_labels=3)
     tokenizer = BertTokenizer.from_pretrained(modelName, max_length=10)
 
     # Train corpus
+    print("Train corpus preparation")
     train_texts_and_labels = utils.convertToSubWordsSentencesAndLabels(train_lines, tokenizer=tokenizer, delimiter=delimiter)
     train_dataset = trainer_functions.SentenceBoundaryDataset(train_texts_and_labels, tokenizer)
     
     # Dev corpus
+    print("Dev corpus preparation")
     dev_texts_and_labels = utils.convertToSubWordsSentencesAndLabels(dev_lines, tokenizer=tokenizer, delimiter=delimiter)
     dev_dataset = trainer_functions.SentenceBoundaryDataset(dev_texts_and_labels, tokenizer)
 
@@ -119,7 +108,13 @@ def training_trainer(modelName,
                    EarlyStoppingCallback(early_stopping_patience=early_stopping)]
 
     )
-
+    
+    print("Evaluating model before finetuning.")
+    eval_results = evaluation.run_eval(data=eval_lines,
+                                       model_path=modelName,
+                                       tokenizer_name=modelName,
+                                       verbose=False,
+                                       delimiter=delimiter)
 
     # fine-tune the model
     print("Starting training")
@@ -152,8 +147,8 @@ def training_trainer(modelName,
     eval_results = evaluation.run_eval(data=eval_lines, 
                         model_path=best_model_path, 
                         tokenizer_name=tokenizer.name_or_path, 
-                        verbose=False, 
-                        lang=eval_data_lang)
+                        verbose=False,
+                        delimiter=delimiter)
     
 
     # We move the best state dir name to "best"

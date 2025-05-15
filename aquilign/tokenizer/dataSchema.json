@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "metadata": {
+      "required": ["delimiter"],
+      "items": [
+        {
+        "type": "object"
+        }
+      ]
+    },
+    "examples": {
+      "type": "array",
+      "items": 
+        {
+          "type": "object",
+          "properties": {
+            "example": {
+              "type": "string"
+            },
+            "lang": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "example",
+            "lang"
+          ]
+        }
+      
+    }
+  },
+  "required": [
+    "metadata",
+    "examples"
+  ]
+}

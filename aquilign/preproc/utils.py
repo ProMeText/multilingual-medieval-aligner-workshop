@@ -1,6 +1,9 @@
 import re
 import aquilign.preproc.tok_trainer_functions as functions
 import torch
+import jsonschema
+import json
+import unicodedata
 
 def tokenize(text,num):
     words = text.split(" ")
@@ -56,30 +59,86 @@ def tokenize_words(sentence:str, delimiter) -> list:
     return sentenceAsList
 
 
-def test_data(data, label, delimiter):
+def remove_punctuation_from_corpus(data:dict)-> dict:
     """
-    This function tests if the training data can be correctly parsed. If not, it blocks the training and exists.
+    This function removes the punctuation from the json formated corpus.
     """
-    regexp = re.compile(r"£([^A-Za-zẽ\d+çéçáíóúý&])\s?")
+    updated_list_of_examples = []
+    for example in data["examples"]:
+        without_punct = remove_punctuation(example["example"])
+        new_example = {"example": without_punct,
+                       "lang": example["lang"]}
+        updated_list_of_examples.append(new_example)
+    data["examples"] = updated_list_of_examples
+    return data
+
+
+def unicode_normalize_string(string:str) -> str:
+    return unicodedata.normalize("NFC", string)
+
+
+def unicode_normalize_corpus(data:list) -> str:
+    normalized_examples = []
+    for example in data["examples"]:
+        normalized_examples.append({"example": unicode_normalize_string(example["example"]), 
+                                    "lang": example["lang"]})
+    data["examples"] = normalized_examples
+    return data
+
+def json_corpus_to_lines(corpus:str, keep_punct, return_delimiter=False)-> list[dict]:
+    """
+    This function imports the json files and performs a first validation of the data structure. It returns
+    the examples as a liste of dictionnaries with the example and its language information
+    """
+    with open(corpus, "r") as corpus_file:
+        examples = json.load(corpus_file)
+        if keep_punct is False:
+            examples = remove_punctuation_from_corpus(examples)
+    
+    examples = unicode_normalize_corpus(examples)
+    # Let's perform some tests        
+    with open("aquilign/tokenizer/dataSchema.json", "r") as input_file: 
+        JsonSchema = json.load(input_file)
+    test_data(examples, corpus, schema=JsonSchema)
+    
+    if return_delimiter:
+        return examples["examples"], examples["metadata"]["delimiter"]
+    else:
+        return examples["examples"]
+
+def test_data(data:dict, label:str, schema:dict) -> None:
+    """
+    This function tests if the training data can be correctly parsed. If not, it stops the training and exits.
+    """
+    # We first test if the data format is OK
+    try:
+        jsonschema.validate(data, schema)
+    except jsonschema.ValidationError as e:
+        print(f"The data is not valid. Please make sure the structure follows the example in the README. "
+              f"Error: {e}")
+        exit(0)
+        
+    delimiter = data['metadata']["delimiter"]
+    regexp = re.compile(rf"{delimiter}([^A-Za-zẽ\d+çÇÉÁÍòãÓȝïÈèÚéçáíƷàÞóúýþ&\(\)\[\].·,,;¿?¦“…/’‘>«»'¡\-—–―\"])\s?")
     valid_list = []
-    for idx, example in enumerate(data):
-        search = re.search(regexp, example)
+    for idx, example in enumerate(data["examples"]):
+        example_text = example["example"]
+        search = re.search(regexp, example_text)
         if search:
             print("\n")
-            print(f"Problem with some example (example {idx + 1}):\n{example}")
+            print(f"Problem with some example (example {idx + 1}):\n{example_text}")
             print(search)
             print("\n")
             valid_list.append(False)
     
     if any([item is False for item in valid_list]):
         print(f"Test on {label} failed. Exiting")
-        exit(0)
     else:
         print(f"Test on {label} passed.")
     
     
 
-def convertToWordsSentencesAndLabels(corpus:list, delimiter="£") -> (list, list):
+def convertToWordsSentencesAndLabels(corpus:list[dict|str], delimiter="£") -> (list, list):
     """
     This function take a corpus as a list of examples and returns the masks for each token as words
     """
@@ -87,7 +146,14 @@ def convertToWordsSentencesAndLabels(corpus:list, delimiter="£") -> (list, list
     sentencesList = []
     sentencesAsLabels = []
     sentences_as_list_of_tokens = []
-    for text in corpus:
+    langsList = []
+    for example in corpus:
+        # On peut avoir une liste de dictionnaires ou de chaînes de caractères
+        if isinstance(example, dict):
+            text = example["example"]
+            langsList.append(example["lang"])
+        else:
+            text = example
         sentenceAsList = tokenize_words(text, delimiter)
         sentences_as_list_of_tokens.append(sentenceAsList)
         masks = []
@@ -99,19 +165,23 @@ def convertToWordsSentencesAndLabels(corpus:list, delimiter="£") -> (list, list
         sentencesAsLabels.append(masks)
         sentence = text.replace(delimiter, "")
         sentencesList.append(sentence)
-    return sentencesList, sentencesAsLabels, sentences_as_list_of_tokens
+    return sentencesList, sentencesAsLabels, sentences_as_list_of_tokens, langsList
 
 
 # function to convert text in input as tokens and labels (if label is identified in the file, gives 1, in other cases, 0)
 def convertToSubWordsSentencesAndLabels(corpus, tokenizer, delimiter="£",  verbose=False):
     """
     This function takes a corpus and returns the tokenized corpus as subwords with their labels.
+    :param corpus: A list of dicts of the shape 
+                            {"example": "tutti e tre £e domandarono quali armi il cavaliere ne portò £quand’e'", 
+                             "lang": "it"}
     """
     if verbose:
         print("Converting to sentences and labels")
     sentencesList = []
     sentencesAsLabels = []
-    for text in corpus:
+    for example in corpus:
+        text = example["example"]
         sentenceAsList = tokenize_words(text, delimiter)
         masks = []
         for token in sentenceAsList:
@@ -122,7 +192,6 @@ def convertToSubWordsSentencesAndLabels(corpus, tokenizer, delimiter="£",  verb
         sentencesAsLabels.append(masks)
         sentence = text.replace(delimiter, "")
         sentencesList.append(sentence)
-
     num_max_length = functions.get_token_max_length(sentencesList, tokenizer)
     out_toks_and_labels = []
     for text, labels in zip(sentencesList, sentencesAsLabels):
