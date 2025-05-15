@@ -21,13 +21,8 @@ def syntactic_tokenization(input_file:str,
     # text = utils.normalize_text(text)
     with open("aquilign/preproc/delimiters.json", "r") as input_json:
         dictionary = json.load(input_json)
-    if not lang:
-        codelang, _ = langid.classify(text[:300])
-    else:
-        codelang = lang
-        # Il ne reconnaît pas toujours le castillan
-    if codelang == "pt":
-        codelang = "es"
+        
+    codelang = lang
         
     try:
         dictionary[codelang]
