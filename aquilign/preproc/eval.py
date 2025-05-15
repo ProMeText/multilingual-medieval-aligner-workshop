@@ -10,6 +10,7 @@ import numpy as np
 import evaluate
 from tabulate import tabulate
 import unicodedata
+import json
 
 def unalign_labels(human_to_bert, predicted_labels, splitted_text):
     realigned_list = []
