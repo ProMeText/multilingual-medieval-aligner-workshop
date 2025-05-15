@@ -1,3 +1,4 @@
+accelerate
 evaluate==0.4.3
 faiss-gpu==1.7.2 
 jsonschema==4.23.0
