@@ -60,13 +60,15 @@ class Aligner:
                  prefix=None,
                  device="cpu",
                  tokenizer="regexp", 
-                 tok_models=None
+                 tok_models=None,
+                 multilingual=True
                  ):
         self.model = model
         self.alignment_dict = dict()
         self.text_dict = dict()
         self.files_path = glob.glob(f"{input_dir}/*/*.txt")
         self.device = device
+        self.multilingual_segmentation_model = multilingual
         assert any([main_wit in path for path in self.files_path]), "Main wit doesn't match witnesses paths, please check arguments. " \
                                                                     f"Main wit: {main_wit}, other wits: {self.files_path}"
         print(self.files_path)
@@ -99,7 +101,10 @@ class Aligner:
         This function procedes to the alignments two by two and then merges the alignments into a single alignement
         """
         pivot_text = self.wit_pairs[0][0]
-        pivot_text_lang = pivot_text.split("/")[-2]
+        if self.multilingual_segmentation_model:
+            pivot_text_lang = "ml"
+        else:
+            pivot_text_lang = pivot_text.split("/")[-2]
         if self.tokenizer is None:
             pass
         elif self.tokenizer == "regexp":
@@ -129,7 +134,10 @@ class Aligner:
         for index, (main_wit, wit_to_compare) in enumerate(self.wit_pairs):
             main_wit_name = main_wit.split("/")[-1].split(".")[0]
             wit_to_compare_name = wit_to_compare.split("/")[-1].split(".")[0]
-            current_wit_lang = wit_to_compare.split("/")[-2]
+            if self.multilingual_segmentation_model:
+                current_wit_lang = "ml"
+            else:
+                current_wit_lang = wit_to_compare.split("/")[-2]
             print(len(first_tokenized_text))
             if self.tokenizer is None:
                 pass
@@ -242,7 +250,7 @@ class Aligner:
             output_html.write(full_html_file)
 
 
-def run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation, tokenizer, tok_models, corpus_limit=None):
+def run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation, tokenizer, tok_models, multilingual, corpus_limit=None):
     # TODO: augmenter la sensibilité à la différence sémantique pour apporter plus d'omissions dans le texte. La fin
     # Est beaucoup trop mal alignée, alors que ça irait bien avec + d'absence. Ça doit être possible vu que des omissions sont créés.
 
@@ -262,7 +270,8 @@ def run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation
                         prefix=prefix, 
                         device=device, 
                         tokenizer=tokenizer, 
-                        tok_models=tok_models)
+                        tok_models=tok_models, 
+                        multilingual=multilingual)
     MyAligner.parallel_align()
     utils.write_json(f"result_dir/{out_dir}/alignment_dict.json", MyAligner.alignment_dict)
     align_dict = utils.read_json(f"result_dir/{out_dir}/alignment_dict.json")
@@ -295,6 +304,8 @@ if __name__ == '__main__':
                         help="Path to output dir.")
     parser.add_argument("-punct", "--use_punctuation", default=True,
                         help="Use punctuation to tokenize texts (default: True).")
+    parser.add_argument("-ml", "--multilingual", default=True,
+                        help="Use multilingual segmentation model.")
     parser.add_argument("-mw", "--main_wit",
                         help="Path to pivot witness.")
     parser.add_argument("-p", "--prefix", default=None,
@@ -307,6 +318,7 @@ if __name__ == '__main__':
     
     args = parser.parse_args()
     out_dir = args.out_dir
+    multilingual = args.multilingual
     input_dir = args.input_dir
     main_wit = args.main_wit
     assert input_dir != None,  "Input dir is mandatory"
@@ -329,12 +341,16 @@ if __name__ == '__main__':
                          "tokens_per_example": 12},
                   "la": {"model": "ProMeText/aquilign_segmenter_latin",
                          "tokenizer": "LuisAVasquez/simple-latin-bert-uncased",
-                         "tokens_per_example": 50}}
+                         "tokens_per_example": 50},
+                  "ml": {"model": "ProMeText/aquilign-multilingual-segmenter",
+                         "tokenizer": "google-bert/bert-base-multilingual-cased",
+                         "tokens_per_example": 100}
+                  }
     assert tokenizer in ["None", "regexp", "bert-based"], "Authorized values for tokenizer are: None, regexp, bert-based"
     if tokenizer == "None":
         tokenizer = None
     use_punctuation = args.use_punctuation
-    run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation, tokenizer, tok_models, corpus_limit)
+    run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation, tokenizer, tok_models, multilingual, corpus_limit)
                 
             
     
