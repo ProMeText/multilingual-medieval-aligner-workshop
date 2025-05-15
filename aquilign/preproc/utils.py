@@ -158,8 +158,6 @@ def convertToSubWordsSentencesAndLabels(corpus, tokenizer, delimiter="£",  verb
         print("Converting to sentences and labels")
     sentencesList = []
     sentencesAsLabels = []
-    with open("/home/mgl/Documents/test.json", "w") as debug_json:
-        json.dump(corpus, debug_json)
     for example in corpus:
         text = example["example"]
         sentenceAsList = tokenize_words(text, delimiter)
