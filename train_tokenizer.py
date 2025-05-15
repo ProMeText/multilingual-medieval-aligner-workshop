@@ -48,13 +48,13 @@ def training_trainer(modelName,
                      out_name, 
                      save_every, 
                      early_stopping,
-                     keep_punct=False):
+                     keep_punct=True):
     
     train_lines = utils.json_corpus_to_lines(train_dataset, keep_punct)
     dev_lines = utils.json_corpus_to_lines(dev_dataset, keep_punct)
     eval_lines, delimiter = utils.json_corpus_to_lines(eval_dataset, keep_punct, return_delimiter=True)
     eval_data_lang = eval_dataset.split("/")[-2]
-
+    
 
     
 
@@ -62,10 +62,12 @@ def training_trainer(modelName,
     tokenizer = BertTokenizer.from_pretrained(modelName, max_length=10)
 
     # Train corpus
+    print("Train corpus preparation")
     train_texts_and_labels = utils.convertToSubWordsSentencesAndLabels(train_lines, tokenizer=tokenizer, delimiter=delimiter)
     train_dataset = trainer_functions.SentenceBoundaryDataset(train_texts_and_labels, tokenizer)
     
     # Dev corpus
+    print("Dev corpus preparation")
     dev_texts_and_labels = utils.convertToSubWordsSentencesAndLabels(dev_lines, tokenizer=tokenizer, delimiter=delimiter)
     dev_dataset = trainer_functions.SentenceBoundaryDataset(dev_texts_and_labels, tokenizer)
 

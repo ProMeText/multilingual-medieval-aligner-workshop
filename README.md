@@ -15,20 +15,10 @@ The segmenter we use is based on a Bert AutoModelForTokenClassification that is 
 
 Example of use: 
 
-`python3 train_tokenizer.py -m google-bert/bert-base-multilingual-cased  
--t ../Multilingual_Aegidius/data/segmentation_data/split/multilingual/full.train.json 
--d ../Multilingual_Aegidius/data/segmentation_data/split/multilingual/full.dev.json 
--e ../Multilingual_Aegidius/data/segmentation_data/split/multilingual/full.eval.json 
--ep 100 
--b 128 
---device cuda:0 
--bf16 
--n multilingual_model 
--s 2 
--es 10`
+`python3 train_tokenizer.py -m google-bert/bert-base-multilingual-cased  -t ../Multilingual_Aegidius/data/segmentation_data/split/multilingual/train.json -d ../Multilingual_Aegidius/data/segmentation_data/split/multilingual/dev.json -e ../Multilingual_Aegidius/data/segmentation_data/split/multilingual/test.json -ep 100 -b 128 --device cuda:0 -bf16 -n multilingual_model -s 2 -es 10`
 
 For finetuning a multilingual model from the `bert-base-multilingual-cased` model, on 100 epochs, a batch size of 128,
-on the GPU, using bf16 precision, saving the model every two epochs and with and early stopping value of 10.
+on the GPU, using bf16 mixed precision, saving the model every two epochs and with and early stopping value of 10.
 
 The training data must follow the following structure and will be validated against a specific JSON schema.
 

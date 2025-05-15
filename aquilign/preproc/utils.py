@@ -104,7 +104,7 @@ def test_data(data, label, schema):
         exit(0)
         
     delimiter = data['metadata']["delimiter"]
-    regexp = re.compile(rf"{delimiter}([^A-Za-zẽ\d+çéçáíàÞóúýþ&])\s?")
+    regexp = re.compile(rf"{delimiter}([^A-Za-zẽ\d+çÇÉÁÍòãÓȝïÈèÚéçáíƷàÞóúýþ&\(\)\[\].·,,;¿?¦“…/’‘>«»'¡\-—–―\"])\s?")
     valid_list = []
     for idx, example in enumerate(data["examples"]):
         example_text = example["example"]
@@ -150,12 +150,18 @@ def convertToWordsSentencesAndLabels(corpus:list, delimiter="£") -> (list, list
 def convertToSubWordsSentencesAndLabels(corpus, tokenizer, delimiter="£",  verbose=False):
     """
     This function takes a corpus and returns the tokenized corpus as subwords with their labels.
+    :param corpus: A list of dicts of the shape 
+                            {"example": "tutti e tre £e domandarono quali armi il cavaliere ne portò £quand’e'", 
+                             "lang": "it"}
     """
     if verbose:
         print("Converting to sentences and labels")
     sentencesList = []
     sentencesAsLabels = []
-    for text in corpus:
+    with open("/home/mgl/Documents/test.json", "w") as debug_json:
+        json.dump(corpus, debug_json)
+    for example in corpus:
+        text = example["example"]
         sentenceAsList = tokenize_words(text, delimiter)
         masks = []
         for token in sentenceAsList:
@@ -166,7 +172,6 @@ def convertToSubWordsSentencesAndLabels(corpus, tokenizer, delimiter="£",  verb
         sentencesAsLabels.append(masks)
         sentence = text.replace(delimiter, "")
         sentencesList.append(sentence)
-
     num_max_length = functions.get_token_max_length(sentencesList, tokenizer)
     out_toks_and_labels = []
     for text, labels in zip(sentencesList, sentencesAsLabels):
