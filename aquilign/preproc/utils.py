@@ -71,7 +71,7 @@ def remove_punctuation_from_corpus(data:dict)-> dict:
     data["examples"] = updated_list_of_examples
     return data
 
-def json_corpus_to_lines(corpus:str, keep_punct, return_delimiter)-> list[dict]:
+def json_corpus_to_lines(corpus:str, keep_punct, return_delimiter=False)-> list[dict]:
     """
     This function imports the json files and performs a first validation of the data structure. It returns
     the examples as a liste of dictionnaries with the example and its language information
