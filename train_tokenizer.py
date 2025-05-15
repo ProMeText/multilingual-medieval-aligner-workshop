@@ -108,7 +108,13 @@ def training_trainer(modelName,
                    EarlyStoppingCallback(early_stopping_patience=early_stopping)]
 
     )
-
+    
+    print("Evaluating model before finetuning.")
+    eval_results = evaluation.run_eval(data=eval_lines,
+                                       model_path=modelName,
+                                       tokenizer_name=modelName,
+                                       verbose=False,
+                                       delimiter=delimiter)
 
     # fine-tune the model
     print("Starting training")
@@ -141,8 +147,8 @@ def training_trainer(modelName,
     eval_results = evaluation.run_eval(data=eval_lines, 
                         model_path=best_model_path, 
                         tokenizer_name=tokenizer.name_or_path, 
-                        verbose=False, 
-                        lang=eval_data_lang)
+                        verbose=False,
+                        delimiter=delimiter)
     
 
     # We move the best state dir name to "best"

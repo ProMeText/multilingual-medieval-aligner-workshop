@@ -23,25 +23,17 @@ def syntactic_tokenization(input_file:str,
         dictionary = json.load(input_json)
     if not lang:
         codelang, _ = langid.classify(text[:300])
-        # Il ne reconnaît pas toujours le castillan
-        if codelang == "an" or codelang == "oc" or codelang == "pt" or codelang == "gl":
-            codelang = "es"
-        if codelang == "eo" or codelang == "ht":
-            codelang = "fr"
-        if codelang == "jv":
-            codelang = "it"
-    elif lang == "multilingual":
-        codelang = "la"
     else:
         codelang = lang
+        # Il ne reconnaît pas toujours le castillan
+    if codelang == "pt":
+        codelang = "es"
         
     try:
         dictionary[codelang]
     except KeyError:
-        print("Re-running language identification:")
-        print(text)
-        codelang, _ = langid.classify(text)
-        print(codelang)
+        print(f"Language code {codelang} not present in the delimiters file. Please update the file.")
+        exit(0)
     
     single_tokens_punctuation = [punct for punct in dictionary[codelang]['punctuation'] if len(punct) == 1]
     multiple_tokens_punctuation = [punct for punct in dictionary[codelang]['punctuation'] if len(punct) != 1]
