@@ -48,12 +48,11 @@ def training_trainer(modelName,
                      out_name, 
                      save_every, 
                      early_stopping,
-                     keep_punct=True):
+                     keep_punct=False):
     
-    delimiter = "£"
     train_lines = utils.json_corpus_to_lines(train_dataset, keep_punct)
     dev_lines = utils.json_corpus_to_lines(dev_dataset, keep_punct)
-    eval_lines = utils.json_corpus_to_lines(eval_dataset, keep_punct)
+    eval_lines, delimiter = utils.json_corpus_to_lines(eval_dataset, keep_punct, return_delimiter=True)
     eval_data_lang = eval_dataset.split("/")[-2]
 
 

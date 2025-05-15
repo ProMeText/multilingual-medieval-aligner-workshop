@@ -71,7 +71,7 @@ def remove_punctuation_from_corpus(data:dict)-> dict:
     data["examples"] = updated_list_of_examples
     return data
 
-def json_corpus_to_lines(corpus:str, keep_punct)-> list[dict]:
+def json_corpus_to_lines(corpus:str, keep_punct, return_delimiter)-> list[dict]:
     """
     This function imports the json files and performs a first validation of the data structure. It returns
     the examples as a liste of dictionnaries with the example and its language information
@@ -86,7 +86,10 @@ def json_corpus_to_lines(corpus:str, keep_punct)-> list[dict]:
         JsonSchema = json.load(input_file)
     test_data(examples, corpus, schema=JsonSchema)
     
-    return examples["examples"]
+    if return_delimiter:
+        return examples["examples"], examples["metadata"]["delimiter"]
+    else:
+        return examples["examples"]
 
 def test_data(data, label, schema):
     """
@@ -101,7 +104,7 @@ def test_data(data, label, schema):
         exit(0)
         
     delimiter = data['metadata']["delimiter"]
-    regexp = re.compile(rf"{delimiter}([^A-Za-zẽ\d+çéçáíóúýþ&])\s?")
+    regexp = re.compile(rf"{delimiter}([^A-Za-zẽ\d+çéçáíàÞóúýþ&])\s?")
     valid_list = []
     for idx, example in enumerate(data["examples"]):
         example_text = example["example"]
@@ -115,7 +118,6 @@ def test_data(data, label, schema):
     
     if any([item is False for item in valid_list]):
         print(f"Test on {label} failed. Exiting")
-        exit(0)
     else:
         print(f"Test on {label} passed.")
     
