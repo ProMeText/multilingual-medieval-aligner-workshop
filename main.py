@@ -165,7 +165,7 @@ class Aligner:
                                 win=5, skip=-.2, 
                                 margin=margin, 
                                 len_penalty=len_penality, 
-                                device=self.device)
+                                device="cpu")
             aligner.align_sents()
             
             # We append the result to the alignment dictionnary
@@ -334,6 +334,9 @@ if __name__ == '__main__':
     if tokenizer == "None":
         tokenizer = None
     use_punctuation = args.use_punctuation
+    if device != "cpu":
+        print("The alignment will be performed on the GPU but the "
+              "alignment will be realized on the CPU for code maintenance reasons.")
     run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation, tokenizer, tok_models, multilingual, corpus_limit)
                 
             
