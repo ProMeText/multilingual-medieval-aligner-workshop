@@ -27,7 +27,7 @@ class Main(unittest.TestCase):
                                      use_punctuation=use_punctuation, 
                                      tokenizer="regexp", 
                                      tok_models=None,
-                                     multilingual=True,
+                                     multilingual=False,
                                      corpus_limit=0.08)
         expected_results = {'a': True, 'b': True, 'c': True, 'd': True, 'e': True, 'f': True,  'g':True}
         
