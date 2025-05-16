@@ -8,7 +8,7 @@ import random
 # import collatex
 import aquilign.align.graph_merge as graph_merge
 import aquilign.align.utils as utils
-import aquilign.preproc.tok_apply as tokenize
+import aquilign.preproc.tok_apply as bert_tokenize
 import aquilign.preproc.regex_tokenization as regex_tokenization
 from aquilign.align.encoder import Encoder
 from aquilign.align.aligner import Bertalign
@@ -98,7 +98,7 @@ class Aligner:
                                                               use_punctuation=True,
                                                               lang=pivot_text_lang))
         else:
-            first_tokenized_text = tokenize.tokenize_text(input_file=pivot_text, 
+            first_tokenized_text = bert_tokenize.tokenize_text(input_file=pivot_text, 
                                                           corpus_limit=self.corpus_limit, 
                                                           remove_punct=False, 
                                                           tok_models=self.tok_models, 
@@ -132,7 +132,7 @@ class Aligner:
                                                                   use_punctuation=True, 
                                                                   lang=current_wit_lang))
             else:
-                second_tokenized_text = tokenize.tokenize_text(input_file=wit_to_compare, 
+                second_tokenized_text = bert_tokenize.tokenize_text(input_file=wit_to_compare, 
                                                                corpus_limit=self.corpus_limit,
                                                                remove_punct=False, 
                                                                tok_models=self.tok_models,
