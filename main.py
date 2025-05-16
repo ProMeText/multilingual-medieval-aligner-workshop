@@ -335,7 +335,7 @@ if __name__ == '__main__':
         tokenizer = None
     use_punctuation = args.use_punctuation
     if device != "cpu":
-        print("The alignment will be performed on the GPU but the "
+        print("The segmentation will be performed on the GPU, as for the sentence embeddings, but "
               "alignment will be realized on the CPU for code maintenance reasons.")
     run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation, tokenizer, tok_models, multilingual, corpus_limit)
                 

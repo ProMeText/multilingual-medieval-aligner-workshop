@@ -73,8 +73,7 @@ class Bertalign:
     def align_sents(self, first_alignment_only=False):
 
         print("Performing first-step alignment ...")
-        device = "cpu"
-        D, I = core.find_top_k_sents(self.src_vecs[0,:], self.tgt_vecs[0,:], k=self.top_k, device=device)
+        D, I = core.find_top_k_sents(self.src_vecs[0,:], self.tgt_vecs[0,:], k=self.top_k, device="cpu")
         first_alignment_types = core.get_alignment_types(2) # 0-1, 1-0, 1-1
         first_w, first_path = core.find_first_search_path(self.src_num, self.tgt_num)
         first_pointers = core.first_pass_align(self.src_num, self.tgt_num, first_w, first_path, first_alignment_types, D, I)
