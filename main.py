@@ -240,8 +240,7 @@ def run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation
 
     # Initialize model 
     models = {0: "distiluse-base-multilingual-cased-v2", 1: "LaBSE", 2: "Sonar"}
-    alignment_device = "cuda:0"
-    model = Encoder(models[int(1)], device=alignment_device)
+    model = Encoder(models[int(1)], device=device)
     
     
     
