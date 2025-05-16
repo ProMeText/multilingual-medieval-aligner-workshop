@@ -9,28 +9,13 @@ import random
 import aquilign.align.graph_merge as graph_merge
 import aquilign.align.utils as utils
 import aquilign.preproc.tok_apply as tokenize
-import aquilign.preproc.syntactic_tokenization as syntactic_tokenization
+import aquilign.preproc.regex_tokenization as regex_tokenization
 from aquilign.align.encoder import Encoder
 from aquilign.align.aligner import Bertalign
 import pandas as pd
 import argparse
 import glob
 
-result_a = [([0], [0]), ([1], [1]), ([2], [2]), ([3], [3]), ([4], [4]), ([5, 6, 7], [5, 6]), 
-            ([8], [7, 8, 9, 10]), ([9], [11, 12]), ([10, 11], [13]), ([12], []), ([13], [14]), 
-            ([14], [15, 16]), ([15], [17, 18]), ([16], [19]), ([17, 18, 19], [20, 21]), 
-            ([20], [22]), ([21], [23, 24]), ([22], [25]), ([23], [26]), ([24], [27]), 
-            ([25], [28, 29, 30]), ([26], [31, 32]), ([27, 28], [33, 34]), ([29], [35]), 
-            ([30, 31], [36, 37]), ([32], [38]), ([33], [39]), ([34], []), ([35], []), 
-            ([36], []), ([37], []), ([38], []), ([39], [])]
-
-result_b = [([0], [0]), ([1, 2, 3], [1, 2]), ([4, 5], [3]), ([6, 7], [4]), ([8], [5]), 
-            ([9, 10, 11], [6]), ([12], [7, 8]), ([13], [9, 10]), ([14], [11]),
-            ([15], [12]), ([16, 17], [13, 14, 15]), ([18], [16]), ([19], [17]), 
-            ([], [18]), ([20], [19, 20]), ([21], [21, 22]), ([22, 23, 24], [23]), 
-            ([25, 26], [24, 25, 26]), ([27], [27]), ([28], [28, 29, 30]), ([29], [31]),
-            ([30, 31, 32], [32]), ([33], [33]), ([34, 35], [34]), ([36, 37], [35]),
-            ([38], [36]), ([39], [37, 38, 39])]
 
 def create_pairs(full_list:list, main_wit_index:int) -> list[tuple]:
     """
@@ -108,7 +93,7 @@ class Aligner:
             pass
         elif self.tokenizer == "regexp":
             first_tokenized_text = utils.clean_tokenized_content(
-                syntactic_tokenization.syntactic_tokenization(input_file=pivot_text, 
+                regex_tokenization.regex_tokenization(input_file=pivot_text, 
                                                               corpus_limit=self.corpus_limit,
                                                               use_punctuation=True,
                                                               lang=pivot_text_lang))
@@ -142,7 +127,7 @@ class Aligner:
                 pass
             elif self.tokenizer == "regexp":
                 second_tokenized_text = utils.clean_tokenized_content(
-                    syntactic_tokenization.syntactic_tokenization(input_file=wit_to_compare, 
+                    regex_tokenization.regex_tokenization(input_file=wit_to_compare, 
                                                                   corpus_limit=self.corpus_limit,
                                                                   use_punctuation=True, 
                                                                   lang=current_wit_lang))

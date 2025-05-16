@@ -7,7 +7,7 @@ import sys
 import langid 
 import aquilign.align.utils as utils
 
-def syntactic_tokenization(input_file:str, 
+def regex_tokenization(input_file:str, 
                            corpus_limit=None, 
                            use_punctuation=False, 
                            standalone=True, 
