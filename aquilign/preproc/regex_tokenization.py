@@ -56,6 +56,6 @@ def regex_tokenization(input_file:str,
 
 if __name__ == '__main__':
     input_file = sys.argv[1]
-    tokens = syntactic_tokenization(sys.argv[1])
+    tokens = regex_tokenization(sys.argv[1])
     with open(input_file.replace(".txt", ".tokenized.txt"), "w") as output_file:
         output_file.write("\n".join(tokens))
