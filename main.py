@@ -1,11 +1,6 @@
-import json
 import os
-
 import string
-import sys
-import numpy as np
 import random
-# import collatex
 import aquilign.align.graph_merge as graph_merge
 import aquilign.align.utils as utils
 import aquilign.preproc.tok_apply as bert_tokenize
