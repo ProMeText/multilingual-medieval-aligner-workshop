@@ -2,7 +2,6 @@ import json
 import os
 
 import string
-from numpyencoder import NumpyEncoder
 import sys
 import numpy as np
 import random
