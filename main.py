@@ -101,7 +101,7 @@ class Aligner:
         This function procedes to the alignments two by two and then merges the alignments into a single alignement
         """
         pivot_text = self.wit_pairs[0][0]
-        if self.multilingual_segmentation_model:
+        if self.multilingual_segmentation_model and self.tokenizer == "bert-based":
             pivot_text_lang = "ml"
         else:
             pivot_text_lang = pivot_text.split("/")[-2]
