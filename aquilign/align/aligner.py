@@ -41,8 +41,10 @@ class Bertalign:
         assert len(src_sents) != 0, "Problemo"
 
         print("Embedding source and target text using {} ...".format(model.model_name))
+        print(device)
         src_vecs, src_lens = self.model.transform(src_sents, max_align - 1)
         tgt_vecs, tgt_lens = self.model.transform(tgt_sents, max_align - 1)
+        print("Done")
         
         self.search_simple_vecs = self.model.simple_vectorization(src_sents)
         self.tgt_simple_vecs = self.model.simple_vectorization(tgt_sents)

@@ -165,7 +165,7 @@ class Aligner:
                                 win=5, skip=-.2, 
                                 margin=margin, 
                                 len_penalty=len_penality, 
-                                device="cpu")
+                                device=device)
             aligner.align_sents()
             
             # We append the result to the alignment dictionnary
@@ -240,7 +240,8 @@ def run_alignments(out_dir, input_dir, main_wit, prefix, device, use_punctuation
 
     # Initialize model 
     models = {0: "distiluse-base-multilingual-cased-v2", 1: "LaBSE", 2: "Sonar"}
-    model = Encoder(models[int(1)], device=device)
+    alignment_device = "cuda:0"
+    model = Encoder(models[int(1)], device=alignment_device)
     
     
     
