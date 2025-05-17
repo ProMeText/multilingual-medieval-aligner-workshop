@@ -6,6 +6,9 @@ import torch.nn as nn
 import torch
 
 class Bertalign_Embbed:
+    """
+    Cette classe implémente un outil de plongement simple de phrases
+    """
     def __init__(self,
                  model,
                  sents,

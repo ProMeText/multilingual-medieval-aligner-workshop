@@ -6,7 +6,7 @@ import aquilign.align.utils as utils
 import aquilign.preproc.tok_apply as bert_tokenize
 import aquilign.preproc.regex_tokenization as regex_tokenization
 from aquilign.align.encoder import Encoder
-from aquilign.align.aligner import Bertalign
+from aquilign.align.aligner import Bertalign, Bertalign_Embbed
 import pandas as pd
 import argparse
 import glob
@@ -57,7 +57,7 @@ class Aligner:
         self.corpus_limit = corpus_limit
         self.max_align = max_align
         self.out_dir = out_dir
-        self.use_punctiation = use_punctuation
+        self.use_punctuation = use_punctuation
         self.prefix = prefix
         self.tokenizer = tokenizer
         self.tok_models = tok_models
@@ -85,8 +85,9 @@ class Aligner:
             pivot_text_lang = "ml"
         else:
             pivot_text_lang = pivot_text.split("/")[-2]
-        if self.tokenizer is None:
-            pass
+        if not self.tokenizer:
+            print("Code not implemented for input texts as lists. Exiting")
+            exit(0)
         elif self.tokenizer == "regexp":
             first_tokenized_text = utils.clean_tokenized_content(
                 regex_tokenization.regex_tokenization(input_file=pivot_text,
@@ -102,7 +103,14 @@ class Aligner:
                                                                device=self.device,
                                                                lang=pivot_text_lang)
 
+        sentence_embeddings = Bertalign_Embbed(model=self.model,
+                                               max_align=self.max_align,
+                                               sents=first_tokenized_text)
+        pivot_vecs, pivot_lens, pivot_search_simple_vecs = sentence_embeddings.return_embbeds()
+
         assert first_tokenized_text != [], "Erreur avec le texte tokénisé du témoin base"
+
+
 
         main_wit_name = self.wit_pairs[0][0].split("/")[-1].split(".")[0]
         utils.write_json(f"result_dir/{self.out_dir}/tokenized_{main_wit_name}.json", first_tokenized_text)
@@ -155,11 +163,15 @@ class Aligner:
             else:
                 margin = False
                 len_penality = True
-            aligner = Bertalign(self.model,
-                                first_tokenized_text,
-                                second_tokenized_text,
+            aligner = Bertalign(model=self.model,
+                                src_sents=first_tokenized_text,
+                                src_lens=pivot_lens,
+                                src_vecs=pivot_vecs,
+                                search_simple_vecs=pivot_search_simple_vecs,
+                                tgt=second_tokenized_text,
                                 max_align=self.max_align,
-                                win=5, skip=-.2,
+                                win=5,
+                                skip=-.2,
                                 margin=margin,
                                 len_penalty=len_penality,
                                 device=self.device)
