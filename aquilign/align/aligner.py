@@ -5,12 +5,27 @@ import aquilign.align.utils as utils
 import torch.nn as nn
 import torch
 
+class Bertalign_Embbed:
+    def __init__(self,
+                 model,
+                 sents,
+                 max_align):
+        print("Embbedding source text.")
+        self.sents_vecs, self.src_lens = model.transform(sents, max_align - 1)
+        self.search_simple_vecs = model.simple_vectorization(self.sents_vecs)
+
+    def return_embbeds(self):
+        return self.sents_vecs, self.src_lens, self.search_simple_vecs
 
 class Bertalign:
     def __init__(self,
                  model,
-                 src,
-                 tgt,
+                 src_sents=None,
+                 src_vecs=None,
+                 src_lens=None,
+                 search_simple_vecs=None,
+                 src=None,
+                 tgt=None,
                  max_align=3,
                  top_k=3,
                  win=5,
@@ -20,6 +35,12 @@ class Bertalign:
                  is_split=False,
                  device="cpu"):
 
+
+
+        if tgt is None:
+            tgt = []
+        if src is None:
+            src = []
         self.max_align = max_align
         self.top_k = top_k
         self.win = win
@@ -29,20 +50,22 @@ class Bertalign:
         self.device = device
         self.model = model
 
-        src_sents = src
         tgt_sents = tgt
-        # print(src_sents)
-        # print(tgt_sents)
 
         src_num = len(src_sents)
         tgt_num = len(tgt_sents)
         assert len(src_sents) != 0, "Problemo"
 
-        print("Embedding source and target text using {} ...".format(model.model_name))
-        src_vecs, src_lens = self.model.transform(src_sents, max_align - 1)
-        tgt_vecs, tgt_lens = self.model.transform(tgt_sents, max_align - 1)
+        if not src_sents and not src_lens and not src_vecs and not search_simple_vecs:
+            print("Embedding target and source text using {} ...".format(model.model_name))
+            src_vecs, src_lens = self.model.transform(src_sents, max_align - 1)
+            self.src_simple_vecs = self.model.simple_vectorization(src_sents)
 
-        self.search_simple_vecs = self.model.simple_vectorization(src_sents)
+        else:
+            print("Embedding target text using {} ...".format(model.model_name))
+            tgt_vecs, tgt_lens = self.model.transform(tgt_sents, max_align - 1)
+            self.search_simple_vecs = search_simple_vecs
+
         self.tgt_simple_vecs = self.model.simple_vectorization(tgt_sents)
 
         char_ratio = np.sum(src_lens[0,]) / np.sum(tgt_lens[0,])
