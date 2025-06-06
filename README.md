@@ -1,4 +1,4 @@
-# Workshop ``A Multilingual Medieval Aligner: From Raw Data to Aligned''
+# Workshop ``A Multilingual Medieval Aligner: From Raw Data to Aligned Witnesses''
 ## Workshop Session on 2025/06/10  -- Digital Approaches to Pre-Modern Texts and Manuscripts (org. Katarzyna Kapitan)
 ## Matthias Gille Levenson, Lucence Ing, Carolina Macedo
 
