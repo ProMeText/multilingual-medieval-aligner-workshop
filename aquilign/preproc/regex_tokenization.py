@@ -19,7 +19,7 @@ def regex_tokenization(input_file:str,
     else:
         pass
     # text = utils.normalize_text(text)
-    with open("aquilign/preproc/delimiters.json", "r") as input_json:
+    with open("/content/multilingual-medieval-aligner-workshop/aquilign/preproc/delimiters.json", "r") as input_json:
         dictionary = json.load(input_json)
         
     codelang = lang
